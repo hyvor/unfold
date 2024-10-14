@@ -15,5 +15,8 @@
         "allow-plugins": {
             "pestphp/pest-plugin": true
         }
+    },
+    "require": {
+        "guzzlehttp/guzzle": "^7.0"
     }
 }
