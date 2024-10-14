@@ -1,0 +1,19 @@
+{
+    "name": "hyvor/unfold",
+    "type": "library",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Hyvor\\Unfold\\": "src/"
+        }
+    },
+    "require-dev": {
+        "pestphp/pest": "^3.3",
+        "phpstan/phpstan": "^1.12"
+    },
+    "config": {
+        "allow-plugins": {
+            "pestphp/pest-plugin": true
+        }
+    }
+}
