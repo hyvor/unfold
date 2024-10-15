@@ -1,6 +1,6 @@
 <?php
 
-namespace Hyvor\Unfold\Tests\Unit\Oembed;
+namespace Hyvor\Unfold\Tests\Unit;
 
 use Hyvor\Unfold\Oembed\Oembed;
 
