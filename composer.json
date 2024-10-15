@@ -2,6 +2,12 @@
     "name": "hyvor/unfold",
     "type": "library",
     "license": "MIT",
+    "authors": [
+        {
+            "name": "Nadil Karunarathna",
+            "email": "nadil@hyvor.com"
+        }
+    ],
     "autoload": {
         "psr-4": {
             "Hyvor\\Unfold\\": "src/"
