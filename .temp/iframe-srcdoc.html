@@ -1,0 +1,30 @@
+<iframe 
+    style="border:none;"
+    srcdoc="<body style='margin:0'>
+        <div style='background-color:blue;height:400px;'>Hello</div>
+        <script>
+            sendHeight();
+            
+            const mutation = new MutationObserver(sendHeight);
+            mutation.observe(document.body, {attributes: false, childList: true, subtree: true});
+
+            window.addEventListener('load', sendHeight);
+            window.addEventListener('resize', sendHeight);
+
+            function sendHeight() {
+                var height = document.body.scrollHeight;
+                window.parent.postMessage({height: height}, '*');
+            }
+        </script>
+    </body>"
+    sandbox="allow-scripts allow-modals"
+></iframe>
+<script>
+    window.addEventListener('message', function(event) {
+        console.log(event.data);
+        if (event.data.height) {
+            var iframe = document.querySelector('iframe');
+            iframe.style.height = event.data.height + 'px';
+        }
+    });
+</script>
