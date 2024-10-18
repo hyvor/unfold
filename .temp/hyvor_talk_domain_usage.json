@@ -1,0 +1,5870 @@
+[
+  {
+    "domain": "twitter.com",
+    "count": 75432
+  },
+  {
+    "domain": "youtu.be",
+    "count": 51647
+  },
+  {
+    "domain": "www.youtube.com",
+    "count": 50390
+  },
+  {
+    "domain": "x.com",
+    "count": 29996
+  },
+  {
+    "domain": "m.youtube.com",
+    "count": 2620
+  },
+  {
+    "domain": "rumble.com",
+    "count": 2552
+  },
+  {
+    "domain": "www.reddit.com",
+    "count": 1646
+  },
+  {
+    "domain": "www.nbcnews.com",
+    "count": 726
+  },
+  {
+    "domain": "www.bitchute.com",
+    "count": 679
+  },
+  {
+    "domain": "music.youtube.com",
+    "count": 660
+  },
+  {
+    "domain": "youtube.com",
+    "count": 622
+  },
+  {
+    "domain": "www.thegatewaypundit.com",
+    "count": 611
+  },
+  {
+    "domain": "www.facebook.com",
+    "count": 602
+  },
+  {
+    "domain": "www.nytimes.com",
+    "count": 404
+  },
+  {
+    "domain": "media.giphy.com",
+    "count": 361
+  },
+  {
+    "domain": "www.instagram.com",
+    "count": 344
+  },
+  {
+    "domain": "www.cnn.com",
+    "count": 339
+  },
+  {
+    "domain": "www.cbsnews.com",
+    "count": 303
+  },
+  {
+    "domain": "www.tiktok.com",
+    "count": 270
+  },
+  {
+    "domain": "nypost.com",
+    "count": 206
+  },
+  {
+    "domain": "ibb.co",
+    "count": 194
+  },
+  {
+    "domain": "www.dailymail.co.uk",
+    "count": 193
+  },
+  {
+    "domain": "www.espn.com",
+    "count": 185
+  },
+  {
+    "domain": "tenor.com",
+    "count": 183
+  },
+  {
+    "domain": "www.loom.com",
+    "count": 178
+  },
+  {
+    "domain": "mobile.twitter.com",
+    "count": 171
+  },
+  {
+    "domain": "fast.wistia.net",
+    "count": 158
+  },
+  {
+    "domain": "drive.google.com",
+    "count": 157
+  },
+  {
+    "domain": "www.google.com",
+    "count": 153
+  },
+  {
+    "domain": "open.substack.com",
+    "count": 152
+  },
+  {
+    "domain": "www.amazon.com",
+    "count": 143
+  },
+  {
+    "domain": "www.wsj.com",
+    "count": 140
+  },
+  {
+    "domain": "open.spotify.com",
+    "count": 123
+  },
+  {
+    "domain": "vimeo.com",
+    "count": 119
+  },
+  {
+    "domain": "truthsocial.com",
+    "count": 117
+  },
+  {
+    "domain": "odysee.com",
+    "count": 116
+  },
+  {
+    "domain": "www.npr.org",
+    "count": 114
+  },
+  {
+    "domain": "i.ibb.co",
+    "count": 113
+  },
+  {
+    "domain": "archive.org",
+    "count": 112
+  },
+  {
+    "domain": "giphy.com",
+    "count": 112
+  },
+  {
+    "domain": "imgur.com",
+    "count": 110
+  },
+  {
+    "domain": "www.bbc.com",
+    "count": 93
+  },
+  {
+    "domain": "i.imgur.com",
+    "count": 83
+  },
+  {
+    "domain": "docs.google.com",
+    "count": 80
+  },
+  {
+    "domain": "aredam.net",
+    "count": 76
+  },
+  {
+    "domain": "www.brighteon.com",
+    "count": 75
+  },
+  {
+    "domain": "the-key-and-the-bridge.net",
+    "count": 68
+  },
+  {
+    "domain": "www.amazon.co.uk",
+    "count": 67
+  },
+  {
+    "domain": "www.dailymotion.com",
+    "count": 65
+  },
+  {
+    "domain": "t.co",
+    "count": 65
+  },
+  {
+    "domain": "edition.cnn.com",
+    "count": 56
+  },
+  {
+    "domain": "uploads.disquscdn.com",
+    "count": 55
+  },
+  {
+    "domain": "barenakedislam.com",
+    "count": 55
+  },
+  {
+    "domain": "bit.ly",
+    "count": 54
+  },
+  {
+    "domain": "www.newsletter.co.uk",
+    "count": 54
+  },
+  {
+    "domain": "t.me",
+    "count": 54
+  },
+  {
+    "domain": "www.thv11.com",
+    "count": 50
+  },
+  {
+    "domain": "www.aljazeera.com",
+    "count": 50
+  },
+  {
+    "domain": "www.foxnews.com",
+    "count": 48
+  },
+  {
+    "domain": "gfycat.com",
+    "count": 40
+  },
+  {
+    "domain": "www.travelandleisure.com",
+    "count": 35
+  },
+  {
+    "domain": "streamable.com",
+    "count": 33
+  },
+  {
+    "domain": "media.patriots.win",
+    "count": 31
+  },
+  {
+    "domain": "fb.watch",
+    "count": 31
+  },
+  {
+    "domain": "www.theblaze.com",
+    "count": 31
+  },
+  {
+    "domain": "vm.tiktok.com",
+    "count": 30
+  },
+  {
+    "domain": "images.app.goo.gl",
+    "count": 29
+  },
+  {
+    "domain": "cdn.discordapp.com",
+    "count": 28
+  },
+  {
+    "domain": "www.c-span.org",
+    "count": 26
+  },
+  {
+    "domain": "podcasts.apple.com",
+    "count": 25
+  },
+  {
+    "domain": "www.gofundme.com",
+    "count": 25
+  },
+  {
+    "domain": "getyarn.io",
+    "count": 24
+  },
+  {
+    "domain": "palexander.substack.com",
+    "count": 24
+  },
+  {
+    "domain": "scratch.mit.edu",
+    "count": 23
+  },
+  {
+    "domain": "amp.cnn.com",
+    "count": 23
+  },
+  {
+    "domain": "merylnass.substack.com",
+    "count": 23
+  },
+  {
+    "domain": "vigilantfox.news",
+    "count": 23
+  },
+  {
+    "domain": "m.facebook.com",
+    "count": 22
+  },
+  {
+    "domain": "www.pbs.org",
+    "count": 22
+  },
+  {
+    "domain": "pin.it",
+    "count": 21
+  },
+  {
+    "domain": "www.wusa9.com",
+    "count": 21
+  },
+  {
+    "domain": "media.tenor.com",
+    "count": 19
+  },
+  {
+    "domain": "www.cnbc.com",
+    "count": 19
+  },
+  {
+    "domain": "www.pinterest.com",
+    "count": 19
+  },
+  {
+    "domain": "media1.giphy.com",
+    "count": 19
+  },
+  {
+    "domain": "ok.ru",
+    "count": 19
+  },
+  {
+    "domain": "soundcloud.com",
+    "count": 19
+  },
+  {
+    "domain": "people.com",
+    "count": 19
+  },
+  {
+    "domain": "www.linkedin.com",
+    "count": 18
+  },
+  {
+    "domain": "sportsmansparadiseonline.com",
+    "count": 18
+  },
+  {
+    "domain": "www.msnbc.com",
+    "count": 18
+  },
+  {
+    "domain": "tiny.iavian.net",
+    "count": 18
+  },
+  {
+    "domain": "www.flickr.com",
+    "count": 17
+  },
+  {
+    "domain": "assets.publishing.service.gov.uk",
+    "count": 17
+  },
+  {
+    "domain": "www.5newsonline.com",
+    "count": 16
+  },
+  {
+    "domain": "media3.giphy.com",
+    "count": 15
+  },
+  {
+    "domain": "www.bbc.co.uk",
+    "count": 15
+  },
+  {
+    "domain": "www.toddstarnes.com",
+    "count": 15
+  },
+  {
+    "domain": "www.docdroid.net",
+    "count": 14
+  },
+  {
+    "domain": "2kdb.net",
+    "count": 14
+  },
+  {
+    "domain": "www.wthr.com",
+    "count": 14
+  },
+  {
+    "domain": "genius.com",
+    "count": 14
+  },
+  {
+    "domain": "www.nhl.com",
+    "count": 14
+  },
+  {
+    "domain": "pastebin.com",
+    "count": 13
+  },
+  {
+    "domain": "www.wkyc.com",
+    "count": 13
+  },
+  {
+    "domain": "www.newscentermaine.com",
+    "count": 13
+  },
+  {
+    "domain": "www.lifesitenews.com",
+    "count": 13
+  },
+  {
+    "domain": "www.kare11.com",
+    "count": 13
+  },
+  {
+    "domain": "pagesix.com",
+    "count": 12
+  },
+  {
+    "domain": "omny.fm",
+    "count": 12
+  },
+  {
+    "domain": "www.hockeydb.com",
+    "count": 12
+  },
+  {
+    "domain": "maps.app.goo.gl",
+    "count": 12
+  },
+  {
+    "domain": "i.pinimg.com",
+    "count": 11
+  },
+  {
+    "domain": "www.today.com",
+    "count": 11
+  },
+  {
+    "domain": "padlet.com",
+    "count": 11
+  },
+  {
+    "domain": "www.srf.ch",
+    "count": 11
+  },
+  {
+    "domain": "flic.kr",
+    "count": 11
+  },
+  {
+    "domain": "www.khou.com",
+    "count": 11
+  },
+  {
+    "domain": "www.threads.net",
+    "count": 11
+  },
+  {
+    "domain": "www.x.com",
+    "count": 11
+  },
+  {
+    "domain": "petermcculloughmd.substack.com",
+    "count": 11
+  },
+  {
+    "domain": "www.independent.co.uk",
+    "count": 10
+  },
+  {
+    "domain": "www.aredam.net",
+    "count": 10
+  },
+  {
+    "domain": "music.apple.com",
+    "count": 10
+  },
+  {
+    "domain": "cdn.hyvor.com",
+    "count": 10
+  },
+  {
+    "domain": "gab.com",
+    "count": 10
+  },
+  {
+    "domain": "citizenfreepress.com",
+    "count": 10
+  },
+  {
+    "domain": "www.crazygames.com",
+    "count": 10
+  },
+  {
+    "domain": "www.wfaa.com",
+    "count": 9
+  },
+  {
+    "domain": "upload.wikimedia.org",
+    "count": 9
+  },
+  {
+    "domain": "media0.giphy.com",
+    "count": 9
+  },
+  {
+    "domain": "www.researchgate.net",
+    "count": 9
+  },
+  {
+    "domain": "www.vtforeignpolicy.com",
+    "count": 9
+  },
+  {
+    "domain": "trendingviews.com",
+    "count": 9
+  },
+  {
+    "domain": "www.louderwithcrowder.com",
+    "count": 9
+  },
+  {
+    "domain": "www.scribd.com",
+    "count": 8
+  },
+  {
+    "domain": "gyazo.com",
+    "count": 8
+  },
+  {
+    "domain": "www.12news.com",
+    "count": 8
+  },
+  {
+    "domain": "www.11alive.com",
+    "count": 8
+  },
+  {
+    "domain": "imgflip.com",
+    "count": 8
+  },
+  {
+    "domain": "www.dlf.org",
+    "count": 8
+  },
+  {
+    "domain": "news.sky.com",
+    "count": 8
+  },
+  {
+    "domain": "alexberenson.substack.com",
+    "count": 8
+  },
+  {
+    "domain": "tinyurl.com",
+    "count": 7
+  },
+  {
+    "domain": "www.gocomics.com",
+    "count": 7
+  },
+  {
+    "domain": "media2.giphy.com",
+    "count": 7
+  },
+  {
+    "domain": "thumbs.gfycat.com",
+    "count": 7
+  },
+  {
+    "domain": "www.allrecipes.com",
+    "count": 7
+  },
+  {
+    "domain": "tasty.co",
+    "count": 7
+  },
+  {
+    "domain": "media4.giphy.com",
+    "count": 7
+  },
+  {
+    "domain": "www.kk.dk",
+    "count": 7
+  },
+  {
+    "domain": "www.twitter.com",
+    "count": 7
+  },
+  {
+    "domain": "www.francetvinfo.fr",
+    "count": 7
+  },
+  {
+    "domain": "gist.github.com",
+    "count": 7
+  },
+  {
+    "domain": "www.france24.com",
+    "count": 7
+  },
+  {
+    "domain": "www.clickondetroit.com",
+    "count": 7
+  },
+  {
+    "domain": "www.documentcloud.org",
+    "count": 7
+  },
+  {
+    "domain": "dij-de-s.b-cdn.net",
+    "count": 7
+  },
+  {
+    "domain": "bangpath.substack.com",
+    "count": 7
+  },
+  {
+    "domain": "forbiddennews.substack.com",
+    "count": 7
+  },
+  {
+    "domain": "stutarlowe.substack.com",
+    "count": 7
+  },
+  {
+    "domain": "issuu.com",
+    "count": 6
+  },
+  {
+    "domain": "pbs.twimg.com",
+    "count": 6
+  },
+  {
+    "domain": "gph.is",
+    "count": 6
+  },
+  {
+    "domain": "www.click2houston.com",
+    "count": 6
+  },
+  {
+    "domain": "www.washingtonpost.com",
+    "count": 6
+  },
+  {
+    "domain": "external-content.duckduckgo.com",
+    "count": 6
+  },
+  {
+    "domain": "www.wtsp.com",
+    "count": 6
+  },
+  {
+    "domain": "si.shimano.com",
+    "count": 6
+  },
+  {
+    "domain": "www.parlament.ch",
+    "count": 6
+  },
+  {
+    "domain": "www.blick.ch",
+    "count": 6
+  },
+  {
+    "domain": "codesandbox.io",
+    "count": 6
+  },
+  {
+    "domain": "www.king5.com",
+    "count": 6
+  },
+  {
+    "domain": "www.outkick.com",
+    "count": 6
+  },
+  {
+    "domain": "spotify.link",
+    "count": 6
+  },
+  {
+    "domain": "govmikehuckabee.substack.com",
+    "count": 6
+  },
+  {
+    "domain": "substack.com",
+    "count": 6
+  },
+  {
+    "domain": "ourworldindata.org",
+    "count": 5
+  },
+  {
+    "domain": "media1.tenor.com",
+    "count": 5
+  },
+  {
+    "domain": "i.redd.it",
+    "count": 5
+  },
+  {
+    "domain": "1.bp.blogspot.com",
+    "count": 5
+  },
+  {
+    "domain": "i.postimg.cc",
+    "count": 5
+  },
+  {
+    "domain": "disq.us",
+    "count": 5
+  },
+  {
+    "domain": "www.deviantart.com",
+    "count": 5
+  },
+  {
+    "domain": "www.tmz.com",
+    "count": 5
+  },
+  {
+    "domain": "th.bing.com",
+    "count": 5
+  },
+  {
+    "domain": "talk.hyvor.com",
+    "count": 5
+  },
+  {
+    "domain": "www.kl.dk",
+    "count": 5
+  },
+  {
+    "domain": "www.dropbox.com",
+    "count": 5
+  },
+  {
+    "domain": "www.wwltv.com",
+    "count": 5
+  },
+  {
+    "domain": "www.wfmynews2.com",
+    "count": 5
+  },
+  {
+    "domain": "www.kens5.com",
+    "count": 5
+  },
+  {
+    "domain": "www.local10.com",
+    "count": 5
+  },
+  {
+    "domain": "www.ivoox.com",
+    "count": 5
+  },
+  {
+    "domain": "foxbaltimore.com",
+    "count": 5
+  },
+  {
+    "domain": "www.gaa.ie",
+    "count": 5
+  },
+  {
+    "domain": "arxiv.org",
+    "count": 5
+  },
+  {
+    "domain": "abcnews.go.com",
+    "count": 5
+  },
+  {
+    "domain": "www.tumblr.com",
+    "count": 5
+  },
+  {
+    "domain": "apps.dtic.mil",
+    "count": 5
+  },
+  {
+    "domain": "podcasters.spotify.com",
+    "count": 5
+  },
+  {
+    "domain": "www.canva.com",
+    "count": 5
+  },
+  {
+    "domain": "app.screencast.com",
+    "count": 5
+  },
+  {
+    "domain": "prageru.typeform.com",
+    "count": 5
+  },
+  {
+    "domain": "on.soundcloud.com",
+    "count": 5
+  },
+  {
+    "domain": "rutube.ru",
+    "count": 5
+  },
+  {
+    "domain": "kirschsubstack.com",
+    "count": 5
+  },
+  {
+    "domain": "www.declassified.live",
+    "count": 5
+  },
+  {
+    "domain": "www.dossier.today",
+    "count": 5
+  },
+  {
+    "domain": "dai.ly",
+    "count": 4
+  },
+  {
+    "domain": "prnt.sc",
+    "count": 4
+  },
+  {
+    "domain": "www.xvideos.com",
+    "count": 4
+  },
+  {
+    "domain": "katv.com",
+    "count": 4
+  },
+  {
+    "domain": "theconservativetreehouse.com",
+    "count": 4
+  },
+  {
+    "domain": "media.gab.com",
+    "count": 4
+  },
+  {
+    "domain": "player.vimeo.com",
+    "count": 4
+  },
+  {
+    "domain": "www.9news.com",
+    "count": 4
+  },
+  {
+    "domain": "www.loc.gov",
+    "count": 4
+  },
+  {
+    "domain": "banthis.tv",
+    "count": 4
+  },
+  {
+    "domain": "www.imdb.com",
+    "count": 4
+  },
+  {
+    "domain": "www.weaselzippers.us",
+    "count": 4
+  },
+  {
+    "domain": "www.20min.ch",
+    "count": 4
+  },
+  {
+    "domain": "weather.com",
+    "count": 4
+  },
+  {
+    "domain": "committees.parliament.uk",
+    "count": 4
+  },
+  {
+    "domain": "www.amazon.de",
+    "count": 4
+  },
+  {
+    "domain": "westernrifleshooters.us",
+    "count": 4
+  },
+  {
+    "domain": "facebook.com",
+    "count": 4
+  },
+  {
+    "domain": "www.memri.org",
+    "count": 4
+  },
+  {
+    "domain": "www.firstcoastnews.com",
+    "count": 4
+  },
+  {
+    "domain": "www.foodandwine.com",
+    "count": 4
+  },
+  {
+    "domain": "sashastone.substack.com",
+    "count": 4
+  },
+  {
+    "domain": "static1.squarespace.com",
+    "count": 4
+  },
+  {
+    "domain": "clipchamp.com",
+    "count": 4
+  },
+  {
+    "domain": "cain.ulster.ac.uk",
+    "count": 4
+  },
+  {
+    "domain": "www.ammoland.com",
+    "count": 4
+  },
+  {
+    "domain": "gofund.me",
+    "count": 4
+  },
+  {
+    "domain": "assets.gov.ie",
+    "count": 4
+  },
+  {
+    "domain": "www.uvm.dk",
+    "count": 4
+  },
+  {
+    "domain": "vxtwitter.com",
+    "count": 4
+  },
+  {
+    "domain": "ew.com",
+    "count": 4
+  },
+  {
+    "domain": "l.facebook.com",
+    "count": 4
+  },
+  {
+    "domain": "form.jotform.com",
+    "count": 4
+  },
+  {
+    "domain": "www.gbnews.com",
+    "count": 4
+  },
+  {
+    "domain": "www.thefp.com",
+    "count": 4
+  },
+  {
+    "domain": "tuzarapostj.substack.com",
+    "count": 4
+  },
+  {
+    "domain": "dachsiedawg1.substack.com",
+    "count": 4
+  },
+  {
+    "domain": "time.com",
+    "count": 3
+  },
+  {
+    "domain": "www.si.com",
+    "count": 3
+  },
+  {
+    "domain": "2.bp.blogspot.com",
+    "count": 3
+  },
+  {
+    "domain": "i.dailymail.co.uk",
+    "count": 3
+  },
+  {
+    "domain": "video.foxnews.com",
+    "count": 3
+  },
+  {
+    "domain": "wtf.roflcopter.fr",
+    "count": 3
+  },
+  {
+    "domain": "i1.wp.com",
+    "count": 3
+  },
+  {
+    "domain": "ccc2021.redorangeltd.com",
+    "count": 3
+  },
+  {
+    "domain": "www.tenor.co",
+    "count": 3
+  },
+  {
+    "domain": "www.mixcloud.com",
+    "count": 3
+  },
+  {
+    "domain": "www.kvue.com",
+    "count": 3
+  },
+  {
+    "domain": "m.media-amazon.com",
+    "count": 3
+  },
+  {
+    "domain": "cdn.shopify.com",
+    "count": 3
+  },
+  {
+    "domain": "www.understandingthethreat.com",
+    "count": 3
+  },
+  {
+    "domain": "j.gifs.com",
+    "count": 3
+  },
+  {
+    "domain": "sora.unm.edu",
+    "count": 3
+  },
+  {
+    "domain": "3.bp.blogspot.com",
+    "count": 3
+  },
+  {
+    "domain": "freeworldnews.tv",
+    "count": 3
+  },
+  {
+    "domain": "www.express.co.uk",
+    "count": 3
+  },
+  {
+    "domain": "www.weather.com",
+    "count": 3
+  },
+  {
+    "domain": "www.zdnet.com",
+    "count": 3
+  },
+  {
+    "domain": "www.cbc.ca",
+    "count": 3
+  },
+  {
+    "domain": "www.thereligionofpeace.com",
+    "count": 3
+  },
+  {
+    "domain": "www.izlesene.com",
+    "count": 3
+  },
+  {
+    "domain": "m.soundcloud.com",
+    "count": 3
+  },
+  {
+    "domain": "www.itemfix.com",
+    "count": 3
+  },
+  {
+    "domain": "web.archive.org",
+    "count": 3
+  },
+  {
+    "domain": "www.whitehouse.gov",
+    "count": 3
+  },
+  {
+    "domain": "www.theguardian.com",
+    "count": 3
+  },
+  {
+    "domain": "www.wtol.com",
+    "count": 3
+  },
+  {
+    "domain": "i.ebayimg.com",
+    "count": 3
+  },
+  {
+    "domain": "katu.com",
+    "count": 3
+  },
+  {
+    "domain": "commission.europa.eu",
+    "count": 3
+  },
+  {
+    "domain": "www.health-ni.gov.uk",
+    "count": 3
+  },
+  {
+    "domain": "www.clickorlando.com",
+    "count": 3
+  },
+  {
+    "domain": "tv.gab.com",
+    "count": 3
+  },
+  {
+    "domain": "www.ksdk.com",
+    "count": 3
+  },
+  {
+    "domain": "media.mercola.com",
+    "count": 3
+  },
+  {
+    "domain": "www.20minutes.fr",
+    "count": 3
+  },
+  {
+    "domain": "tella.video",
+    "count": 3
+  },
+  {
+    "domain": "www.military.ie",
+    "count": 3
+  },
+  {
+    "domain": "www.govinfo.gov",
+    "count": 3
+  },
+  {
+    "domain": "arizonadailyindependent.com",
+    "count": 3
+  },
+  {
+    "domain": "www.wgrz.com",
+    "count": 3
+  },
+  {
+    "domain": "www.nisra.gov.uk",
+    "count": 3
+  },
+  {
+    "domain": "www.woodlandtrust.org.uk",
+    "count": 3
+  },
+  {
+    "domain": "silodrome.com",
+    "count": 3
+  },
+  {
+    "domain": "www.supremecourt.gov",
+    "count": 3
+  },
+  {
+    "domain": "www.getyarn.io",
+    "count": 3
+  },
+  {
+    "domain": "tradingeconomics.com",
+    "count": 3
+  },
+  {
+    "domain": "goo.gl",
+    "count": 3
+  },
+  {
+    "domain": "www.kgw.com",
+    "count": 3
+  },
+  {
+    "domain": "shows.acast.com",
+    "count": 3
+  },
+  {
+    "domain": "www.amazon.ca",
+    "count": 3
+  },
+  {
+    "domain": "www.udrop.com",
+    "count": 3
+  },
+  {
+    "domain": "vigilantfox.substack.com",
+    "count": 3
+  },
+  {
+    "domain": "www.niassembly.gov.uk",
+    "count": 3
+  },
+  {
+    "domain": "dzen.ru",
+    "count": 3
+  },
+  {
+    "domain": "www.racket.news",
+    "count": 3
+  },
+  {
+    "domain": "www.natesilver.net",
+    "count": 3
+  },
+  {
+    "domain": "www.sec.gov",
+    "count": 2
+  },
+  {
+    "domain": "img-9gag-fun.9cache.com",
+    "count": 2
+  },
+  {
+    "domain": "abcn.ws",
+    "count": 2
+  },
+  {
+    "domain": "www.wsls.com",
+    "count": 2
+  },
+  {
+    "domain": "64.media.tumblr.com",
+    "count": 2
+  },
+  {
+    "domain": "www.arcgis.com",
+    "count": 2
+  },
+  {
+    "domain": "i.ytimg.com",
+    "count": 2
+  },
+  {
+    "domain": "miro.com",
+    "count": 2
+  },
+  {
+    "domain": "www.rt.com",
+    "count": 2
+  },
+  {
+    "domain": "tk.hu",
+    "count": 2
+  },
+  {
+    "domain": "www.facecam.ru",
+    "count": 2
+  },
+  {
+    "domain": "happiness-report.s3.amazonaws.com",
+    "count": 2
+  },
+  {
+    "domain": "www.theverge.com",
+    "count": 2
+  },
+  {
+    "domain": "image.shutterstock.com",
+    "count": 2
+  },
+  {
+    "domain": "makeagif.com",
+    "count": 2
+  },
+  {
+    "domain": "i.etsystatic.com",
+    "count": 2
+  },
+  {
+    "domain": "gifimage.net",
+    "count": 2
+  },
+  {
+    "domain": "www.newsmax.com",
+    "count": 2
+  },
+  {
+    "domain": "www.animated-smileys.com",
+    "count": 2
+  },
+  {
+    "domain": "www.goodmorningamerica.com",
+    "count": 2
+  },
+  {
+    "domain": "i.imgflip.com",
+    "count": 2
+  },
+  {
+    "domain": "www.weforum.org",
+    "count": 2
+  },
+  {
+    "domain": "images.fineartamerica.com",
+    "count": 2
+  },
+  {
+    "domain": "www.crowdfunder.co.uk",
+    "count": 2
+  },
+  {
+    "domain": "grrrgraphics.com",
+    "count": 2
+  },
+  {
+    "domain": "www.scotsman.com",
+    "count": 2
+  },
+  {
+    "domain": "www.google.co.uk",
+    "count": 2
+  },
+  {
+    "domain": "www.flipsnack.com",
+    "count": 2
+  },
+  {
+    "domain": "fedlex.data.admin.ch",
+    "count": 2
+  },
+  {
+    "domain": "cdn.statically.io",
+    "count": 2
+  },
+  {
+    "domain": "wirfuereuch.ch",
+    "count": 2
+  },
+  {
+    "domain": "explore.org",
+    "count": 2
+  },
+  {
+    "domain": "www.vanityfair.com",
+    "count": 2
+  },
+  {
+    "domain": "www.usmagazine.com",
+    "count": 2
+  },
+  {
+    "domain": "res.cloudinary.com",
+    "count": 2
+  },
+  {
+    "domain": "freebeacon.com",
+    "count": 2
+  },
+  {
+    "domain": "mastodon.social",
+    "count": 2
+  },
+  {
+    "domain": "gloria.tv",
+    "count": 2
+  },
+  {
+    "domain": "www.etsy.com",
+    "count": 2
+  },
+  {
+    "domain": "www.usatoday.com",
+    "count": 2
+  },
+  {
+    "domain": "www.trbimg.com",
+    "count": 2
+  },
+  {
+    "domain": "www.deutschlandfunkkultur.de",
+    "count": 2
+  },
+  {
+    "domain": "open.lbry.com",
+    "count": 2
+  },
+  {
+    "domain": "calendly.com",
+    "count": 2
+  },
+  {
+    "domain": "www.vegetableacademy.com",
+    "count": 2
+  },
+  {
+    "domain": "images4.imagebam.com",
+    "count": 2
+  },
+  {
+    "domain": "www.wnep.com",
+    "count": 2
+  },
+  {
+    "domain": "media.discordapp.net",
+    "count": 2
+  },
+  {
+    "domain": "assets.ctfassets.net",
+    "count": 2
+  },
+  {
+    "domain": "www.slideshare.net",
+    "count": 2
+  },
+  {
+    "domain": "www.wcnc.com",
+    "count": 2
+  },
+  {
+    "domain": "www.fda.gov",
+    "count": 2
+  },
+  {
+    "domain": "www.youtube-nocookie.com",
+    "count": 2
+  },
+  {
+    "domain": "forms.gle",
+    "count": 2
+  },
+  {
+    "domain": "kutv.com",
+    "count": 2
+  },
+  {
+    "domain": "media.townhall.com",
+    "count": 2
+  },
+  {
+    "domain": "www.health.com",
+    "count": 2
+  },
+  {
+    "domain": "content.gallup.com",
+    "count": 2
+  },
+  {
+    "domain": "wjla.com",
+    "count": 2
+  },
+  {
+    "domain": "justthenews.com",
+    "count": 2
+  },
+  {
+    "domain": "www.qub.ac.uk",
+    "count": 2
+  },
+  {
+    "domain": "sgp.fas.org",
+    "count": 2
+  },
+  {
+    "domain": "www.ntsb.gov",
+    "count": 2
+  },
+  {
+    "domain": "cms.accuweather.com",
+    "count": 2
+  },
+  {
+    "domain": "www.cnet.com",
+    "count": 2
+  },
+  {
+    "domain": "www.dfa.ie",
+    "count": 2
+  },
+  {
+    "domain": "www.cdse.edu",
+    "count": 2
+  },
+  {
+    "domain": "www.europarl.europa.eu",
+    "count": 2
+  },
+  {
+    "domain": "globalnews.ca",
+    "count": 2
+  },
+  {
+    "domain": "www.ted.com",
+    "count": 2
+  },
+  {
+    "domain": "es.pn",
+    "count": 2
+  },
+  {
+    "domain": "www.princeton.edu",
+    "count": 2
+  },
+  {
+    "domain": "apps.who.int",
+    "count": 2
+  },
+  {
+    "domain": "www.climatedepot.com",
+    "count": 2
+  },
+  {
+    "domain": "www.iranintl.com",
+    "count": 2
+  },
+  {
+    "domain": "www.tara.tcd.ie",
+    "count": 2
+  },
+  {
+    "domain": "tidal.com",
+    "count": 2
+  },
+  {
+    "domain": "archive.nytimes.com",
+    "count": 2
+  },
+  {
+    "domain": "researchbriefings.files.parliament.uk",
+    "count": 2
+  },
+  {
+    "domain": "us.cnn.com",
+    "count": 2
+  },
+  {
+    "domain": "www.jihadwatch.org",
+    "count": 2
+  },
+  {
+    "domain": "www.12newsnow.com",
+    "count": 2
+  },
+  {
+    "domain": "olis.oregonlegislature.gov",
+    "count": 2
+  },
+  {
+    "domain": "www.farminglife.com",
+    "count": 2
+  },
+  {
+    "domain": "bjs.ojp.gov",
+    "count": 2
+  },
+  {
+    "domain": "news4sanantonio.com",
+    "count": 2
+  },
+  {
+    "domain": "newschannel9.com",
+    "count": 2
+  },
+  {
+    "domain": "pubdb.bfe.admin.ch",
+    "count": 2
+  },
+  {
+    "domain": "www.arkleg.state.ar.us",
+    "count": 2
+  },
+  {
+    "domain": "coub.com",
+    "count": 2
+  },
+  {
+    "domain": "livestream.com",
+    "count": 2
+  },
+  {
+    "domain": "interestingengineering.com",
+    "count": 2
+  },
+  {
+    "domain": "citoyennedestpierre.viabloga.com",
+    "count": 2
+  },
+  {
+    "domain": "cdn.jwplayer.com",
+    "count": 2
+  },
+  {
+    "domain": "www.docdroid.com",
+    "count": 2
+  },
+  {
+    "domain": "wsbt.com",
+    "count": 2
+  },
+  {
+    "domain": "www.ksat.com",
+    "count": 2
+  },
+  {
+    "domain": "megaphone.link",
+    "count": 2
+  },
+  {
+    "domain": "www.news4jax.com",
+    "count": 2
+  },
+  {
+    "domain": "memes.getyarn.io",
+    "count": 2
+  },
+  {
+    "domain": "www.crossingbroad.com",
+    "count": 2
+  },
+  {
+    "domain": "www.sdgwatcheurope.org",
+    "count": 2
+  },
+  {
+    "domain": "oversightdemocrats.house.gov",
+    "count": 2
+  },
+  {
+    "domain": "www.justice.gov",
+    "count": 2
+  },
+  {
+    "domain": "www.cso.ie",
+    "count": 2
+  },
+  {
+    "domain": "streamio.com",
+    "count": 2
+  },
+  {
+    "domain": "app.powerbi.com",
+    "count": 2
+  },
+  {
+    "domain": "data.oireachtas.ie",
+    "count": 2
+  },
+  {
+    "domain": "newfinancial.org",
+    "count": 2
+  },
+  {
+    "domain": "scholarlycommons.law.case.edu",
+    "count": 2
+  },
+  {
+    "domain": "maritain.nd.edu",
+    "count": 2
+  },
+  {
+    "domain": "covid19.public-inquiry.uk",
+    "count": 2
+  },
+  {
+    "domain": "www.iheart.com",
+    "count": 2
+  },
+  {
+    "domain": "www.windy.com",
+    "count": 2
+  },
+  {
+    "domain": "www.sinnfein.ie",
+    "count": 2
+  },
+  {
+    "domain": "www.google.ca",
+    "count": 2
+  },
+  {
+    "domain": "s3.us-east-1.amazonaws.com",
+    "count": 2
+  },
+  {
+    "domain": "www.judiciaryni.uk",
+    "count": 2
+  },
+  {
+    "domain": "app.box.com",
+    "count": 2
+  },
+  {
+    "domain": "bigdumbtailgate.wpcomstaging.com",
+    "count": 2
+  },
+  {
+    "domain": "www.democracynow.org",
+    "count": 2
+  },
+  {
+    "domain": "forms.office.com",
+    "count": 2
+  },
+  {
+    "domain": "heathercoxrichardson.substack.com",
+    "count": 2
+  },
+  {
+    "domain": "donsurber.substack.com",
+    "count": 2
+  },
+  {
+    "domain": "www.aetc.af.mil",
+    "count": 2
+  },
+  {
+    "domain": "www.calameo.com",
+    "count": 2
+  },
+  {
+    "domain": "www.ohchr.org",
+    "count": 2
+  },
+  {
+    "domain": "soundcloud.app.goo.gl",
+    "count": 2
+  },
+  {
+    "domain": "news.gallup.com",
+    "count": 2
+  },
+  {
+    "domain": "btv.social",
+    "count": 2
+  },
+  {
+    "domain": "www.blogtalkradio.com",
+    "count": 2
+  },
+  {
+    "domain": "www.maariv.co.il",
+    "count": 2
+  },
+  {
+    "domain": "cepos.dk",
+    "count": 2
+  },
+  {
+    "domain": "www.law.georgetown.edu",
+    "count": 2
+  },
+  {
+    "domain": "www.wltx.com",
+    "count": 2
+  },
+  {
+    "domain": "www.garda.ie",
+    "count": 2
+  },
+  {
+    "domain": "digital-commons.usnwc.edu",
+    "count": 2
+  },
+  {
+    "domain": "www.ndtv.com",
+    "count": 2
+  },
+  {
+    "domain": "bnnbreaking.com",
+    "count": 2
+  },
+  {
+    "domain": "downloads.bbc.co.uk",
+    "count": 2
+  },
+  {
+    "domain": "clickamericana.com",
+    "count": 2
+  },
+  {
+    "domain": "www.uscis.gov",
+    "count": 2
+  },
+  {
+    "domain": "bandcamp.com",
+    "count": 2
+  },
+  {
+    "domain": "audioboom.com",
+    "count": 2
+  },
+  {
+    "domain": "new.reddit.com",
+    "count": 2
+  },
+  {
+    "domain": "www.un.org",
+    "count": 2
+  },
+  {
+    "domain": "makismd.substack.com",
+    "count": 2
+  },
+  {
+    "domain": "weeklyworldnews.us6.list-manage.com",
+    "count": 2
+  },
+  {
+    "domain": "www.pinterest.fr",
+    "count": 2
+  },
+  {
+    "domain": "public.tableau.com",
+    "count": 2
+  },
+  {
+    "domain": "www.drvinayprasad.com",
+    "count": 2
+  },
+  {
+    "domain": "annvandersteel.substack.com",
+    "count": 2
+  },
+  {
+    "domain": "treeofwoe.substack.com",
+    "count": 2
+  },
+  {
+    "domain": "storymaps.arcgis.com",
+    "count": 2
+  },
+  {
+    "domain": "elizabethnickson.substack.com",
+    "count": 2
+  },
+  {
+    "domain": "blackmon.substack.com",
+    "count": 2
+  },
+  {
+    "domain": "cdn.monetary-metals.com",
+    "count": 2
+  },
+  {
+    "domain": "www.nasa.gov",
+    "count": 2
+  },
+  {
+    "domain": "clip.cafe",
+    "count": 2
+  },
+  {
+    "domain": "josephsansone.substack.com",
+    "count": 2
+  },
+  {
+    "domain": "anamihalceamdphd.substack.com",
+    "count": 2
+  },
+  {
+    "domain": "jamesroguski.substack.com",
+    "count": 2
+  },
+  {
+    "domain": "www.coffeeandcovid.com",
+    "count": 2
+  },
+  {
+    "domain": "gingerbreggin.substack.com",
+    "count": 2
+  },
+  {
+    "domain": "itsthegreatwakeup.substack.com",
+    "count": 2
+  },
+  {
+    "domain": "embed.podcasts.apple.com",
+    "count": 2
+  },
+  {
+    "domain": "denniskucinich.substack.com",
+    "count": 2
+  },
+  {
+    "domain": "www.peachykeenan.com",
+    "count": 2
+  },
+  {
+    "domain": "www.barrywebbimages.co.uk",
+    "count": 2
+  },
+  {
+    "domain": "www.discoursemagazine.com",
+    "count": 2
+  },
+  {
+    "domain": "www.nerc.com",
+    "count": 2
+  },
+  {
+    "domain": "actionnetwork.org",
+    "count": 2
+  },
+  {
+    "domain": "www2.census.gov",
+    "count": 2
+  },
+  {
+    "domain": "www.firehouse.com",
+    "count": 2
+  },
+  {
+    "domain": "www.emerald.tv",
+    "count": 2
+  },
+  {
+    "domain": "markcrispinmiller.substack.com",
+    "count": 2
+  },
+  {
+    "domain": "www.freedom-research.org",
+    "count": 2
+  },
+  {
+    "domain": "www.arktosjournal.com",
+    "count": 2
+  },
+  {
+    "domain": "conspiracysarah.substack.com",
+    "count": 2
+  },
+  {
+    "domain": "jameshowardkunstler.substack.com",
+    "count": 2
+  },
+  {
+    "domain": "openthebooks.substack.com",
+    "count": 2
+  },
+  {
+    "domain": "www.eugyppius.com",
+    "count": 2
+  },
+  {
+    "domain": "leohohmann.substack.com",
+    "count": 2
+  },
+  {
+    "domain": "eurospects.com",
+    "count": 1
+  },
+  {
+    "domain": "e3.365dm.com",
+    "count": 1
+  },
+  {
+    "domain": "a.espncdn.com",
+    "count": 1
+  },
+  {
+    "domain": "www.stylesrant.com",
+    "count": 1
+  },
+  {
+    "domain": "www.geekrar.com",
+    "count": 1
+  },
+  {
+    "domain": "www.nycremsco.org",
+    "count": 1
+  },
+  {
+    "domain": "thelede.blogs.nytimes.com",
+    "count": 1
+  },
+  {
+    "domain": "files.abovetopsecret.com",
+    "count": 1
+  },
+  {
+    "domain": "abclonal.com",
+    "count": 1
+  },
+  {
+    "domain": "apa.memberclicks.net",
+    "count": 1
+  },
+  {
+    "domain": "www.sacbee.com",
+    "count": 1
+  },
+  {
+    "domain": "trello.com",
+    "count": 1
+  },
+  {
+    "domain": "static.politico.com",
+    "count": 1
+  },
+  {
+    "domain": "www.dfa.arkansas.gov",
+    "count": 1
+  },
+  {
+    "domain": "governor.arkansas.gov",
+    "count": 1
+  },
+  {
+    "domain": "www.london.gov.uk",
+    "count": 1
+  },
+  {
+    "domain": "www.rctankwarfare.co.uk",
+    "count": 1
+  },
+  {
+    "domain": "bloximages.newyork1.vip.townnews.com",
+    "count": 1
+  },
+  {
+    "domain": "nsa40.casimages.com",
+    "count": 1
+  },
+  {
+    "domain": "scitechdaily.com",
+    "count": 1
+  },
+  {
+    "domain": "piximus.net",
+    "count": 1
+  },
+  {
+    "domain": "latinaish.files.wordpress.com",
+    "count": 1
+  },
+  {
+    "domain": "www.omega-level.net",
+    "count": 1
+  },
+  {
+    "domain": "static.highsnobiety.com",
+    "count": 1
+  },
+  {
+    "domain": "vip.nypost.com",
+    "count": 1
+  },
+  {
+    "domain": "www.sherv.net",
+    "count": 1
+  },
+  {
+    "domain": "www.tecreals.com",
+    "count": 1
+  },
+  {
+    "domain": "news.paddypower.com",
+    "count": 1
+  },
+  {
+    "domain": "www.gazzetta.it",
+    "count": 1
+  },
+  {
+    "domain": "e1.365dm.com",
+    "count": 1
+  },
+  {
+    "domain": "healthyceleb.com",
+    "count": 1
+  },
+  {
+    "domain": "i2.wp.com",
+    "count": 1
+  },
+  {
+    "domain": "www.voltairenet.org",
+    "count": 1
+  },
+  {
+    "domain": "www.iomguide.com",
+    "count": 1
+  },
+  {
+    "domain": "www.fiverr.com",
+    "count": 1
+  },
+  {
+    "domain": "www.deezer.com",
+    "count": 1
+  },
+  {
+    "domain": "i.giphy.com",
+    "count": 1
+  },
+  {
+    "domain": "www.abc.net.au",
+    "count": 1
+  },
+  {
+    "domain": "www.vidlii.com",
+    "count": 1
+  },
+  {
+    "domain": "images-ext-1.discordapp.net",
+    "count": 1
+  },
+  {
+    "domain": "www.nflgsis.com",
+    "count": 1
+  },
+  {
+    "domain": "acegif.com",
+    "count": 1
+  },
+  {
+    "domain": "images.saymedia-content.com",
+    "count": 1
+  },
+  {
+    "domain": "www.urmedium.com",
+    "count": 1
+  },
+  {
+    "domain": "www.nejm.org",
+    "count": 1
+  },
+  {
+    "domain": "www.mdpi.com",
+    "count": 1
+  },
+  {
+    "domain": "www.emdocs.net",
+    "count": 1
+  },
+  {
+    "domain": "www.medrxiv.org",
+    "count": 1
+  },
+  {
+    "domain": "www.kansensho.or.jp",
+    "count": 1
+  },
+  {
+    "domain": "m4.healio.com",
+    "count": 1
+  },
+  {
+    "domain": "media.springernature.com",
+    "count": 1
+  },
+  {
+    "domain": "rebelem.com",
+    "count": 1
+  },
+  {
+    "domain": "microbenotes.com",
+    "count": 1
+  },
+  {
+    "domain": "www.collins.senate.gov",
+    "count": 1
+  },
+  {
+    "domain": "www.bizpacreview.com",
+    "count": 1
+  },
+  {
+    "domain": "i.makeagif.com",
+    "count": 1
+  },
+  {
+    "domain": "assets.inarkansas.com",
+    "count": 1
+  },
+  {
+    "domain": "newyorkmotorcycleaccidentlawyer.com",
+    "count": 1
+  },
+  {
+    "domain": "images.dailykos.com",
+    "count": 1
+  },
+  {
+    "domain": "phibetaiota.net",
+    "count": 1
+  },
+  {
+    "domain": "www.targetedjustice.com",
+    "count": 1
+  },
+  {
+    "domain": "www.uhr.no",
+    "count": 1
+  },
+  {
+    "domain": "gifsdomi.files.wordpress.com",
+    "count": 1
+  },
+  {
+    "domain": "www.smartmatic.com",
+    "count": 1
+  },
+  {
+    "domain": "mgl.skyrock.net",
+    "count": 1
+  },
+  {
+    "domain": "www.linternaute.com",
+    "count": 1
+  },
+  {
+    "domain": "www.lovesrilanka.org",
+    "count": 1
+  },
+  {
+    "domain": "sdbanrecords.bandcamp.com",
+    "count": 1
+  },
+  {
+    "domain": "www.thestreet.com",
+    "count": 1
+  },
+  {
+    "domain": "populist.press",
+    "count": 1
+  },
+  {
+    "domain": "media.breitbart.com",
+    "count": 1
+  },
+  {
+    "domain": "flyawaysimulation.com",
+    "count": 1
+  },
+  {
+    "domain": "top-serveurs.net",
+    "count": 1
+  },
+  {
+    "domain": "media.tegna-media.com",
+    "count": 1
+  },
+  {
+    "domain": "vignette.wikia.nocookie.net",
+    "count": 1
+  },
+  {
+    "domain": "www.sbs.com.au",
+    "count": 1
+  },
+  {
+    "domain": "static.india.com",
+    "count": 1
+  },
+  {
+    "domain": "i.kinja-img.com",
+    "count": 1
+  },
+  {
+    "domain": "92b828207703e0c89481-790956322f452bc0db8ff2e2ba5763bb.ssl.cf1.rackcdn.com",
+    "count": 1
+  },
+  {
+    "domain": "barnfinds.com",
+    "count": 1
+  },
+  {
+    "domain": "www.animalfactsencyclopedia.com",
+    "count": 1
+  },
+  {
+    "domain": "thumbs.dreamstime.com",
+    "count": 1
+  },
+  {
+    "domain": "media.defense.gov",
+    "count": 1
+  },
+  {
+    "domain": "www.pinterest.co.uk",
+    "count": 1
+  },
+  {
+    "domain": "www.taurusarmed.net",
+    "count": 1
+  },
+  {
+    "domain": "arirusila.files.wordpress.com",
+    "count": 1
+  },
+  {
+    "domain": "etologia.elte.hu",
+    "count": 1
+  },
+  {
+    "domain": "libertyunyielding.com",
+    "count": 1
+  },
+  {
+    "domain": "cairnsnews.files.wordpress.com",
+    "count": 1
+  },
+  {
+    "domain": "faponstars.ru",
+    "count": 1
+  },
+  {
+    "domain": "www.cps.gov.uk",
+    "count": 1
+  },
+  {
+    "domain": "im4.ezgif.com",
+    "count": 1
+  },
+  {
+    "domain": "www.larazon.es",
+    "count": 1
+  },
+  {
+    "domain": "www.hawtcelebs.com",
+    "count": 1
+  },
+  {
+    "domain": "www.telezueri.ch",
+    "count": 1
+  },
+  {
+    "domain": "imagemacros.files.wordpress.com",
+    "count": 1
+  },
+  {
+    "domain": "memes.ucoz.com",
+    "count": 1
+  },
+  {
+    "domain": "funnylax.com",
+    "count": 1
+  },
+  {
+    "domain": "cdn01.vulcanpost.com",
+    "count": 1
+  },
+  {
+    "domain": "makeamericansfreeagain.com",
+    "count": 1
+  },
+  {
+    "domain": "cdn.mrctv.org",
+    "count": 1
+  },
+  {
+    "domain": "hixnews.com",
+    "count": 1
+  },
+  {
+    "domain": "strangesounds.org",
+    "count": 1
+  },
+  {
+    "domain": "www.sinusitiswellness.com",
+    "count": 1
+  },
+  {
+    "domain": "s24990.pcdn.co",
+    "count": 1
+  },
+  {
+    "domain": "www.unilad.co.uk",
+    "count": 1
+  },
+  {
+    "domain": "4.bp.blogspot.com",
+    "count": 1
+  },
+  {
+    "domain": "www.thursdayreview.com",
+    "count": 1
+  },
+  {
+    "domain": "thesportsontap.com",
+    "count": 1
+  },
+  {
+    "domain": "d254andzyoxz3f.cloudfront.net",
+    "count": 1
+  },
+  {
+    "domain": "assets.amuniversal.com",
+    "count": 1
+  },
+  {
+    "domain": "videobeseda.com",
+    "count": 1
+  },
+  {
+    "domain": "imgix.bustle.com",
+    "count": 1
+  },
+  {
+    "domain": "bunkstrutts.files.wordpress.com",
+    "count": 1
+  },
+  {
+    "domain": "www.tnvalleytalks.com",
+    "count": 1
+  },
+  {
+    "domain": "www.centerforhealthsecurity.org",
+    "count": 1
+  },
+  {
+    "domain": "www.history.com",
+    "count": 1
+  },
+  {
+    "domain": "cdn0.thetruthaboutguns.com",
+    "count": 1
+  },
+  {
+    "domain": "www.ajc.com",
+    "count": 1
+  },
+  {
+    "domain": "cdn.ebaumsworld.com",
+    "count": 1
+  },
+  {
+    "domain": "glamourpath.com",
+    "count": 1
+  },
+  {
+    "domain": "tpwd.texas.gov",
+    "count": 1
+  },
+  {
+    "domain": "i.huffpost.com",
+    "count": 1
+  },
+  {
+    "domain": "ira1942.wordpress.com",
+    "count": 1
+  },
+  {
+    "domain": "www.bundespublikationen.admin.ch",
+    "count": 1
+  },
+  {
+    "domain": "socialnewsdaily.com",
+    "count": 1
+  },
+  {
+    "domain": "grizzlybearblog.files.wordpress.com",
+    "count": 1
+  },
+  {
+    "domain": "investor.tsmc.com",
+    "count": 1
+  },
+  {
+    "domain": "factcheckedorg.files.wordpress.com",
+    "count": 1
+  },
+  {
+    "domain": "www.cbwps.org.uk",
+    "count": 1
+  },
+  {
+    "domain": "i134.photobucket.com",
+    "count": 1
+  },
+  {
+    "domain": "www.syracuse.com",
+    "count": 1
+  },
+  {
+    "domain": "www.unodc.org",
+    "count": 1
+  },
+  {
+    "domain": "images.thestar.com",
+    "count": 1
+  },
+  {
+    "domain": "media.communities.win",
+    "count": 1
+  },
+  {
+    "domain": "i.4pcdn.org",
+    "count": 1
+  },
+  {
+    "domain": "ia903100.us.archive.org",
+    "count": 1
+  },
+  {
+    "domain": "www.mysuncoast.com",
+    "count": 1
+  },
+  {
+    "domain": "www.whas11.com",
+    "count": 1
+  },
+  {
+    "domain": "finviz.com",
+    "count": 1
+  },
+  {
+    "domain": "parstoday.com",
+    "count": 1
+  },
+  {
+    "domain": "images.findagrave.com",
+    "count": 1
+  },
+  {
+    "domain": "dlfkreds14.dk",
+    "count": 1
+  },
+  {
+    "domain": "brophisticate.com",
+    "count": 1
+  },
+  {
+    "domain": "www.whoi.edu",
+    "count": 1
+  },
+  {
+    "domain": "www.skolelederforeningen.org",
+    "count": 1
+  },
+  {
+    "domain": "www.thinglink.com",
+    "count": 1
+  },
+  {
+    "domain": "taz.de",
+    "count": 1
+  },
+  {
+    "domain": "www.westga.edu",
+    "count": 1
+  },
+  {
+    "domain": "i0.wp.com",
+    "count": 1
+  },
+  {
+    "domain": "rapaces.lpo.fr",
+    "count": 1
+  },
+  {
+    "domain": "thechaplainkit.com",
+    "count": 1
+  },
+  {
+    "domain": "media.tghn.org",
+    "count": 1
+  },
+  {
+    "domain": "covid-unmasked.net",
+    "count": 1
+  },
+  {
+    "domain": "s.yimg.com",
+    "count": 1
+  },
+  {
+    "domain": "www.brennancenter.org",
+    "count": 1
+  },
+  {
+    "domain": "gdb.rferl.org",
+    "count": 1
+  },
+  {
+    "domain": "elnuevodespertar.wordpress.com",
+    "count": 1
+  },
+  {
+    "domain": "patrioten.tube",
+    "count": 1
+  },
+  {
+    "domain": "www.tomorrowsworld.org",
+    "count": 1
+  },
+  {
+    "domain": "www.lfi.ch",
+    "count": 1
+  },
+  {
+    "domain": "www.mambaonline.com",
+    "count": 1
+  },
+  {
+    "domain": "www.weather.gov",
+    "count": 1
+  },
+  {
+    "domain": "www.earthtouchnews.com",
+    "count": 1
+  },
+  {
+    "domain": "www.nau.ch",
+    "count": 1
+  },
+  {
+    "domain": "static01.diariodenavarra.es",
+    "count": 1
+  },
+  {
+    "domain": "cirsec.unipi.it",
+    "count": 1
+  },
+  {
+    "domain": "documents1.worldbank.org",
+    "count": 1
+  },
+  {
+    "domain": "www.mammal.org.uk",
+    "count": 1
+  },
+  {
+    "domain": "www.wattpad.com",
+    "count": 1
+  },
+  {
+    "domain": "tecake.com",
+    "count": 1
+  },
+  {
+    "domain": "digital.ahrq.gov",
+    "count": 1
+  },
+  {
+    "domain": "www.uslawshield.com",
+    "count": 1
+  },
+  {
+    "domain": "www.nbcphiladelphia.com",
+    "count": 1
+  },
+  {
+    "domain": "mlb-cuts-diamond.mlb.com",
+    "count": 1
+  },
+  {
+    "domain": "investors.biontech.de",
+    "count": 1
+  },
+  {
+    "domain": "www.townandcountrymag.com",
+    "count": 1
+  },
+  {
+    "domain": "techpresident.com",
+    "count": 1
+  },
+  {
+    "domain": "mcusercontent.com",
+    "count": 1
+  },
+  {
+    "domain": "www.thespruce.com",
+    "count": 1
+  },
+  {
+    "domain": "www.israelhayom.co.il",
+    "count": 1
+  },
+  {
+    "domain": "venezuelanalysis.com",
+    "count": 1
+  },
+  {
+    "domain": "www.nbcwashington.com",
+    "count": 1
+  },
+  {
+    "domain": "www.Unionistvoice.com",
+    "count": 1
+  },
+  {
+    "domain": "www.connoisseurusveg.com",
+    "count": 1
+  },
+  {
+    "domain": "www.ulusal.com.tr",
+    "count": 1
+  },
+  {
+    "domain": "fs.knesset.gov.il",
+    "count": 1
+  },
+  {
+    "domain": "www.stormfax.com",
+    "count": 1
+  },
+  {
+    "domain": "sp.rmbl.ws",
+    "count": 1
+  },
+  {
+    "domain": "gesundheit.lu.ch",
+    "count": 1
+  },
+  {
+    "domain": "woodlandtrust.libsyn.com",
+    "count": 1
+  },
+  {
+    "domain": "www.usasupreme.com",
+    "count": 1
+  },
+  {
+    "domain": "www.swissmedic.ch",
+    "count": 1
+  },
+  {
+    "domain": "www.whittierdailynews.com",
+    "count": 1
+  },
+  {
+    "domain": "www.naturalnews.com",
+    "count": 1
+  },
+  {
+    "domain": "www.xeno-canto.org",
+    "count": 1
+  },
+  {
+    "domain": "www.tropicaltidbits.com",
+    "count": 1
+  },
+  {
+    "domain": "www.kingjamesbibleonline.org",
+    "count": 1
+  },
+  {
+    "domain": "bfi.uchicago.edu",
+    "count": 1
+  },
+  {
+    "domain": "www.aims-english.com",
+    "count": 1
+  },
+  {
+    "domain": "www.ebaumsworld.com",
+    "count": 1
+  },
+  {
+    "domain": "www.kiiitv.com",
+    "count": 1
+  },
+  {
+    "domain": "heavy.com",
+    "count": 1
+  },
+  {
+    "domain": "www.insider.com",
+    "count": 1
+  },
+  {
+    "domain": "www.mass.gov",
+    "count": 1
+  },
+  {
+    "domain": "greator.link",
+    "count": 1
+  },
+  {
+    "domain": "tube.frischesicht.de",
+    "count": 1
+  },
+  {
+    "domain": "tv.telezueri.ch",
+    "count": 1
+  },
+  {
+    "domain": "directirrigationtechnology.com",
+    "count": 1
+  },
+  {
+    "domain": "www.cms.int",
+    "count": 1
+  },
+  {
+    "domain": "revistas.ucm.es",
+    "count": 1
+  },
+  {
+    "domain": "us.v-cdn.net",
+    "count": 1
+  },
+  {
+    "domain": "m.tiktok.com",
+    "count": 1
+  },
+  {
+    "domain": "d3n8a8pro7vhmx.cloudfront.net",
+    "count": 1
+  },
+  {
+    "domain": "dhfcblog.files.wordpress.com",
+    "count": 1
+  },
+  {
+    "domain": "vejen.dk",
+    "count": 1
+  },
+  {
+    "domain": "uddannelsesstatistik.dk",
+    "count": 1
+  },
+  {
+    "domain": "www.lavoixdunord.fr",
+    "count": 1
+  },
+  {
+    "domain": "www.wqad.com",
+    "count": 1
+  },
+  {
+    "domain": "www.ise.fraunhofer.de",
+    "count": 1
+  },
+  {
+    "domain": "www.sterbehilfe.de",
+    "count": 1
+  },
+  {
+    "domain": "59sdesign.com",
+    "count": 1
+  },
+  {
+    "domain": "legacy.altinget.dk",
+    "count": 1
+  },
+  {
+    "domain": "growth-day-strapi-dev.s3.amazonaws.com",
+    "count": 1
+  },
+  {
+    "domain": "www.nzz.ch",
+    "count": 1
+  },
+  {
+    "domain": "www.ultimatemovierankings.com",
+    "count": 1
+  },
+  {
+    "domain": "www.popularmechanics.com",
+    "count": 1
+  },
+  {
+    "domain": "www.ombudsmanden.dk",
+    "count": 1
+  },
+  {
+    "domain": "www.ynet.co.il",
+    "count": 1
+  },
+  {
+    "domain": "assets.rebelmouse.io",
+    "count": 1
+  },
+  {
+    "domain": "www.welldoitlive.com",
+    "count": 1
+  },
+  {
+    "domain": "www.kreds60.org",
+    "count": 1
+  },
+  {
+    "domain": "www.medicdebate.org",
+    "count": 1
+  },
+  {
+    "domain": "www.thelancet.com",
+    "count": 1
+  },
+  {
+    "domain": "www.dora.lib4ri.ch",
+    "count": 1
+  },
+  {
+    "domain": "www.wndu.com",
+    "count": 1
+  },
+  {
+    "domain": "ia802305.us.archive.org",
+    "count": 1
+  },
+  {
+    "domain": "www.usip.org",
+    "count": 1
+  },
+  {
+    "domain": "huzzaz.com",
+    "count": 1
+  },
+  {
+    "domain": "slides.com",
+    "count": 1
+  },
+  {
+    "domain": "infogram.com",
+    "count": 1
+  },
+  {
+    "domain": "8xbetgames.neocities.org",
+    "count": 1
+  },
+  {
+    "domain": "gitlab.nic.cz",
+    "count": 1
+  },
+  {
+    "domain": "gitlab.univ-nantes.fr",
+    "count": 1
+  },
+  {
+    "domain": "git.asi.ru",
+    "count": 1
+  },
+  {
+    "domain": "d11wlolcalif3b.cloudfront.net",
+    "count": 1
+  },
+  {
+    "domain": "prologdigital.com",
+    "count": 1
+  },
+  {
+    "domain": "www.kapwing.com",
+    "count": 1
+  },
+  {
+    "domain": "bitly.com",
+    "count": 1
+  },
+  {
+    "domain": "nahravkyovcibabicky.wordpress.com",
+    "count": 1
+  },
+  {
+    "domain": "www.faz.net",
+    "count": 1
+  },
+  {
+    "domain": "natureflowfachblatt.blog",
+    "count": 1
+  },
+  {
+    "domain": "videos.files.wordpress.com",
+    "count": 1
+  },
+  {
+    "domain": "blogger.googleusercontent.com",
+    "count": 1
+  },
+  {
+    "domain": "informativespeechtopics.org",
+    "count": 1
+  },
+  {
+    "domain": "thebeachedwhitemale.com",
+    "count": 1
+  },
+  {
+    "domain": "ae.dk",
+    "count": 1
+  },
+  {
+    "domain": "www.gesundheit-nds.de",
+    "count": 1
+  },
+  {
+    "domain": "www.lavanguardia.com",
+    "count": 1
+  },
+  {
+    "domain": "www.thesouthafrican.com",
+    "count": 1
+  },
+  {
+    "domain": "song.link",
+    "count": 1
+  },
+  {
+    "domain": "www.gruetteronline.ch",
+    "count": 1
+  },
+  {
+    "domain": "encrypted-tbn0.gstatic.com",
+    "count": 1
+  },
+  {
+    "domain": "www.theonion.com",
+    "count": 1
+  },
+  {
+    "domain": "static.displate.com",
+    "count": 1
+  },
+  {
+    "domain": "www.worldstarhiphop.com",
+    "count": 1
+  },
+  {
+    "domain": "qph.cf2.quoracdn.net",
+    "count": 1
+  },
+  {
+    "domain": "icdn.lenta.ru",
+    "count": 1
+  },
+  {
+    "domain": "www1.udel.edu",
+    "count": 1
+  },
+  {
+    "domain": "www.lochaberfish.org.uk",
+    "count": 1
+  },
+  {
+    "domain": "cdn.sanity.io",
+    "count": 1
+  },
+  {
+    "domain": "videnomlaesning.dk",
+    "count": 1
+  },
+  {
+    "domain": "dlfhorsens.dk",
+    "count": 1
+  },
+  {
+    "domain": "scilogs.spektrum.de",
+    "count": 1
+  },
+  {
+    "domain": "www.cjoint.com",
+    "count": 1
+  },
+  {
+    "domain": "opensource.adobe.com",
+    "count": 1
+  },
+  {
+    "domain": "www.voicy.network",
+    "count": 1
+  },
+  {
+    "domain": "www.weareiowa.com",
+    "count": 1
+  },
+  {
+    "domain": "weiachergeschichten.ch",
+    "count": 1
+  },
+  {
+    "domain": "detvigoer.aarhus.dk",
+    "count": 1
+  },
+  {
+    "domain": "htrs-special.s3.us-west-2.amazonaws.com",
+    "count": 1
+  },
+  {
+    "domain": "bnc.lt",
+    "count": 1
+  },
+  {
+    "domain": "content.2kdb-cdn.com",
+    "count": 1
+  },
+  {
+    "domain": "www.bag.admin.ch",
+    "count": 1
+  },
+  {
+    "domain": "www.bea.gov",
+    "count": 1
+  },
+  {
+    "domain": "linkedin.com",
+    "count": 1
+  },
+  {
+    "domain": "sendvid.com",
+    "count": 1
+  },
+  {
+    "domain": "kepkuldes.com",
+    "count": 1
+  },
+  {
+    "domain": "www.fhi360.org",
+    "count": 1
+  },
+  {
+    "domain": "2no.co",
+    "count": 1
+  },
+  {
+    "domain": "www.bsv.admin.ch",
+    "count": 1
+  },
+  {
+    "domain": "www.thepoke.co.uk",
+    "count": 1
+  },
+  {
+    "domain": "www.vidoevo.com",
+    "count": 1
+  },
+  {
+    "domain": "www.eigenmietwert-nein.ch",
+    "count": 1
+  },
+  {
+    "domain": "files.catbox.moe",
+    "count": 1
+  },
+  {
+    "domain": "www.thesundaily.my",
+    "count": 1
+  },
+  {
+    "domain": "tube.kenfm.de",
+    "count": 1
+  },
+  {
+    "domain": "www.dlubal.com",
+    "count": 1
+  },
+  {
+    "domain": "precinctstrategy.com",
+    "count": 1
+  },
+  {
+    "domain": "www.whatproswear.com",
+    "count": 1
+  },
+  {
+    "domain": "impfentscheidung.online",
+    "count": 1
+  },
+  {
+    "domain": "www.truthforhealth.org",
+    "count": 1
+  },
+  {
+    "domain": "images.squarespace-cdn.com",
+    "count": 1
+  },
+  {
+    "domain": "player.odycdn.com",
+    "count": 1
+  },
+  {
+    "domain": "www.wodff.org",
+    "count": 1
+  },
+  {
+    "domain": "www.wiesenthal.com",
+    "count": 1
+  },
+  {
+    "domain": "teaching.astro.uni-koeln.de",
+    "count": 1
+  },
+  {
+    "domain": "www.psi.ch",
+    "count": 1
+  },
+  {
+    "domain": "global-uploads.webflow.com",
+    "count": 1
+  },
+  {
+    "domain": "www.gov.scot",
+    "count": 1
+  },
+  {
+    "domain": "raw.githubusercontent.com",
+    "count": 1
+  },
+  {
+    "domain": "cdn.locals.com",
+    "count": 1
+  },
+  {
+    "domain": "otb.cachefly.net",
+    "count": 1
+  },
+  {
+    "domain": "www.keene.edu",
+    "count": 1
+  },
+  {
+    "domain": "www.heritage.org",
+    "count": 1
+  },
+  {
+    "domain": "wallpapercave.com",
+    "count": 1
+  },
+  {
+    "domain": "imgv2-2-f.scribdassets.com",
+    "count": 1
+  },
+  {
+    "domain": "nytimes.com",
+    "count": 1
+  },
+  {
+    "domain": "imgc.allpostersimages.com",
+    "count": 1
+  },
+  {
+    "domain": "nbc25news.com",
+    "count": 1
+  },
+  {
+    "domain": "www.esr.ie",
+    "count": 1
+  },
+  {
+    "domain": "img.washingtonpost.com",
+    "count": 1
+  },
+  {
+    "domain": "hotair.com",
+    "count": 1
+  },
+  {
+    "domain": "www.crazykens.com",
+    "count": 1
+  },
+  {
+    "domain": "collections.museumca.org",
+    "count": 1
+  },
+  {
+    "domain": "www.yumyucky.com",
+    "count": 1
+  },
+  {
+    "domain": "ms-surface.ru",
+    "count": 1
+  },
+  {
+    "domain": "i.insider.com",
+    "count": 1
+  },
+  {
+    "domain": "thepetridish.my",
+    "count": 1
+  },
+  {
+    "domain": "salem-news.com",
+    "count": 1
+  },
+  {
+    "domain": "www.archives.gov",
+    "count": 1
+  },
+  {
+    "domain": "video.foxbusiness.com",
+    "count": 1
+  },
+  {
+    "domain": "quizlet.com",
+    "count": 1
+  },
+  {
+    "domain": "www.myfoxzone.com",
+    "count": 1
+  },
+  {
+    "domain": "www.ft.dk",
+    "count": 1
+  },
+  {
+    "domain": "pages.stern.nyu.edu",
+    "count": 1
+  },
+  {
+    "domain": "img.gentside.co.uk",
+    "count": 1
+  },
+  {
+    "domain": "ansionnachfionn.com",
+    "count": 1
+  },
+  {
+    "domain": "docs.house.gov",
+    "count": 1
+  },
+  {
+    "domain": "bilig.yesevi.edu.tr",
+    "count": 1
+  },
+  {
+    "domain": "brandnewretro.ie",
+    "count": 1
+  },
+  {
+    "domain": "www.zh.ch",
+    "count": 1
+  },
+  {
+    "domain": "www.orthonet.pitt.edu",
+    "count": 1
+  },
+  {
+    "domain": "www.shrs.pitt.edu",
+    "count": 1
+  },
+  {
+    "domain": "www.motortrend.com",
+    "count": 1
+  },
+  {
+    "domain": "ia904700.us.archive.org",
+    "count": 1
+  },
+  {
+    "domain": "media.gettyimages.com",
+    "count": 1
+  },
+  {
+    "domain": "ia804700.us.archive.org",
+    "count": 1
+  },
+  {
+    "domain": "hp2.wright-weather.com",
+    "count": 1
+  },
+  {
+    "domain": "videos.dailymail.co.uk",
+    "count": 1
+  },
+  {
+    "domain": "digitalcommons.tourolaw.edu",
+    "count": 1
+  },
+  {
+    "domain": "ia800203.us.archive.org",
+    "count": 1
+  },
+  {
+    "domain": "files.prokerala.com",
+    "count": 1
+  },
+  {
+    "domain": "www.kosovocompromise.com",
+    "count": 1
+  },
+  {
+    "domain": "365daysoflesbians.tumblr.com",
+    "count": 1
+  },
+  {
+    "domain": "www.cpc.ncep.noaa.gov",
+    "count": 1
+  },
+  {
+    "domain": "bucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com",
+    "count": 1
+  },
+  {
+    "domain": "www.amazon.in",
+    "count": 1
+  },
+  {
+    "domain": "rangemagazine.com",
+    "count": 1
+  },
+  {
+    "domain": "encyclopediaofarkansas.net",
+    "count": 1
+  },
+  {
+    "domain": "senlankford.app.box.com",
+    "count": 1
+  },
+  {
+    "domain": "i.4cdn.org",
+    "count": 1
+  },
+  {
+    "domain": "www.gov.wales",
+    "count": 1
+  },
+  {
+    "domain": "languagelog.ldc.upenn.edu",
+    "count": 1
+  },
+  {
+    "domain": "www.iaao.org",
+    "count": 1
+  },
+  {
+    "domain": "img.dailymail.co.uk",
+    "count": 1
+  },
+  {
+    "domain": "dtasdvdhudnn5.cloudfront.net",
+    "count": 1
+  },
+  {
+    "domain": "media.wusa9.com",
+    "count": 1
+  },
+  {
+    "domain": "live.staticflickr.com",
+    "count": 1
+  },
+  {
+    "domain": "xkcd.com",
+    "count": 1
+  },
+  {
+    "domain": "www.ilpost.it",
+    "count": 1
+  },
+  {
+    "domain": "bakersfieldnow.com",
+    "count": 1
+  },
+  {
+    "domain": "thelibertydaily.com",
+    "count": 1
+  },
+  {
+    "domain": "www.israelhayom.com",
+    "count": 1
+  },
+  {
+    "domain": "static-assets-1.truthsocial.com",
+    "count": 1
+  },
+  {
+    "domain": "www.jddc.arkansas.gov",
+    "count": 1
+  },
+  {
+    "domain": "coi.isc.idaho.gov",
+    "count": 1
+  },
+  {
+    "domain": "static.timesofisrael.com",
+    "count": 1
+  },
+  {
+    "domain": "www.the-sun.com",
+    "count": 1
+  },
+  {
+    "domain": "images.ucomics.com",
+    "count": 1
+  },
+  {
+    "domain": "www.fedupusa.org",
+    "count": 1
+  },
+  {
+    "domain": "elbitsystems.com",
+    "count": 1
+  },
+  {
+    "domain": "tnimage.s3.hicloud.net.tw",
+    "count": 1
+  },
+  {
+    "domain": "infoadm.org",
+    "count": 1
+  },
+  {
+    "domain": "www.ciwf.org.uk",
+    "count": 1
+  },
+  {
+    "domain": "www.etonline.com",
+    "count": 1
+  },
+  {
+    "domain": "theusb.tumblr.com",
+    "count": 1
+  },
+  {
+    "domain": "www.niauditoffice.gov.uk",
+    "count": 1
+  },
+  {
+    "domain": "www.stm.dk",
+    "count": 1
+  },
+  {
+    "domain": "codepen.io",
+    "count": 1
+  },
+  {
+    "domain": "www.educatetogether.ie",
+    "count": 1
+  },
+  {
+    "domain": "arktimes.com",
+    "count": 1
+  },
+  {
+    "domain": "www.bilibili.com",
+    "count": 1
+  },
+  {
+    "domain": "jakomonchak.files.wordpress.com",
+    "count": 1
+  },
+  {
+    "domain": "la.utexas.edu",
+    "count": 1
+  },
+  {
+    "domain": "www.justice-ni.gov.uk",
+    "count": 1
+  },
+  {
+    "domain": "drlessenich.com",
+    "count": 1
+  },
+  {
+    "domain": "seupb.eu",
+    "count": 1
+  },
+  {
+    "domain": "jnnp.bmj.com",
+    "count": 1
+  },
+  {
+    "domain": "www.communio-icr.com",
+    "count": 1
+  },
+  {
+    "domain": "nefati-avocat.com",
+    "count": 1
+  },
+  {
+    "domain": "www.centreonconstitutionalchange.ac.uk",
+    "count": 1
+  },
+  {
+    "domain": "www.washtenaw.org",
+    "count": 1
+  },
+  {
+    "domain": "www.investni.com",
+    "count": 1
+  },
+  {
+    "domain": "d19fc3vd0ojo3m.cloudfront.net",
+    "count": 1
+  },
+  {
+    "domain": "digitalcommons.wayne.edu",
+    "count": 1
+  },
+  {
+    "domain": "www.ethlife.ethz.ch",
+    "count": 1
+  },
+  {
+    "domain": "hudoc.echr.coe.int",
+    "count": 1
+  },
+  {
+    "domain": "cnc.bc.ca",
+    "count": 1
+  },
+  {
+    "domain": "bov.virginia.edu",
+    "count": 1
+  },
+  {
+    "domain": "cv19.fr",
+    "count": 1
+  },
+  {
+    "domain": "dema.az.gov",
+    "count": 1
+  },
+  {
+    "domain": "sokszinuvidek.24.hu",
+    "count": 1
+  },
+  {
+    "domain": "www.ams.usda.gov",
+    "count": 1
+  },
+  {
+    "domain": "music.amazon.com",
+    "count": 1
+  },
+  {
+    "domain": "gobiernoabierto.navarra.es",
+    "count": 1
+  },
+  {
+    "domain": "www.supremecourt.uk",
+    "count": 1
+  },
+  {
+    "domain": "www.uts.edu.au",
+    "count": 1
+  },
+  {
+    "domain": "committeetounleashprosperity.com",
+    "count": 1
+  },
+  {
+    "domain": "wmcresearch.substack.com",
+    "count": 1
+  },
+  {
+    "domain": "tbinternet.ohchr.org",
+    "count": 1
+  },
+  {
+    "domain": "video.vernoncoleman.org",
+    "count": 1
+  },
+  {
+    "domain": "www.cor-retraites.fr",
+    "count": 1
+  },
+  {
+    "domain": "xn--danskeprofessionshjskoler-xtc.dk",
+    "count": 1
+  },
+  {
+    "domain": "irishpeaceprocess.blog",
+    "count": 1
+  },
+  {
+    "domain": "www.c-c-netzwerk.ch",
+    "count": 1
+  },
+  {
+    "domain": "www.ktvb.com",
+    "count": 1
+  },
+  {
+    "domain": "m.ok.ru",
+    "count": 1
+  },
+  {
+    "domain": "ia803407.us.archive.org",
+    "count": 1
+  },
+  {
+    "domain": "status",
+    "count": 1
+  },
+  {
+    "domain": "wwmt.com",
+    "count": 1
+  },
+  {
+    "domain": "www.saiper.net",
+    "count": 1
+  },
+  {
+    "domain": "gregreese.substack.com",
+    "count": 1
+  },
+  {
+    "domain": "www.lu-wahlen.ch",
+    "count": 1
+  },
+  {
+    "domain": "pupni.com",
+    "count": 1
+  },
+  {
+    "domain": "www.numbersusa.com",
+    "count": 1
+  },
+  {
+    "domain": "www.fox43.com",
+    "count": 1
+  },
+  {
+    "domain": "ec.europa.eu",
+    "count": 1
+  },
+  {
+    "domain": "www.judiciary.uk",
+    "count": 1
+  },
+  {
+    "domain": "iseethics.files.wordpress.com",
+    "count": 1
+  },
+  {
+    "domain": "duboisag.com",
+    "count": 1
+  },
+  {
+    "domain": "www.jacksonville.com",
+    "count": 1
+  },
+  {
+    "domain": "www.executiveoffice-ni.gov.uk",
+    "count": 1
+  },
+  {
+    "domain": "cartlann.org",
+    "count": 1
+  },
+  {
+    "domain": "www.dgak.de",
+    "count": 1
+  },
+  {
+    "domain": "www.electoralcommission.org.uk",
+    "count": 1
+  },
+  {
+    "domain": "www.limerickcity.ie",
+    "count": 1
+  },
+  {
+    "domain": "dayton247now.com",
+    "count": 1
+  },
+  {
+    "domain": "inar.ie",
+    "count": 1
+  },
+  {
+    "domain": "www.tcd.ie",
+    "count": 1
+  },
+  {
+    "domain": "www.pantsdownapronson.com",
+    "count": 1
+  },
+  {
+    "domain": "www.transportation.gov",
+    "count": 1
+  },
+  {
+    "domain": "yadnya.mojo.page",
+    "count": 1
+  },
+  {
+    "domain": "pepelivesmatter.substack.com",
+    "count": 1
+  },
+  {
+    "domain": "oxfamilibrary.openrepository.com",
+    "count": 1
+  },
+  {
+    "domain": "poll.qu.edu",
+    "count": 1
+  },
+  {
+    "domain": "resources.world.rugby",
+    "count": 1
+  },
+  {
+    "domain": "www.barrons.com",
+    "count": 1
+  },
+  {
+    "domain": "philebersole.wordpress.com",
+    "count": 1
+  },
+  {
+    "domain": "www.bis.org",
+    "count": 1
+  },
+  {
+    "domain": "tspace.library.utoronto.ca",
+    "count": 1
+  },
+  {
+    "domain": "s3.amazonaws.com",
+    "count": 1
+  },
+  {
+    "domain": "people.wayne.edu",
+    "count": 1
+  },
+  {
+    "domain": "www.belimo.com",
+    "count": 1
+  },
+  {
+    "domain": "tidsskrift.dk",
+    "count": 1
+  },
+  {
+    "domain": "links.firearmsandfreedoms.com",
+    "count": 1
+  },
+  {
+    "domain": "pod.co",
+    "count": 1
+  },
+  {
+    "domain": "www.education-ni.gov.uk",
+    "count": 1
+  },
+  {
+    "domain": "bvs.anses.fr",
+    "count": 1
+  },
+  {
+    "domain": "www.fysio.dk",
+    "count": 1
+  },
+  {
+    "domain": "c19science.info",
+    "count": 1
+  },
+  {
+    "domain": "bewusteburgers.be",
+    "count": 1
+  },
+  {
+    "domain": "www.atf.gov",
+    "count": 1
+  },
+  {
+    "domain": "fascrs.org",
+    "count": 1
+  },
+  {
+    "domain": "oig.usaid.gov",
+    "count": 1
+  },
+  {
+    "domain": "www.jwduyvendak.nl",
+    "count": 1
+  },
+  {
+    "domain": "www.nationalworld.com",
+    "count": 1
+  },
+  {
+    "domain": "www.liverpool.ac.uk",
+    "count": 1
+  },
+  {
+    "domain": "leg.mt.gov",
+    "count": 1
+  },
+  {
+    "domain": "melenchon2022.fr",
+    "count": 1
+  },
+  {
+    "domain": "komonews.com",
+    "count": 1
+  },
+  {
+    "domain": "homebuyer.com",
+    "count": 1
+  },
+  {
+    "domain": "alec.org",
+    "count": 1
+  },
+  {
+    "domain": "13wham.com",
+    "count": 1
+  },
+  {
+    "domain": "www.tf1.fr",
+    "count": 1
+  },
+  {
+    "domain": "www.ssgt.ie",
+    "count": 1
+  },
+  {
+    "domain": "www.nsf.gov",
+    "count": 1
+  },
+  {
+    "domain": "lguyo3fs9t2.typeform.com",
+    "count": 1
+  },
+  {
+    "domain": "sites.cs.ucsb.edu",
+    "count": 1
+  },
+  {
+    "domain": "military.ie",
+    "count": 1
+  },
+  {
+    "domain": "www.buzzsprout.com",
+    "count": 1
+  },
+  {
+    "domain": "effondrements.wordpress.com",
+    "count": 1
+  },
+  {
+    "domain": "www.tuv.org.uk",
+    "count": 1
+  },
+  {
+    "domain": "www.spektrum.de",
+    "count": 1
+  },
+  {
+    "domain": "www.geo.uzh.ch",
+    "count": 1
+  },
+  {
+    "domain": "www.capital.fr",
+    "count": 1
+  },
+  {
+    "domain": "nyti.ms",
+    "count": 1
+  },
+  {
+    "domain": "www.esri.ie",
+    "count": 1
+  },
+  {
+    "domain": "www.ninis2.nisra.gov.uk",
+    "count": 1
+  },
+  {
+    "domain": "wlos.com",
+    "count": 1
+  },
+  {
+    "domain": "www.rainbird.com",
+    "count": 1
+  },
+  {
+    "domain": "www.gaurakrishna.org",
+    "count": 1
+  },
+  {
+    "domain": "nbcmontana.com",
+    "count": 1
+  },
+  {
+    "domain": "coda.io",
+    "count": 1
+  },
+  {
+    "domain": "024943a0-ce9e-4fe5-85a2-d9f4d3bc845d.usrfiles.com",
+    "count": 1
+  },
+  {
+    "domain": "www.issworldtraining.com",
+    "count": 1
+  },
+  {
+    "domain": "www.medicare.gov",
+    "count": 1
+  },
+  {
+    "domain": "skyvector.com",
+    "count": 1
+  },
+  {
+    "domain": "www.fox61.com",
+    "count": 1
+  },
+  {
+    "domain": "comptroller.defense.gov",
+    "count": 1
+  },
+  {
+    "domain": "scholarship.law.missouri.edu",
+    "count": 1
+  },
+  {
+    "domain": "www.pinterest.ca",
+    "count": 1
+  },
+  {
+    "domain": "www.ucc.org",
+    "count": 1
+  },
+  {
+    "domain": "videos",
+    "count": 1
+  },
+  {
+    "domain": "eml.berkeley.edu",
+    "count": 1
+  },
+  {
+    "domain": "oig.justice.gov",
+    "count": 1
+  },
+  {
+    "domain": "ia600309.us.archive.org",
+    "count": 1
+  },
+  {
+    "domain": "scholars.unh.edu",
+    "count": 1
+  },
+  {
+    "domain": "www.manhattanda.org",
+    "count": 1
+  },
+  {
+    "domain": "int.nyt.com",
+    "count": 1
+  },
+  {
+    "domain": "idanlandau.files.wordpress.com",
+    "count": 1
+  },
+  {
+    "domain": "www.midandeastantrim.gov.uk",
+    "count": 1
+  },
+  {
+    "domain": "doyouremember.com",
+    "count": 1
+  },
+  {
+    "domain": "too.fm",
+    "count": 1
+  },
+  {
+    "domain": "www.esquireme.com",
+    "count": 1
+  },
+  {
+    "domain": "docdro.id",
+    "count": 1
+  },
+  {
+    "domain": "click1.e.fireflyengage.com",
+    "count": 1
+  },
+  {
+    "domain": "digitalcommons.law.villanova.edu",
+    "count": 1
+  },
+  {
+    "domain": "jasonisbell.bandcamp.com",
+    "count": 1
+  },
+  {
+    "domain": "www.johanneslindvall.org",
+    "count": 1
+  },
+  {
+    "domain": "www.bsa.natcen.ac.uk",
+    "count": 1
+  },
+  {
+    "domain": "krugman.blogs.nytimes.com",
+    "count": 1
+  },
+  {
+    "domain": "lawfilesext.leg.wa.gov",
+    "count": 1
+  },
+  {
+    "domain": "sfba.social",
+    "count": 1
+  },
+  {
+    "domain": "nosweatshakespeare.com",
+    "count": 1
+  },
+  {
+    "domain": "jazairhope.org",
+    "count": 1
+  },
+  {
+    "domain": "www.irisheconomy.ie",
+    "count": 1
+  },
+  {
+    "domain": "www.stanfordlawreview.org",
+    "count": 1
+  },
+  {
+    "domain": "lgbt.ie",
+    "count": 1
+  },
+  {
+    "domain": "destinyspirit.com",
+    "count": 1
+  },
+  {
+    "domain": "energie-wende-ja.com",
+    "count": 1
+  },
+  {
+    "domain": "www.localmemphis.com",
+    "count": 1
+  },
+  {
+    "domain": "www.douane.gouv.fr",
+    "count": 1
+  },
+  {
+    "domain": "hockeyanalytics.com",
+    "count": 1
+  },
+  {
+    "domain": "www.kristiania.no",
+    "count": 1
+  },
+  {
+    "domain": "pure.ulster.ac.uk",
+    "count": 1
+  },
+  {
+    "domain": "www.grassley.senate.gov",
+    "count": 1
+  },
+  {
+    "domain": "ore.exeter.ac.uk",
+    "count": 1
+  },
+  {
+    "domain": "ia803006.us.archive.org",
+    "count": 1
+  },
+  {
+    "domain": "rm.coe.int",
+    "count": 1
+  },
+  {
+    "domain": "www.ezeelogin.com",
+    "count": 1
+  },
+  {
+    "domain": "www.babs.admin.ch",
+    "count": 1
+  },
+  {
+    "domain": "detwilermarket.com",
+    "count": 1
+  },
+  {
+    "domain": "www.ucl.ac.uk",
+    "count": 1
+  },
+  {
+    "domain": "dcastillo.substack.com",
+    "count": 1
+  },
+  {
+    "domain": "www.southernliving.com",
+    "count": 1
+  },
+  {
+    "domain": "www.afcd.gov.hk",
+    "count": 1
+  },
+  {
+    "domain": "www.crash.net",
+    "count": 1
+  },
+  {
+    "domain": "www.dcboe.org",
+    "count": 1
+  },
+  {
+    "domain": "doc.irasia.com",
+    "count": 1
+  },
+  {
+    "domain": "skoleidraet.dk",
+    "count": 1
+  },
+  {
+    "domain": "nma.org",
+    "count": 1
+  },
+  {
+    "domain": "www.psni.police.uk",
+    "count": 1
+  },
+  {
+    "domain": "scholarship.law.campbell.edu",
+    "count": 1
+  },
+  {
+    "domain": "mynorthwest.com",
+    "count": 1
+  },
+  {
+    "domain": "content.jwplatform.com",
+    "count": 1
+  },
+  {
+    "domain": "people.socsci.tau.ac.il",
+    "count": 1
+  },
+  {
+    "domain": "www.belfercenter.org",
+    "count": 1
+  },
+  {
+    "domain": "www.espn.com.au",
+    "count": 1
+  },
+  {
+    "domain": "www.efk.admin.ch",
+    "count": 1
+  },
+  {
+    "domain": "resources.worldrugby-rims.pulselive.com",
+    "count": 1
+  },
+  {
+    "domain": "speciesppp.tumblr.com",
+    "count": 1
+  },
+  {
+    "domain": "cip.gmu.edu",
+    "count": 1
+  },
+  {
+    "domain": "worldcouncilforhealth.org",
+    "count": 1
+  },
+  {
+    "domain": "cred.be",
+    "count": 1
+  },
+  {
+    "domain": "raptorresource.org",
+    "count": 1
+  },
+  {
+    "domain": "ar.pinterest.com",
+    "count": 1
+  },
+  {
+    "domain": "exploring-sars-cov-2.tumblr.com",
+    "count": 1
+  },
+  {
+    "domain": "journa.host",
+    "count": 1
+  },
+  {
+    "domain": "fingfx.thomsonreuters.com",
+    "count": 1
+  },
+  {
+    "domain": "downbeachbuzz.com",
+    "count": 1
+  },
+  {
+    "domain": "ccea.org.uk",
+    "count": 1
+  },
+  {
+    "domain": "assets.cambridge.org",
+    "count": 1
+  },
+  {
+    "domain": "djunah.bandcamp.com",
+    "count": 1
+  },
+  {
+    "domain": "files.websitebuilder.prositehosting.co.uk",
+    "count": 1
+  },
+  {
+    "domain": "www.thomas.k12.ga.us",
+    "count": 1
+  },
+  {
+    "domain": "tradingpath.org",
+    "count": 1
+  },
+  {
+    "domain": "standforhealthfreedom.com",
+    "count": 1
+  },
+  {
+    "domain": "www.wikitree.com",
+    "count": 1
+  },
+  {
+    "domain": "amp.citizen.co.za",
+    "count": 1
+  },
+  {
+    "domain": "archives.lovinglifetv.com",
+    "count": 1
+  },
+  {
+    "domain": "www.nipolicingboard.org.uk",
+    "count": 1
+  },
+  {
+    "domain": "luxxle.com",
+    "count": 1
+  },
+  {
+    "domain": "www.denmangfoldigefolkeskole.dk",
+    "count": 1
+  },
+  {
+    "domain": "calendar.google.com",
+    "count": 1
+  },
+  {
+    "domain": "emu.dk",
+    "count": 1
+  },
+  {
+    "domain": "www.valleybeitmidrash.org",
+    "count": 1
+  },
+  {
+    "domain": "watchdocumentaries.com",
+    "count": 1
+  },
+  {
+    "domain": "wukaidi23.github.io",
+    "count": 1
+  },
+  {
+    "domain": "www.nber.org",
+    "count": 1
+  },
+  {
+    "domain": "www.dublinport.ie",
+    "count": 1
+  },
+  {
+    "domain": "www.infrastructure-ni.gov.uk",
+    "count": 1
+  },
+  {
+    "domain": "www.polfed.org",
+    "count": 1
+  },
+  {
+    "domain": "out.reddit.com",
+    "count": 1
+  },
+  {
+    "domain": "materialfeminista.milharal.org",
+    "count": 1
+  },
+  {
+    "domain": "www.kcpd.org",
+    "count": 1
+  },
+  {
+    "domain": "www.wcl.org.uk",
+    "count": 1
+  },
+  {
+    "domain": "firmament-chaos.com",
+    "count": 1
+  },
+  {
+    "domain": "kiwijr.bandcamp.com",
+    "count": 1
+  },
+  {
+    "domain": "ia804602.us.archive.org",
+    "count": 1
+  },
+  {
+    "domain": "www.jpands.org",
+    "count": 1
+  },
+  {
+    "domain": "www.wm.com",
+    "count": 1
+  },
+  {
+    "domain": "untuckworld.com",
+    "count": 1
+  },
+  {
+    "domain": "www.nfpa.org",
+    "count": 1
+  },
+  {
+    "domain": "www.ibm.com",
+    "count": 1
+  },
+  {
+    "domain": "www.follesdal.net",
+    "count": 1
+  },
+  {
+    "domain": "www.icsspe.org",
+    "count": 1
+  },
+  {
+    "domain": "theshriekingviolets.bandcamp.com",
+    "count": 1
+  },
+  {
+    "domain": "chipmunkson16speed.bandcamp.com",
+    "count": 1
+  },
+  {
+    "domain": "www.lareunion.ars.sante.fr",
+    "count": 1
+  },
+  {
+    "domain": "docs.datenschutz.ch",
+    "count": 1
+  },
+  {
+    "domain": "www.spreaker.com",
+    "count": 1
+  },
+  {
+    "domain": "flowit.ch",
+    "count": 1
+  },
+  {
+    "domain": "bornsvilkar.dk",
+    "count": 1
+  },
+  {
+    "domain": "abrahaminitiatives.org",
+    "count": 1
+  },
+  {
+    "domain": "www.justsecurity.org",
+    "count": 1
+  },
+  {
+    "domain": "www.gettyimages.co.uk",
+    "count": 1
+  },
+  {
+    "domain": "www.vaticannews.va",
+    "count": 1
+  },
+  {
+    "domain": "comlay.net",
+    "count": 1
+  },
+  {
+    "domain": "trevorbates.bandcamp.com",
+    "count": 1
+  },
+  {
+    "domain": "www.gettyimages.com",
+    "count": 1
+  },
+  {
+    "domain": "consultations2.nidirect.gov.uk",
+    "count": 1
+  },
+  {
+    "domain": "vk.com",
+    "count": 1
+  },
+  {
+    "domain": "www.iapsych.com",
+    "count": 1
+  },
+  {
+    "domain": "www.uaex.uada.edu",
+    "count": 1
+  },
+  {
+    "domain": "www.unafei.or.jp",
+    "count": 1
+  },
+  {
+    "domain": "nda.ie",
+    "count": 1
+  },
+  {
+    "domain": "docquery.fec.gov",
+    "count": 1
+  },
+  {
+    "domain": "www.ap7am.com",
+    "count": 1
+  },
+  {
+    "domain": "CyUTpRmt2aT",
+    "count": 1
+  },
+  {
+    "domain": "www2.ohchr.org",
+    "count": 1
+  },
+  {
+    "domain": "aran.library.nuigalway.ie",
+    "count": 1
+  },
+  {
+    "domain": "pure.coventry.ac.uk",
+    "count": 1
+  },
+  {
+    "domain": "wattpad.com",
+    "count": 1
+  },
+  {
+    "domain": "www.globalhungerindex.org",
+    "count": 1
+  },
+  {
+    "domain": "cdn1.siriusjoy.com",
+    "count": 1
+  },
+  {
+    "domain": "www.budk.com",
+    "count": 1
+  },
+  {
+    "domain": "www.swbh.nhs.uk",
+    "count": 1
+  },
+  {
+    "domain": "video.nest.com",
+    "count": 1
+  },
+  {
+    "domain": "sencanada.ca",
+    "count": 1
+  },
+  {
+    "domain": "www.dublincity.ie",
+    "count": 1
+  },
+  {
+    "domain": "www.swp-berlin.org",
+    "count": 1
+  },
+  {
+    "domain": "cryptome.org",
+    "count": 1
+  },
+  {
+    "domain": "www.fws.gov",
+    "count": 1
+  },
+  {
+    "domain": "www.constitutionalconvention.ie",
+    "count": 1
+  },
+  {
+    "domain": "www.npr.com",
+    "count": 1
+  },
+  {
+    "domain": "journal.societyofirishforesters.ie",
+    "count": 1
+  },
+  {
+    "domain": "mfsk.layered.dk",
+    "count": 1
+  },
+  {
+    "domain": "ccrkba.org",
+    "count": 1
+  },
+  {
+    "domain": "www.tii.ie",
+    "count": 1
+  },
+  {
+    "domain": "publichealth.lacounty.gov",
+    "count": 1
+  },
+  {
+    "domain": "codatocoda.bandcamp.com",
+    "count": 1
+  },
+  {
+    "domain": "www.producthunt.com",
+    "count": 1
+  },
+  {
+    "domain": "www.thebritishacademy.ac.uk",
+    "count": 1
+  },
+  {
+    "domain": "www.pwc.co.uk",
+    "count": 1
+  },
+  {
+    "domain": "www.godtarbejdsmiljo.dk",
+    "count": 1
+  },
+  {
+    "domain": "warwick.ac.uk",
+    "count": 1
+  },
+  {
+    "domain": "adai.uw.edu",
+    "count": 1
+  },
+  {
+    "domain": "lc.org",
+    "count": 1
+  },
+  {
+    "domain": "allenwest.substack.com",
+    "count": 1
+  },
+  {
+    "domain": "www.nfaoa.org",
+    "count": 1
+  },
+  {
+    "domain": "hummedia.manchester.ac.uk",
+    "count": 1
+  },
+  {
+    "domain": "www.greenpeace.org",
+    "count": 1
+  },
+  {
+    "domain": "www.pminewyork.gov.in",
+    "count": 1
+  },
+  {
+    "domain": "www.dhs.gov",
+    "count": 1
+  },
+  {
+    "domain": "fb.me",
+    "count": 1
+  },
+  {
+    "domain": "www.ihrec.ie",
+    "count": 1
+  },
+  {
+    "domain": "www.bunka.go.jp",
+    "count": 1
+  },
+  {
+    "domain": "www.aussie17.com",
+    "count": 1
+  },
+  {
+    "domain": "josephsansone.substack.com?utm_source=navbar&utm_medium=web",
+    "count": 1
+  },
+  {
+    "domain": "josephsansone.substack.com?utm_source=navbar&amp;utm_medium=web",
+    "count": 1
+  },
+  {
+    "domain": "election-integrity.info",
+    "count": 1
+  },
+  {
+    "domain": "albertofort.gumroad.com",
+    "count": 1
+  },
+  {
+    "domain": "watch?v=yfY4b1NszpY",
+    "count": 1
+  },
+  {
+    "domain": "ijfm.org",
+    "count": 1
+  },
+  {
+    "domain": "senatormastriano.com",
+    "count": 1
+  },
+  {
+    "domain": "www.healthy.arkansas.gov",
+    "count": 1
+  },
+  {
+    "domain": "urlr.me",
+    "count": 1
+  },
+  {
+    "domain": "law.marquette.edu",
+    "count": 1
+  },
+  {
+    "domain": "evtms-rpts.pancanal.com",
+    "count": 1
+  },
+  {
+    "domain": "m.maariv.co.il",
+    "count": 1
+  },
+  {
+    "domain": "lnns.co",
+    "count": 1
+  },
+  {
+    "domain": "sutage.net",
+    "count": 1
+  },
+  {
+    "domain": "www.legis.state.pa.us",
+    "count": 1
+  },
+  {
+    "domain": "publications.iom.int",
+    "count": 1
+  },
+  {
+    "domain": "aws.amazon.com",
+    "count": 1
+  },
+  {
+    "domain": "historyofeconomicthought.mcmaster.ca",
+    "count": 1
+  },
+  {
+    "domain": "www.wvearlychildhood.org",
+    "count": 1
+  },
+  {
+    "domain": "www.thepinknews.com",
+    "count": 1
+  },
+  {
+    "domain": "tcpaworld.com",
+    "count": 1
+  },
+  {
+    "domain": "nj.gov",
+    "count": 1
+  },
+  {
+    "domain": "dors.dk",
+    "count": 1
+  },
+  {
+    "domain": "capitol.texas.gov",
+    "count": 1
+  },
+  {
+    "domain": "files.digital.nhs.uk",
+    "count": 1
+  },
+  {
+    "domain": "www.hindustantimes.com",
+    "count": 1
+  },
+  {
+    "domain": "mural.maynoothuniversity.ie",
+    "count": 1
+  },
+  {
+    "domain": "www.richardhanania.com",
+    "count": 1
+  },
+  {
+    "domain": "ia801807.us.archive.org",
+    "count": 1
+  },
+  {
+    "domain": "hoxworth.org",
+    "count": 1
+  },
+  {
+    "domain": "scorpioncapital.s3.us-east-2.amazonaws.com",
+    "count": 1
+  },
+  {
+    "domain": "cahill.people.unm.edu",
+    "count": 1
+  },
+  {
+    "domain": "www.teachdontpreach.ie",
+    "count": 1
+  },
+  {
+    "domain": "darrellhines.net",
+    "count": 1
+  },
+  {
+    "domain": "www.bseindia.com",
+    "count": 1
+  },
+  {
+    "domain": "online.fliphtml5.com",
+    "count": 1
+  },
+  {
+    "domain": "amzn.eu",
+    "count": 1
+  },
+  {
+    "domain": "www.hqmc.marines.mil",
+    "count": 1
+  },
+  {
+    "domain": "replit.com",
+    "count": 1
+  },
+  {
+    "domain": "translatorswithoutborders.org",
+    "count": 1
+  },
+  {
+    "domain": "www.biri.org",
+    "count": 1
+  },
+  {
+    "domain": "groundworkcollaborative.org",
+    "count": 1
+  },
+  {
+    "domain": "www.eisenhowerlibrary.gov",
+    "count": 1
+  },
+  {
+    "domain": "amzn.to",
+    "count": 1
+  },
+  {
+    "domain": "dontmesswithtaxes.typepad.com",
+    "count": 1
+  },
+  {
+    "domain": "www.voanews.com",
+    "count": 1
+  },
+  {
+    "domain": "www.frontex.europa.eu",
+    "count": 1
+  },
+  {
+    "domain": "d3nkl3psvxxpe9.cloudfront.net",
+    "count": 1
+  },
+  {
+    "domain": "www.minds.com",
+    "count": 1
+  },
+  {
+    "domain": "scholarworks.uark.edu",
+    "count": 1
+  },
+  {
+    "domain": "ses.library.usyd.edu.au",
+    "count": 1
+  },
+  {
+    "domain": "458rl1jp.r.us-east-1.awstrack.me",
+    "count": 1
+  },
+  {
+    "domain": "gahsp.org",
+    "count": 1
+  },
+  {
+    "domain": "www.roydennis.org",
+    "count": 1
+  },
+  {
+    "domain": "shsdavisapes.pbworks.com",
+    "count": 1
+  },
+  {
+    "domain": "www.givesendgo.com",
+    "count": 1
+  },
+  {
+    "domain": "www.politico.com",
+    "count": 1
+  },
+  {
+    "domain": "www.eui.eu",
+    "count": 1
+  },
+  {
+    "domain": "d2cu82y6eo7f22.cloudfront.net",
+    "count": 1
+  },
+  {
+    "domain": "www.lankford.senate.gov",
+    "count": 1
+  },
+  {
+    "domain": "ren.tv",
+    "count": 1
+  },
+  {
+    "domain": "www.comodo.com",
+    "count": 1
+  },
+  {
+    "domain": "2futures.com",
+    "count": 1
+  },
+  {
+    "domain": "www.derryjournal.com",
+    "count": 1
+  },
+  {
+    "domain": "www.fire.ca.gov",
+    "count": 1
+  },
+  {
+    "domain": "www.ijuh.org",
+    "count": 1
+  },
+  {
+    "domain": "www3.weforum.org",
+    "count": 1
+  },
+  {
+    "domain": "www.samhsa.gov",
+    "count": 1
+  },
+  {
+    "domain": "www.has-sante.fr",
+    "count": 1
+  },
+  {
+    "domain": "7news.com.au",
+    "count": 1
+  },
+  {
+    "domain": "media.ccc.de",
+    "count": 1
+  },
+  {
+    "domain": "levelevoile.fr",
+    "count": 1
+  },
+  {
+    "domain": "www.google.co.jp",
+    "count": 1
+  },
+  {
+    "domain": "www.icwa.org",
+    "count": 1
+  },
+  {
+    "domain": "www.socialdemocrats.ie",
+    "count": 1
+  },
+  {
+    "domain": "www.senatormarkdaly.ie",
+    "count": 1
+  },
+  {
+    "domain": "large.stanford.edu",
+    "count": 1
+  },
+  {
+    "domain": "mid-ulster.cmis-ni.org",
+    "count": 1
+  },
+  {
+    "domain": "policymemos.hks.harvard.edu",
+    "count": 1
+  },
+  {
+    "domain": "www.marines.mil",
+    "count": 1
+  },
+  {
+    "domain": "www.tropmet.res.in",
+    "count": 1
+  },
+  {
+    "domain": "kevinbarrett.substack.com",
+    "count": 1
+  },
+  {
+    "domain": "www.cia.gov",
+    "count": 1
+  },
+  {
+    "domain": "www.finegael.ie",
+    "count": 1
+  },
+  {
+    "domain": "younitystorage.b-cdn.net",
+    "count": 1
+  },
+  {
+    "domain": "scoutstracker.ca",
+    "count": 1
+  },
+  {
+    "domain": "constitutioncenter.org",
+    "count": 1
+  },
+  {
+    "domain": "www.fbi.gov",
+    "count": 1
+  },
+  {
+    "domain": "kenngividen.substack.com",
+    "count": 1
+  },
+  {
+    "domain": "psychology.uwo.ca",
+    "count": 1
+  },
+  {
+    "domain": "joaosousa.gumroad.com",
+    "count": 1
+  },
+  {
+    "domain": "msfsaddons.com",
+    "count": 1
+  },
+  {
+    "domain": "www.britishcouncil.ie",
+    "count": 1
+  },
+  {
+    "domain": "nsc.crawford.anu.edu.au",
+    "count": 1
+  },
+  {
+    "domain": "fm.dk",
+    "count": 1
+  },
+  {
+    "domain": "www.stukuvm.dk",
+    "count": 1
+  },
+  {
+    "domain": "www.chicago.gov",
+    "count": 1
+  },
+  {
+    "domain": "people.brandeis.edu",
+    "count": 1
+  },
+  {
+    "domain": "video.vice.com",
+    "count": 1
+  },
+  {
+    "domain": "core.ac.uk",
+    "count": 1
+  },
+  {
+    "domain": "translated.turbopages.org",
+    "count": 1
+  },
+  {
+    "domain": "www.thecommonwealth-ilibrary.org",
+    "count": 1
+  },
+  {
+    "domain": "freshwaterbear.tumblr.com",
+    "count": 1
+  },
+  {
+    "domain": "beq.ebooksgratuits.com",
+    "count": 1
+  },
+  {
+    "domain": "www.designptn.com",
+    "count": 1
+  },
+  {
+    "domain": "ia803002.us.archive.org",
+    "count": 1
+  },
+  {
+    "domain": "www.wnd.com",
+    "count": 1
+  },
+  {
+    "domain": "www.karakterdannelse.dk",
+    "count": 1
+  },
+  {
+    "domain": "www.gettyimages.be",
+    "count": 1
+  },
+  {
+    "domain": "www.csun.edu",
+    "count": 1
+  },
+  {
+    "domain": "webserver.rilegislature.gov",
+    "count": 1
+  },
+  {
+    "domain": "wexler.free.fr",
+    "count": 1
+  },
+  {
+    "domain": "muse.jhu.edu",
+    "count": 1
+  },
+  {
+    "domain": "www.thestar.co.uk",
+    "count": 1
+  },
+  {
+    "domain": "www.seagate.com",
+    "count": 1
+  },
+  {
+    "domain": "hifisimtech.mediafire.com",
+    "count": 1
+  },
+  {
+    "domain": "news.un.org",
+    "count": 1
+  },
+  {
+    "domain": "www.myfloridateacher.com",
+    "count": 1
+  },
+  {
+    "domain": "savemyfreedom.substack.com",
+    "count": 1
+  },
+  {
+    "domain": "www3.nhk.or.jp",
+    "count": 1
+  },
+  {
+    "domain": "moedrehjaelpen.dk",
+    "count": 1
+  },
+  {
+    "domain": "www.bic-rhr.com",
+    "count": 1
+  },
+  {
+    "domain": "www.uaf.edu",
+    "count": 1
+  },
+  {
+    "domain": "www.idaireland.com",
+    "count": 1
+  },
+  {
+    "domain": "assets.nationbuilder.com",
+    "count": 1
+  },
+  {
+    "domain": "www.reformjudaism.org",
+    "count": 1
+  },
+  {
+    "domain": "truthinmedia.net",
+    "count": 1
+  },
+  {
+    "domain": "presse.ademe.fr",
+    "count": 1
+  },
+  {
+    "domain": "www.garretthardinsociety.org",
+    "count": 1
+  },
+  {
+    "domain": "d12t4t5x3vyizu.cloudfront.net",
+    "count": 1
+  },
+  {
+    "domain": "investors.mclaren.com",
+    "count": 1
+  },
+  {
+    "domain": "www.leparisien.fr",
+    "count": 1
+  },
+  {
+    "domain": "infosec.space",
+    "count": 1
+  },
+  {
+    "domain": "hitmansystem.com",
+    "count": 1
+  },
+  {
+    "domain": "simplicius76.substack.com",
+    "count": 1
+  },
+  {
+    "domain": "www.ian-leslie.com",
+    "count": 1
+  },
+  {
+    "domain": "steady.substack.com",
+    "count": 1
+  },
+  {
+    "domain": "www.midwesterndoctor.com",
+    "count": 1
+  },
+  {
+    "domain": "www.yorkshirepost.co.uk",
+    "count": 1
+  },
+  {
+    "domain": "aje.io",
+    "count": 1
+  },
+  {
+    "domain": "anncoulter.substack.com",
+    "count": 1
+  },
+  {
+    "domain": "www.espn.co.uk",
+    "count": 1
+  },
+  {
+    "domain": "ak-static.cms.nba.com",
+    "count": 1
+  },
+  {
+    "domain": "history.army.mil",
+    "count": 1
+  },
+  {
+    "domain": "madhavasetty.substack.com",
+    "count": 1
+  },
+  {
+    "domain": "www.adweek.com",
+    "count": 1
+  },
+  {
+    "domain": "winterpills.bandcamp.com",
+    "count": 1
+  },
+  {
+    "domain": "actforamerica.substack.com",
+    "count": 1
+  },
+  {
+    "domain": "pkf.ufm.dk",
+    "count": 1
+  },
+  {
+    "domain": "jmp.sh",
+    "count": 1
+  },
+  {
+    "domain": "en.as.com",
+    "count": 1
+  },
+  {
+    "domain": "canadianpatriotreview.substack.com",
+    "count": 1
+  },
+  {
+    "domain": "www.local.gov.uk",
+    "count": 1
+  },
+  {
+    "domain": "enseignants.lumni.fr",
+    "count": 1
+  },
+  {
+    "domain": "dailynewsfromaolf.substack.com",
+    "count": 1
+  },
+  {
+    "domain": "www.fire.tc.faa.gov",
+    "count": 1
+  },
+  {
+    "domain": "www.eurosiberia.net",
+    "count": 1
+  },
+  {
+    "domain": "mastodon.nz",
+    "count": 1
+  },
+  {
+    "domain": "databankfiles.worldbank.org",
+    "count": 1
+  },
+  {
+    "domain": "cps.org.uk",
+    "count": 1
+  },
+  {
+    "domain": "extremism.gwu.edu",
+    "count": 1
+  },
+  {
+    "domain": "childrenshealthdefense.eu",
+    "count": 1
+  },
+  {
+    "domain": "jessica.substack.com",
+    "count": 1
+  },
+  {
+    "domain": "upgradedhome.com",
+    "count": 1
+  },
+  {
+    "domain": "www.noceilingsnba.com",
+    "count": 1
+  },
+  {
+    "domain": "petersweden.substack.com",
+    "count": 1
+  },
+  {
+    "domain": "dpu.au.dk",
+    "count": 1
+  },
+  {
+    "domain": "rootforamerica.com",
+    "count": 1
+  },
+  {
+    "domain": "legislature.maine.gov",
+    "count": 1
+  },
+  {
+    "domain": "landmarklegal.org",
+    "count": 1
+  },
+  {
+    "domain": "www.borowitzreport.com",
+    "count": 1
+  },
+  {
+    "domain": "wsb.wharton.upenn.edu",
+    "count": 1
+  },
+  {
+    "domain": "ancrages.org",
+    "count": 1
+  },
+  {
+    "domain": "ni-primary-school-visitors.streamlit.app",
+    "count": 1
+  },
+  {
+    "domain": "ticas.org",
+    "count": 1
+  },
+  {
+    "domain": "www.smartcockpit.com",
+    "count": 1
+  },
+  {
+    "domain": "www.experimental-history.com",
+    "count": 1
+  },
+  {
+    "domain": "airtable.com",
+    "count": 1
+  },
+  {
+    "domain": "cdn.ca9.uscourts.gov",
+    "count": 1
+  },
+  {
+    "domain": "www.bbs-haarentor.de",
+    "count": 1
+  },
+  {
+    "domain": "www.landesmuseum-ol.de",
+    "count": 1
+  },
+  {
+    "domain": "onlinecampus.fcps.edu",
+    "count": 1
+  },
+  {
+    "domain": "masha184.substack.com",
+    "count": 1
+  },
+  {
+    "domain": "www.fagperson.regionshospitalet-goedstrup.dk",
+    "count": 1
+  },
+  {
+    "domain": "montrealgazette.com",
+    "count": 1
+  },
+  {
+    "domain": "thegunwriter.substack.com",
+    "count": 1
+  },
+  {
+    "domain": "www.atheists.org",
+    "count": 1
+  },
+  {
+    "domain": "www.ria.ie",
+    "count": 1
+  },
+  {
+    "domain": "genflynn.substack.com",
+    "count": 1
+  },
+  {
+    "domain": "samf.substack.com",
+    "count": 1
+  },
+  {
+    "domain": "www.southarkansasreckoning.com",
+    "count": 1
+  },
+  {
+    "domain": "arwhite.mit.edu",
+    "count": 1
+  },
+  {
+    "domain": "thedraftanalyst.substack.com",
+    "count": 1
+  },
+  {
+    "domain": "www.mlb.com",
+    "count": 1
+  },
+  {
+    "domain": "gajqc.gov",
+    "count": 1
+  },
+  {
+    "domain": "rwmalonemd.substack.com",
+    "count": 1
+  },
+  {
+    "domain": "www.ulrichbuehrle.de",
+    "count": 1
+  },
+  {
+    "domain": "itsthegreatwakeup.substack.com?utm_source=navbar&utm_medium=web",
+    "count": 1
+  },
+  {
+    "domain": "openaccess.thecvf.com",
+    "count": 1
+  },
+  {
+    "domain": "ushlprospecting.substack.com",
+    "count": 1
+  },
+  {
+    "domain": "armageddonprose.substack.com",
+    "count": 1
+  },
+  {
+    "domain": "sethabramson.substack.com",
+    "count": 1
+  },
+  {
+    "domain": "omega4america.substack.com",
+    "count": 1
+  },
+  {
+    "domain": "humanities.princeton.edu",
+    "count": 1
+  },
+  {
+    "domain": "piaille.fr",
+    "count": 1
+  },
+  {
+    "domain": "www.eoni.org.uk",
+    "count": 1
+  },
+  {
+    "domain": "marcstein.substack.com",
+    "count": 1
+  },
+  {
+    "domain": "www.cs.hmc.edu",
+    "count": 1
+  },
+  {
+    "domain": "naomiwolf.substack.com",
+    "count": 1
+  },
+  {
+    "domain": "www.flightaware.com",
+    "count": 1
+  },
+  {
+    "domain": "ia803207.us.archive.org",
+    "count": 1
+  },
+  {
+    "domain": "libertysentinel.substack.com",
+    "count": 1
+  },
+  {
+    "domain": "trendsinthenews.substack.com",
+    "count": 1
+  },
+  {
+    "domain": "www.seine-maritime.gouv.fr",
+    "count": 1
+  },
+  {
+    "domain": "www.swri.org",
+    "count": 1
+  },
+  {
+    "domain": "www.btselem.org",
+    "count": 1
+  },
+  {
+    "domain": "energysecurityfreedom.substack.com",
+    "count": 1
+  },
+  {
+    "domain": "www.houfootball.com",
+    "count": 1
+  },
+  {
+    "domain": "www.notonyourteam.co.uk",
+    "count": 1
+  },
+  {
+    "domain": "ppr06262023.substack.com",
+    "count": 1
+  },
+  {
+    "domain": "rsua.org.uk",
+    "count": 1
+  },
+  {
+    "domain": "www.ark.ac.uk",
+    "count": 1
+  },
+  {
+    "domain": "www.irishstatutebook.ie",
+    "count": 1
+  },
+  {
+    "domain": "www.msn.com",
+    "count": 1
+  },
+  {
+    "domain": "littoria.substack.com",
+    "count": 1
+  },
+  {
+    "domain": "www.northernirelandworld.com",
+    "count": 1
+  },
+  {
+    "domain": "skfb.ly",
+    "count": 1
+  },
+  {
+    "domain": "www.georgenews.org",
+    "count": 1
+  },
+  {
+    "domain": "www.malone.news",
+    "count": 1
+  },
+  {
+    "domain": "www.indystar.com",
+    "count": 1
+  },
+  {
+    "domain": "richardpollock.substack.com",
+    "count": 1
+  },
+  {
+    "domain": "www.iba.sport",
+    "count": 1
+  },
+  {
+    "domain": "govtrackus.s3.amazonaws.com",
+    "count": 1
+  },
+  {
+    "domain": "celiafarber.substack.com",
+    "count": 1
+  },
+  {
+    "domain": "torontosun.com",
+    "count": 1
+  },
+  {
+    "domain": "dailypost.ng",
+    "count": 1
+  },
+  {
+    "domain": "www.pollara.com",
+    "count": 1
+  },
+  {
+    "domain": "iqconnect.house.gov",
+    "count": 1
+  },
+  {
+    "domain": "mrdanbx.files.wordpress.com",
+    "count": 1
+  },
+  {
+    "domain": "whitepapersinstitute.substack.com",
+    "count": 1
+  },
+  {
+    "domain": "www.gov.ie",
+    "count": 1
+  },
+  {
+    "domain": "bsky.app",
+    "count": 1
+  },
+  {
+    "domain": "nprinterns.tumblr.com",
+    "count": 1
+  },
+  {
+    "domain": "www.13wmaz.com",
+    "count": 1
+  },
+  {
+    "domain": "jamesroguski.substack.com?utm_source=navbar&utm_medium=web",
+    "count": 1
+  },
+  {
+    "domain": "jamesroguski.substack.com?utm_source=navbar&amp;utm_medium=web",
+    "count": 1
+  },
+  {
+    "domain": "tomrenz.substack.com",
+    "count": 1
+  },
+  {
+    "domain": "itsthegreatwakeup.substack.com?utm_source=navbar&amp;utm_medium=web",
+    "count": 1
+  },
+  {
+    "domain": "barsoom.substack.com",
+    "count": 1
+  },
+  {
+    "domain": "www.shroud.com",
+    "count": 1
+  },
+  {
+    "domain": "besacenter.org",
+    "count": 1
+  },
+  {
+    "domain": "blueseatblogs.com",
+    "count": 1
+  },
+  {
+    "domain": "www.warhistoryonline.com",
+    "count": 1
+  },
+  {
+    "domain": "jessesingal.substack.com",
+    "count": 1
+  },
+  {
+    "domain": "realamericasvoice.substack.com",
+    "count": 1
+  },
+  {
+    "domain": "www.cbs8.com",
+    "count": 1
+  },
+  {
+    "domain": "africa.espn.com",
+    "count": 1
+  },
+  {
+    "domain": "swatwildlife.com",
+    "count": 1
+  },
+  {
+    "domain": "www.caitlinjohnst.one",
+    "count": 1
+  },
+  {
+    "domain": "elections.cdn.sos.ca.gov",
+    "count": 1
+  },
+  {
+    "domain": "maps.apple.com",
+    "count": 1
+  },
+  {
+    "domain": "www.census.gov",
+    "count": 1
+  },
+  {
+    "domain": "www.ilrc.org",
+    "count": 1
+  },
+  {
+    "domain": "twilightpatriot.substack.com",
+    "count": 1
+  },
+  {
+    "domain": "mstdn.ca",
+    "count": 1
+  },
+  {
+    "domain": "web.colby.edu",
+    "count": 1
+  },
+  {
+    "domain": "www.kickstarter.com",
+    "count": 1
+  },
+  {
+    "domain": "www.worldbank.org",
+    "count": 1
+  },
+  {
+    "domain": "theprovince.com",
+    "count": 1
+  },
+  {
+    "domain": "roslynross.substack.com",
+    "count": 1
+  },
+  {
+    "domain": "www.phantomshockey.com",
+    "count": 1
+  },
+  {
+    "domain": "oklahoma.gov",
+    "count": 1
+  },
+  {
+    "domain": "www.telegraph.co.uk",
+    "count": 1
+  },
+  {
+    "domain": "ewerickson.substack.com",
+    "count": 1
+  },
+  {
+    "domain": "ciaotest.cc.columbia.edu",
+    "count": 1
+  },
+  {
+    "domain": "eanifunding.org.uk",
+    "count": 1
+  },
+  {
+    "domain": "vt.tiktok.com",
+    "count": 1
+  },
+  {
+    "domain": "www.stevesailer.net",
+    "count": 1
+  },
+  {
+    "domain": "www.krem.com",
+    "count": 1
+  },
+  {
+    "domain": "ucr.fbi.gov",
+    "count": 1
+  },
+  {
+    "domain": "alexkrainer.substack.com",
+    "count": 1
+  },
+  {
+    "domain": "tile.loc.gov",
+    "count": 1
+  },
+  {
+    "domain": "crusadergal.substack.com",
+    "count": 1
+  },
+  {
+    "domain": "medal.tv",
+    "count": 1
+  },
+  {
+    "domain": "www.rathelawofone.com",
+    "count": 1
+  },
+  {
+    "domain": "dearlstephens.substack.com",
+    "count": 1
+  },
+  {
+    "domain": "myoffice.ru",
+    "count": 1
+  },
+  {
+    "domain": "www.oxfordenergy.org",
+    "count": 1
+  },
+  {
+    "domain": "aerialrecovery.org",
+    "count": 1
+  },
+  {
+    "domain": "michaelpeinovich.substack.com",
+    "count": 1
+  },
+  {
+    "domain": "ia801903.us.archive.org",
+    "count": 1
+  },
+  {
+    "domain": "www.kenklippenstein.com",
+    "count": 1
+  },
+  {
+    "domain": "www.biorxiv.org",
+    "count": 1
+  },
+  {
+    "domain": "waltking.substack.com",
+    "count": 1
+  },
+  {
+    "domain": "snyder.substack.com",
+    "count": 1
+  },
+  {
+    "domain": "censorednews.substack.com",
+    "count": 1
+  },
+  {
+    "domain": "christopherrufo.com",
+    "count": 1
+  },
+  {
+    "domain": "ringsideatthereckoning.substack.com",
+    "count": 1
+  },
+  {
+    "domain": "theankler.com",
+    "count": 1
+  }
+]
