@@ -6,6 +6,9 @@ class UnfoldConfig
 {
     public function __construct(
 
+        // HTTP Client
+        // Cache
+
         /**
          * Method::LINK:
          *  - Fetch metadata of the link.
@@ -31,6 +34,7 @@ class UnfoldConfig
          */
         public bool $embedMetaFallback = false,
 
+        // Facebook API Key
     )
     {
     }

@@ -4,24 +4,23 @@ namespace Hyvor\Unfold;
 
 use Hyvor\Unfold\Objects\UnfoldObject;
 use Hyvor\Unfold\Oembed\Oembed;
+use Hyvor\Unfold\Scraper\Metadata;
+use Hyvor\Unfold\Scraper\MetadataParser;
+use Hyvor\Unfold\Scraper\Scraper;
+use Hyvor\Unfold\Types\Unfolded;
 
 class Unfold
 {
+
     public static function unfold(string $url): UnfoldObject
     {
-        // Check if oEmbed supported
-        $endpoint = Oembed::checkOembedSupport($url);
 
-        if ($endpoint !== null) {
-            // Call oEmbed endpoint
-            $data = Oembed::getEmbedData($endpoint, $url);
-        }
-        else {
-            // TODO
-            // Unfold endpoint
-            $data = [];
-        }
+        $content = (new Scraper($url))->scrape();
+        $metadata = (new MetadataParser($content))->parse();
 
-         return new UnfoldObject($data);
+        // todo: embed
+
+        return new Unfolded($metadata);
+
     }
 }

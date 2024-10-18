@@ -15,5 +15,5 @@ it('gets og:tags', function () {
 
     $scraper = new Scraper('https://supun.io/');
     $scraper->handle();
-    expect($scraper->getResult())->toBe('hi');
+    expect($scraper->getMetadata())->toBe('hi');
 });
