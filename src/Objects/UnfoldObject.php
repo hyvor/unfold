@@ -2,12 +2,12 @@
 
 namespace Hyvor\Unfold\Objects;
 
-use Hyvor\Unfold\Types\EmbedTypeEnum;
+use Hyvor\Unfold\Types\EmbedType;
 
 class UnfoldObject
 {
     public string $version;
-    public EmbedTypeEnum $type;
+    public EmbedType $type;
     public ?string $url;
     public ?string $html;
     public ?int $width;
@@ -25,15 +25,15 @@ class UnfoldObject
     public function __construct(array $data)
     {
         $this->version = '1.0';
-        $this->type = EmbedTypeEnum::from($data['type']);
+        $this->type = EmbedType::from($data['type']);
 
-        if ($this->type === EmbedTypeEnum::PHOTO) {
+        if ($this->type === EmbedType::PHOTO) {
 
             $this->url = $data['url'];
             $this->width = $data['width'];
             $this->height = $data['height'];
 
-        } elseif ($this->type === EmbedTypeEnum::VIDEO || $this->type === EmbedTypeEnum::RICH) {
+        } elseif ($this->type === EmbedType::VIDEO || $this->type === EmbedType::RICH) {
 
             $this->html = $data['html'];
             $this->width = $data['width'];
