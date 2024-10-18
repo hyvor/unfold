@@ -14,6 +14,7 @@ class Unfolded
         public Method  $method,
         public string $url,
 
+        public ?string $embed,
         public ?string $title,
         public ?string $description,
         public array $authors,
@@ -26,7 +27,6 @@ class Unfolded
         public ?string $thumbnailUrl,
         public ?string $iconUrl,
         public ?string $locale,
-
 
         public int $durationMs
     )
