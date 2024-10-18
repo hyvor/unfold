@@ -2,7 +2,7 @@
 
 namespace Hyvor\Unfold\Types;
 
-enum EmbedTypeEnum: string
+enum EmbedType: string
 {
     case PHOTO = 'photo';
     case VIDEO = 'video';
