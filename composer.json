@@ -24,6 +24,7 @@
     },
     "require": {
         "guzzlehttp/guzzle": "^7.0",
-        "symfony/dom-crawler": "^7.1"
+        "symfony/dom-crawler": "^7.1",
+        "psr/http-client": "^1.0"
     }
 }
