@@ -4,11 +4,12 @@ namespace Hyvor\Unfold\Embed\EmbedParsers\Platforms;
 
 use GuzzleHttp\Psr7\Uri;
 use Hyvor\Unfold\Embed\EmbedParsers\EmbedParserAbstract;
+use Hyvor\Unfold\Embed\EmbedParsers\EmbedParserOEmbedInterface;
 use Hyvor\Unfold\Embed\EmbedParsers\Exception\ParserException;
 use Psr\Http\Message\RequestInterface;
 
 // TODO:
-class Instagram extends EmbedParserAbstract
+class Instagram extends EmbedParserAbstract implements EmbedParserOEmbedInterface
 {
 
     public function oEmbedRequestFilter(RequestInterface $request): RequestInterface
@@ -25,7 +26,7 @@ class Instagram extends EmbedParserAbstract
         return $request->withUri($uri);
     }
 
-    public function oEmbedRegex()
+    public function regex()
     {
         return [
             "http://instagram.com/.*/p/.*,",

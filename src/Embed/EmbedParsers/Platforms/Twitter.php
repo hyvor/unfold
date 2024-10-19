@@ -3,11 +3,12 @@
 namespace Hyvor\Unfold\Embed\EmbedParsers\Platforms;
 
 use Hyvor\Unfold\Embed\EmbedParsers\EmbedParserAbstract;
+use Hyvor\Unfold\Embed\EmbedParsers\EmbedParserOEmbedInterface;
 
-class Twitter extends EmbedParserAbstract
+class Twitter extends EmbedParserAbstract implements EmbedParserOEmbedInterface
 {
 
-    public function oEmbedRegex()
+    public function regex()
     {
         return [
             "https://twitter.com/.*",

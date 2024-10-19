@@ -7,7 +7,7 @@ use Hyvor\Unfold\Embed\EmbedParsers\EmbedParserAbstract;
 class Tiktok extends EmbedParserAbstract
 {
 
-    public function oEmbedRegex()
+    public function regex()
     {
         return [
             "https://www.tiktok.com/.*",

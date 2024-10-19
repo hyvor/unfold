@@ -15,13 +15,13 @@ use Psr\Http\Message\RequestInterface;
  */
 abstract class EmbedParserAbstract
 {
-    protected UnfoldConfig $config;
+    protected UnfoldConfigObject $config;
 
     public function __construct(
         protected string $url,
-        ?UnfoldConfig $config = null,
+        ?UnfoldConfigObject $config = null,
     ) {
-        $this->config = $config ?? new UnfoldConfig();
+        $this->config = $config ?? new UnfoldConfigObject();
     }
 
 
