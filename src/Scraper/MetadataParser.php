@@ -20,10 +20,10 @@ class MetadataParser
      */
     public function parse(): array
     {
+
         $crawler = new Crawler($this->content);
 
         $crawler->filterXPath('//meta')->each(function (Crawler $node) {
-
             $meta = [
                 'description' => MetadataKey::DESCRIPTION,
                 'robots' => MetadataKey::ROBOTS,
@@ -67,7 +67,7 @@ class MetadataParser
                 // add other tags here
             ];
 
-            $name = $node->attr('name') ?? ($node->attr('property') && str_starts_with($node->attr('property'), 'og:'));
+            $name = $node->attr('name') ?? $node->attr('property');
 
             if (!$name) {
                 return;
