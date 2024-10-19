@@ -18,7 +18,7 @@ abstract class EmbedParserAbstract
     protected UnfoldConfig $config;
 
     public function __construct(
-        private string $url,
+        protected string $url,
         ?UnfoldConfig $config = null,
     ) {
         $this->config = $config ?? new UnfoldConfig();
@@ -42,7 +42,7 @@ abstract class EmbedParserAbstract
      * / is safe to use without escaping
      * @return string[]
      */
-    protected abstract function regex();
+    abstract public function regex();
 
     /**
      * If the request needs to be modified before sending to the oEmbed endpoint,
@@ -54,7 +54,7 @@ abstract class EmbedParserAbstract
 
     public function match(): bool
     {
-        $regex = $this->oEmbedRegex();
+        $regex = $this->regex();
 
         foreach ($regex as $reg) {
             if (preg_match("~$reg~", $this->url)) {

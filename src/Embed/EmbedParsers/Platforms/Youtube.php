@@ -3,10 +3,11 @@
 namespace Hyvor\Unfold\Embed\EmbedParsers\Platforms;
 
 use Hyvor\Unfold\Embed\EmbedParsers\EmbedParserAbstract;
+use Hyvor\Unfold\Embed\EmbedParsers\EmbedParserOEmbedInterface;
 
-class Youtube extends EmbedParserAbstract
+class Youtube extends EmbedParserAbstract implements EmbedParserOEmbedInterface
 {
-    public function oEmbedRegex()
+    public function regex()
     {
         return [
             "https://.*.youtube.com/watch.*",
