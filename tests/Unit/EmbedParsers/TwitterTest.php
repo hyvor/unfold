@@ -2,7 +2,7 @@
 
 namespace Unit\Parsers;
 
-use Hyvor\Unfold\Embed\EmbedParsers\Twitter;
+use Hyvor\Unfold\Embed\EmbedParsers\Platforms\Twitter;
 
 it('configs', function () {
     $youtube = new Twitter(

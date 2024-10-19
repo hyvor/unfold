@@ -9,7 +9,7 @@ use Hyvor\Unfold\Objects\UnfoldedObject;
 
 /**
  * getMetadataFromKeys
-*/
+ */
 global $metadata;
 $metadata = [
     new MetadataObject(MetadataKeyEnum::TWITTER_TITLE, 'Twitter Title'),
@@ -19,7 +19,6 @@ $metadata = [
 ];
 
 it('gets metadata from key array', function () {
-
     global $metadata;
     $metadataValue = UnfoldedObject::getMetadataFromKeys($metadata, [
         MetadataKeyEnum::TITLE,
@@ -30,7 +29,6 @@ it('gets metadata from key array', function () {
 });
 
 it('gets metadata from key array 2', function () {
-
     global $metadata;
     $metadataValue = UnfoldedObject::getMetadataFromKeys($metadata, [
         MetadataKeyEnum::OG_TITLE,
@@ -41,7 +39,6 @@ it('gets metadata from key array 2', function () {
 });
 
 it('returns null when no metadata found', function () {
-
     global $metadata;
     $metadataValue = UnfoldedObject::getMetadataFromKeys($metadata, [
         MetadataKeyEnum::OG_IMAGE,
@@ -50,7 +47,6 @@ it('returns null when no metadata found', function () {
 });
 
 it('returns null when no keys are given', function () {
-
     global $metadata;
     $metadataValue = UnfoldedObject::getMetadataFromKeys($metadata, []);
     expect($metadataValue)->toBeNull();

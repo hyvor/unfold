@@ -3,6 +3,7 @@
 namespace Hyvor\Unfold\Embed\EmbedParsers;
 
 use Hyvor\Unfold\UnfoldConfigObject;
+use Hyvor\Unfold\Embed\EmbedParsers\Platforms\Youtube;
 
 class EmbedParsers
 {
