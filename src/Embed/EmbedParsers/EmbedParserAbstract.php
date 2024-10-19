@@ -1,18 +1,18 @@
 <?php
 
-namespace Hyvor\Unfold\Embed\Parsers;
+namespace Hyvor\Unfold\Embed\EmbedParsers;
 
 use GuzzleHttp\Psr7\Request;
 use GuzzleHttp\Psr7\Uri;
-use Hyvor\Unfold\Embed\Parsers\Exception\ParserException;
-use Hyvor\Unfold\UnfoldConfig;
+use Hyvor\Unfold\Embed\EmbedParsers\Exception\ParserException;
+use Hyvor\Unfold\UnfoldConfigObject;
 use Psr\Http\Client\ClientExceptionInterface;
 
 /**
- * Parser is used to match a URL with a regex pattern and get embed HTML code
+ * EmbedParserAbstract is used to match a URL with a regex pattern and get embed HTML code
  * Optionally, it would return metadata as well
  */
-abstract class Parser
+abstract class EmbedParserAbstract
 {
     private UnfoldConfig $config;
 
@@ -23,19 +23,32 @@ abstract class Parser
         $this->config = $config ?? new UnfoldConfig();
     }
 
+
+    /**
+     * TODO: This is not yet used
+     * If the URL needs to be replaced before sending to the oEmbed endpoint,
+     * return the new URL here. Otherwise, return null
+     * Ex: m.facebook.com -> www.facebook.com
+     */
+    public function replaceUrl(): ?string
+    {
+        return null;
+    }
+
+
     /**
      * PCRE regex patterns to match the URL
      * Delimiter should not be added. ~ will be added automatically
      * / is safe to use without escaping
      * @return string[]
      */
-    abstract public function regex();
+    abstract public function oEmbedRegex();
 
     abstract public function oEmbedUrl(): ?string;
 
     public function match(): bool
     {
-        $regex = $this->regex();
+        $regex = $this->oEmbedRegex();
 
         foreach ($regex as $reg) {
             if (preg_match("~$reg~", $this->url)) {
@@ -67,7 +80,7 @@ abstract class Parser
             'GET',
             $uri,
             [
-                'Accept' => 'application/json',
+                'Accept' => 'application/json'
             ],
         );
 
@@ -77,8 +90,7 @@ abstract class Parser
         } catch (ClientExceptionInterface $e) {
             throw new ParserException(
                 "Failed to fetch oEmbed data from the endpoint",
-                0,
-                $e
+                previous: $e
             );
         }
 

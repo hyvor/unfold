@@ -1,0 +1,37 @@
+<iframe
+        style="border:none;width:100%"
+        srcdoc="<body style='margin:0;background-color:blue;'>
+
+        <blockquote class='reddit-embed-bq' style='height:500px'>
+        <a href='https://www.reddit.com/r/math/comments/66k3c0/ive_just_start_reading_this_1910_book_calculus/'>I&#39;ve
+            just start reading this 1910 book &#34;calculus made easy&#34;</a><br> by
+        <a href='https://www.reddit.com/user/finallyifoundvalidUN/'>u/finallyifoundvalidUN</a> in
+        <a href='https://www.reddit.com/r/math/'>math</a>
+        </blockquote>
+        <script async src='https://embed.reddit.com/widgets.js' charset='UTF-8'></script>
+
+        <script>
+            sendHeight();
+
+            const mutation = new MutationObserver(sendHeight);
+            mutation.observe(document.body, {attributes: false, childList: true, subtree: true});
+
+            window.addEventListener('load', sendHeight);
+            window.addEventListener('resize', sendHeight);
+
+            function sendHeight() {
+                var height = document.body.scrollHeight;
+                window.parent.postMessage({height: height}, '*');
+            }
+        </script>
+    </body>"
+        sandbox="allow-scripts allow-modals"
+></iframe>
+<script>
+    window.addEventListener('message', function (event) {
+        if (event.data.height) {
+            var iframe = document.querySelector('iframe');
+            iframe.style.height = event.data.height + 'px';
+        }
+    });
+</script>
