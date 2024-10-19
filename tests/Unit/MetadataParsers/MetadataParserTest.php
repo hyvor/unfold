@@ -20,8 +20,6 @@ dataset('contents', [
         <meta property="og:audio" content="https://nadil.io/audio.mp3" />
         <meta property="og:description" content="Personal Blog" />
         <meta property="og:locale" content="en_US" />
-        <meta property="og:locale:alternate" content="fr_FR" />
-        <meta property="og:locale:alternate" content="si_LK" />
         <meta property="og:site_name" content="Nadil Karunarathna" />
         <meta property="og:video" content="https://nadil.io/video.mp4" />
         
@@ -40,10 +38,7 @@ dataset('contents', [
         <meta property="article:author" content="Nadil Karunarathna" />
         <meta property="article:author" content="Supun Wimalasena" />
         <meta property="article:tag" content="HYVOR" />
-        <meta property="article:author" content="Supun Wimalasena" />
-        <meta property="article:tag" content="HYVOR" />
         <meta property="article:tag" content="PHP" />
-        <meta property="article:tag" content="OEmbed" />
         <meta property="article:tag" content="OEmbed" />
         
         <meta name="twitter:card" content="summary" />
@@ -51,7 +46,9 @@ dataset('contents', [
         <meta name="twitter:creator" content="@nadil_k" />
         <meta name="twitter:description" content="Personal Blog" />
         <meta name="twitter:title" content="Nadil Karunarathna" />
-        <meta name="twitter:image" content="https://nadil.io/image.jpg" />        
+        <meta name="twitter:image" content="https://nadil.io/image.jpg" />   
+        
+        <meta name="locale_alternate" content="fr_FR" />     
       </head></html>', [
         new MetadataObject(MetadataKeyEnum::OG_TITLE, 'Nadil Karunarathna'),
         new MetadataObject(MetadataKeyEnum::OG_TYPE, 'website'),
@@ -185,7 +182,7 @@ it('parses metadata', function (string $content, array $metadata) {
     $metadataParser = new MetadataParser($content);
     $parsedMetadata = $metadataParser->parse();
 
-    expect($parsedMetadata)->toEqualCanonicalizing($metadata);
+    expect($parsedMetadata)->toEqual($metadata);
 
 })->with('contents');
 

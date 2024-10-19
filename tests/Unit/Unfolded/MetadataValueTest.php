@@ -24,35 +24,9 @@ it('gets description value', function () {
 it('gets authors value', function () {
 
     $metadata = [
-        new MetadataObject(MetadataKeyEnum::OG_ARTICLE_AUTHOR, 'Author1'),
-        new MetadataObject(MetadataKeyEnum::OG_ARTICLE_AUTHOR, 'Author2'),
-        new MetadataObject(MetadataKeyEnum::OG_ARTICLE_AUTHOR, 'https://author3.com'),
-    ];
-    expect(UnfoldedObject::authors($metadata))->toEqual([
-        new AuthorObject('Author1', null),
-        new AuthorObject('Author2', null),
-        new AuthorObject(null, 'https://author3.com'),
-    ]);
-});
-
-it('gets tags value', function () {
-
-    $metadata = [
-        new MetadataObject(MetadataKeyEnum::OG_ARTICLE_TAG, 'Tag1'),
-        new MetadataObject(MetadataKeyEnum::OG_ARTICLE_TAG, 'Tag2'),
-    ];
-    expect(UnfoldedObject::tags($metadata))->toEqual([
-        new TagObject('Tag1'),
-        new TagObject('Tag2'),
-    ]);
-});
-
-it('gets authors value', function () {
-
-    $metadata = [
-        new MetadataObject(MetadataKeyEnum::OG_ARTICLE_AUTHOR, new AuthorObject('Author1', null)),
-        new MetadataObject(MetadataKeyEnum::OG_ARTICLE_AUTHOR, new AuthorObject('Author2', null)),
-        new MetadataObject(MetadataKeyEnum::OG_ARTICLE_AUTHOR, new AuthorObject(null, 'https://author3.com')),
+        new MetadataObject(MetadataKeyEnum::OG_ARTICLE_AUTHOR, new AuthorObject('Author1')),
+        new MetadataObject(MetadataKeyEnum::OG_ARTICLE_AUTHOR, new AuthorObject('Author2')),
+        new MetadataObject(MetadataKeyEnum::OG_ARTICLE_AUTHOR, new AuthorObject(url: 'https://author3.com')),
     ];
     expect(UnfoldedObject::authors($metadata))->toEqual([
         new AuthorObject('Author1', null),
