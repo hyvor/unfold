@@ -52,8 +52,6 @@ dataset('contents', [
         new Metadata(MetadataKey::OG_AUDIO, 'https://nadil.io/audio.mp3'),
         new Metadata(MetadataKey::OG_DESCRIPTION, 'Personal Blog'),
         new Metadata(MetadataKey::OG_LOCALE, 'en_US'),
-        new Metadata(MetadataKey::OG_LOCALE_ALTERNATE, 'fr_FR'),
-        new Metadata(MetadataKey::OG_LOCALE_ALTERNATE, 'si_LK'),
         new Metadata(MetadataKey::OG_SITE_NAME, 'Nadil Karunarathna'),
         new Metadata(MetadataKey::OG_VIDEO, 'https://nadil.io/video.mp4'),
 

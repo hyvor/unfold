@@ -7,7 +7,9 @@ enum MetadataKey
     case TITLE;  // TODO: Parse this
 
     case DESCRIPTION;
-    case ROBOTS; // TODO: Handle this
+    case FAVICON; // TODO: Parse this
+    case LOCALE;  // TODO: Parse this
+    case CANONICAL_URL; // TODO: Parse this
 
     case OG_TITLE;
     case OG_TYPE;
@@ -17,7 +19,6 @@ enum MetadataKey
     case OG_AUDIO;
     case OG_DESCRIPTION;
     case OG_LOCALE;
-    case OG_LOCALE_ALTERNATE;
     case OG_SITE_NAME;
     case OG_VIDEO;
 
