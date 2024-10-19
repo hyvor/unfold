@@ -2,7 +2,7 @@
 
 namespace Hyvor\Unfold\Embed\Parsers;
 
-use Hyvor\Unfold\Types\UnfoldConfig;
+use Hyvor\Unfold\UnfoldConfig;
 
 class Parsers
 {

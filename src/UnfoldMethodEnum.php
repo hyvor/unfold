@@ -1,8 +1,8 @@
 <?php
 
-namespace Hyvor\Unfold\Types;
+namespace Hyvor\Unfold;
 
-enum Method: string
+enum UnfoldMethodEnum: string
 {
     case LINK = 'link';
     case EMBED = 'embed';

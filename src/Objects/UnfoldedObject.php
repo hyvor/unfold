@@ -1,32 +1,33 @@
 <?php
 
-namespace Hyvor\Unfold\Types;
+namespace Hyvor\Unfold\Objects;
 
-use DateTimeInterface;
-use Hyvor\Unfold\Scraper\Metadata;
-use Hyvor\Unfold\Scraper\MetadataKey;
 use DateTimeImmutable;
+use DateTimeInterface;
 use Exception;
-class Unfolded
+use Hyvor\Unfold\MetadataParsers\MetadataKeyEnum;
+use Hyvor\Unfold\UnfoldMethodEnum;
+
+class UnfoldedObject
 {
     public string $version;
 
     /**
-     * @param Author[] $authors
-     * @param Tag[] $tags
+     * @param AuthorObject[] $authors
+     * @param TagObject[] $tags
      */
     public function __construct(
-        public Method  $method,
-        public string $url,
+        public UnfoldMethodEnum $method,
+        public string           $url,
 
-        public ?string $embed,
-        public ?string $title,
-        public ?string $description,
-        public array $authors,
-        public array $tags,
-        public ?string $siteName,
-        public ?string $siteUrl,
-        public ?string $canonicalUrl,
+        public ?string          $embed,
+        public ?string          $title,
+        public ?string          $description,
+        public array            $authors,
+        public array            $tags,
+        public ?string          $siteName,
+        public ?string          $siteUrl,
+        public ?string          $canonicalUrl,
         public ?DateTimeInterface $publishedTime,
         public ?DateTimeInterface $modifiedTime,
         public ?string $thumbnailUrl,
@@ -40,138 +41,138 @@ class Unfolded
     }
 
     /**
-     * @param Metadata[] $metadata
+     * @param MetadataObject[] $metadata
      */
     public static function title(array $metadata): ?string
     {
         return self::getMetadataFromKeys($metadata, [
-            MetadataKey::TITLE,
-            MetadataKey::OG_TITLE,
-            MetadataKey::TWITTER_TITLE
+            MetadataKeyEnum::TITLE,
+            MetadataKeyEnum::OG_TITLE,
+            MetadataKeyEnum::TWITTER_TITLE
         ]);
     }
 
     /**
-     * @param Metadata[] $metadata
+     * @param MetadataObject[] $metadata
      */
     public static function description(array $metadata): ?string
     {
         return self::getMetadataFromKeys($metadata, [
-            MetadataKey::DESCRIPTION,
-            MetadataKey::OG_DESCRIPTION,
-            MetadataKey::TWITTER_DESCRIPTION
+            MetadataKeyEnum::DESCRIPTION,
+            MetadataKeyEnum::OG_DESCRIPTION,
+            MetadataKeyEnum::TWITTER_DESCRIPTION
         ]);
     }
 
     /**
-     * @param Metadata[] $metadata
+     * @param MetadataObject[] $metadata
      */
     public static function authors(array $metadata): array
     {
         $authors = [];
         foreach ($metadata as $meta) {
-            if ($meta->key === MetadataKey::OG_ARTICLE_AUTHOR) {
+            if ($meta->key === MetadataKeyEnum::OG_ARTICLE_AUTHOR) {
                 if (str_contains($meta->value, 'http://') || str_contains($meta->value, 'https://')) {
-                    $authors[] = new Author(null, $meta->value);
+                    $authors[] = new AuthorObject(null, $meta->value);
                 } else {
-                    $authors[] = new Author($meta->value, null);
+                    $authors[] = new AuthorObject($meta->value, null);
                 }
-            } elseif ($meta->key === MetadataKey::TWITTER_CREATOR) {
-                $authors[] = new Author($meta->value, null);
+            } elseif ($meta->key === MetadataKeyEnum::TWITTER_CREATOR) {
+                $authors[] = new AuthorObject($meta->value, null);
             }
         }
         return $authors;
     }
 
     /**
-     * @param Metadata[] $metadata
+     * @param MetadataObject[] $metadata
      */
     public static function siteName(array $metadata): ?string
     {
         return self::getMetadataFromKeys($metadata, [
-            MetadataKey::OG_SITE_NAME,
-            MetadataKey::TWITTER_SITE
+            MetadataKeyEnum::OG_SITE_NAME,
+            MetadataKeyEnum::TWITTER_SITE
         ]);
     }
 
     /**
-     * @param Metadata[] $metadata
+     * @param MetadataObject[] $metadata
      */
     public static function siteUrl(array $metadata): ?string
     {
         return self::getMetadataFromKeys($metadata, [
-            MetadataKey::OG_URL
+            MetadataKeyEnum::OG_URL
         ]);
     }
 
     /**
-     * @param Metadata[] $metadata
+     * @param MetadataObject[] $metadata
      */
     public static function canonicalUrl(array $metadata): ?string
     {
         return self::getMetadataFromKeys($metadata, [
-            MetadataKey::CANONICAL_URL
+            MetadataKeyEnum::CANONICAL_URL
         ]);
     }
 
     /**
-     * @param Metadata[] $metadata
+     * @param MetadataObject[] $metadata
      */
     public static function publishedTime(array $metadata): ?DateTimeInterface
     {
         return self::getDateTimeFromString(self::getMetadataFromKeys($metadata, [
-            MetadataKey::OG_ARTICLE_PUBLISHED_TIME
+            MetadataKeyEnum::OG_ARTICLE_PUBLISHED_TIME
         ]));
     }
 
     /**
-     * @param Metadata[] $metadata
+     * @param MetadataObject[] $metadata
      */
     public static function modifiedTime(array $metadata): ?DateTimeInterface
     {
         return self::getDateTimeFromString(self::getMetadataFromKeys($metadata, [
-            MetadataKey::OG_ARTICLE_MODIFIED_TIME
+            MetadataKeyEnum::OG_ARTICLE_MODIFIED_TIME
         ]));
     }
 
     /**
-     * @param Metadata[] $metadata
+     * @param MetadataObject[] $metadata
      */
     public static function thumbnailUrl(array $metadata): ?string
     {
         return self::getMetadataFromKeys($metadata, [
-            MetadataKey::OG_IMAGE,
-            MetadataKey::OG_IMAGE_URL,
-            MetadataKey::OG_IMAGE_SECURE_URL,
-            MetadataKey::TWITTER_IMAGE
+            MetadataKeyEnum::OG_IMAGE,
+            MetadataKeyEnum::OG_IMAGE_URL,
+            MetadataKeyEnum::OG_IMAGE_SECURE_URL,
+            MetadataKeyEnum::TWITTER_IMAGE
         ]);
     }
 
     /**
-     * @param Metadata[] $metadata
+     * @param MetadataObject[] $metadata
      */
     public static function iconUrl(array $metadata): ?string
     {
         return self::getMetadataFromKeys($metadata, [
-            MetadataKey::FAVICON
+            MetadataKeyEnum::FAVICON_URL
         ]);
     }
 
     /**
-     * @param Metadata[] $metadata
+     * @param MetadataObject[] $metadata
      */
     public static function locale(array $metadata): ?string
     {
         return self::getMetadataFromKeys($metadata, [
-            MetadataKey::LOCALE,
-            MetadataKey::OG_LOCALE
+            MetadataKeyEnum::LOCALE,
+            MetadataKeyEnum::OG_LOCALE
         ]);
     }
 
     // Helpers
     /**
-     * @param Metadata[] $metadata
-     * @param MetadataKey[] $keys
+     * @param MetadataObject[] $metadata
+     * @param MetadataKeyEnum[] $keys
      */
     public static function getMetadataFromKeys(array $metadata, array $keys): ?string
     {

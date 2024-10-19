@@ -1,8 +1,8 @@
 <?php
 
-namespace Hyvor\Unfold\Types;
+namespace Hyvor\Unfold\Objects;
 
-class Author
+class AuthorObject
 {
     public function __construct(
         public ?string $name,

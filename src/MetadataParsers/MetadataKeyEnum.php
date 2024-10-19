@@ -1,15 +1,15 @@
 <?php
 
-namespace Hyvor\Unfold\Scraper;
+namespace Hyvor\Unfold\MetadataParsers;
 
-enum MetadataKey
+enum MetadataKeyEnum
 {
-    case TITLE;  // TODO: Parse this
+    case TITLE;
 
     case DESCRIPTION;
-    case FAVICON; // TODO: Parse this
-    case LOCALE;  // TODO: Parse this
-    case CANONICAL_URL; // TODO: Parse this
+    case FAVICON_URL;
+    case LOCALE;
+    case CANONICAL_URL;
 
     case OG_TITLE;
     case OG_TYPE;

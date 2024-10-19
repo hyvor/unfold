@@ -2,12 +2,12 @@
 
 namespace Hyvor\Unfold\Tests\Unit;
 
-use Hyvor\Unfold\Scraper\Metadata;
-use Hyvor\Unfold\Scraper\MetadataKey;
-use Hyvor\Unfold\Scraper\MetadataParser;
+use Hyvor\Unfold\MetadataParsers\MetadataKeyEnum;
+use Hyvor\Unfold\MetadataParsers\MetadataParser;
+use Hyvor\Unfold\Objects\MetadataObject;
 
 dataset('contents', [
-    'all valid tags' => ['<html><head>
+    'all valid og and twitter tags' => ['<html><head>
         <meta property="og:title" content="Nadil Karunarathna" />
         <meta property="og:type" content="website" />
         <meta property="og:image" content="https://nadil.io/image.jpg" />
@@ -41,47 +41,48 @@ dataset('contents', [
         <meta name="twitter:creator" content="@nadil_k" />
         <meta name="twitter:description" content="Personal Blog" />
         <meta name="twitter:title" content="Nadil Karunarathna" />
-        <meta name="twitter:image" content="https://nadil.io/image.jpg" />
-        
+        <meta name="twitter:image" content="https://nadil.io/image.jpg" />        
       </head></html>', [
-        new Metadata(MetadataKey::OG_TITLE, 'Nadil Karunarathna'),
-        new Metadata(MetadataKey::OG_TYPE, 'website'),
-        new Metadata(MetadataKey::OG_IMAGE, 'https://nadil.io/image.jpg'),
-        new Metadata(MetadataKey::OG_URL, 'https://nadil.io'),
+        new MetadataObject(MetadataKeyEnum::OG_TITLE, 'Nadil Karunarathna'),
+        new MetadataObject(MetadataKeyEnum::OG_TYPE, 'website'),
+        new MetadataObject(MetadataKeyEnum::OG_IMAGE, 'https://nadil.io/image.jpg'),
+        new MetadataObject(MetadataKeyEnum::OG_URL, 'https://nadil.io'),
 
-        new Metadata(MetadataKey::OG_AUDIO, 'https://nadil.io/audio.mp3'),
-        new Metadata(MetadataKey::OG_DESCRIPTION, 'Personal Blog'),
-        new Metadata(MetadataKey::OG_LOCALE, 'en_US'),
-        new Metadata(MetadataKey::OG_SITE_NAME, 'Nadil Karunarathna'),
-        new Metadata(MetadataKey::OG_VIDEO, 'https://nadil.io/video.mp4'),
+        new MetadataObject(MetadataKeyEnum::OG_AUDIO, 'https://nadil.io/audio.mp3'),
+        new MetadataObject(MetadataKeyEnum::OG_DESCRIPTION, 'Personal Blog'),
+        new MetadataObject(MetadataKeyEnum::OG_LOCALE, 'en_US'),
+        new MetadataObject(MetadataKeyEnum::OG_SITE_NAME, 'Nadil Karunarathna'),
+        new MetadataObject(MetadataKeyEnum::OG_VIDEO, 'https://nadil.io/video.mp4'),
 
-        new Metadata(MetadataKey::OG_IMAGE_URL, 'https://nadil.io/image.jpg'),
-        new Metadata(MetadataKey::OG_IMAGE_SECURE_URL, 'https://nadil.io/image.jpg'),
-        new Metadata(MetadataKey::OG_IMAGE_TYPE, 'image/jpeg'),
+        new MetadataObject(MetadataKeyEnum::OG_IMAGE_URL, 'https://nadil.io/image.jpg'),
+        new MetadataObject(MetadataKeyEnum::OG_IMAGE_SECURE_URL, 'https://nadil.io/image.jpg'),
+        new MetadataObject(MetadataKeyEnum::OG_IMAGE_TYPE, 'image/jpeg'),
 
-        new Metadata(MetadataKey::OG_VIDEO_SECURE_URL, 'https://nadil.io/video.mp4'),
-        new Metadata(MetadataKey::OG_VIDEO_TYPE, 'video/mp4'),
+        new MetadataObject(MetadataKeyEnum::OG_VIDEO_SECURE_URL, 'https://nadil.io/video.mp4'),
+        new MetadataObject(MetadataKeyEnum::OG_VIDEO_TYPE, 'video/mp4'),
 
-        new Metadata(MetadataKey::OG_AUDIO_SECURE_URL, 'https://nadil.io/audio.mp3'),
-        new Metadata(MetadataKey::OG_AUDIO_TYPE, 'audio/mpeg'),
+        new MetadataObject(MetadataKeyEnum::OG_AUDIO_SECURE_URL, 'https://nadil.io/audio.mp3'),
+        new MetadataObject(MetadataKeyEnum::OG_AUDIO_TYPE, 'audio/mpeg'),
 
-        new Metadata(MetadataKey::OG_ARTICLE_PUBLISHED_TIME, '2021-10-10T10:10:10Z'),
-        new Metadata(MetadataKey::OG_ARTICLE_MODIFIED_TIME, '2021-10-10T10:10:10Z'),
-        new Metadata(MetadataKey::OG_ARTICLE_AUTHOR, 'Nadil Karunarathna'),
-        new Metadata(MetadataKey::OG_ARTICLE_TAG, 'PHP'),
+        new MetadataObject(MetadataKeyEnum::OG_ARTICLE_PUBLISHED_TIME, '2021-10-10T10:10:10Z'),
+        new MetadataObject(MetadataKeyEnum::OG_ARTICLE_MODIFIED_TIME, '2021-10-10T10:10:10Z'),
+        new MetadataObject(MetadataKeyEnum::OG_ARTICLE_AUTHOR, 'Nadil Karunarathna'),
+        new MetadataObject(MetadataKeyEnum::OG_ARTICLE_TAG, 'PHP'),
 
-        new Metadata(MetadataKey::TWITTER_CARD, 'summary'),
-        new Metadata(MetadataKey::TWITTER_SITE, '@nadil_k'),
-        new Metadata(MetadataKey::TWITTER_CREATOR, '@nadil_k'),
-        new Metadata(MetadataKey::TWITTER_DESCRIPTION, 'Personal Blog'),
-        new Metadata(MetadataKey::TWITTER_TITLE, 'Nadil Karunarathna'),
-        new Metadata(MetadataKey::TWITTER_IMAGE, 'https://nadil.io/image.jpg'),
+        new MetadataObject(MetadataKeyEnum::TWITTER_CARD, 'summary'),
+        new MetadataObject(MetadataKeyEnum::TWITTER_SITE, '@nadil_k'),
+        new MetadataObject(MetadataKeyEnum::TWITTER_CREATOR, '@nadil_k'),
+        new MetadataObject(MetadataKeyEnum::TWITTER_DESCRIPTION, 'Personal Blog'),
+        new MetadataObject(MetadataKeyEnum::TWITTER_TITLE, 'Nadil Karunarathna'),
+        new MetadataObject(MetadataKeyEnum::TWITTER_IMAGE, 'https://nadil.io/image.jpg'),
     ]],
 
     'no metadata' => ['<html><head></head><body></body></html>', []],
     'og tag in the body' => [
         '<html><head></head><body><meta property="og:title" content="Nadil Karunarathna" /></body></html>',
-        [new Metadata(MetadataKey::OG_TITLE, 'Nadil Karunarathna')]
+        [
+            new MetadataObject(MetadataKeyEnum::OG_TITLE, 'Nadil Karunarathna')
+        ]
     ],
     'no content' => [
         '<html><head><meta property="og:title" /></head><body></body></html>',
@@ -89,7 +90,9 @@ dataset('contents', [
     ],
     'unclosed meta tag' => [
         '<html><head><meta property="og:title" content="Nadil Karunarathna"></head><body></body></html>',
-        [new Metadata(MetadataKey::OG_TITLE, 'Nadil Karunarathna')]
+        [
+            new MetadataObject(MetadataKeyEnum::OG_TITLE, 'Nadil Karunarathna')
+        ]
     ],
     'no name or property' => [
         '<html><head><meta content="Nadil Karunarathna" /></head><body></body></html>',
@@ -97,17 +100,45 @@ dataset('contents', [
     ],
     'non ascii content' => [
         '<meta property="og:title" content="නදිල් කරුණාරත්න" />',
-        [new Metadata(MetadataKey::OG_TITLE, 'නදිල් කරුණාරත්න')]
+        [new MetadataObject(MetadataKeyEnum::OG_TITLE, 'නදිල් කරුණාරත්න')]
     ],
     'non ascii 2' => [
         '<meta property="og:title" content="Nas manhãs de domingo" />',
         [
-            new Metadata(MetadataKey::OG_TITLE, 'Nas manhãs de domingo')
+            new MetadataObject(MetadataKeyEnum::OG_TITLE, 'Nas manhãs de domingo')
         ]
     ],
     'without html tags' => [
         '<meta property="og:title" content="Nadil Karunarathna" />',
-        [new Metadata(MetadataKey::OG_TITLE, 'Nadil Karunarathna')]
+        [
+            new MetadataObject(MetadataKeyEnum::OG_TITLE, 'Nadil Karunarathna')
+        ]
+    ],
+    'title tag' => [
+        '<title>Nadil Karunarathna</title>',
+        [
+            new MetadataObject(MetadataKeyEnum::TITLE, 'Nadil Karunarathna')
+        ]
+    ],
+    'meta description' => [
+        '<meta name="description" content="Personal Blog" />',
+        [
+            new MetadataObject(MetadataKeyEnum::DESCRIPTION, 'Personal Blog')
+        ]
+    ],
+    'link tags' => [
+        '<link rel="canonical" href="https://nadil.io" />
+         <link rel="icon" href="https://nadil.io/favicon.ico" />',
+        [
+            new MetadataObject(MetadataKeyEnum::CANONICAL_URL, 'https://nadil.io'),
+            new MetadataObject(MetadataKeyEnum::FAVICON_URL, 'https://nadil.io/favicon.ico')
+        ]
+    ],
+    'html lang' => [
+        '<html lang="en"></html>',
+        [
+            new MetadataObject(MetadataKeyEnum::LOCALE, 'en')
+        ]
     ],
 ]);
 

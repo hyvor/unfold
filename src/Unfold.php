@@ -2,16 +2,14 @@
 
 namespace Hyvor\Unfold;
 
-use Hyvor\Unfold\Scraper\Metadata;
-use Hyvor\Unfold\Scraper\MetadataParser;
+use Hyvor\Unfold\MetadataParsers\MetadataParser;
+use Hyvor\Unfold\Objects\UnfoldedObject;
 use Hyvor\Unfold\Scraper\Scraper;
-use Hyvor\Unfold\Types\UnfoldConfig;
-use Hyvor\Unfold\Types\Unfolded;
 
 class Unfold
 {
 
-    public static function unfold(string $url, UnfoldConfig $unfoldConfig): Unfolded
+    public static function unfold(string $url, UnfoldConfig $unfoldConfig): UnfoldedObject
     {
         $startTime = microtime(true);
         $content = (new Scraper($url))->scrape();
@@ -19,23 +17,23 @@ class Unfold
 
         // TODO: embed
 
-        return new Unfolded(
+        return new UnfoldedObject(
             $unfoldConfig->method,
             $url,
 
             null,
-            Unfolded::title($metadata),
-            Unfolded::description($metadata),
-            Unfolded::authors($metadata),
+            UnfoldedObject::title($metadata),
+            UnfoldedObject::description($metadata),
+            UnfoldedObject::authors($metadata),
             [],
-            Unfolded::siteName($metadata),
-            Unfolded::siteUrl($metadata),
-            Unfolded::canonicalUrl($metadata),
-            Unfolded::publishedTime($metadata),
-            Unfolded::modifiedTime($metadata),
-            Unfolded::thumbnailUrl($metadata),
-            Unfolded::iconUrl($metadata),
-            Unfolded::locale($metadata),
+            UnfoldedObject::siteName($metadata),
+            UnfoldedObject::siteUrl($metadata),
+            UnfoldedObject::canonicalUrl($metadata),
+            UnfoldedObject::publishedTime($metadata),
+            UnfoldedObject::modifiedTime($metadata),
+            UnfoldedObject::thumbnailUrl($metadata),
+            UnfoldedObject::iconUrl($metadata),
+            UnfoldedObject::locale($metadata),
             (microtime(true) - $startTime) * 1000,
         );
     }

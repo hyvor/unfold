@@ -5,7 +5,7 @@ namespace Hyvor\Unfold\Embed\Parsers;
 use GuzzleHttp\Psr7\Request;
 use GuzzleHttp\Psr7\Uri;
 use Hyvor\Unfold\Embed\Parsers\Exception\ParserException;
-use Hyvor\Unfold\Types\UnfoldConfig;
+use Hyvor\Unfold\UnfoldConfig;
 use Psr\Http\Client\ClientExceptionInterface;
 
 /**

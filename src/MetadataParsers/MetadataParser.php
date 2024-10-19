@@ -1,21 +1,16 @@
 <?php
 
-namespace Hyvor\Unfold\Scraper;
+namespace Hyvor\Unfold\MetadataParsers;
 
-use Hyvor\Unfold\Scraper\MetadataParsers\OgParser;
-use Hyvor\Unfold\Scraper\MetadataParsers\TwitterParser;
+use Hyvor\Unfold\Objects\MetadataObject;
 use Symfony\Component\DomCrawler\Crawler;
 
 class MetadataParser
 {
-    // TODO: <title>
-    // TODO: favicon
-    // TODO: <link> canonical
-    // TODO: <html lang>
     // TODO: Rich Schema
 
     /**
-     * @var Metadata[]
+     * @var MetadataObject[]
      */
     private array $metadata = [];
 
@@ -31,31 +26,34 @@ class MetadataParser
     }
 
     /**
-     * @return Metadata[]
+     * @return MetadataObject[]
      */
     public function parse(): array
     {
-
         $parsers = [
+            HtmlLangParser::class,
+            TitleParser::class,
+            DescriptionParser::class,
+            LinkParser::class,
             OgParser::class,
             TwitterParser::class,
         ];
 
-        $MetaTagKeys = [];
+        $metaTagKeys = [];
 
         foreach ($parsers as $parserClass) {
             $parser = new $parserClass($this);
             $parser->add();
-            $MetaTagKeys = array_merge($MetaTagKeys, $parser->registerMetaTagsKeys());
+            $metaTagKeys = array_merge($metaTagKeys, $parser->registerMetaTagsKeys());
         }
 
-        $this->addMetadataFromMetaTags($MetaTagKeys);
+        $this->addMetadataFromMetaTags($metaTagKeys);
 
         return $this->metadata;
     }
 
     /**
-     * @param array<string, MetadataKey> $keys
+     * @param array<string, MetadataKeyEnum> $keys
      */
     public function addMetadataFromMetaTags(array $keys) : void
     {
@@ -80,17 +78,20 @@ class MetadataParser
                 return;
             }
 
-            $metadata[] = new Metadata($keyType, $content);
+            $metadata[] = new MetadataObject($keyType, $content);
         });
 
         $this->addMetadata($metadata);
     }
 
     /**
-     * @param Metadata[] $metadata
+     * @param MetadataObject[]|MetadataObject $metadata
      */
-    public function addMetadata(array $metadata): void
+    public function addMetadata(array|MetadataObject $metadata): void
     {
+        if (!is_array($metadata)) {
+            $metadata = [$metadata];
+        }
         $this->metadata = array_merge($this->metadata, $metadata);
     }
 }

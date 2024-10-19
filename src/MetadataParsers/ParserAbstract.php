@@ -1,9 +1,6 @@
 <?php
 
-namespace Hyvor\Unfold\Scraper\MetadataParsers;
-
-use Hyvor\Unfold\Scraper\MetadataKey;
-use Hyvor\Unfold\Scraper\MetadataParser;
+namespace Hyvor\Unfold\MetadataParsers;
 
 abstract class ParserAbstract
 {
@@ -14,7 +11,7 @@ abstract class ParserAbstract
     {}
 
     /**
-     * @return array<string, MetadataKey>
+     * @return array<string, MetadataKeyEnum>
      */
     public function registerMetaTagsKeys()
     {
