@@ -1,14 +1,14 @@
 <?php
 
-namespace Hyvor\Unfold\Embed\Parsers;
+namespace Hyvor\Unfold\Embed\EmbedParsers;
 
 use Hyvor\Unfold\Types\UnfoldConfig;
 
-class Parsers
+class EmbedParsers
 {
 
     /**
-     * @var Parser[]
+     * @var EmbedParserAbstract[]
      */
     const PARSERS = [
         Youtube::class
@@ -17,10 +17,8 @@ class Parsers
     public static function parse(
         string $url,
         ?UnfoldConfig $config = null,
-    )
-    {
+    ) {
         foreach (self::PARSERS as $parserClass) {
-
             $parser = new $parserClass($url, $config);
             if ($parser->match()) {
                 return $parser->parse();

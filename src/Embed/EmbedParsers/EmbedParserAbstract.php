@@ -1,18 +1,18 @@
 <?php
 
-namespace Hyvor\Unfold\Embed\Parsers;
+namespace Hyvor\Unfold\Embed\EmbedParsers;
 
 use GuzzleHttp\Psr7\Request;
 use GuzzleHttp\Psr7\Uri;
-use Hyvor\Unfold\Embed\Parsers\Exception\ParserException;
+use Hyvor\Unfold\Embed\EmbedParsers\Exception\ParserException;
 use Hyvor\Unfold\Types\UnfoldConfig;
 use Psr\Http\Client\ClientExceptionInterface;
 
 /**
- * Parser is used to match a URL with a regex pattern and get embed HTML code
+ * EmbedParserAbstract is used to match a URL with a regex pattern and get embed HTML code
  * Optionally, it would return metadata as well
  */
-abstract class Parser
+abstract class EmbedParserAbstract
 {
     private UnfoldConfig $config;
 

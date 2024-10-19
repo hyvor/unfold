@@ -1,8 +1,8 @@
 <?php
 
-namespace Hyvor\Unfold\Embed\Parsers;
+namespace Hyvor\Unfold\Embed\EmbedParsers;
 
-class Reddit extends Parser
+class Reddit extends EmbedParserAbstract
 {
 
     public function oEmbedRegex()

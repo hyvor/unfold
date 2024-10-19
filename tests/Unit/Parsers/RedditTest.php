@@ -2,7 +2,7 @@
 
 namespace Unit\Parsers;
 
-use Hyvor\Unfold\Embed\Parsers\Reddit;
+use Hyvor\Unfold\Embed\EmbedParsers\Reddit;
 
 it('matches reddit URLs', function (string $url) {
     $parser = new Reddit($url);

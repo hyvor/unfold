@@ -1,8 +1,8 @@
 <?php
 
-namespace Hyvor\Unfold\Embed\Parsers;
+namespace Hyvor\Unfold\Embed\EmbedParsers;
 
-class Youtube extends Parser
+class Youtube extends EmbedParserAbstract
 {
     public function oEmbedRegex()
     {
