@@ -17,6 +17,7 @@ Custom:
 
 -   Amazon
 -   Github Gist
+-   Google Maps
 
 ## Rules for selecting platforms for embeds
 

@@ -54,13 +54,16 @@ class UnfoldConfig
          */
         ?ClientInterface $httpClient = null,
 
+        /**
+         *
+         */
+        public ?string $iframeEndpoint = null,
+
         // CACHE
 
         // Facebook API Key
     )
     {
-
         $this->httpClient = $httpClient ?? new Client();
-
     }
 }
