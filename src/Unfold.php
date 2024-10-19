@@ -7,6 +7,7 @@ use Hyvor\Unfold\Oembed\Oembed;
 use Hyvor\Unfold\Scraper\Metadata;
 use Hyvor\Unfold\Scraper\MetadataParser;
 use Hyvor\Unfold\Scraper\Scraper;
+use Hyvor\Unfold\Types\UnfoldConfig;
 use Hyvor\Unfold\Types\Unfolded;
 
 class Unfold

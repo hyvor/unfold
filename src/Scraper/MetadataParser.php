@@ -43,7 +43,6 @@ class MetadataParser
                 'og:image:url' => MetadataKey::OG_IMAGE_URL,
                 'og:image:secure_url' => MetadataKey::OG_IMAGE_SECURE_URL,
                 'og:image:type' => MetadataKey::OG_IMAGE_TYPE,
-                'og:image:alt' => MetadataKey::OG_IMAGE_ALT,
 
                 'og:video:secure_url' => MetadataKey::OG_VIDEO_SECURE_URL,
                 'og:video:type' => MetadataKey::OG_VIDEO_TYPE,

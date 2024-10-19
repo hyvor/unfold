@@ -4,10 +4,10 @@ namespace Hyvor\Unfold\Scraper;
 
 enum MetadataKey
 {
-    case TITLE;
+    case TITLE;  // TODO: Parse this
 
     case DESCRIPTION;
-    case ROBOTS;
+    case ROBOTS; // TODO: Handle this
 
     case OG_TITLE;
     case OG_TYPE;
@@ -24,7 +24,7 @@ enum MetadataKey
     case OG_IMAGE_URL;
     case OG_IMAGE_SECURE_URL;
     case OG_IMAGE_TYPE;
-    case OG_IMAGE_ALT;
+
 
     case OG_VIDEO_SECURE_URL;
     case OG_VIDEO_TYPE;
