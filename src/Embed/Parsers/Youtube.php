@@ -1,6 +1,6 @@
 <?php
 
-namespace Hyvor\Unfold\Parsers;
+namespace Hyvor\Unfold\Embed\Parsers;
 
 class Youtube extends Parser
 {

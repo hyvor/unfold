@@ -2,8 +2,17 @@
 
 namespace Hyvor\Unfold\Types;
 
+use GuzzleHttp\Client;
+use Psr\Http\Client\ClientInterface;
+
 class UnfoldConfig
 {
+
+    /**
+     * A PSR-18 HTTP Client for sending oembed and other requests
+     */
+    public ClientInterface $httpClient;
+
     public function __construct(
 
         // HTTP Client
@@ -34,8 +43,17 @@ class UnfoldConfig
          */
         public bool $embedMetaFallback = false,
 
+        /**
+         * A PSR-18 HTTP Client for sending oembed and other requests
+         * If not set, a new GuzzleHttp\Client will be used
+         */
+        ?ClientInterface $httpClient = null,
+
         // Facebook API Key
     )
     {
+
+        $this->httpClient = $httpClient ?? new Client();
+
     }
 }
