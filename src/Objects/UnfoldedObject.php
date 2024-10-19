@@ -66,6 +66,7 @@ class UnfoldedObject
 
     /**
      * @param MetadataObject[] $metadata
+     * @return AuthorObject[]
      */
     public static function authors(array $metadata): array
     {
@@ -82,6 +83,21 @@ class UnfoldedObject
             }
         }
         return $authors;
+    }
+
+    /**
+     * @param MetadataObject[] $metadata
+     * @return TagObject[]
+     */
+    public static function tags(array $metadata): array
+    {
+        $tags = [];
+        foreach ($metadata as $meta) {
+            if ($meta->key === MetadataKeyEnum::OG_ARTICLE_TAG) {
+                $tags[] = new TagObject($meta->value);
+            }
+        }
+        return $tags;
     }
 
     /**

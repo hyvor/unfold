@@ -9,7 +9,7 @@ use Hyvor\Unfold\Scraper\Scraper;
 class Unfold
 {
 
-    public static function unfold(string $url, UnfoldConfig $unfoldConfig): UnfoldedObject
+    public static function unfold(string $url, UnfoldConfigObject $unfoldConfig): UnfoldedObject
     {
         $startTime = microtime(true);
         $content = (new Scraper($url))->scrape();
@@ -25,7 +25,7 @@ class Unfold
             UnfoldedObject::title($metadata),
             UnfoldedObject::description($metadata),
             UnfoldedObject::authors($metadata),
-            [],
+            UnfoldedObject::tags($metadata),
             UnfoldedObject::siteName($metadata),
             UnfoldedObject::siteUrl($metadata),
             UnfoldedObject::canonicalUrl($metadata),

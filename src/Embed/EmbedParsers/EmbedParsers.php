@@ -2,7 +2,7 @@
 
 namespace Hyvor\Unfold\Embed\EmbedParsers;
 
-use Hyvor\Unfold\UnfoldConfig;
+use Hyvor\Unfold\UnfoldConfigObject;
 
 class EmbedParsers
 {
@@ -15,8 +15,8 @@ class EmbedParsers
     ];
 
     public static function parse(
-        string $url,
-        ?UnfoldConfig $config = null,
+        string              $url,
+        ?UnfoldConfigObject $config = null,
     ) {
         foreach (self::PARSERS as $parserClass) {
             $parser = new $parserClass($url, $config);

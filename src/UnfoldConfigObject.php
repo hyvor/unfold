@@ -5,7 +5,7 @@ namespace Hyvor\Unfold;
 use GuzzleHttp\Client;
 use Psr\Http\Client\ClientInterface;
 
-class UnfoldConfig
+class UnfoldConfigObject
 {
 
     /**
