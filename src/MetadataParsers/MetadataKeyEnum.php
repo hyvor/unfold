@@ -11,6 +11,10 @@ enum MetadataKeyEnum
     case LOCALE;
     case CANONICAL_URL;
 
+    case RICH_SCHEMA_PUBLISHED_TIME;
+    case RICH_SCHEMA_MODIFIED_TIME;
+    case RICH_SCHEMA_AUTHOR;
+
     case OG_TITLE;
     case OG_TYPE;
     case OG_IMAGE;

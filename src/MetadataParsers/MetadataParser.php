@@ -2,8 +2,13 @@
 
 namespace Hyvor\Unfold\MetadataParsers;
 
+use Hyvor\Unfold\Objects\AuthorObject;
 use Hyvor\Unfold\Objects\MetadataObject;
+use Hyvor\Unfold\Objects\TagObject;
 use Symfony\Component\DomCrawler\Crawler;
+use DateTimeInterface;
+use DateTimeImmutable;
+use Exception;
 
 class MetadataParser
 {
@@ -35,6 +40,7 @@ class MetadataParser
             TitleParser::class,
             DescriptionParser::class,
             LinkParser::class,
+            JsonLdParser::class,
             OgParser::class,
             TwitterParser::class,
         ];
@@ -78,6 +84,28 @@ class MetadataParser
                 return;
             }
 
+            if (
+                $keyType === MetadataKeyEnum::OG_ARTICLE_PUBLISHED_TIME ||
+                $keyType === MetadataKeyEnum::OG_ARTICLE_MODIFIED_TIME
+            ) {
+                $content = self::getDateTimeFromString($content);
+            }
+
+            if (
+                $keyType === MetadataKeyEnum::OG_ARTICLE_AUTHOR ||
+                $keyType === MetadataKeyEnum::TWITTER_CREATOR
+            ) {
+                if (str_contains($content, 'http://') || str_contains($content, 'https://')) {
+                    $content = new AuthorObject(null, $content);
+                } else {
+                    $content = new AuthorObject($content, null);
+                }
+            }
+
+            if ($keyType === MetadataKeyEnum::OG_ARTICLE_TAG) {
+                $content = new TagObject($content);
+            }
+
             $metadata[] = new MetadataObject($keyType, $content);
         });
 
@@ -93,5 +121,18 @@ class MetadataParser
             $metadata = [$metadata];
         }
         $this->metadata = array_merge($this->metadata, $metadata);
+    }
+
+    public static function getDateTimeFromString(?string $value): ?DateTimeInterface
+    {
+        if (!$value) {
+            return null;
+        }
+
+        try {
+            return new DateTimeImmutable($value);
+        } catch (Exception) {
+            return null;
+        }
     }
 }

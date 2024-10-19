@@ -4,7 +4,11 @@ namespace Hyvor\Unfold\Tests\Unit;
 
 use Hyvor\Unfold\MetadataParsers\MetadataKeyEnum;
 use Hyvor\Unfold\MetadataParsers\MetadataParser;
+use Hyvor\Unfold\Objects\AuthorObject;
 use Hyvor\Unfold\Objects\MetadataObject;
+use DateTimeInterface;
+use DateTimeImmutable;
+use Hyvor\Unfold\Objects\TagObject;
 
 dataset('contents', [
     'all valid og and twitter tags' => ['<html><head>
@@ -36,7 +40,10 @@ dataset('contents', [
         <meta property="article:author" content="Nadil Karunarathna" />
         <meta property="article:author" content="Supun Wimalasena" />
         <meta property="article:tag" content="HYVOR" />
+        <meta property="article:author" content="Supun Wimalasena" />
+        <meta property="article:tag" content="HYVOR" />
         <meta property="article:tag" content="PHP" />
+        <meta property="article:tag" content="OEmbed" />
         <meta property="article:tag" content="OEmbed" />
         
         <meta name="twitter:card" content="summary" />
@@ -67,17 +74,17 @@ dataset('contents', [
         new MetadataObject(MetadataKeyEnum::OG_AUDIO_SECURE_URL, 'https://nadil.io/audio.mp3'),
         new MetadataObject(MetadataKeyEnum::OG_AUDIO_TYPE, 'audio/mpeg'),
 
-        new MetadataObject(MetadataKeyEnum::OG_ARTICLE_PUBLISHED_TIME, '2021-10-10T10:10:10Z'),
-        new MetadataObject(MetadataKeyEnum::OG_ARTICLE_MODIFIED_TIME, '2021-10-10T10:10:10Z'),
-        new MetadataObject(MetadataKeyEnum::OG_ARTICLE_AUTHOR, 'Nadil Karunarathna'),
-        new MetadataObject(MetadataKeyEnum::OG_ARTICLE_AUTHOR, 'Supun Wimalasena'),
-        new MetadataObject(MetadataKeyEnum::OG_ARTICLE_TAG, 'HYVOR'),
-        new MetadataObject(MetadataKeyEnum::OG_ARTICLE_TAG, 'PHP'),
-        new MetadataObject(MetadataKeyEnum::OG_ARTICLE_TAG, 'OEmbed'),
+        new MetadataObject(MetadataKeyEnum::OG_ARTICLE_PUBLISHED_TIME, new DateTimeImmutable('2021-10-10T10:10:10Z')),
+        new MetadataObject(MetadataKeyEnum::OG_ARTICLE_MODIFIED_TIME, new DateTimeImmutable('2021-10-10T10:10:10Z')),
+        new MetadataObject(MetadataKeyEnum::OG_ARTICLE_AUTHOR, new AuthorObject('Nadil Karunarathna', null)),
+        new MetadataObject(MetadataKeyEnum::OG_ARTICLE_AUTHOR, new AuthorObject('Supun Wimalasena', null)),
+        new MetadataObject(MetadataKeyEnum::OG_ARTICLE_TAG, new TagObject('HYVOR')),
+        new MetadataObject(MetadataKeyEnum::OG_ARTICLE_TAG, new TagObject('PHP')),
+        new MetadataObject(MetadataKeyEnum::OG_ARTICLE_TAG, new TagObject('OEmbed')),
 
         new MetadataObject(MetadataKeyEnum::TWITTER_CARD, 'summary'),
         new MetadataObject(MetadataKeyEnum::TWITTER_SITE, '@nadil_k'),
-        new MetadataObject(MetadataKeyEnum::TWITTER_CREATOR, '@nadil_k'),
+        new MetadataObject(MetadataKeyEnum::TWITTER_CREATOR, new AuthorObject('@nadil_k', null)),
         new MetadataObject(MetadataKeyEnum::TWITTER_DESCRIPTION, 'Personal Blog'),
         new MetadataObject(MetadataKeyEnum::TWITTER_TITLE, 'Nadil Karunarathna'),
         new MetadataObject(MetadataKeyEnum::TWITTER_IMAGE, 'https://nadil.io/image.jpg'),
@@ -146,6 +153,31 @@ dataset('contents', [
             new MetadataObject(MetadataKeyEnum::LOCALE, 'en')
         ]
     ],
+    'json ld' => [
+        '<script type="application/ld+json">
+            {
+                "@context": "https://schema.org",
+                "@type": "Article",
+                "datePublished": "2024-01-05T08:00:00+08:00",
+                "dateModified": "2024-02-05T09:20:00+08:00",
+                "author": [{
+                    "@type": "Person",
+                    "name": "Jane Doe",
+                    "url": "https://example.com/profile/janedoe123"
+                },{
+                    "@type": "Person",
+                    "name": "John Doe",
+                    "url": "https://example.com/profile/johndoe123"
+                }]
+            }
+        </script>',
+        [
+            new MetadataObject(MetadataKeyEnum::RICH_SCHEMA_PUBLISHED_TIME, new DateTimeImmutable('2024-01-05T08:00:00+08:00')),
+            new MetadataObject(MetadataKeyEnum::RICH_SCHEMA_MODIFIED_TIME, new DateTimeImmutable('2024-02-05T09:20:00+08:00')),
+            new MetadataObject(MetadataKeyEnum::RICH_SCHEMA_AUTHOR, new AuthorObject('Jane Doe', 'https://example.com/profile/janedoe123')),
+            new MetadataObject(MetadataKeyEnum::RICH_SCHEMA_AUTHOR, new AuthorObject('John Doe', 'https://example.com/profile/johndoe123'))
+        ]
+    ],
 ]);
 
 it('parses metadata', function (string $content, array $metadata) {
@@ -156,3 +188,29 @@ it('parses metadata', function (string $content, array $metadata) {
     expect($parsedMetadata)->toEqualCanonicalizing($metadata);
 
 })->with('contents');
+
+
+/*
+ * getDateTimeFromString
+ */
+it('returns null when no date string is given', function () {
+    expect(MetadataParser::getDateTimeFromString(''))->toBeNull();
+});
+
+it('returns null when invalid date string is given', function () {
+    expect(MetadataParser::getDateTimeFromString('invalid date'))->toBeNull();
+});
+
+it('returns DateTimeInterface when valid date string is given: (2024-10-19T16:15:00Z)', function () {
+    $date = MetadataParser::getDateTimeFromString('2024-10-19T16:15:00Z');
+    expect($date)
+        ->toBeInstanceOf(DateTimeInterface::class)
+        ->and($date->format('Y-m-d H:i:s'))->toBe('2024-10-19 16:15:00');
+});
+
+it('returns DateTimeInterface when valid date string is given: (2024-10-19 16:15:00)', function () {
+    $date = MetadataParser::getDateTimeFromString('2024-10-19 16:15:00');
+    expect($date)
+        ->toBeInstanceOf(DateTimeInterface::class)
+        ->and($date->format('Y-m-d H:i:s'))->toBe('2024-10-19 16:15:00');
+});

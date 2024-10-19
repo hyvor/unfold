@@ -7,6 +7,7 @@ use Hyvor\Unfold\Objects\AuthorObject;
 use Hyvor\Unfold\Objects\MetadataObject;
 use Hyvor\Unfold\Objects\TagObject;
 use Hyvor\Unfold\Objects\UnfoldedObject;
+use DateTimeImmutable;
 
 it('gets title value', function () {
 
@@ -46,6 +47,32 @@ it('gets tags value', function () {
     ]);
 });
 
+it('gets authors value', function () {
+
+    $metadata = [
+        new MetadataObject(MetadataKeyEnum::OG_ARTICLE_AUTHOR, new AuthorObject('Author1', null)),
+        new MetadataObject(MetadataKeyEnum::OG_ARTICLE_AUTHOR, new AuthorObject('Author2', null)),
+        new MetadataObject(MetadataKeyEnum::OG_ARTICLE_AUTHOR, new AuthorObject(null, 'https://author3.com')),
+    ];
+    expect(UnfoldedObject::authors($metadata))->toEqual([
+        new AuthorObject('Author1', null),
+        new AuthorObject('Author2', null),
+        new AuthorObject(null, 'https://author3.com'),
+    ]);
+});
+
+it('gets tags value', function () {
+
+    $metadata = [
+        new MetadataObject(MetadataKeyEnum::OG_ARTICLE_TAG, new TagObject('Tag1')),
+        new MetadataObject(MetadataKeyEnum::OG_ARTICLE_TAG, new TagObject('Tag2')),
+    ];
+    expect(UnfoldedObject::tags($metadata))->toEqual([
+        new TagObject('Tag1'),
+        new TagObject('Tag2'),
+    ]);
+});
+
 it('gets site name value', function () {
 
     $metadata = new MetadataObject(MetadataKeyEnum::OG_SITE_NAME, 'Site Name');
@@ -66,13 +93,13 @@ it('gets canonical url value', function () {
 
 it('gets published time value', function () {
 
-    $metadata = new MetadataObject(MetadataKeyEnum::OG_ARTICLE_PUBLISHED_TIME, '2024-10-19T16:15:00Z');
+    $metadata = new MetadataObject(MetadataKeyEnum::OG_ARTICLE_PUBLISHED_TIME, new DateTimeImmutable('2024-10-19T16:15:00Z'));
     expect(UnfoldedObject::publishedTime([$metadata])->format('Y-m-d H:i:s'))->toBe('2024-10-19 16:15:00');
 });
 
 it('gets modified time value', function () {
 
-    $metadata = new MetadataObject(MetadataKeyEnum::OG_ARTICLE_MODIFIED_TIME, '2024-10-19T16:15:00Z');
+    $metadata = new MetadataObject(MetadataKeyEnum::OG_ARTICLE_MODIFIED_TIME, new DateTimeImmutable('2024-10-19T16:15:00Z'));
     expect(UnfoldedObject::modifiedTime([$metadata])->format('Y-m-d H:i:s'))->toBe('2024-10-19 16:15:00');
 });
 

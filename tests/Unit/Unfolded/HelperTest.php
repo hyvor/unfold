@@ -51,29 +51,3 @@ it('returns null when no keys are given', function () {
     $metadataValue = UnfoldedObject::getMetadataFromKeys($metadata, []);
     expect($metadataValue)->toBeNull();
 });
-
-
-/*
- * getDateTimeFromString
- */
-it('returns null when no date string is given', function () {
-    expect(UnfoldedObject::getDateTimeFromString(''))->toBeNull();
-});
-
-it('returns null when invalid date string is given', function () {
-    expect(UnfoldedObject::getDateTimeFromString('invalid date'))->toBeNull();
-});
-
-it('returns DateTimeInterface when valid date string is given: (2024-10-19T16:15:00Z)', function () {
-    $date = UnfoldedObject::getDateTimeFromString('2024-10-19T16:15:00Z');
-    expect($date)
-        ->toBeInstanceOf(DateTimeInterface::class)
-        ->and($date->format('Y-m-d H:i:s'))->toBe('2024-10-19 16:15:00');
-});
-
-it('returns DateTimeInterface when valid date string is given: (2024-10-19 16:15:00)', function () {
-    $date = UnfoldedObject::getDateTimeFromString('2024-10-19 16:15:00');
-    expect($date)
-        ->toBeInstanceOf(DateTimeInterface::class)
-        ->and($date->format('Y-m-d H:i:s'))->toBe('2024-10-19 16:15:00');
-});

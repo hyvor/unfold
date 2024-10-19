@@ -2,9 +2,7 @@
 
 namespace Hyvor\Unfold\Objects;
 
-use DateTimeImmutable;
 use DateTimeInterface;
-use Exception;
 use Hyvor\Unfold\MetadataParsers\MetadataKeyEnum;
 use Hyvor\Unfold\UnfoldMethodEnum;
 
@@ -70,19 +68,11 @@ class UnfoldedObject
      */
     public static function authors(array $metadata): array
     {
-        $authors = [];
-        foreach ($metadata as $meta) {
-            if ($meta->key === MetadataKeyEnum::OG_ARTICLE_AUTHOR) {
-                if (str_contains($meta->value, 'http://') || str_contains($meta->value, 'https://')) {
-                    $authors[] = new AuthorObject(null, $meta->value);
-                } else {
-                    $authors[] = new AuthorObject($meta->value, null);
-                }
-            } elseif ($meta->key === MetadataKeyEnum::TWITTER_CREATOR) {
-                $authors[] = new AuthorObject($meta->value, null);
-            }
-        }
-        return $authors;
+        return self::getMetadataFromKeys($metadata, [
+            MetadataKeyEnum::RICH_SCHEMA_AUTHOR,
+            MetadataKeyEnum::OG_ARTICLE_AUTHOR,
+            MetadataKeyEnum::TWITTER_CREATOR
+        ], true);
     }
 
     /**
@@ -91,13 +81,9 @@ class UnfoldedObject
      */
     public static function tags(array $metadata): array
     {
-        $tags = [];
-        foreach ($metadata as $meta) {
-            if ($meta->key === MetadataKeyEnum::OG_ARTICLE_TAG) {
-                $tags[] = new TagObject($meta->value);
-            }
-        }
-        return $tags;
+        return self::getMetadataFromKeys($metadata, [
+            MetadataKeyEnum::OG_ARTICLE_TAG
+        ], true);
     }
 
     /**
@@ -136,9 +122,10 @@ class UnfoldedObject
      */
     public static function publishedTime(array $metadata): ?DateTimeInterface
     {
-        return self::getDateTimeFromString(self::getMetadataFromKeys($metadata, [
+        return self::getMetadataFromKeys($metadata, [
+            MetadataKeyEnum::RICH_SCHEMA_PUBLISHED_TIME,
             MetadataKeyEnum::OG_ARTICLE_PUBLISHED_TIME
-        ]));
+        ]);
     }
 
     /**
@@ -146,9 +133,10 @@ class UnfoldedObject
      */
     public static function modifiedTime(array $metadata): ?DateTimeInterface
     {
-        return self::getDateTimeFromString(self::getMetadataFromKeys($metadata, [
+        return self::getMetadataFromKeys($metadata, [
+            MetadataKeyEnum::RICH_SCHEMA_MODIFIED_TIME,
             MetadataKeyEnum::OG_ARTICLE_MODIFIED_TIME
-        ]));
+        ]);
     }
 
     /**
@@ -190,10 +178,11 @@ class UnfoldedObject
     /**
      * @param MetadataObject[] $metadata
      * @param MetadataKeyEnum[] $keys
+     * @return string|DateTimeInterface|AuthorObject[]|TagObject[]|null
      */
-    public static function getMetadataFromKeys(array $metadata, array $keys): ?string
+    public static function getMetadataFromKeys(array $metadata, array $keys, bool $isMultiple = false): string|DateTimeInterface|array|null
     {
-        $value = null;
+        $value = [];
         /**
          * keyIndex is used track the most priority key found in the metadata
          */
@@ -201,28 +190,21 @@ class UnfoldedObject
 
         foreach ($metadata as $meta) {
             if (in_array($meta->key, $keys)) {
-                if (!$value || $keyIndex > array_search($meta->key, $keys)) {
-                    $value = $meta->value;
+                $isNewPriority = $keyIndex > array_search($meta->key, $keys);   // new key with higher priority found
+                if ($isMultiple && $isNewPriority) {    // if multiple values are allowed and new key with higher priority found
+                    $value = [];
+                }
+                if (count($value) === 0 || $isNewPriority) {
+                    $value[] = $meta->value;
                     $keyIndex = array_search($meta->key, $keys);
+                } elseif ($isMultiple && ($keyIndex === array_search($meta->key, $keys))) {    // if multiple values are allowed and same priority key found
+                    $value[] = $meta->value;
                 }
             }
-            if ($keyIndex === 0) {
+            if (!$isMultiple && $keyIndex === 0) {
                 break;
             }
         }
-        return $value;
-    }
-
-    public static function getDateTimeFromString(?string $value): ?DateTimeInterface
-    {
-        if (!$value) {
-            return null;
-        }
-
-        try {
-            return new DateTimeImmutable($value);
-        } catch (Exception) {
-            return null;
-        }
+        return $isMultiple ? $value : $value[0];
     }
 }
