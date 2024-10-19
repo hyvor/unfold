@@ -4,6 +4,13 @@ namespace Unit\Parsers;
 
 use Hyvor\Unfold\Embed\EmbedParsers\Reddit;
 
+it('configs', function () {
+    $youtube = new Reddit(
+        'https://www.reddit.com/r/math/comments/66k3c0/ive_just_start_reading_this_1910_book_calculus/'
+    );
+    expect($youtube->oEmbedUrl())->toBe('https://www.reddit.com/oembed');
+});
+
 it('matches reddit URLs', function (string $url) {
     $parser = new Reddit($url);
     $match = $parser->match();

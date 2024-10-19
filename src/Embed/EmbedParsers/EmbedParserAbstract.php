@@ -80,7 +80,7 @@ abstract class EmbedParserAbstract
             'GET',
             $uri,
             [
-                'Accept' => 'application/json',
+                'Accept' => 'application/json'
             ],
         );
 
@@ -90,8 +90,7 @@ abstract class EmbedParserAbstract
         } catch (ClientExceptionInterface $e) {
             throw new ParserException(
                 "Failed to fetch oEmbed data from the endpoint",
-                0,
-                $e
+                previous: $e
             );
         }
 
