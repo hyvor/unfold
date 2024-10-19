@@ -4,15 +4,14 @@ namespace Hyvor\Unfold\Embed\Parsers;
 
 class Youtube extends Parser
 {
-
-    protected function regex()
+    public function regex()
     {
         return [
             "https://.*.youtube.com/watch.*",
             "https://.*.youtube.com/v/.*",
             "https://youtu.be/.*",
-            "https://.*.youtube.com/playlist?list=.*",
-            "https://youtube.com/playlist?list=.*",
+            "https://.*.youtube.com/playlist\?list=.*",
+            "https://youtube.com/playlist\?list=.*",
             "https://.*.youtube.com/shorts.*",
             "https://youtube.com/shorts.*",
             "https://.*.youtube.com/embed/.*",
@@ -21,7 +20,7 @@ class Youtube extends Parser
         ];
     }
 
-    protected function oEmbedUrl(): ?string
+    public function oEmbedUrl(): ?string
     {
         return 'https://www.youtube.com/oembed';
     }
