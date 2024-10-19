@@ -3,7 +3,9 @@
 namespace Hyvor\Unfold\Tests\Unit;
 
 use Hyvor\Unfold\MetadataParsers\MetadataKeyEnum;
+use Hyvor\Unfold\Objects\AuthorObject;
 use Hyvor\Unfold\Objects\MetadataObject;
+use Hyvor\Unfold\Objects\TagObject;
 use Hyvor\Unfold\Objects\UnfoldedObject;
 
 it('gets title value', function () {
@@ -16,6 +18,32 @@ it('gets description value', function () {
 
     $metadata = new MetadataObject(MetadataKeyEnum::OG_DESCRIPTION, 'OG Description');
     expect(UnfoldedObject::description([$metadata]))->toBe('OG Description');
+});
+
+it('gets authors value', function () {
+
+    $metadata = [
+        new MetadataObject(MetadataKeyEnum::OG_ARTICLE_AUTHOR, 'Author1'),
+        new MetadataObject(MetadataKeyEnum::OG_ARTICLE_AUTHOR, 'Author2'),
+        new MetadataObject(MetadataKeyEnum::OG_ARTICLE_AUTHOR, 'https://author3.com'),
+    ];
+    expect(UnfoldedObject::authors($metadata))->toEqual([
+        new AuthorObject('Author1', null),
+        new AuthorObject('Author2', null),
+        new AuthorObject(null, 'https://author3.com'),
+    ]);
+});
+
+it('gets tags value', function () {
+
+    $metadata = [
+        new MetadataObject(MetadataKeyEnum::OG_ARTICLE_TAG, 'Tag1'),
+        new MetadataObject(MetadataKeyEnum::OG_ARTICLE_TAG, 'Tag2'),
+    ];
+    expect(UnfoldedObject::tags($metadata))->toEqual([
+        new TagObject('Tag1'),
+        new TagObject('Tag2'),
+    ]);
 });
 
 it('gets site name value', function () {

@@ -34,7 +34,10 @@ dataset('contents', [
         <meta property="article:published_time" content="2021-10-10T10:10:10Z" />
         <meta property="article:modified_time" content="2021-10-10T10:10:10Z" />
         <meta property="article:author" content="Nadil Karunarathna" />
+        <meta property="article:author" content="Supun Wimalasena" />
+        <meta property="article:tag" content="HYVOR" />
         <meta property="article:tag" content="PHP" />
+        <meta property="article:tag" content="OEmbed" />
         
         <meta name="twitter:card" content="summary" />
         <meta name="twitter:site" content="@nadil_k" />
@@ -67,7 +70,10 @@ dataset('contents', [
         new MetadataObject(MetadataKeyEnum::OG_ARTICLE_PUBLISHED_TIME, '2021-10-10T10:10:10Z'),
         new MetadataObject(MetadataKeyEnum::OG_ARTICLE_MODIFIED_TIME, '2021-10-10T10:10:10Z'),
         new MetadataObject(MetadataKeyEnum::OG_ARTICLE_AUTHOR, 'Nadil Karunarathna'),
+        new MetadataObject(MetadataKeyEnum::OG_ARTICLE_AUTHOR, 'Supun Wimalasena'),
+        new MetadataObject(MetadataKeyEnum::OG_ARTICLE_TAG, 'HYVOR'),
         new MetadataObject(MetadataKeyEnum::OG_ARTICLE_TAG, 'PHP'),
+        new MetadataObject(MetadataKeyEnum::OG_ARTICLE_TAG, 'OEmbed'),
 
         new MetadataObject(MetadataKeyEnum::TWITTER_CARD, 'summary'),
         new MetadataObject(MetadataKeyEnum::TWITTER_SITE, '@nadil_k'),

@@ -185,6 +185,7 @@ class UnfoldedObject
         ]);
     }
 
+
     // Helpers
     /**
      * @param MetadataObject[] $metadata
