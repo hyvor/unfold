@@ -23,19 +23,32 @@ abstract class Parser
         $this->config = $config ?? new UnfoldConfig();
     }
 
+
+    /**
+     * TODO: This is not yet used
+     * If the URL needs to be replaced before sending to the oEmbed endpoint,
+     * return the new URL here. Otherwise, return null
+     * Ex: m.facebook.com -> www.facebook.com
+     */
+    public function replaceUrl(): ?string
+    {
+        return null;
+    }
+
+
     /**
      * PCRE regex patterns to match the URL
      * Delimiter should not be added. ~ will be added automatically
      * / is safe to use without escaping
      * @return string[]
      */
-    abstract public function regex();
+    abstract public function oEmbedRegex();
 
     abstract public function oEmbedUrl(): ?string;
 
     public function match(): bool
     {
-        $regex = $this->regex();
+        $regex = $this->oEmbedRegex();
 
         foreach ($regex as $reg) {
             if (preg_match("~$reg~", $this->url)) {

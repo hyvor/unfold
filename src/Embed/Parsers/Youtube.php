@@ -4,7 +4,7 @@ namespace Hyvor\Unfold\Embed\Parsers;
 
 class Youtube extends Parser
 {
-    public function regex()
+    public function oEmbedRegex()
     {
         return [
             "https://.*.youtube.com/watch.*",

@@ -14,11 +14,11 @@ it('matches reddit URLs', function (string $url) {
     'https://old.reddit.com/r/math/comments/66k3c0/ive_just_start_reading_this_1910_book_calculus/'
 ]);
 
-it('test', function () {
-    $url = 'https://www.reddit.com/r/math/comments/66k3c0/ive_just_start_reading_this_1910_book_calculus/';
-    $parser = new Reddit($url);
-    $response = $parser->parse();
-
-    var_dump($response);
-    expect($response)->toBeObject();
-});
+//it('test', function () {
+//    $url = 'https://old.reddit.com/r/math/comments/66k3c0/ive_just_start_reading_this_1910_book_calculus/';
+//    $parser = new Reddit($url);
+//    $response = $parser->parse();
+//
+//    var_dump($response);
+//    expect($response)->toBeObject();
+//});

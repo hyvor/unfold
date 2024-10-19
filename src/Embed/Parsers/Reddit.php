@@ -5,7 +5,7 @@ namespace Hyvor\Unfold\Embed\Parsers;
 class Reddit extends Parser
 {
 
-    public function regex()
+    public function oEmbedRegex()
     {
         return [
             // oembed
@@ -13,7 +13,7 @@ class Reddit extends Parser
             "https://www.reddit.com/r/.*/comments/.*/.*",
 
             // custom
-            // ''
+            "https://old.reddit.com/r/.*/comments/.*/.*", // added: 2024-10-19
         ];
     }
 
