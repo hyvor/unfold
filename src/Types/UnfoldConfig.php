@@ -15,9 +15,6 @@ class UnfoldConfig
 
     public function __construct(
 
-        // HTTP Client
-        // Cache
-
         /**
          * Method::LINK:
          *  - Fetch metadata of the link.
@@ -36,6 +33,14 @@ class UnfoldConfig
         public Method $method = Method::LINK,
 
         /**
+         * Whether to wrap the embed HTML in an iframe with `srcdoc`
+         * This is useful for security and privacy reasons.
+         * If set to false, the embed HTML will be directly used, which would give Javascript access to
+         * the parent page.
+         */
+        public bool $embedWrapInIframe = true,
+
+        /**
          * If the $method is Method::EMBED or Method::EMBED_LINK,
          * and if we cannot find a way to embed the URL using our default parsers,
          * we will try to create an embed using og:image or og:video tags
@@ -48,6 +53,8 @@ class UnfoldConfig
          * If not set, a new GuzzleHttp\Client will be used
          */
         ?ClientInterface $httpClient = null,
+
+        // CACHE
 
         // Facebook API Key
     )

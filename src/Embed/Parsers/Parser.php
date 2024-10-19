@@ -4,7 +4,9 @@ namespace Hyvor\Unfold\Embed\Parsers;
 
 use GuzzleHttp\Psr7\Request;
 use GuzzleHttp\Psr7\Uri;
+use Hyvor\Unfold\Embed\Parsers\Exception\ParserException;
 use Hyvor\Unfold\Types\UnfoldConfig;
+use Psr\Http\Client\ClientExceptionInterface;
 
 /**
  * Parser is used to match a URL with a regex pattern and get embed HTML code
@@ -12,7 +14,6 @@ use Hyvor\Unfold\Types\UnfoldConfig;
  */
 abstract class Parser
 {
-
     private UnfoldConfig $config;
 
     public function __construct(
@@ -24,29 +25,38 @@ abstract class Parser
 
     /**
      * PCRE regex patterns to match the URL
+     * Delimiter should not be added. ~ will be added automatically
+     * / is safe to use without escaping
      * @return string[]
      */
-    abstract protected function regex();
+    abstract public function regex();
 
-    abstract protected function oEmbedUrl(): ?string;
+    abstract public function oEmbedUrl(): ?string;
 
-    public function match()
+    public function match(): bool
     {
-        // TODO;
+        $regex = $this->regex();
+
+        foreach ($regex as $reg) {
+            if (preg_match("~$reg~", $this->url)) {
+                return true;
+            }
+        }
+
+        return false;
     }
 
-    public function parse() : ?array
+    public function parse(): ?OEmbedResponse
     {
-
         $oEmbedUrl = $this->oEmbedUrl();
 
         if (!$oEmbedUrl) {
+            // TODO: Check config option for fallback
             return null;
         }
 
-
         $uri = Uri::withQueryValues(
-            new Uri($this->oEmbedUrl()),
+            new Uri($oEmbedUrl),
             [
                 'url' => $this->url,
                 'format' => 'json'
@@ -62,9 +72,32 @@ abstract class Parser
         );
 
         $client = $this->config->httpClient;
-        $response = $client->sendRequest($request);
+        try {
+            $response = $client->sendRequest($request);
+        } catch (ClientExceptionInterface $e) {
+            throw new ParserException(
+                "Failed to fetch oEmbed data from the endpoint",
+                0,
+                $e
+            );
+        }
 
-        return json_decode($response->getBody()->getContents(), true);
+        $status = $response->getStatusCode();
+        $content = $response->getBody()->getContents();
+
+        if ($status !== 200) {
+            throw new ParserException(
+                "Failed to fetch oEmbed data from the endpoint. Status: $status. Response: $content"
+            );
+        }
+
+        $parsed = json_decode($content, true);
+
+        if (!is_array($parsed)) {
+            throw new ParserException("Failed to parse JSON response from oEmbed endpoint");
+        }
+
+        return OEmbedResponse::fromArray($parsed);
     }
 
 }

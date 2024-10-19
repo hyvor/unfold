@@ -4,14 +4,19 @@ Unfold URLs. Rich embeds via oEmbed and custom parsers. Link previews by scrapin
 
 ## Supported Platforms for embeds
 
+OEmbed:
+
 -   Facebook
 -   Youtube
 -   Instagram
 -   X (Twitter)
 -   TikTok
+-   Reddit
+
+Custom:
+
 -   Amazon
 -   Github Gist
--   Reddit
 
 ## Rules for selecting platforms for embeds
 
