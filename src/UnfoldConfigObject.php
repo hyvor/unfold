@@ -59,9 +59,14 @@ class UnfoldConfigObject
          */
         public ?string $iframeEndpoint = null,
 
+        /**
+         * Meta requires an access_token to access the OEmbed Read Graph API
+         * This is required for both Facebook & Instagram
+         */
+        public ?string $facebookAccessToken = null,
+
         // CACHE
 
-        // Facebook API Key
     )
     {
         $this->httpClient = $httpClient ?? new Client();

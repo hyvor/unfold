@@ -3,6 +3,9 @@
 namespace Hyvor\Unfold\Embed\EmbedParsers;
 
 use Hyvor\Unfold\UnfoldConfigObject;
+use Hyvor\Unfold\Embed\EmbedParsers\Platforms\Reddit;
+use Hyvor\Unfold\Embed\EmbedParsers\Platforms\Tiktok;
+use Hyvor\Unfold\Embed\EmbedParsers\Platforms\Twitter;
 use Hyvor\Unfold\Embed\EmbedParsers\Platforms\Youtube;
 
 class EmbedParsers
@@ -12,7 +15,11 @@ class EmbedParsers
      * @var EmbedParserAbstract[]
      */
     const PARSERS = [
-        Youtube::class
+        Youtube::class,
+        Reddit::class,
+        Tiktok::class,
+        Twitter::class,
+        Reddit::class,
     ];
 
     public static function parse(

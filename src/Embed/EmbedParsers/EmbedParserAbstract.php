@@ -7,6 +7,7 @@ use GuzzleHttp\Psr7\Uri;
 use Hyvor\Unfold\Embed\EmbedParsers\Exception\ParserException;
 use Hyvor\Unfold\UnfoldConfigObject;
 use Psr\Http\Client\ClientExceptionInterface;
+use Psr\Http\Message\RequestInterface;
 
 /**
  * EmbedParserAbstract is used to match a URL with a regex pattern and get embed HTML code
@@ -14,7 +15,7 @@ use Psr\Http\Client\ClientExceptionInterface;
  */
 abstract class EmbedParserAbstract
 {
-    private UnfoldConfig $config;
+    protected UnfoldConfig $config;
 
     public function __construct(
         private string $url,
@@ -35,16 +36,21 @@ abstract class EmbedParserAbstract
         return null;
     }
 
-
     /**
      * PCRE regex patterns to match the URL
      * Delimiter should not be added. ~ will be added automatically
      * / is safe to use without escaping
      * @return string[]
      */
-    abstract public function oEmbedRegex();
+    protected abstract function regex();
 
-    abstract public function oEmbedUrl(): ?string;
+    /**
+     * If the request needs to be modified before sending to the oEmbed endpoint,
+     */
+    public function oEmbedRequestFilter(RequestInterface $request): RequestInterface
+    {
+        return $request;
+    }
 
     public function match(): bool
     {
@@ -83,6 +89,8 @@ abstract class EmbedParserAbstract
                 'Accept' => 'application/json'
             ],
         );
+
+        $request = $this->oEmbedRequestFilter($request);
 
         $client = $this->config->httpClient;
         try {

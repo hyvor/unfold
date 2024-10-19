@@ -2,10 +2,28 @@
 
 namespace Hyvor\Unfold\Embed\EmbedParsers\Platforms;
 
+use GuzzleHttp\Psr7\Uri;
 use Hyvor\Unfold\Embed\EmbedParsers\EmbedParserAbstract;
+use Hyvor\Unfold\Embed\EmbedParsers\Exception\ParserException;
+use Psr\Http\Message\RequestInterface;
 
+// TODO:
 class Instagram extends EmbedParserAbstract
 {
+
+    public function oEmbedRequestFilter(RequestInterface $request): RequestInterface
+    {
+        $uri = $request->getUri();
+        $facebookAccessToken = $this->config->facebookAccessToken;
+
+        if (!$facebookAccessToken) {
+            throw new ParserException('Facebook Access Token is required for Instagram embeds');
+        }
+
+        $uri = Uri::withQueryValue($uri, 'access_token', $facebookAccessToken);
+
+        return $request->withUri($uri);
+    }
 
     public function oEmbedRegex()
     {
