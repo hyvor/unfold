@@ -6,10 +6,9 @@ use Hyvor\Unfold\Scraper\MetadataKey;
 
 class OgParser extends ParserAbstract
 {
-
-    function add(): void
+    public function registerMetaTagsKeys()
     {
-        $this->parser->addMetadataFromMetaTags([
+        return [
             'og:title' => MetadataKey::OG_TITLE,
             'og:type' => MetadataKey::OG_TYPE,
             'og:image' => MetadataKey::OG_IMAGE,
@@ -31,10 +30,13 @@ class OgParser extends ParserAbstract
             'og:audio:secure_url' => MetadataKey::OG_AUDIO_SECURE_URL,
             'og:audio:type' => MetadataKey::OG_AUDIO_TYPE,
 
-            'og:article:published_time' => MetadataKey::OG_ARTICLE_PUBLISHED_TIME,
-            'og:article:modified_time' => MetadataKey::OG_ARTICLE_MODIFIED_TIME,
-            'og:article:author' => MetadataKey::OG_ARTICLE_AUTHOR,
-            'og:article:tag' => MetadataKey::OG_ARTICLE_TAG
-        ]);
+            'article:published_time' => MetadataKey::OG_ARTICLE_PUBLISHED_TIME,
+            'article:modified_time' => MetadataKey::OG_ARTICLE_MODIFIED_TIME,
+            'article:author' => MetadataKey::OG_ARTICLE_AUTHOR,
+            'article:tag' => MetadataKey::OG_ARTICLE_TAG
+        ];
     }
+
+    public function add(): void
+    {}
 }

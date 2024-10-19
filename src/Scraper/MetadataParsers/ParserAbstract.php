@@ -2,9 +2,8 @@
 
 namespace Hyvor\Unfold\Scraper\MetadataParsers;
 
-use Hyvor\Unfold\Scraper\Metadata;
+use Hyvor\Unfold\Scraper\MetadataKey;
 use Hyvor\Unfold\Scraper\MetadataParser;
-use Symfony\Component\DomCrawler\Crawler;
 
 abstract class ParserAbstract
 {
@@ -15,8 +14,16 @@ abstract class ParserAbstract
     {}
 
     /**
+     * @return array<string, MetadataKey>
+     */
+    public function registerMetaTagsKeys()
+    {
+        return [];
+    }
+
+    /**
      * This should call $this->parser->addMetadata() to add each metadata
      */
-    abstract function add() : void;
+    abstract public function add() : void;
 
 }

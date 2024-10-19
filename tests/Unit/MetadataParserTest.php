@@ -31,10 +31,10 @@ dataset('contents', [
         <meta property="og:audio:secure_url" content="https://nadil.io/audio.mp3" />
         <meta property="og:audio:type" content="audio/mpeg" />
         
-        <meta property="og:article:published_time" content="2021-10-10T10:10:10Z" />
-        <meta property="og:article:modified_time" content="2021-10-10T10:10:10Z" />
-        <meta property="og:article:author" content="Nadil Karunarathna" />
-        <meta property="og:article:tag" content="PHP" />
+        <meta property="article:published_time" content="2021-10-10T10:10:10Z" />
+        <meta property="article:modified_time" content="2021-10-10T10:10:10Z" />
+        <meta property="article:author" content="Nadil Karunarathna" />
+        <meta property="article:tag" content="PHP" />
         
         <meta name="twitter:card" content="summary" />
         <meta name="twitter:site" content="@nadil_k" />
