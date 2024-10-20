@@ -6,19 +6,23 @@ Unfold URLs. Rich embeds via oEmbed and custom parsers. Link previews by scrapin
 
 OEmbed:
 
--   Facebook
 -   Youtube
--   Instagram
 -   X (Twitter)
 -   TikTok
 -   Reddit
+-   Facebook
+-   Instagram
 
 Custom:
 
--   Amazon
 -   Github Gist
 
-# - Google Maps
+<!--
+Coming soon:
+- Google Maps
+- Rumble
+- Vimeo
+ -->
 
 ## Rules for selecting platforms for embeds
 

@@ -37,7 +37,7 @@ class UnfoldConfigObject
          * If set to false, the embed HTML will be directly used, which would give Javascript access to
          * the parent page.
          */
-        public bool             $embedWrapInIframe = true,
+        public bool $embedWrapInIframe = true,
 
         /**
          * If the $method is UnfoldMethodEnum::EMBED or UnfoldMethodEnum::EMBED_LINK,
@@ -63,6 +63,11 @@ class UnfoldConfigObject
          * This is required for both Facebook & Instagram
          */
         public ?string $facebookAccessToken = null,
+
+        /**
+         * User agent string to be used in HTTP requests
+         */
+        public ?string $userAgent = 'Hyvor Unfold'
 
         // CACHE
     ) {

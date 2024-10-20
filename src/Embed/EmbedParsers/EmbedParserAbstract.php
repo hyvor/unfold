@@ -86,7 +86,8 @@ abstract class EmbedParserAbstract
             'GET',
             $uri,
             [
-                'Accept' => 'application/json'
+                'Accept' => 'application/json',
+                'User-Agent' => $this->config->userAgent,
             ],
         );
 
