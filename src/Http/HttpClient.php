@@ -9,7 +9,6 @@ use Psr\Http\Message\ResponseInterface;
 
 class HttpClient implements ClientInterface
 {
-
     public function __construct(
         private ClientInterface $baseClient,
         private UnfoldConfigObject $config,

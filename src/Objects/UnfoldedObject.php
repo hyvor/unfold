@@ -17,7 +17,6 @@ class UnfoldedObject
     public function __construct(
         public UnfoldMethodEnum $method,
         public string           $url,
-
         public ?string          $embed,
         public ?string          $title,
         public ?string          $description,
@@ -31,10 +30,8 @@ class UnfoldedObject
         public ?string $thumbnailUrl,
         public ?string $iconUrl,
         public ?string $locale,
-
         public int $durationMs
-    )
-    {
+    ) {
         $this->version = '1.0';
     }
 

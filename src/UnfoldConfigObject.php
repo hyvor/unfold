@@ -7,7 +7,6 @@ use Psr\Http\Client\ClientInterface;
 
 class UnfoldConfigObject
 {
-
     /**
      * A PSR-18 HTTP Client for sending oembed and other requests
      */
@@ -79,9 +78,7 @@ class UnfoldConfigObject
         public ?string $userAgent = 'Hyvor Unfold'
 
         // CACHE
-
-    )
-    {
+    ) {
         $this->httpClient = $httpClient ?? new Client([
             'headers' => [
                 'User-Agent' => 'Hyvor Unfold PHP Client',
