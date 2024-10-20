@@ -193,6 +193,7 @@ class UnfoldedObject
                 $isNewPriority = $keyIndex > array_search($meta->key, $keys);   // new key with higher priority found
                 if (count($value) === 0) {    // if value array is empty add the value
                     $value[] = $meta->value;
+                    $keyIndex = array_search($meta->key, $keys);    // set the new key index
                 } elseif ($isNewPriority) {    // if a new key with higher priority found add the value to an empty value array
                     $value = [];
                     $value[] = $meta->value;
