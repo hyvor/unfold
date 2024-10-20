@@ -1,4 +1,4 @@
-name: Code Style Fixes
+name: Lint
 
 on:
     push:
@@ -29,7 +29,7 @@ jobs:
               run: composer global require laravel/pint
 
             - name: Run Pint
-              run: cd backend && pint
+              run: pint
 
             - name: Commit linted files
               uses: stefanzweifel/git-auto-commit-action@v5
