@@ -17,6 +17,7 @@ class UnfoldedObject
     public function __construct(
         public UnfoldMethodEnum $method,
         public string           $url,
+
         public ?string          $embed,
         public ?string          $title,
         public ?string          $description,
@@ -30,8 +31,10 @@ class UnfoldedObject
         public ?string $thumbnailUrl,
         public ?string $iconUrl,
         public ?string $locale,
+
         public int $durationMs
-    ) {
+    )
+    {
         $this->version = '1.0';
     }
 
@@ -210,5 +213,34 @@ class UnfoldedObject
                     $value[0] : // return the first value
                     null            // return null if no value found
             );
+    }
+
+    /**
+     * @param MetadataObject[] $metadata
+     */
+    public static function fromMetadata(
+        UnfoldMethodEnum $method,
+        string $url,
+        array $metadata,
+        float $startTime
+    ) {
+        return new self(
+            $method,
+            $url,
+            null,
+            self::title($metadata),
+            self::description($metadata),
+            self::authors($metadata),
+            self::tags($metadata),
+            self::siteName($metadata),
+            self::siteUrl($metadata),
+            self::canonicalUrl($metadata),
+            self::publishedTime($metadata),
+            self::modifiedTime($metadata),
+            self::thumbnailUrl($metadata),
+            self::iconUrl($metadata),
+            self::locale($metadata),
+            (microtime(true) - $startTime) * 1000,
+        );
     }
 }

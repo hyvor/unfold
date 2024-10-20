@@ -7,6 +7,7 @@ use Psr\Http\Client\ClientInterface;
 
 class UnfoldConfigObject
 {
+
     /**
      * A PSR-18 HTTP Client for sending oembed and other requests
      */
@@ -54,6 +55,13 @@ class UnfoldConfigObject
         ?ClientInterface $httpClient = null,
 
         /**
+         * The maximum number of redirects to follow in HTTP requests
+         * Applies to scraping and oembed requests
+         * Set to 0 to disable redirects
+         */
+        int $httpMaxRedirects = 3,
+
+        /**
          *
          */
         public ?string $iframeEndpoint = null,
@@ -61,6 +69,7 @@ class UnfoldConfigObject
         /**
          * Meta requires an access_token to access the OEmbed Read Graph API
          * This is required for both Facebook & Instagram
+         * @todo
          */
         public ?string $facebookAccessToken = null,
 
@@ -70,7 +79,14 @@ class UnfoldConfigObject
         public ?string $userAgent = 'Hyvor Unfold'
 
         // CACHE
-    ) {
-        $this->httpClient = $httpClient ?? new Client();
+
+    )
+    {
+        $this->httpClient = $httpClient ?? new Client([
+            'headers' => [
+                'User-Agent' => 'Hyvor Unfold PHP Client',
+            ],
+            'allow_redirects' => true,
+        ]);
     }
 }
