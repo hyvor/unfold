@@ -191,12 +191,12 @@ class UnfoldedObject
         foreach ($metadata as $meta) {
             if (in_array($meta->key, $keys)) {
                 $isNewPriority = $keyIndex > array_search($meta->key, $keys);   // new key with higher priority found
-                if ($isMultiple && $isNewPriority) {    // if multiple values are allowed and new key with higher priority found
-                    $value = [];
-                }
-                if (count($value) === 0 || $isNewPriority) {
+                if (count($value) === 0) {    // if value array is empty add the value
                     $value[] = $meta->value;
-                    $keyIndex = array_search($meta->key, $keys);
+                } elseif ($isNewPriority) {    // if a new key with higher priority found add the value to an empty value array
+                    $value = [];
+                    $value[] = $meta->value;
+                    $keyIndex = array_search($meta->key, $keys);    // set the new key index
                 } elseif ($isMultiple && ($keyIndex === array_search($meta->key, $keys))) {    // if multiple values are allowed and same priority key found
                     $value[] = $meta->value;
                 }
@@ -205,6 +205,12 @@ class UnfoldedObject
                 break;
             }
         }
-        return $isMultiple ? $value : $value[0];
+        return $isMultiple ?
+            $value :    // return the array of values
+            (
+                count($value) !== 0 ?
+                    $value[0] :     // return the first value
+                    null            // return null if no value found
+            );
     }
 }
