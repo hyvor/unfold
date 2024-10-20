@@ -11,7 +11,6 @@ use Psr\Http\Message\RequestInterface;
 // TODO:
 class Instagram extends EmbedParserAbstract implements EmbedParserOEmbedInterface
 {
-
     public function oEmbedRequestFilter(RequestInterface $request): RequestInterface
     {
         $uri = $request->getUri();

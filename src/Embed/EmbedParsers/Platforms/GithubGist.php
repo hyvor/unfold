@@ -7,7 +7,6 @@ use Hyvor\Unfold\Embed\EmbedParsers\EmbedParserCustomInterface;
 
 class GithubGist extends EmbedParserAbstract implements EmbedParserCustomInterface
 {
-
     public function regex()
     {
         return [

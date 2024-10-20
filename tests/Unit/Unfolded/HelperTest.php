@@ -2,7 +2,6 @@
 
 namespace Hyvor\Unfold\Tests\Unit;
 
-use DateTimeInterface;
 use Hyvor\Unfold\MetadataParsers\MetadataKeyEnum;
 use Hyvor\Unfold\Objects\MetadataObject;
 use Hyvor\Unfold\Objects\UnfoldedObject;

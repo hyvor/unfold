@@ -61,7 +61,7 @@ class MetadataParser
     /**
      * @param array<string, MetadataKeyEnum> $keys
      */
-    public function addMetadataFromMetaTags(array $keys) : void
+    public function addMetadataFromMetaTags(array $keys): void
     {
         $metadata = [];
 

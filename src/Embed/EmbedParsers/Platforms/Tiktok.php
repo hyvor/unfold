@@ -6,7 +6,6 @@ use Hyvor\Unfold\Embed\EmbedParsers\EmbedParserAbstract;
 
 class Tiktok extends EmbedParserAbstract
 {
-
     public function regex()
     {
         return [

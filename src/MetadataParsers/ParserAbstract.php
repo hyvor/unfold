@@ -4,11 +4,10 @@ namespace Hyvor\Unfold\MetadataParsers;
 
 abstract class ParserAbstract
 {
-
     public function __construct(
         protected MetadataParser $parser
-    )
-    {}
+    ) {
+    }
 
     /**
      * @return array<string, MetadataKeyEnum>
@@ -21,6 +20,6 @@ abstract class ParserAbstract
     /**
      * This should call $this->parser->addMetadata() to add each metadata
      */
-    abstract public function add() : void;
+    abstract public function add(): void;
 
 }

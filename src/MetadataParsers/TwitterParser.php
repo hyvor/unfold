@@ -4,7 +4,6 @@ namespace Hyvor\Unfold\MetadataParsers;
 
 class TwitterParser extends ParserAbstract
 {
-
     public function registerMetaTagsKeys()
     {
         return [
@@ -18,5 +17,6 @@ class TwitterParser extends ParserAbstract
     }
 
     public function add(): void
-    {}
+    {
+    }
 }

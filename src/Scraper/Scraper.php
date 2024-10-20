@@ -8,7 +8,8 @@ class Scraper
 {
     public function __construct(
         private string $url
-    ) {}
+    ) {
+    }
 
     public function scrape(): string
     {

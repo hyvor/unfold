@@ -6,7 +6,6 @@ class TagObject
 {
     public function __construct(
         public ?string $name
-    )
-    {
+    ) {
     }
 }

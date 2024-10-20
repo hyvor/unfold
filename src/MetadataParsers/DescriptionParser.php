@@ -11,5 +11,6 @@ class DescriptionParser extends ParserAbstract
         ];
     }
     public function add(): void
-    {}
+    {
+    }
 }

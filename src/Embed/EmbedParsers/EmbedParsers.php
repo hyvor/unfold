@@ -10,11 +10,10 @@ use Hyvor\Unfold\Embed\EmbedParsers\Platforms\Youtube;
 
 class EmbedParsers
 {
-
     /**
      * @var EmbedParserAbstract[]
      */
-    const PARSERS = [
+    public const PARSERS = [
         Youtube::class,
         Reddit::class,
         Tiktok::class,

@@ -7,7 +7,6 @@ use Hyvor\Unfold\Embed\EmbedParsers\EmbedParserOEmbedInterface;
 
 class Reddit extends EmbedParserAbstract implements EmbedParserOEmbedInterface
 {
-
     public function regex()
     {
         return [

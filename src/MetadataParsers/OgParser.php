@@ -36,5 +36,6 @@ class OgParser extends ParserAbstract
     }
 
     public function add(): void
-    {}
+    {
+    }
 }

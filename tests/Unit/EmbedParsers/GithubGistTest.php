@@ -2,7 +2,6 @@
 
 namespace Unit\Parsers;
 
-
 use Hyvor\Unfold\Embed\EmbedParsers\Platforms\GithubGist;
 
 it('github gist urls', function (string $url) {

@@ -4,8 +4,7 @@ namespace Hyvor\Unfold\Embed;
 
 class IframeSrcdoc
 {
-
-    public static function wrap(string $embed) : string
+    public static function wrap(string $embed): string
     {
 
         $embed = htmlspecialchars($embed, ENT_QUOTES, 'UTF-8');

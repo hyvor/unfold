@@ -34,9 +34,11 @@ class JsonLdParser extends ParserAbstract
                 foreach ($json['author'] as $author) {
                     if (isset($author['name']) || isset($author['url'])) {
                         $this->parser->addMetadata(
-                            new MetadataObject(MetadataKeyEnum::RICH_SCHEMA_AUTHOR,
-                            new AuthorObject($author['name'], $author['url'])
-                        ));
+                            new MetadataObject(
+                                MetadataKeyEnum::RICH_SCHEMA_AUTHOR,
+                                new AuthorObject($author['name'], $author['url'])
+                            )
+                        );
                     }
                 }
             }

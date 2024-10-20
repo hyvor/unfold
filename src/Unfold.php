@@ -8,7 +8,6 @@ use Hyvor\Unfold\Scraper\Scraper;
 
 class Unfold
 {
-
     public static function unfold(string $url, UnfoldConfigObject $unfoldConfig): UnfoldedObject
     {
         $startTime = microtime(true);
@@ -20,7 +19,6 @@ class Unfold
         return new UnfoldedObject(
             $unfoldConfig->method,
             $url,
-
             null,
             UnfoldedObject::title($metadata),
             UnfoldedObject::description($metadata),
