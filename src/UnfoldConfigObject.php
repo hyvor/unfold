@@ -2,7 +2,9 @@
 
 namespace Hyvor\Unfold;
 
-use GuzzleHttp\Client;
+use Http\Client\Common\Plugin\RedirectPlugin;
+use Http\Client\Common\PluginClient;
+use Http\Discovery\Psr18ClientDiscovery;
 use Psr\Http\Client\ClientInterface;
 
 class UnfoldConfigObject
@@ -49,7 +51,8 @@ class UnfoldConfigObject
 
         /**
          * A PSR-18 HTTP Client for sending oembed and other requests
-         * If not set, a new GuzzleHttp\Client will be used
+         * If not set, HTTPPlug Discovery will be used to find a client
+         * that implements PSR-18 (from composer dependencies)
          */
         ?ClientInterface $httpClient = null,
 
@@ -59,6 +62,11 @@ class UnfoldConfigObject
          * Set to 0 to disable redirects
          */
         public int $httpMaxRedirects = 3,
+
+        /**
+         * User agent string to be used in HTTP requests
+         */
+        public string $httpUserAgent = 'Hyvor Unfold PHP Client',
 
         /**
          *
@@ -72,18 +80,22 @@ class UnfoldConfigObject
          */
         public ?string $facebookAccessToken = null,
 
-        /**
-         * User agent string to be used in HTTP requests
-         */
-        public ?string $userAgent = 'Hyvor Unfold'
-
         // CACHE
     ) {
-        $this->httpClient = $httpClient ?? new Client([
-            'headers' => [
-                'User-Agent' => 'Hyvor Unfold PHP Client',
-            ],
-            'allow_redirects' => true,
-        ]);
+        $this->setHttpClient($httpClient);
+    }
+
+    private function setHttpClient(?ClientInterface $httpClient): void
+    {
+        $httpClient ??= Psr18ClientDiscovery::find();
+        $redirectPlugin = new RedirectPlugin();
+
+        $this->httpClient = new PluginClient(
+            $httpClient,
+            [$redirectPlugin],
+            [
+                'max_restarts' => $this->httpMaxRedirects,
+            ]
+        );
     }
 }

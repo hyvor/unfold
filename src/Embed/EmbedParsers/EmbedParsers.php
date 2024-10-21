@@ -2,6 +2,7 @@
 
 namespace Hyvor\Unfold\Embed\EmbedParsers;
 
+use Hyvor\Unfold\Embed\EmbedParsers\Exception\ParserException;
 use Hyvor\Unfold\UnfoldConfigObject;
 use Hyvor\Unfold\Embed\EmbedParsers\Platforms\Reddit;
 use Hyvor\Unfold\Embed\EmbedParsers\Platforms\Tiktok;
@@ -21,10 +22,13 @@ class EmbedParsers
         Reddit::class,
     ];
 
+    /**
+     * @throws ParserException
+     */
     public static function parse(
-        string              $url,
+        string $url,
         ?UnfoldConfigObject $config = null,
-    ) {
+    ): ?OEmbedResponse {
         foreach (self::PARSERS as $parserClass) {
             $parser = new $parserClass($url, $config);
             if ($parser->match()) {

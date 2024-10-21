@@ -2,7 +2,7 @@
 
 namespace Hyvor\Unfold\Embed\EmbedParsers;
 
-enum OEmbedType: string
+enum OEmbedTypeEnum: string
 {
     case PHOTO = 'photo';
     case VIDEO = 'video';

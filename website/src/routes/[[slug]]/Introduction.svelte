@@ -5,7 +5,7 @@
 <h1>Introduction</h1>
 
 <p>
-	Hyvor Unfold is an open-source PHP library that can fetch metadata from URLs for <strong
+	Hyvor Unfold is an open-source API that can fetch metadata from URLs for <strong
 		>link previews</strong
 	>
 	and <strong>embeds</strong>. You can also use the Docker image to run this as a fully-fledged API.
