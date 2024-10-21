@@ -81,8 +81,7 @@ class UnfoldConfigObject
         public ?string $facebookAccessToken = null,
 
         // CACHE
-    )
-    {
+    ) {
         $this->setHttpClient($httpClient);
     }
 

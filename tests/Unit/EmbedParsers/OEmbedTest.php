@@ -15,7 +15,6 @@ use Hyvor\Unfold\UnfoldConfigObject;
 
 class OEmbedTestPlatform extends EmbedParserAbstract implements EmbedParserOEmbedInterface
 {
-
     public function regex()
     {
         return [
@@ -56,7 +55,8 @@ it('valid response', function () {
     $client = new Client(['handler' => $handlerStack]);
 
     $platform = new OEmbedTestPlatform(
-        'https://hyvor.com/123', new UnfoldConfigObject(
+        'https://hyvor.com/123',
+        new UnfoldConfigObject(
             httpClient: $client
         )
     );
@@ -110,7 +110,8 @@ it('redirects', function () {
     $client = new Client(['handler' => $handlerStack]);
 
     $platform = new OEmbedTestPlatform(
-        'https://hyvor.com/123', new UnfoldConfigObject(
+        'https://hyvor.com/123',
+        new UnfoldConfigObject(
             httpClient: $client
         )
     );
@@ -135,7 +136,8 @@ it('client exception', function () {
     $client = new Client(['handler' => $handlerStack]);
 
     $platform = new OEmbedTestPlatform(
-        'https://hyvor.com/123', new UnfoldConfigObject(
+        'https://hyvor.com/123',
+        new UnfoldConfigObject(
             httpClient: $client
         )
     );
@@ -160,7 +162,8 @@ it('non-200 status code exception', function () {
     $client = new Client(['handler' => $handlerStack]);
 
     $platform = new OEmbedTestPlatform(
-        'https://hyvor.com/123', new UnfoldConfigObject(
+        'https://hyvor.com/123',
+        new UnfoldConfigObject(
             httpClient: $client
         )
     );
@@ -185,7 +188,8 @@ it('json decode exception', function () {
     $client = new Client(['handler' => $handlerStack]);
 
     $platform = new OEmbedTestPlatform(
-        'https://hyvor.com/123', new UnfoldConfigObject(
+        'https://hyvor.com/123',
+        new UnfoldConfigObject(
             httpClient: $client
         )
     );
