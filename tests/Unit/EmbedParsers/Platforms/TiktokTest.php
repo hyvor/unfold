@@ -2,7 +2,7 @@
 
 namespace Unit\Parsers;
 
-use Hyvor\Unfold\EmbedParsers\Platforms\Tiktok;
+use Hyvor\Unfold\Embed\Platforms\Tiktok;
 
 it('configs', function () {
     $youtube = new Tiktok(

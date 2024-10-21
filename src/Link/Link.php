@@ -1,15 +1,15 @@
 <?php
 
-namespace Hyvor\Unfold\Scraper;
+namespace Hyvor\Unfold\Link;
 
 use GuzzleHttp\Psr7\Request;
-use Hyvor\Unfold\MetadataParsers\MetadataParser;
+use Hyvor\Unfold\Link\MetadataParsers\MetadataParser;
 use Hyvor\Unfold\Objects\UnfoldedObject;
 use Hyvor\Unfold\UnfoldConfigObject;
 use Hyvor\Unfold\UnfoldMethodEnum;
 use Psr\Http\Client\ClientExceptionInterface;
 
-class Scraper
+class Link
 {
     public function __construct(
         private string $url,
@@ -43,7 +43,7 @@ class Scraper
         UnfoldConfigObject $config,
         float $startTime
     ): UnfoldedObject {
-        $content = (new Scraper($url, $config))->scrape();
+        $content = (new Link($url, $config))->scrape();
         $metadata = (new MetadataParser($content))->parse();
 
         return UnfoldedObject::fromMetadata(

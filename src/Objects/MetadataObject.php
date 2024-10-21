@@ -2,8 +2,8 @@
 
 namespace Hyvor\Unfold\Objects;
 
-use Hyvor\Unfold\MetadataParsers\MetadataKeyEnum;
 use DateTimeInterface;
+use Hyvor\Unfold\Link\MetadataParsers\MetadataKeyEnum;
 
 class MetadataObject
 {

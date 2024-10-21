@@ -1,9 +1,9 @@
 <?php
 
-namespace Hyvor\Unfold\EmbedParsers\Platforms;
+namespace Hyvor\Unfold\Embed\Platforms;
 
-use Hyvor\Unfold\EmbedParsers\EmbedParserAbstract;
-use Hyvor\Unfold\EmbedParsers\EmbedParserOEmbedInterface;
+use Hyvor\Unfold\Embed\EmbedParserAbstract;
+use Hyvor\Unfold\Embed\EmbedParserOEmbedInterface;
 
 class Twitter extends EmbedParserAbstract implements EmbedParserOEmbedInterface
 {

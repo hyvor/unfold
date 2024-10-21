@@ -2,8 +2,9 @@
 
 namespace Hyvor\Unfold;
 
+use Hyvor\Unfold\Embed\Embed;
 use Hyvor\Unfold\Objects\UnfoldedObject;
-use Hyvor\Unfold\Scraper\Scraper;
+use Hyvor\Unfold\Link\Link;
 
 class Unfold
 {
@@ -17,9 +18,9 @@ class Unfold
         $startTime = microtime(true);
 
         if ($method === UnfoldMethodEnum::LINK) {
-            return Scraper::getUnfoldedObject($url, $method, $config, $startTime);
+            return Link::getUnfoldedObject($url, $method, $config, $startTime);
         } elseif ($method === UnfoldMethodEnum::EMBED) {
-            //
+            return Embed::getUnfoldedObject($url, $config);
         } else {
             // both
         }

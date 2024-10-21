@@ -1,6 +1,6 @@
 <?php
 
-namespace Hyvor\Unfold\EmbedParsers;
+namespace Hyvor\Unfold\Embed;
 
 enum OEmbedTypeEnum: string
 {

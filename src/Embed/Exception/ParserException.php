@@ -1,6 +1,6 @@
 <?php
 
-namespace Hyvor\Unfold\EmbedParsers\Exception;
+namespace Hyvor\Unfold\Embed\Exception;
 
 use Hyvor\Unfold\UnfoldException;
 

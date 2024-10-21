@@ -1,14 +1,14 @@
 <?php
 
-namespace Hyvor\Unfold\MetadataParsers;
+namespace Hyvor\Unfold\Link\MetadataParsers;
 
+use DateTimeImmutable;
+use DateTimeInterface;
+use Exception;
 use Hyvor\Unfold\Objects\AuthorObject;
 use Hyvor\Unfold\Objects\MetadataObject;
 use Hyvor\Unfold\Objects\TagObject;
 use Symfony\Component\DomCrawler\Crawler;
-use DateTimeInterface;
-use DateTimeImmutable;
-use Exception;
 
 class MetadataParser
 {

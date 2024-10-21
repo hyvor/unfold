@@ -1,6 +1,6 @@
 <?php
 
-namespace Hyvor\Unfold\MetadataParsers;
+namespace Hyvor\Unfold\Link\MetadataParsers;
 
 class OgParser extends ParserAbstract
 {

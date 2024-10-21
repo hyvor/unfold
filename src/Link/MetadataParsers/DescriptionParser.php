@@ -1,6 +1,6 @@
 <?php
 
-namespace Hyvor\Unfold\MetadataParsers;
+namespace Hyvor\Unfold\Link\MetadataParsers;
 
 class DescriptionParser extends ParserAbstract
 {
@@ -10,6 +10,7 @@ class DescriptionParser extends ParserAbstract
             'description' => MetadataKeyEnum::DESCRIPTION,
         ];
     }
+
     public function add(): void
     {
     }

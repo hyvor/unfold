@@ -2,16 +2,17 @@
 
 namespace Hyvor\Unfold\Tests\Unit;
 
-use Hyvor\Unfold\MetadataParsers\MetadataKeyEnum;
-use Hyvor\Unfold\MetadataParsers\MetadataParser;
+use DateTimeImmutable;
+use DateTimeInterface;
+use Hyvor\Unfold\Link\MetadataParsers\MetadataKeyEnum;
+use Hyvor\Unfold\Link\MetadataParsers\MetadataParser;
 use Hyvor\Unfold\Objects\AuthorObject;
 use Hyvor\Unfold\Objects\MetadataObject;
-use DateTimeInterface;
-use DateTimeImmutable;
 use Hyvor\Unfold\Objects\TagObject;
 
 dataset('contents', [
-    'all valid og and twitter tags' => ['<html><head>
+    'all valid og and twitter tags' => [
+        '<html><head>
         <meta property="og:title" content="Nadil Karunarathna" />
         <meta property="og:type" content="website" />
         <meta property="og:image" content="https://nadil.io/image.jpg" />
@@ -49,43 +50,49 @@ dataset('contents', [
         <meta name="twitter:image" content="https://nadil.io/image.jpg" />   
         
         <meta name="locale_alternate" content="fr_FR" />     
-      </head></html>', [
-        new MetadataObject(MetadataKeyEnum::OG_TITLE, 'Nadil Karunarathna'),
-        new MetadataObject(MetadataKeyEnum::OG_TYPE, 'website'),
-        new MetadataObject(MetadataKeyEnum::OG_IMAGE, 'https://nadil.io/image.jpg'),
-        new MetadataObject(MetadataKeyEnum::OG_URL, 'https://nadil.io'),
+      </head></html>',
+        [
+            new MetadataObject(MetadataKeyEnum::OG_TITLE, 'Nadil Karunarathna'),
+            new MetadataObject(MetadataKeyEnum::OG_TYPE, 'website'),
+            new MetadataObject(MetadataKeyEnum::OG_IMAGE, 'https://nadil.io/image.jpg'),
+            new MetadataObject(MetadataKeyEnum::OG_URL, 'https://nadil.io'),
 
-        new MetadataObject(MetadataKeyEnum::OG_AUDIO, 'https://nadil.io/audio.mp3'),
-        new MetadataObject(MetadataKeyEnum::OG_DESCRIPTION, 'Personal Blog'),
-        new MetadataObject(MetadataKeyEnum::OG_LOCALE, 'en_US'),
-        new MetadataObject(MetadataKeyEnum::OG_SITE_NAME, 'Nadil Karunarathna'),
-        new MetadataObject(MetadataKeyEnum::OG_VIDEO, 'https://nadil.io/video.mp4'),
+            new MetadataObject(MetadataKeyEnum::OG_AUDIO, 'https://nadil.io/audio.mp3'),
+            new MetadataObject(MetadataKeyEnum::OG_DESCRIPTION, 'Personal Blog'),
+            new MetadataObject(MetadataKeyEnum::OG_LOCALE, 'en_US'),
+            new MetadataObject(MetadataKeyEnum::OG_SITE_NAME, 'Nadil Karunarathna'),
+            new MetadataObject(MetadataKeyEnum::OG_VIDEO, 'https://nadil.io/video.mp4'),
 
-        new MetadataObject(MetadataKeyEnum::OG_IMAGE_URL, 'https://nadil.io/image.jpg'),
-        new MetadataObject(MetadataKeyEnum::OG_IMAGE_SECURE_URL, 'https://nadil.io/image.jpg'),
-        new MetadataObject(MetadataKeyEnum::OG_IMAGE_TYPE, 'image/jpeg'),
+            new MetadataObject(MetadataKeyEnum::OG_IMAGE_URL, 'https://nadil.io/image.jpg'),
+            new MetadataObject(MetadataKeyEnum::OG_IMAGE_SECURE_URL, 'https://nadil.io/image.jpg'),
+            new MetadataObject(MetadataKeyEnum::OG_IMAGE_TYPE, 'image/jpeg'),
 
-        new MetadataObject(MetadataKeyEnum::OG_VIDEO_SECURE_URL, 'https://nadil.io/video.mp4'),
-        new MetadataObject(MetadataKeyEnum::OG_VIDEO_TYPE, 'video/mp4'),
+            new MetadataObject(MetadataKeyEnum::OG_VIDEO_SECURE_URL, 'https://nadil.io/video.mp4'),
+            new MetadataObject(MetadataKeyEnum::OG_VIDEO_TYPE, 'video/mp4'),
 
-        new MetadataObject(MetadataKeyEnum::OG_AUDIO_SECURE_URL, 'https://nadil.io/audio.mp3'),
-        new MetadataObject(MetadataKeyEnum::OG_AUDIO_TYPE, 'audio/mpeg'),
+            new MetadataObject(MetadataKeyEnum::OG_AUDIO_SECURE_URL, 'https://nadil.io/audio.mp3'),
+            new MetadataObject(MetadataKeyEnum::OG_AUDIO_TYPE, 'audio/mpeg'),
 
-        new MetadataObject(MetadataKeyEnum::OG_ARTICLE_PUBLISHED_TIME, new DateTimeImmutable('2021-10-10T10:10:10Z')),
-        new MetadataObject(MetadataKeyEnum::OG_ARTICLE_MODIFIED_TIME, new DateTimeImmutable('2021-10-10T10:10:10Z')),
-        new MetadataObject(MetadataKeyEnum::OG_ARTICLE_AUTHOR, new AuthorObject('Nadil Karunarathna', null)),
-        new MetadataObject(MetadataKeyEnum::OG_ARTICLE_AUTHOR, new AuthorObject('Supun Wimalasena', null)),
-        new MetadataObject(MetadataKeyEnum::OG_ARTICLE_TAG, new TagObject('HYVOR')),
-        new MetadataObject(MetadataKeyEnum::OG_ARTICLE_TAG, new TagObject('PHP')),
-        new MetadataObject(MetadataKeyEnum::OG_ARTICLE_TAG, new TagObject('OEmbed')),
+            new MetadataObject(
+                MetadataKeyEnum::OG_ARTICLE_PUBLISHED_TIME, new DateTimeImmutable('2021-10-10T10:10:10Z')
+            ),
+            new MetadataObject(
+                MetadataKeyEnum::OG_ARTICLE_MODIFIED_TIME, new DateTimeImmutable('2021-10-10T10:10:10Z')
+            ),
+            new MetadataObject(MetadataKeyEnum::OG_ARTICLE_AUTHOR, new AuthorObject('Nadil Karunarathna', null)),
+            new MetadataObject(MetadataKeyEnum::OG_ARTICLE_AUTHOR, new AuthorObject('Supun Wimalasena', null)),
+            new MetadataObject(MetadataKeyEnum::OG_ARTICLE_TAG, new TagObject('HYVOR')),
+            new MetadataObject(MetadataKeyEnum::OG_ARTICLE_TAG, new TagObject('PHP')),
+            new MetadataObject(MetadataKeyEnum::OG_ARTICLE_TAG, new TagObject('OEmbed')),
 
-        new MetadataObject(MetadataKeyEnum::TWITTER_CARD, 'summary'),
-        new MetadataObject(MetadataKeyEnum::TWITTER_SITE, '@nadil_k'),
-        new MetadataObject(MetadataKeyEnum::TWITTER_CREATOR, new AuthorObject('@nadil_k', null)),
-        new MetadataObject(MetadataKeyEnum::TWITTER_DESCRIPTION, 'Personal Blog'),
-        new MetadataObject(MetadataKeyEnum::TWITTER_TITLE, 'Nadil Karunarathna'),
-        new MetadataObject(MetadataKeyEnum::TWITTER_IMAGE, 'https://nadil.io/image.jpg'),
-    ]],
+            new MetadataObject(MetadataKeyEnum::TWITTER_CARD, 'summary'),
+            new MetadataObject(MetadataKeyEnum::TWITTER_SITE, '@nadil_k'),
+            new MetadataObject(MetadataKeyEnum::TWITTER_CREATOR, new AuthorObject('@nadil_k', null)),
+            new MetadataObject(MetadataKeyEnum::TWITTER_DESCRIPTION, 'Personal Blog'),
+            new MetadataObject(MetadataKeyEnum::TWITTER_TITLE, 'Nadil Karunarathna'),
+            new MetadataObject(MetadataKeyEnum::TWITTER_IMAGE, 'https://nadil.io/image.jpg'),
+        ]
+    ],
 
     'no metadata' => ['<html><head></head><body></body></html>', []],
     'og tag in the body' => [
@@ -169,21 +176,31 @@ dataset('contents', [
             }
         </script>',
         [
-            new MetadataObject(MetadataKeyEnum::RICH_SCHEMA_PUBLISHED_TIME, new DateTimeImmutable('2024-01-05T08:00:00+08:00')),
-            new MetadataObject(MetadataKeyEnum::RICH_SCHEMA_MODIFIED_TIME, new DateTimeImmutable('2024-02-05T09:20:00+08:00')),
-            new MetadataObject(MetadataKeyEnum::RICH_SCHEMA_AUTHOR, new AuthorObject('Jane Doe', 'https://example.com/profile/janedoe123')),
-            new MetadataObject(MetadataKeyEnum::RICH_SCHEMA_AUTHOR, new AuthorObject('John Doe', 'https://example.com/profile/johndoe123'))
+            new MetadataObject(
+                MetadataKeyEnum::RICH_SCHEMA_PUBLISHED_TIME,
+                new DateTimeImmutable('2024-01-05T08:00:00+08:00')
+            ),
+            new MetadataObject(
+                MetadataKeyEnum::RICH_SCHEMA_MODIFIED_TIME,
+                new DateTimeImmutable('2024-02-05T09:20:00+08:00')
+            ),
+            new MetadataObject(
+                MetadataKeyEnum::RICH_SCHEMA_AUTHOR,
+                new AuthorObject('Jane Doe', 'https://example.com/profile/janedoe123')
+            ),
+            new MetadataObject(
+                MetadataKeyEnum::RICH_SCHEMA_AUTHOR,
+                new AuthorObject('John Doe', 'https://example.com/profile/johndoe123')
+            )
         ]
     ],
 ]);
 
 it('parses metadata', function (string $content, array $metadata) {
-
     $metadataParser = new MetadataParser($content);
     $parsedMetadata = $metadataParser->parse();
 
     expect($parsedMetadata)->toEqual($metadata);
-
 })->with('contents');
 
 

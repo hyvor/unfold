@@ -3,7 +3,7 @@
 namespace Hyvor\Unfold\Objects;
 
 use DateTimeInterface;
-use Hyvor\Unfold\MetadataParsers\MetadataKeyEnum;
+use Hyvor\Unfold\Link\MetadataParsers\MetadataKeyEnum;
 use Hyvor\Unfold\UnfoldMethodEnum;
 
 class UnfoldedObject
@@ -16,15 +16,15 @@ class UnfoldedObject
      */
     public function __construct(
         public UnfoldMethodEnum $method,
-        public string           $url,
-        public ?string          $embed,
-        public ?string          $title,
-        public ?string          $description,
-        public array            $authors,
-        public array            $tags,
-        public ?string          $siteName,
-        public ?string          $siteUrl,
-        public ?string          $canonicalUrl,
+        public string $url,
+        public ?string $embed,
+        public ?string $title,
+        public ?string $description,
+        public array $authors,
+        public array $tags,
+        public ?string $siteName,
+        public ?string $siteUrl,
+        public ?string $canonicalUrl,
         public ?DateTimeInterface $publishedTime,
         public ?DateTimeInterface $modifiedTime,
         public ?string $thumbnailUrl,
@@ -172,13 +172,17 @@ class UnfoldedObject
 
 
     // Helpers
+
     /**
      * @param MetadataObject[] $metadata
      * @param MetadataKeyEnum[] $keys
      * @return string|DateTimeInterface|AuthorObject[]|TagObject[]|null
      */
-    public static function getMetadataFromKeys(array $metadata, array $keys, bool $isMultiple = false): string|DateTimeInterface|array|null
-    {
+    public static function getMetadataFromKeys(
+        array $metadata,
+        array $keys,
+        bool $isMultiple = false
+    ): string|DateTimeInterface|array|null {
         $value = [];
         /**
          * keyIndex is used track the most priority key found in the metadata
@@ -195,7 +199,10 @@ class UnfoldedObject
                     $value = [];
                     $value[] = $meta->value;
                     $keyIndex = array_search($meta->key, $keys);    // set the new key index
-                } elseif ($isMultiple && ($keyIndex === array_search($meta->key, $keys))) {    // if multiple values are allowed and same priority key found
+                } elseif ($isMultiple && ($keyIndex === array_search(
+                            $meta->key,
+                            $keys
+                        ))) {    // if multiple values are allowed and same priority key found
                     $value[] = $meta->value;
                 }
             }
@@ -206,9 +213,9 @@ class UnfoldedObject
         return $isMultiple ?
             $value : // return the array of values
             (
-                count($value) !== 0 ?
-                    $value[0] : // return the first value
-                    null            // return null if no value found
+            count($value) !== 0 ?
+                $value[0] : // return the first value
+                null            // return null if no value found
             );
     }
 

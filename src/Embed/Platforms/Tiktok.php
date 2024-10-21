@@ -1,8 +1,8 @@
 <?php
 
-namespace Hyvor\Unfold\EmbedParsers\Platforms;
+namespace Hyvor\Unfold\Embed\Platforms;
 
-use Hyvor\Unfold\EmbedParsers\EmbedParserAbstract;
+use Hyvor\Unfold\Embed\EmbedParserAbstract;
 
 class Tiktok extends EmbedParserAbstract
 {
