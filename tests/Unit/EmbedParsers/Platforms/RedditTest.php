@@ -2,7 +2,7 @@
 
 namespace Unit\Parsers;
 
-use Hyvor\Unfold\Embed\EmbedParsers\Platforms\Reddit;
+use Hyvor\Unfold\EmbedParsers\Platforms\Reddit;
 
 it('configs', function () {
     $youtube = new Reddit(

@@ -1,13 +1,13 @@
 <?php
 
-namespace Hyvor\Unfold\Embed\EmbedParsers;
+namespace Hyvor\Unfold\EmbedParsers;
 
-use Hyvor\Unfold\Embed\EmbedParsers\Exception\ParserException;
+use Hyvor\Unfold\EmbedParsers\Exception\ParserException;
+use Hyvor\Unfold\EmbedParsers\Platforms\Reddit;
+use Hyvor\Unfold\EmbedParsers\Platforms\Tiktok;
+use Hyvor\Unfold\EmbedParsers\Platforms\Twitter;
+use Hyvor\Unfold\EmbedParsers\Platforms\Youtube;
 use Hyvor\Unfold\UnfoldConfigObject;
-use Hyvor\Unfold\Embed\EmbedParsers\Platforms\Reddit;
-use Hyvor\Unfold\Embed\EmbedParsers\Platforms\Tiktok;
-use Hyvor\Unfold\Embed\EmbedParsers\Platforms\Twitter;
-use Hyvor\Unfold\Embed\EmbedParsers\Platforms\Youtube;
 
 class EmbedParsers
 {

@@ -1,11 +1,11 @@
 <?php
 
-namespace Hyvor\Unfold\Embed\EmbedParsers\Platforms;
+namespace Hyvor\Unfold\EmbedParsers\Platforms;
 
 use GuzzleHttp\Psr7\Uri;
-use Hyvor\Unfold\Embed\EmbedParsers\EmbedParserAbstract;
-use Hyvor\Unfold\Embed\EmbedParsers\EmbedParserOEmbedInterface;
-use Hyvor\Unfold\Embed\EmbedParsers\Exception\ParserException;
+use Hyvor\Unfold\EmbedParsers\EmbedParserAbstract;
+use Hyvor\Unfold\EmbedParsers\EmbedParserOEmbedInterface;
+use Hyvor\Unfold\EmbedParsers\Exception\ParserException;
 use Psr\Http\Message\RequestInterface;
 
 // TODO:

@@ -1,6 +1,6 @@
 <?php
 
-namespace Hyvor\Unfold\Embed\EmbedParsers;
+namespace Hyvor\Unfold\EmbedParsers;
 
 interface EmbedParserCustomInterface
 {
