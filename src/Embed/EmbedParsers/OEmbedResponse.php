@@ -6,7 +6,7 @@ class OEmbedResponse
 {
     public function __construct(
         public string $version,
-        public OEmbedType $type,
+        public OEmbedTypeEnum $type,
 
         // only in photo and video types
         public ?string $url,
@@ -44,7 +44,7 @@ class OEmbedResponse
     {
         return new OEmbedResponse(
             (string)($array['version'] ?? '1.0'),
-            OEmbedType::tryFrom($array['type'] ?? 'link') ?? OEmbedType::LINK,
+            OEmbedTypeEnum::tryFrom($array['type'] ?? 'link') ?? OEmbedTypeEnum::LINK,
             array_key_exists('url', $array) ? (string)$array['url'] : null,
             array_key_exists('html', $array) ? (string)$array['html'] : null,
             array_key_exists('width', $array) ? (int)$array['width'] : null,
