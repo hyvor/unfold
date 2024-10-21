@@ -8,11 +8,11 @@ use Hyvor\Unfold\Embed\Platforms\Reddit;
 use Hyvor\Unfold\Embed\Platforms\Tiktok;
 use Hyvor\Unfold\Embed\Platforms\Twitter;
 use Hyvor\Unfold\Embed\Platforms\Youtube;
-use Hyvor\Unfold\Objects\UnfoldRequestContextObject;
 use Hyvor\Unfold\UnfoldConfigObject;
 use Hyvor\Unfold\Unfolded\Unfolded;
 use Hyvor\Unfold\UnfoldException;
 use Hyvor\Unfold\UnfoldMethod;
+use Hyvor\Unfold\UnfoldCallContext;
 
 class Embed
 {
@@ -49,7 +49,7 @@ class Embed
      */
     public static function getUnfoldedObject(
         string $url,
-        UnfoldRequestContextObject $context,
+        UnfoldCallContext $context,
     ) {
         $oembed = self::parse($url, $context->config);
 

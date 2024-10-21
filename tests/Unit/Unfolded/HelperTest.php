@@ -2,8 +2,8 @@
 
 namespace Hyvor\Unfold\Tests\Unit;
 
-use Hyvor\Unfold\Link\Metadata\Parsers\MetadataKeyEnum;
-use Hyvor\Unfold\Objects\MetadataObject;
+use Hyvor\Unfold\Link\Metadata\MetadataKeyType;
+use Hyvor\Unfold\Link\Metadata\MetadataObject;
 use Hyvor\Unfold\Unfolded\Unfolded;
 
 /**
@@ -11,18 +11,18 @@ use Hyvor\Unfold\Unfolded\Unfolded;
  */
 global $metadata;
 $metadata = [
-    new MetadataObject(MetadataKeyEnum::TWITTER_TITLE, 'Twitter Title'),
-    new MetadataObject(MetadataKeyEnum::OG_TITLE, 'OG Title'),
-    new MetadataObject(MetadataKeyEnum::DESCRIPTION, 'Description'),
-    new MetadataObject(MetadataKeyEnum::TITLE, 'Title'),
+    new MetadataObject(MetadataKeyType::TWITTER_TITLE, 'Twitter Title'),
+    new MetadataObject(MetadataKeyType::OG_TITLE, 'OG Title'),
+    new MetadataObject(MetadataKeyType::DESCRIPTION, 'Description'),
+    new MetadataObject(MetadataKeyType::TITLE, 'Title'),
 ];
 
 it('gets metadata from key array', function () {
     global $metadata;
     $metadataValue = Unfolded::getMetadataFromKeys($metadata, [
-        MetadataKeyEnum::TITLE,
-        MetadataKeyEnum::OG_TITLE,
-        MetadataKeyEnum::TWITTER_TITLE
+        MetadataKeyType::TITLE,
+        MetadataKeyType::OG_TITLE,
+        MetadataKeyType::TWITTER_TITLE
     ]);
     expect($metadataValue)->toBe('Title');
 });
@@ -30,9 +30,9 @@ it('gets metadata from key array', function () {
 it('gets metadata from key array 2', function () {
     global $metadata;
     $metadataValue = Unfolded::getMetadataFromKeys($metadata, [
-        MetadataKeyEnum::OG_TITLE,
-        MetadataKeyEnum::TITLE,
-        MetadataKeyEnum::TWITTER_TITLE
+        MetadataKeyType::OG_TITLE,
+        MetadataKeyType::TITLE,
+        MetadataKeyType::TWITTER_TITLE
     ]);
     expect($metadataValue)->toBe('OG Title');
 });
@@ -40,7 +40,7 @@ it('gets metadata from key array 2', function () {
 it('returns null when no metadata found', function () {
     global $metadata;
     $metadataValue = Unfolded::getMetadataFromKeys($metadata, [
-        MetadataKeyEnum::OG_IMAGE,
+        MetadataKeyType::OG_IMAGE,
     ]);
     expect($metadataValue)->toBeNull();
 });

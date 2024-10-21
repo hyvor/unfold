@@ -2,7 +2,8 @@
 
 namespace Hyvor\Unfold\Link\Metadata\Parsers;
 
-use Hyvor\Unfold\Objects\MetadataObject;
+use Hyvor\Unfold\Link\Metadata\MetadataKeyType;
+use Hyvor\Unfold\Link\Metadata\MetadataObject;
 
 class LinkParser extends ParserAbstract
 {
@@ -17,11 +18,11 @@ class LinkParser extends ParserAbstract
             }
 
             if ($rel === 'canonical') {
-                $this->parser->addMetadata(new MetadataObject(MetadataKeyEnum::CANONICAL_URL, $href));
+                $this->parser->addMetadata(new MetadataObject(MetadataKeyType::CANONICAL_URL, $href));
             }
 
             if ($rel === 'icon') {
-                $this->parser->addMetadata(new MetadataObject(MetadataKeyEnum::FAVICON_URL, $href));
+                $this->parser->addMetadata(new MetadataObject(MetadataKeyType::FAVICON_URL, $href));
             }
         });
     }

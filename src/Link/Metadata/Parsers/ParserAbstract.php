@@ -2,6 +2,7 @@
 
 namespace Hyvor\Unfold\Link\Metadata\Parsers;
 
+use Hyvor\Unfold\Link\Metadata\MetadataKeyType;
 use Hyvor\Unfold\Link\Metadata\MetadataParser;
 
 abstract class ParserAbstract
@@ -12,7 +13,7 @@ abstract class ParserAbstract
     }
 
     /**
-     * @return array<string, MetadataKeyEnum>
+     * @return array<string, MetadataKeyType>
      */
     public function registerMetaTagsKeys()
     {

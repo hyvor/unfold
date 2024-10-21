@@ -1,11 +1,8 @@
 <?php
 
-namespace Hyvor\Unfold\Objects;
+namespace Hyvor\Unfold;
 
-use Hyvor\Unfold\UnfoldConfigObject;
-use Hyvor\Unfold\UnfoldMethod;
-
-class UnfoldRequestContextObject
+class UnfoldCallContext
 {
     public float $startTime;
 

@@ -2,17 +2,19 @@
 
 namespace Hyvor\Unfold\Link\Metadata\Parsers;
 
+use Hyvor\Unfold\Link\Metadata\MetadataKeyType;
+
 class TwitterParser extends ParserAbstract
 {
     public function registerMetaTagsKeys()
     {
         return [
-            'twitter:card' => MetadataKeyEnum::TWITTER_CARD,
-            'twitter:site' => MetadataKeyEnum::TWITTER_SITE,
-            'twitter:creator' => MetadataKeyEnum::TWITTER_CREATOR,
-            'twitter:description' => MetadataKeyEnum::TWITTER_DESCRIPTION,
-            'twitter:title' => MetadataKeyEnum::TWITTER_TITLE,
-            'twitter:image' => MetadataKeyEnum::TWITTER_IMAGE,
+            'twitter:card' => MetadataKeyType::TWITTER_CARD,
+            'twitter:site' => MetadataKeyType::TWITTER_SITE,
+            'twitter:creator' => MetadataKeyType::TWITTER_CREATOR,
+            'twitter:description' => MetadataKeyType::TWITTER_DESCRIPTION,
+            'twitter:title' => MetadataKeyType::TWITTER_TITLE,
+            'twitter:image' => MetadataKeyType::TWITTER_IMAGE,
         ];
     }
 

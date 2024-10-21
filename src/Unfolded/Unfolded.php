@@ -4,9 +4,9 @@ namespace Hyvor\Unfold\Unfolded;
 
 use DateTimeInterface;
 use Hyvor\Unfold\Embed\EmbedResponseObject;
-use Hyvor\Unfold\Link\Metadata\Parsers\MetadataKeyEnum;
-use Hyvor\Unfold\Objects\MetadataObject;
-use Hyvor\Unfold\Objects\UnfoldRequestContextObject;
+use Hyvor\Unfold\Link\Metadata\MetadataKeyType;
+use Hyvor\Unfold\Link\Metadata\MetadataObject;
+use Hyvor\Unfold\UnfoldCallContext;
 use Hyvor\Unfold\UnfoldMethod;
 
 class Unfolded
@@ -44,9 +44,9 @@ class Unfolded
     public static function title(array $metadata): ?string
     {
         return self::getMetadataFromKeys($metadata, [
-            MetadataKeyEnum::TITLE,
-            MetadataKeyEnum::OG_TITLE,
-            MetadataKeyEnum::TWITTER_TITLE
+            MetadataKeyType::TITLE,
+            MetadataKeyType::OG_TITLE,
+            MetadataKeyType::TWITTER_TITLE
         ]);
     }
 
@@ -56,9 +56,9 @@ class Unfolded
     public static function description(array $metadata): ?string
     {
         return self::getMetadataFromKeys($metadata, [
-            MetadataKeyEnum::DESCRIPTION,
-            MetadataKeyEnum::OG_DESCRIPTION,
-            MetadataKeyEnum::TWITTER_DESCRIPTION
+            MetadataKeyType::DESCRIPTION,
+            MetadataKeyType::OG_DESCRIPTION,
+            MetadataKeyType::TWITTER_DESCRIPTION
         ]);
     }
 
@@ -69,9 +69,9 @@ class Unfolded
     public static function authors(array $metadata): array
     {
         return self::getMetadataFromKeys($metadata, [
-            MetadataKeyEnum::RICH_SCHEMA_AUTHOR,
-            MetadataKeyEnum::OG_ARTICLE_AUTHOR,
-            MetadataKeyEnum::TWITTER_CREATOR
+            MetadataKeyType::RICH_SCHEMA_AUTHOR,
+            MetadataKeyType::OG_ARTICLE_AUTHOR,
+            MetadataKeyType::TWITTER_CREATOR
         ], true);
     }
 
@@ -82,7 +82,7 @@ class Unfolded
     public static function tags(array $metadata): array
     {
         return self::getMetadataFromKeys($metadata, [
-            MetadataKeyEnum::OG_ARTICLE_TAG
+            MetadataKeyType::OG_ARTICLE_TAG
         ], true);
     }
 
@@ -92,8 +92,8 @@ class Unfolded
     public static function siteName(array $metadata): ?string
     {
         return self::getMetadataFromKeys($metadata, [
-            MetadataKeyEnum::OG_SITE_NAME,
-            MetadataKeyEnum::TWITTER_SITE
+            MetadataKeyType::OG_SITE_NAME,
+            MetadataKeyType::TWITTER_SITE
         ]);
     }
 
@@ -103,7 +103,7 @@ class Unfolded
     public static function siteUrl(array $metadata): ?string
     {
         return self::getMetadataFromKeys($metadata, [
-            MetadataKeyEnum::OG_URL
+            MetadataKeyType::OG_URL
         ]);
     }
 
@@ -113,7 +113,7 @@ class Unfolded
     public static function canonicalUrl(array $metadata): ?string
     {
         return self::getMetadataFromKeys($metadata, [
-            MetadataKeyEnum::CANONICAL_URL
+            MetadataKeyType::CANONICAL_URL
         ]);
     }
 
@@ -123,8 +123,8 @@ class Unfolded
     public static function publishedTime(array $metadata): ?DateTimeInterface
     {
         return self::getMetadataFromKeys($metadata, [
-            MetadataKeyEnum::RICH_SCHEMA_PUBLISHED_TIME,
-            MetadataKeyEnum::OG_ARTICLE_PUBLISHED_TIME
+            MetadataKeyType::RICH_SCHEMA_PUBLISHED_TIME,
+            MetadataKeyType::OG_ARTICLE_PUBLISHED_TIME
         ]);
     }
 
@@ -134,8 +134,8 @@ class Unfolded
     public static function modifiedTime(array $metadata): ?DateTimeInterface
     {
         return self::getMetadataFromKeys($metadata, [
-            MetadataKeyEnum::RICH_SCHEMA_MODIFIED_TIME,
-            MetadataKeyEnum::OG_ARTICLE_MODIFIED_TIME
+            MetadataKeyType::RICH_SCHEMA_MODIFIED_TIME,
+            MetadataKeyType::OG_ARTICLE_MODIFIED_TIME
         ]);
     }
 
@@ -145,10 +145,10 @@ class Unfolded
     public static function thumbnailUrl(array $metadata): ?string
     {
         return self::getMetadataFromKeys($metadata, [
-            MetadataKeyEnum::OG_IMAGE,
-            MetadataKeyEnum::OG_IMAGE_URL,
-            MetadataKeyEnum::OG_IMAGE_SECURE_URL,
-            MetadataKeyEnum::TWITTER_IMAGE
+            MetadataKeyType::OG_IMAGE,
+            MetadataKeyType::OG_IMAGE_URL,
+            MetadataKeyType::OG_IMAGE_SECURE_URL,
+            MetadataKeyType::TWITTER_IMAGE
         ]);
     }
 
@@ -158,7 +158,7 @@ class Unfolded
     public static function iconUrl(array $metadata): ?string
     {
         return self::getMetadataFromKeys($metadata, [
-            MetadataKeyEnum::FAVICON_URL
+            MetadataKeyType::FAVICON_URL
         ]);
     }
 
@@ -168,8 +168,8 @@ class Unfolded
     public static function locale(array $metadata): ?string
     {
         return self::getMetadataFromKeys($metadata, [
-            MetadataKeyEnum::LOCALE,
-            MetadataKeyEnum::OG_LOCALE
+            MetadataKeyType::LOCALE,
+            MetadataKeyType::OG_LOCALE
         ]);
     }
 
@@ -178,7 +178,7 @@ class Unfolded
 
     /**
      * @param MetadataObject[] $metadata
-     * @param MetadataKeyEnum[] $keys
+     * @param MetadataKeyType[] $keys
      * @return string|DateTimeInterface|UnfoldedAuthor[]|UnfoldedTag[]|null
      */
     public static function getMetadataFromKeys(
@@ -228,7 +228,7 @@ class Unfolded
     public static function fromMetadata(
         string $url,
         array $metadata,
-        UnfoldRequestContextObject $context,
+        UnfoldCallContext $context,
     ) {
         return new self(
             $context->method,
@@ -253,7 +253,7 @@ class Unfolded
     public static function fromEmbed(
         EmbedResponseObject $embed,
         string $url,
-        UnfoldRequestContextObject $context,
+        UnfoldCallContext $context,
     ): self {
         $authors = $embed->author_url || $embed->author_name ?
             [new UnfoldedAuthor($embed->author_name, $embed->author_url)] : [];

@@ -2,7 +2,8 @@
 
 namespace Hyvor\Unfold\Link\Metadata\Parsers;
 
-use Hyvor\Unfold\Objects\MetadataObject;
+use Hyvor\Unfold\Link\Metadata\MetadataKeyType;
+use Hyvor\Unfold\Link\Metadata\MetadataObject;
 
 class HtmlLangParser extends ParserAbstract
 {
@@ -20,6 +21,6 @@ class HtmlLangParser extends ParserAbstract
         }
         $lang = trim($lang);
 
-        $this->parser->addMetadata(new MetadataObject(MetadataKeyEnum::LOCALE, $lang));
+        $this->parser->addMetadata(new MetadataObject(MetadataKeyType::LOCALE, $lang));
     }
 }

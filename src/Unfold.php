@@ -4,7 +4,6 @@ namespace Hyvor\Unfold;
 
 use Hyvor\Unfold\Embed\Embed;
 use Hyvor\Unfold\Link\Link;
-use Hyvor\Unfold\Objects\UnfoldRequestContextObject;
 use Hyvor\Unfold\Unfolded\Unfolded;
 
 class Unfold
@@ -18,7 +17,7 @@ class Unfold
         UnfoldConfigObject $config = null,
     ): Unfolded {
         $config ??= new UnfoldConfigObject();
-        $context = new UnfoldRequestContextObject(
+        $context = new UnfoldCallContext(
             $method,
             $config,
         );

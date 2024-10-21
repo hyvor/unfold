@@ -2,8 +2,9 @@
 
 namespace Hyvor\Unfold\Link\Metadata\Parsers;
 
+use Hyvor\Unfold\Link\Metadata\MetadataKeyType;
+use Hyvor\Unfold\Link\Metadata\MetadataObject;
 use Hyvor\Unfold\Link\Metadata\MetadataParser;
-use Hyvor\Unfold\Objects\MetadataObject;
 use Hyvor\Unfold\Unfolded\UnfoldedAuthor;
 
 class JsonLdParser extends ParserAbstract
@@ -22,21 +23,21 @@ class JsonLdParser extends ParserAbstract
                 if (!$date) {
                     return;
                 }
-                $this->parser->addMetadata(new MetadataObject(MetadataKeyEnum::RICH_SCHEMA_PUBLISHED_TIME, $date));
+                $this->parser->addMetadata(new MetadataObject(MetadataKeyType::RICH_SCHEMA_PUBLISHED_TIME, $date));
             }
             if (isset($json['dateModified'])) {
                 $date = MetadataParser::getDateTimeFromString($json['dateModified']);
                 if (!$date) {
                     return;
                 }
-                $this->parser->addMetadata(new MetadataObject(MetadataKeyEnum::RICH_SCHEMA_MODIFIED_TIME, $date));
+                $this->parser->addMetadata(new MetadataObject(MetadataKeyType::RICH_SCHEMA_MODIFIED_TIME, $date));
             }
             if (isset($json['author'])) {
                 foreach ($json['author'] as $author) {
                     if (isset($author['name']) || isset($author['url'])) {
                         $this->parser->addMetadata(
                             new MetadataObject(
-                                MetadataKeyEnum::RICH_SCHEMA_AUTHOR,
+                                MetadataKeyType::RICH_SCHEMA_AUTHOR,
                                 new UnfoldedAuthor($author['name'], $author['url'])
                             )
                         );

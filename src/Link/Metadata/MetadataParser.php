@@ -9,11 +9,9 @@ use Hyvor\Unfold\Link\Metadata\Parsers\DescriptionParser;
 use Hyvor\Unfold\Link\Metadata\Parsers\HtmlLangParser;
 use Hyvor\Unfold\Link\Metadata\Parsers\JsonLdParser;
 use Hyvor\Unfold\Link\Metadata\Parsers\LinkParser;
-use Hyvor\Unfold\Link\Metadata\Parsers\MetadataKeyEnum;
 use Hyvor\Unfold\Link\Metadata\Parsers\OgParser;
 use Hyvor\Unfold\Link\Metadata\Parsers\TitleParser;
 use Hyvor\Unfold\Link\Metadata\Parsers\TwitterParser;
-use Hyvor\Unfold\Objects\MetadataObject;
 use Hyvor\Unfold\Unfolded\UnfoldedAuthor;
 use Hyvor\Unfold\Unfolded\UnfoldedTag;
 use Symfony\Component\DomCrawler\Crawler;
@@ -67,7 +65,7 @@ class MetadataParser
     }
 
     /**
-     * @param array<string, MetadataKeyEnum> $keys
+     * @param array<string, MetadataKeyType> $keys
      */
     public function addMetadataFromMetaTags(array $keys): void
     {
@@ -93,15 +91,15 @@ class MetadataParser
             }
 
             if (
-                $keyType === MetadataKeyEnum::OG_ARTICLE_PUBLISHED_TIME ||
-                $keyType === MetadataKeyEnum::OG_ARTICLE_MODIFIED_TIME
+                $keyType === MetadataKeyType::OG_ARTICLE_PUBLISHED_TIME ||
+                $keyType === MetadataKeyType::OG_ARTICLE_MODIFIED_TIME
             ) {
                 $content = self::getDateTimeFromString($content);
             }
 
             if (
-                $keyType === MetadataKeyEnum::OG_ARTICLE_AUTHOR ||
-                $keyType === MetadataKeyEnum::TWITTER_CREATOR
+                $keyType === MetadataKeyType::OG_ARTICLE_AUTHOR ||
+                $keyType === MetadataKeyType::TWITTER_CREATOR
             ) {
                 if (str_contains($content, 'http://') || str_contains($content, 'https://')) {
                     $content = new UnfoldedAuthor(null, $content);
@@ -110,7 +108,7 @@ class MetadataParser
                 }
             }
 
-            if ($keyType === MetadataKeyEnum::OG_ARTICLE_TAG) {
+            if ($keyType === MetadataKeyType::OG_ARTICLE_TAG) {
                 $content = new UnfoldedTag($content);
             }
 

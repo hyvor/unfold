@@ -1,8 +1,8 @@
 <?php
 
-namespace Hyvor\Unfold\Link\Metadata\Parsers;
+namespace Hyvor\Unfold\Link\Metadata;
 
-enum MetadataKeyEnum
+enum MetadataKeyType
 {
     case TITLE;
 

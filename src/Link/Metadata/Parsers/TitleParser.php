@@ -2,7 +2,8 @@
 
 namespace Hyvor\Unfold\Link\Metadata\Parsers;
 
-use Hyvor\Unfold\Objects\MetadataObject;
+use Hyvor\Unfold\Link\Metadata\MetadataKeyType;
+use Hyvor\Unfold\Link\Metadata\MetadataObject;
 
 class TitleParser extends ParserAbstract
 {
@@ -21,6 +22,6 @@ class TitleParser extends ParserAbstract
             return;
         }
 
-        $this->parser->addMetadata(new MetadataObject(MetadataKeyEnum::TITLE, $title));
+        $this->parser->addMetadata(new MetadataObject(MetadataKeyType::TITLE, $title));
     }
 }
