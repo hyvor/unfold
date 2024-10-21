@@ -203,9 +203,9 @@ class Unfolded
                     $value[] = $meta->value;
                     $keyIndex = array_search($meta->key, $keys);    // set the new key index
                 } elseif ($isMultiple && ($keyIndex === array_search(
-                            $meta->key,
-                            $keys
-                        ))) {    // if multiple values are allowed and same priority key found
+                    $meta->key,
+                    $keys
+                ))) {    // if multiple values are allowed and same priority key found
                     $value[] = $meta->value;
                 }
             }
@@ -216,7 +216,7 @@ class Unfolded
         return $isMultiple ?
             $value : // return the array of values
             (
-            count($value) !== 0 ?
+                count($value) !== 0 ?
                 $value[0] : // return the first value
                 null            // return null if no value found
             );

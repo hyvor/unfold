@@ -9,7 +9,6 @@ use Hyvor\Unfold\Unfolded\Unfolded;
 
 class Unfold
 {
-
     /**
      * @throws UnfoldException
      */

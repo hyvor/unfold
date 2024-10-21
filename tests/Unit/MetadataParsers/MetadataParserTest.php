@@ -74,10 +74,12 @@ dataset('contents', [
             new MetadataObject(MetadataKeyEnum::OG_AUDIO_TYPE, 'audio/mpeg'),
 
             new MetadataObject(
-                MetadataKeyEnum::OG_ARTICLE_PUBLISHED_TIME, new DateTimeImmutable('2021-10-10T10:10:10Z')
+                MetadataKeyEnum::OG_ARTICLE_PUBLISHED_TIME,
+                new DateTimeImmutable('2021-10-10T10:10:10Z')
             ),
             new MetadataObject(
-                MetadataKeyEnum::OG_ARTICLE_MODIFIED_TIME, new DateTimeImmutable('2021-10-10T10:10:10Z')
+                MetadataKeyEnum::OG_ARTICLE_MODIFIED_TIME,
+                new DateTimeImmutable('2021-10-10T10:10:10Z')
             ),
             new MetadataObject(MetadataKeyEnum::OG_ARTICLE_AUTHOR, new UnfoldedAuthor('Nadil Karunarathna', null)),
             new MetadataObject(MetadataKeyEnum::OG_ARTICLE_AUTHOR, new UnfoldedAuthor('Supun Wimalasena', null)),

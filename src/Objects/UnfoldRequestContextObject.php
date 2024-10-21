@@ -7,7 +7,6 @@ use Hyvor\Unfold\UnfoldMethod;
 
 class UnfoldRequestContextObject
 {
-
     public float $startTime;
 
     public function __construct(
