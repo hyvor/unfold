@@ -1,31 +1,38 @@
 {
-    "name": "hyvor/unfold",
-    "type": "library",
-    "license": "MIT",
-    "authors": [
-        {
-            "name": "Nadil Karunarathna",
-            "email": "nadil@hyvor.com"
-        }
-    ],
-    "autoload": {
-        "psr-4": {
-            "Hyvor\\Unfold\\": "src/"
-        }
+  "name": "hyvor/unfold",
+  "type": "library",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Supun Wimalasena",
+      "email": "supun@hyvor.com"
     },
-    "require-dev": {
-        "pestphp/pest": "^3.3",
-        "phpstan/phpstan": "^1.12",
-        "laravel/pint": "^1.18"
-    },
-    "config": {
-        "allow-plugins": {
-            "pestphp/pest-plugin": true
-        }
-    },
-    "require": {
-        "guzzlehttp/guzzle": "^7.0",
-        "symfony/dom-crawler": "^7.1",
-        "psr/http-client": "^1.0"
+    {
+      "name": "Nadil Karunarathna",
+      "email": "nadil@hyvor.com"
     }
+  ],
+  "autoload": {
+    "psr-4": {
+      "Hyvor\\Unfold\\": "src/"
+    }
+  },
+  "require": {
+    "symfony/dom-crawler": "^7.1",
+    "psr/http-client": "^1.0",
+    "php-http/discovery": "^1.20",
+    "php-http/client-common": "^2.7"
+  },
+  "require-dev": {
+    "pestphp/pest": "^3.3",
+    "phpstan/phpstan": "^1.12",
+    "laravel/pint": "^1.18",
+    "guzzlehttp/guzzle": "^7.0"
+  },
+  "config": {
+    "allow-plugins": {
+      "pestphp/pest-plugin": true,
+      "php-http/discovery": true
+    }
+  }
 }
