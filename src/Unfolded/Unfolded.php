@@ -6,6 +6,7 @@ use DateTimeInterface;
 use Hyvor\Unfold\Embed\EmbedResponseObject;
 use Hyvor\Unfold\Link\Metadata\MetadataKeyType;
 use Hyvor\Unfold\Link\Metadata\MetadataObject;
+use Hyvor\Unfold\Link\Metadata\MetadataPriority;
 use Hyvor\Unfold\UnfoldCallContext;
 use Hyvor\Unfold\UnfoldMethod;
 
@@ -203,9 +204,9 @@ class Unfolded
                     $value[] = $meta->value;
                     $keyIndex = array_search($meta->key, $keys);    // set the new key index
                 } elseif ($isMultiple && ($keyIndex === array_search(
-                    $meta->key,
-                    $keys
-                ))) {    // if multiple values are allowed and same priority key found
+                            $meta->key,
+                            $keys
+                        ))) {    // if multiple values are allowed and same priority key found
                     $value[] = $meta->value;
                 }
             }
@@ -216,7 +217,7 @@ class Unfolded
         return $isMultiple ?
             $value : // return the array of values
             (
-                count($value) !== 0 ?
+            count($value) !== 0 ?
                 $value[0] : // return the first value
                 null            // return null if no value found
             );
@@ -229,23 +230,25 @@ class Unfolded
         string $url,
         array $metadata,
         UnfoldCallContext $context,
-    ) {
+    ): self {
+        $metadataPriority = new MetadataPriority($metadata);
+
         return new self(
             $context->method,
             $url,
             null,
-            self::title($metadata),
-            self::description($metadata),
-            self::authors($metadata),
-            self::tags($metadata),
-            self::siteName($metadata),
-            self::siteUrl($metadata),
-            self::canonicalUrl($metadata),
-            self::publishedTime($metadata),
-            self::modifiedTime($metadata),
-            self::thumbnailUrl($metadata),
-            self::iconUrl($metadata),
-            self::locale($metadata),
+            $metadataPriority->title(),
+            $metadataPriority->description(),
+            $metadataPriority->authors(),
+            $metadataPriority->tags(),
+            $metadataPriority->siteName(),
+            $metadataPriority->siteUrl(),
+            $metadataPriority->canonicalUrl(),
+            $metadataPriority->publishedTime(),
+            $metadataPriority->modifiedTime(),
+            $metadataPriority->thumbnailUrl(),
+            $metadataPriority->iconUrl(),
+            $metadataPriority->locale(),
             $context->duration()
         );
     }
