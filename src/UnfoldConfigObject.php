@@ -58,7 +58,7 @@ class UnfoldConfigObject
          * Applies to scraping and oembed requests
          * Set to 0 to disable redirects
          */
-        int $httpMaxRedirects = 3,
+        public int $httpMaxRedirects = 3,
 
         /**
          *
