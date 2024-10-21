@@ -2,15 +2,20 @@
 
 namespace Hyvor\Unfold\Link\Metadata;
 
-use DateTimeInterface;
-use Hyvor\Unfold\Unfolded\UnfoldedAuthor;
-use Hyvor\Unfold\Unfolded\UnfoldedTag;
 
+/**
+ * @template T extends string|DateTimeInterface|UnfoldedAuthor|UnfoldedTag
+ */
 class MetadataObject
 {
+
+    /**
+     * @param MetadataKeyType $key
+     * @param T $value
+     */
     public function __construct(
         public MetadataKeyType $key,
-        public string|DateTimeInterface|UnfoldedAuthor|UnfoldedTag $value,
+        public $value,
     ) {
     }
 }
