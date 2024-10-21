@@ -2,7 +2,7 @@
 
 namespace Unit\Parsers;
 
-use Hyvor\Unfold\Embed\EmbedParsers\Platforms\Youtube;
+use Hyvor\Unfold\Embed\Platforms\Youtube;
 
 it('configs', function () {
     $youtube = new Youtube('https://www.youtube.com/watch?v=X-sZhiYAz');

@@ -7,10 +7,10 @@ use GuzzleHttp\HandlerStack;
 use GuzzleHttp\Middleware;
 use GuzzleHttp\Psr7\Request;
 use GuzzleHttp\Psr7\Response;
-use Hyvor\Unfold\Embed\EmbedParsers\EmbedParserAbstract;
-use Hyvor\Unfold\Embed\EmbedParsers\EmbedParserOEmbedInterface;
-use Hyvor\Unfold\Embed\EmbedParsers\Exception\ParserException;
-use Hyvor\Unfold\Embed\EmbedParsers\OEmbedTypeEnum;
+use Hyvor\Unfold\Embed\EmbedParserAbstract;
+use Hyvor\Unfold\Embed\EmbedParserOEmbedInterface;
+use Hyvor\Unfold\Embed\Exception\ParserException;
+use Hyvor\Unfold\Embed\OEmbedTypeEnum;
 use Hyvor\Unfold\UnfoldConfigObject;
 
 class OEmbedTestPlatform extends EmbedParserAbstract implements EmbedParserOEmbedInterface

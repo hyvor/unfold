@@ -2,24 +2,30 @@
 
 namespace Hyvor\Unfold;
 
-use Hyvor\Unfold\Objects\UnfoldedObject;
-use Hyvor\Unfold\Scraper\Scraper;
+use Hyvor\Unfold\Embed\Embed;
+use Hyvor\Unfold\Link\Link;
+use Hyvor\Unfold\Unfolded\Unfolded;
 
 class Unfold
 {
+    /**
+     * @throws UnfoldException
+     */
     public static function unfold(
         string $url,
-        UnfoldMethodEnum $method = UnfoldMethodEnum::LINK,
+        UnfoldMethod $method = UnfoldMethod::LINK,
         UnfoldConfigObject $config = null,
-    ): UnfoldedObject {
+    ): Unfolded {
         $config ??= new UnfoldConfigObject();
+        $context = new UnfoldCallContext(
+            $method,
+            $config,
+        );
 
-        $startTime = microtime(true);
-
-        if ($method === UnfoldMethodEnum::LINK) {
-            return Scraper::getUnfoldedObject($url, $method, $config, $startTime);
-        } elseif ($method === UnfoldMethodEnum::EMBED) {
-            //
+        if ($method === UnfoldMethod::LINK) {
+            return Link::getUnfoldedObject($url, $context);
+        } elseif ($method === UnfoldMethod::EMBED) {
+            return Embed::getUnfoldedObject($url, $context);
         } else {
             // both
         }
