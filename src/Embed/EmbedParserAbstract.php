@@ -65,7 +65,7 @@ abstract class EmbedParserAbstract
         return false;
     }
 
-    public function parse(): ?OEmbedResponse
+    public function parse(): ?EmbedResponseObject
     {
         $oEmbedUrl = $this->oEmbedUrl();
 
@@ -118,7 +118,7 @@ abstract class EmbedParserAbstract
             throw new ParserException("Failed to parse JSON response from oEmbed endpoint");
         }
 
-        return OEmbedResponse::fromArray($parsed);
+        return EmbedResponseObject::fromArray($parsed);
     }
 
 }

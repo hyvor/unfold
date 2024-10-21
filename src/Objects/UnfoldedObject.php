@@ -3,6 +3,7 @@
 namespace Hyvor\Unfold\Objects;
 
 use DateTimeInterface;
+use Hyvor\Unfold\Embed\EmbedResponseObject;
 use Hyvor\Unfold\Link\MetadataParsers\MetadataKeyEnum;
 use Hyvor\Unfold\UnfoldMethodEnum;
 
@@ -223,13 +224,12 @@ class UnfoldedObject
      * @param MetadataObject[] $metadata
      */
     public static function fromMetadata(
-        UnfoldMethodEnum $method,
         string $url,
         array $metadata,
-        float $startTime
+        UnfoldRequestContextObject $context,
     ) {
         return new self(
-            $method,
+            $context->method,
             $url,
             null,
             self::title($metadata),
@@ -244,7 +244,36 @@ class UnfoldedObject
             self::thumbnailUrl($metadata),
             self::iconUrl($metadata),
             self::locale($metadata),
-            (microtime(true) - $startTime) * 1000,
+            $context->duration()
         );
     }
+
+    public static function fromEmbed(
+        EmbedResponseObject $embed,
+        string $url,
+        UnfoldRequestContextObject $context,
+    ): self {
+        $authors = $embed->author_url || $embed->author_name ?
+            [new AuthorObject($embed->author_name, $embed->author_url)] : [];
+
+        return new self(
+            $context->method,
+            $url,
+            $embed->html,
+            $embed->title,
+            null,
+            $authors,
+            [],
+            $embed->provider_name,
+            $embed->provider_url,
+            $embed->url,
+            null,
+            null,
+            $embed->thumbnail_url,
+            null,
+            null,
+            $context->duration()
+        );
+    }
+
 }

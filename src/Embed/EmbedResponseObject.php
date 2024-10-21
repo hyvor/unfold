@@ -2,7 +2,8 @@
 
 namespace Hyvor\Unfold\Embed;
 
-class OEmbedResponse
+// this is quite in the same format as an oembed response
+class EmbedResponseObject
 {
     public function __construct(
         public string $version,
@@ -40,9 +41,9 @@ class OEmbedResponse
     /**
      * @param array<string, string | int | null> $array
      */
-    public static function fromArray(array $array): OEmbedResponse
+    public static function fromArray(array $array): EmbedResponseObject
     {
-        return new OEmbedResponse(
+        return new EmbedResponseObject(
             (string)($array['version'] ?? '1.0'),
             OEmbedTypeEnum::tryFrom($array['type'] ?? 'link') ?? OEmbedTypeEnum::LINK,
             array_key_exists('url', $array) ? (string)$array['url'] : null,

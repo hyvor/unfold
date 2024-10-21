@@ -5,8 +5,8 @@ namespace Hyvor\Unfold\Link;
 use GuzzleHttp\Psr7\Request;
 use Hyvor\Unfold\Link\MetadataParsers\MetadataParser;
 use Hyvor\Unfold\Objects\UnfoldedObject;
+use Hyvor\Unfold\Objects\UnfoldRequestContextObject;
 use Hyvor\Unfold\UnfoldConfigObject;
-use Hyvor\Unfold\UnfoldMethodEnum;
 use Psr\Http\Client\ClientExceptionInterface;
 
 class Link
@@ -32,6 +32,7 @@ class Link
 
         $status = $response->getStatusCode();
         $content = $response->getBody()->getContents();
+        // TODO:
 
         return $response->getBody();
     }
@@ -39,18 +40,15 @@ class Link
 
     public static function getUnfoldedObject(
         string $url,
-        UnfoldMethodEnum $method,
-        UnfoldConfigObject $config,
-        float $startTime
+        UnfoldRequestContextObject $context,
     ): UnfoldedObject {
-        $content = (new Link($url, $config))->scrape();
+        $content = (new Link($url, $context->config))->scrape();
         $metadata = (new MetadataParser($content))->parse();
 
         return UnfoldedObject::fromMetadata(
-            $method,
             $url,
             $metadata,
-            $startTime
+            $context,
         );
     }
 }
