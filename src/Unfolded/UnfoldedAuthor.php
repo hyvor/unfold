@@ -1,8 +1,8 @@
 <?php
 
-namespace Hyvor\Unfold\Objects;
+namespace Hyvor\Unfold\Unfolded;
 
-class AuthorObject
+class UnfoldedAuthor
 {
     public function __construct(
         public ?string $name = null,

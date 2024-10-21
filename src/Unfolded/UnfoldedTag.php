@@ -1,8 +1,8 @@
 <?php
 
-namespace Hyvor\Unfold\Objects;
+namespace Hyvor\Unfold\Unfolded;
 
-class TagObject
+class UnfoldedTag
 {
     public function __construct(
         public ?string $name

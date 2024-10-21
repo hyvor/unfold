@@ -1,22 +1,24 @@
 <?php
 
-namespace Hyvor\Unfold\Objects;
+namespace Hyvor\Unfold\Unfolded;
 
 use DateTimeInterface;
 use Hyvor\Unfold\Embed\EmbedResponseObject;
-use Hyvor\Unfold\Link\MetadataParsers\MetadataKeyEnum;
-use Hyvor\Unfold\UnfoldMethodEnum;
+use Hyvor\Unfold\Link\Metadata\Parsers\MetadataKeyEnum;
+use Hyvor\Unfold\Objects\MetadataObject;
+use Hyvor\Unfold\Objects\UnfoldRequestContextObject;
+use Hyvor\Unfold\UnfoldMethod;
 
-class UnfoldedObject
+class Unfolded
 {
     public string $version;
 
     /**
-     * @param AuthorObject[] $authors
-     * @param TagObject[] $tags
+     * @param UnfoldedAuthor[] $authors
+     * @param UnfoldedTag[] $tags
      */
     public function __construct(
-        public UnfoldMethodEnum $method,
+        public UnfoldMethod $method,
         public string $url,
         public ?string $embed,
         public ?string $title,
@@ -62,7 +64,7 @@ class UnfoldedObject
 
     /**
      * @param MetadataObject[] $metadata
-     * @return AuthorObject[]
+     * @return UnfoldedAuthor[]
      */
     public static function authors(array $metadata): array
     {
@@ -75,7 +77,7 @@ class UnfoldedObject
 
     /**
      * @param MetadataObject[] $metadata
-     * @return TagObject[]
+     * @return UnfoldedTag[]
      */
     public static function tags(array $metadata): array
     {
@@ -177,7 +179,7 @@ class UnfoldedObject
     /**
      * @param MetadataObject[] $metadata
      * @param MetadataKeyEnum[] $keys
-     * @return string|DateTimeInterface|AuthorObject[]|TagObject[]|null
+     * @return string|DateTimeInterface|UnfoldedAuthor[]|UnfoldedTag[]|null
      */
     public static function getMetadataFromKeys(
         array $metadata,
@@ -254,7 +256,7 @@ class UnfoldedObject
         UnfoldRequestContextObject $context,
     ): self {
         $authors = $embed->author_url || $embed->author_name ?
-            [new AuthorObject($embed->author_name, $embed->author_url)] : [];
+            [new UnfoldedAuthor($embed->author_name, $embed->author_url)] : [];
 
         return new self(
             $context->method,

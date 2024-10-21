@@ -1,9 +1,10 @@
 <?php
 
-namespace Hyvor\Unfold\Link\MetadataParsers;
+namespace Hyvor\Unfold\Link\Metadata\Parsers;
 
-use Hyvor\Unfold\Objects\AuthorObject;
+use Hyvor\Unfold\Link\Metadata\MetadataParser;
 use Hyvor\Unfold\Objects\MetadataObject;
+use Hyvor\Unfold\Unfolded\UnfoldedAuthor;
 
 class JsonLdParser extends ParserAbstract
 {
@@ -36,7 +37,7 @@ class JsonLdParser extends ParserAbstract
                         $this->parser->addMetadata(
                             new MetadataObject(
                                 MetadataKeyEnum::RICH_SCHEMA_AUTHOR,
-                                new AuthorObject($author['name'], $author['url'])
+                                new UnfoldedAuthor($author['name'], $author['url'])
                             )
                         );
                     }

@@ -3,7 +3,7 @@
 namespace Hyvor\Unfold\Objects;
 
 use Hyvor\Unfold\UnfoldConfigObject;
-use Hyvor\Unfold\UnfoldMethodEnum;
+use Hyvor\Unfold\UnfoldMethod;
 
 class UnfoldRequestContextObject
 {
@@ -11,7 +11,7 @@ class UnfoldRequestContextObject
     public float $startTime;
 
     public function __construct(
-        public UnfoldMethodEnum $method,
+        public UnfoldMethod $method,
         public UnfoldConfigObject $config,
     ) {
         $this->startTime = microtime(true);

@@ -1,6 +1,6 @@
 <?php
 
-namespace Hyvor\Unfold\Link\MetadataParsers;
+namespace Hyvor\Unfold\Link\Metadata\Parsers;
 
 use Hyvor\Unfold\Objects\MetadataObject;
 

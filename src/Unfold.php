@@ -3,9 +3,9 @@
 namespace Hyvor\Unfold;
 
 use Hyvor\Unfold\Embed\Embed;
-use Hyvor\Unfold\Objects\UnfoldedObject;
 use Hyvor\Unfold\Link\Link;
 use Hyvor\Unfold\Objects\UnfoldRequestContextObject;
+use Hyvor\Unfold\Unfolded\Unfolded;
 
 class Unfold
 {
@@ -15,18 +15,18 @@ class Unfold
      */
     public static function unfold(
         string $url,
-        UnfoldMethodEnum $method = UnfoldMethodEnum::LINK,
+        UnfoldMethod $method = UnfoldMethod::LINK,
         UnfoldConfigObject $config = null,
-    ): UnfoldedObject {
+    ): Unfolded {
         $config ??= new UnfoldConfigObject();
         $context = new UnfoldRequestContextObject(
             $method,
             $config,
         );
 
-        if ($method === UnfoldMethodEnum::LINK) {
+        if ($method === UnfoldMethod::LINK) {
             return Link::getUnfoldedObject($url, $context);
-        } elseif ($method === UnfoldMethodEnum::EMBED) {
+        } elseif ($method === UnfoldMethod::EMBED) {
             return Embed::getUnfoldedObject($url, $context);
         } else {
             // both

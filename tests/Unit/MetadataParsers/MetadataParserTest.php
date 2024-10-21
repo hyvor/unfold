@@ -4,11 +4,11 @@ namespace Hyvor\Unfold\Tests\Unit;
 
 use DateTimeImmutable;
 use DateTimeInterface;
-use Hyvor\Unfold\Link\MetadataParsers\MetadataKeyEnum;
-use Hyvor\Unfold\Link\MetadataParsers\MetadataParser;
-use Hyvor\Unfold\Objects\AuthorObject;
+use Hyvor\Unfold\Link\Metadata\MetadataParser;
+use Hyvor\Unfold\Link\Metadata\Parsers\MetadataKeyEnum;
 use Hyvor\Unfold\Objects\MetadataObject;
-use Hyvor\Unfold\Objects\TagObject;
+use Hyvor\Unfold\Unfolded\UnfoldedAuthor;
+use Hyvor\Unfold\Unfolded\UnfoldedTag;
 
 dataset('contents', [
     'all valid og and twitter tags' => [
@@ -79,15 +79,15 @@ dataset('contents', [
             new MetadataObject(
                 MetadataKeyEnum::OG_ARTICLE_MODIFIED_TIME, new DateTimeImmutable('2021-10-10T10:10:10Z')
             ),
-            new MetadataObject(MetadataKeyEnum::OG_ARTICLE_AUTHOR, new AuthorObject('Nadil Karunarathna', null)),
-            new MetadataObject(MetadataKeyEnum::OG_ARTICLE_AUTHOR, new AuthorObject('Supun Wimalasena', null)),
-            new MetadataObject(MetadataKeyEnum::OG_ARTICLE_TAG, new TagObject('HYVOR')),
-            new MetadataObject(MetadataKeyEnum::OG_ARTICLE_TAG, new TagObject('PHP')),
-            new MetadataObject(MetadataKeyEnum::OG_ARTICLE_TAG, new TagObject('OEmbed')),
+            new MetadataObject(MetadataKeyEnum::OG_ARTICLE_AUTHOR, new UnfoldedAuthor('Nadil Karunarathna', null)),
+            new MetadataObject(MetadataKeyEnum::OG_ARTICLE_AUTHOR, new UnfoldedAuthor('Supun Wimalasena', null)),
+            new MetadataObject(MetadataKeyEnum::OG_ARTICLE_TAG, new UnfoldedTag('HYVOR')),
+            new MetadataObject(MetadataKeyEnum::OG_ARTICLE_TAG, new UnfoldedTag('PHP')),
+            new MetadataObject(MetadataKeyEnum::OG_ARTICLE_TAG, new UnfoldedTag('OEmbed')),
 
             new MetadataObject(MetadataKeyEnum::TWITTER_CARD, 'summary'),
             new MetadataObject(MetadataKeyEnum::TWITTER_SITE, '@nadil_k'),
-            new MetadataObject(MetadataKeyEnum::TWITTER_CREATOR, new AuthorObject('@nadil_k', null)),
+            new MetadataObject(MetadataKeyEnum::TWITTER_CREATOR, new UnfoldedAuthor('@nadil_k', null)),
             new MetadataObject(MetadataKeyEnum::TWITTER_DESCRIPTION, 'Personal Blog'),
             new MetadataObject(MetadataKeyEnum::TWITTER_TITLE, 'Nadil Karunarathna'),
             new MetadataObject(MetadataKeyEnum::TWITTER_IMAGE, 'https://nadil.io/image.jpg'),
@@ -186,11 +186,11 @@ dataset('contents', [
             ),
             new MetadataObject(
                 MetadataKeyEnum::RICH_SCHEMA_AUTHOR,
-                new AuthorObject('Jane Doe', 'https://example.com/profile/janedoe123')
+                new UnfoldedAuthor('Jane Doe', 'https://example.com/profile/janedoe123')
             ),
             new MetadataObject(
                 MetadataKeyEnum::RICH_SCHEMA_AUTHOR,
-                new AuthorObject('John Doe', 'https://example.com/profile/johndoe123')
+                new UnfoldedAuthor('John Doe', 'https://example.com/profile/johndoe123')
             )
         ]
     ],

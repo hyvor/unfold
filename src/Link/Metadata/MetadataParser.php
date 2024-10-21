@@ -1,13 +1,21 @@
 <?php
 
-namespace Hyvor\Unfold\Link\MetadataParsers;
+namespace Hyvor\Unfold\Link\Metadata;
 
 use DateTimeImmutable;
 use DateTimeInterface;
 use Exception;
-use Hyvor\Unfold\Objects\AuthorObject;
+use Hyvor\Unfold\Link\Metadata\Parsers\DescriptionParser;
+use Hyvor\Unfold\Link\Metadata\Parsers\HtmlLangParser;
+use Hyvor\Unfold\Link\Metadata\Parsers\JsonLdParser;
+use Hyvor\Unfold\Link\Metadata\Parsers\LinkParser;
+use Hyvor\Unfold\Link\Metadata\Parsers\MetadataKeyEnum;
+use Hyvor\Unfold\Link\Metadata\Parsers\OgParser;
+use Hyvor\Unfold\Link\Metadata\Parsers\TitleParser;
+use Hyvor\Unfold\Link\Metadata\Parsers\TwitterParser;
 use Hyvor\Unfold\Objects\MetadataObject;
-use Hyvor\Unfold\Objects\TagObject;
+use Hyvor\Unfold\Unfolded\UnfoldedAuthor;
+use Hyvor\Unfold\Unfolded\UnfoldedTag;
 use Symfony\Component\DomCrawler\Crawler;
 
 class MetadataParser
@@ -96,14 +104,14 @@ class MetadataParser
                 $keyType === MetadataKeyEnum::TWITTER_CREATOR
             ) {
                 if (str_contains($content, 'http://') || str_contains($content, 'https://')) {
-                    $content = new AuthorObject(null, $content);
+                    $content = new UnfoldedAuthor(null, $content);
                 } else {
-                    $content = new AuthorObject($content, null);
+                    $content = new UnfoldedAuthor($content, null);
                 }
             }
 
             if ($keyType === MetadataKeyEnum::OG_ARTICLE_TAG) {
-                $content = new TagObject($content);
+                $content = new UnfoldedTag($content);
             }
 
             $metadata[] = new MetadataObject($keyType, $content);

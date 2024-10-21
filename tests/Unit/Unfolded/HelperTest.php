@@ -2,9 +2,9 @@
 
 namespace Hyvor\Unfold\Tests\Unit;
 
-use Hyvor\Unfold\Link\MetadataParsers\MetadataKeyEnum;
+use Hyvor\Unfold\Link\Metadata\Parsers\MetadataKeyEnum;
 use Hyvor\Unfold\Objects\MetadataObject;
-use Hyvor\Unfold\Objects\UnfoldedObject;
+use Hyvor\Unfold\Unfolded\Unfolded;
 
 /**
  * getMetadataFromKeys
@@ -19,7 +19,7 @@ $metadata = [
 
 it('gets metadata from key array', function () {
     global $metadata;
-    $metadataValue = UnfoldedObject::getMetadataFromKeys($metadata, [
+    $metadataValue = Unfolded::getMetadataFromKeys($metadata, [
         MetadataKeyEnum::TITLE,
         MetadataKeyEnum::OG_TITLE,
         MetadataKeyEnum::TWITTER_TITLE
@@ -29,7 +29,7 @@ it('gets metadata from key array', function () {
 
 it('gets metadata from key array 2', function () {
     global $metadata;
-    $metadataValue = UnfoldedObject::getMetadataFromKeys($metadata, [
+    $metadataValue = Unfolded::getMetadataFromKeys($metadata, [
         MetadataKeyEnum::OG_TITLE,
         MetadataKeyEnum::TITLE,
         MetadataKeyEnum::TWITTER_TITLE
@@ -39,7 +39,7 @@ it('gets metadata from key array 2', function () {
 
 it('returns null when no metadata found', function () {
     global $metadata;
-    $metadataValue = UnfoldedObject::getMetadataFromKeys($metadata, [
+    $metadataValue = Unfolded::getMetadataFromKeys($metadata, [
         MetadataKeyEnum::OG_IMAGE,
     ]);
     expect($metadataValue)->toBeNull();
@@ -47,6 +47,6 @@ it('returns null when no metadata found', function () {
 
 it('returns null when no keys are given', function () {
     global $metadata;
-    $metadataValue = UnfoldedObject::getMetadataFromKeys($metadata, []);
+    $metadataValue = Unfolded::getMetadataFromKeys($metadata, []);
     expect($metadataValue)->toBeNull();
 });

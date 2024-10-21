@@ -8,11 +8,11 @@ use Hyvor\Unfold\Embed\Platforms\Reddit;
 use Hyvor\Unfold\Embed\Platforms\Tiktok;
 use Hyvor\Unfold\Embed\Platforms\Twitter;
 use Hyvor\Unfold\Embed\Platforms\Youtube;
-use Hyvor\Unfold\Objects\UnfoldedObject;
 use Hyvor\Unfold\Objects\UnfoldRequestContextObject;
 use Hyvor\Unfold\UnfoldConfigObject;
+use Hyvor\Unfold\Unfolded\Unfolded;
 use Hyvor\Unfold\UnfoldException;
-use Hyvor\Unfold\UnfoldMethodEnum;
+use Hyvor\Unfold\UnfoldMethod;
 
 class Embed
 {
@@ -44,7 +44,7 @@ class Embed
     }
 
     /**
-     * @return $context->method is EmbedMethodEnum::EMBED ? UnfoldedObject : ?UnfoldedObject
+     * @return $context->method is EmbedMethodEnum::EMBED ? Unfolded : ?Unfolded
      * @throws UnfoldException
      */
     public static function getUnfoldedObject(
@@ -54,14 +54,14 @@ class Embed
         $oembed = self::parse($url, $context->config);
 
         if ($oembed === null) {
-            if ($context->method === UnfoldMethodEnum::EMBED) {
+            if ($context->method === UnfoldMethod::EMBED) {
                 throw new UnableToResolveEmbedException();
             } else {
                 return null;
             }
         }
 
-        return UnfoldedObject::fromEmbed(
+        return Unfolded::fromEmbed(
             $oembed,
             $url,
             $context
