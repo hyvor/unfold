@@ -57,7 +57,7 @@ class Instagram extends EmbedParserAbstract implements EmbedParserOEmbedInterfac
         ];
     }
 
-    public function oEmbedUrl(): ?string
+    public function oEmbedUrl(): string
     {
         return 'https://graph.facebook.com/v16.0/instagram_oembed';
     }

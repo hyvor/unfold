@@ -4,6 +4,6 @@ namespace Hyvor\Unfold\Embed;
 
 interface EmbedParserOEmbedInterface
 {
-    public function oEmbedUrl(): ?string;
+    public function oEmbedUrl(): string;
 
 }

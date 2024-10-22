@@ -22,11 +22,16 @@ class OEmbedTestPlatform extends EmbedParserAbstract implements EmbedParserOEmbe
         ];
     }
 
-    public function oEmbedUrl(): ?string
+    public function oEmbedUrl(): string
     {
         return 'https://oembed.hyvor.com';
     }
 }
+
+it('not matching', function () {
+    $platform = new OEmbedTestPlatform('https://example.com');
+    expect($platform->match())->toBeFalse();
+});
 
 it('valid response', function () {
     $history = [];

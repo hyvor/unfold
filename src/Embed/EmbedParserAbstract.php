@@ -5,6 +5,7 @@ namespace Hyvor\Unfold\Embed;
 use GuzzleHttp\Psr7\Request;
 use GuzzleHttp\Psr7\Uri;
 use Hyvor\Unfold\Exception\EmbedParserException;
+use Hyvor\Unfold\Exception\UnfoldException;
 use Hyvor\Unfold\UnfoldConfig;
 use Psr\Http\Client\ClientExceptionInterface;
 use Psr\Http\Message\RequestInterface;
@@ -65,14 +66,25 @@ abstract class EmbedParserAbstract
         return false;
     }
 
-    public function parse(): ?EmbedResponseObject
+    /**
+     * @throws UnfoldException
+     */
+    public function parse(): EmbedResponseObject
+    {
+        if ($this instanceof EmbedParserOEmbedInterface) {
+            return $this->parseOEmbed();
+        } elseif ($this instanceof EmbedParserCustomInterface) {
+            return $this->parseCustom();
+        } else {
+            throw new \Exception(
+                'EmbedParserAbstract should be implemented with either EmbedParserOEmbedInterface or EmbedParserCustomInterface'
+            ); // @codeCoverageIgnore
+        }
+    }
+
+    public function parseOEmbed(): ?EmbedResponseObject
     {
         $oEmbedUrl = $this->oEmbedUrl();
-
-        if (!$oEmbedUrl) {
-            // TODO: Check config option for fallback
-            return null;
-        }
 
         $uri = Uri::withQueryValues(
             new Uri($oEmbedUrl),
@@ -119,6 +131,16 @@ abstract class EmbedParserAbstract
         }
 
         return EmbedResponseObject::fromArray($parsed);
+    }
+
+    private function parseCustom()
+    {
+        $html = $this->getEmbedHtml();
+
+        return EmbedResponseObject::fromArray([
+            'type' => 'embed',
+            'html' => $html
+        ]);
     }
 
 }

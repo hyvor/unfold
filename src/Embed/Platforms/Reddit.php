@@ -19,7 +19,7 @@ class Reddit extends EmbedParserAbstract implements EmbedParserOEmbedInterface
         ];
     }
 
-    public function oEmbedUrl(): ?string
+    public function oEmbedUrl(): string
     {
         return 'https://www.reddit.com/oembed';
     }

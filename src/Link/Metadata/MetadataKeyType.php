@@ -62,7 +62,7 @@ enum MetadataKeyType
             $this === MetadataKeyType::OG_ARTICLE_PUBLISHED_TIME ||
             $this === MetadataKeyType::OG_ARTICLE_MODIFIED_TIME
         ) {
-            return $this->getDateTimeFromString($content);
+            return MetadataParser::getDateTimeFromString($content);
         }
 
         if (
@@ -77,15 +77,6 @@ enum MetadataKeyType
         }
 
         return $content;
-    }
-
-    private function getDateTimeFromString(string $value): ?\DateTimeInterface
-    {
-        try {
-            return new \DateTimeImmutable($value);
-        } catch (\Exception) {
-            return null;
-        }
     }
 
     private function getAuthorFromString(string $value): UnfoldedAuthor

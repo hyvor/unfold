@@ -12,7 +12,7 @@ class HtmlLangParser extends ParserAbstract
         $htmlNode = $this->parser->crawler->filterXPath('//html');
 
         if ($htmlNode->count() === 0) {
-            return;
+            return; // @codeCoverageIgnore
         }
 
         $lang = $htmlNode->attr('lang');

@@ -3,8 +3,9 @@
 namespace Hyvor\Unfold\Embed\Platforms;
 
 use Hyvor\Unfold\Embed\EmbedParserAbstract;
+use Hyvor\Unfold\Embed\EmbedParserOEmbedInterface;
 
-class Tiktok extends EmbedParserAbstract
+class Tiktok extends EmbedParserAbstract implements EmbedParserOEmbedInterface
 {
     public function regex()
     {
@@ -14,7 +15,7 @@ class Tiktok extends EmbedParserAbstract
         ];
     }
 
-    public function oEmbedUrl(): ?string
+    public function oEmbedUrl(): string
     {
         return 'https://www.tiktok.com/oembed';
     }
