@@ -13,15 +13,11 @@ class LinkParser extends ParserAbstract
             $rel = $node->attr('rel');
             $href = $node->attr('href');
 
-            if (!$rel && !$href) {
-                return;
-            }
-
-            if ($rel === 'canonical') {
+            if ($rel === 'canonical' && is_string($href)) {
                 $this->parser->addMetadata(new MetadataObject(MetadataKeyType::CANONICAL_URL, $href));
             }
 
-            if ($rel === 'icon') {
+            if ($rel === 'icon' && is_string($href)) {
                 $this->parser->addMetadata(new MetadataObject(MetadataKeyType::FAVICON_URL, $href));
             }
         });

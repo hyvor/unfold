@@ -5,6 +5,7 @@ use GuzzleHttp\Handler\MockHandler;
 use GuzzleHttp\HandlerStack;
 use GuzzleHttp\Middleware;
 use GuzzleHttp\Psr7\Response;
+use Hyvor\Unfold\Exception\EmbedUnableToResolveException;
 use Hyvor\Unfold\Unfold;
 use Hyvor\Unfold\UnfoldConfig;
 use Hyvor\Unfold\UnfoldMethod;
@@ -61,4 +62,12 @@ it('fetches custom', function () {
         method: UnfoldMethod::EMBED,
     );
     expect($response->embed)->toBe('<script src="https://gist.github.com/123.js"></script>');
+});
+
+it('on unable to resolve', function () {
+    expect(fn() => Unfold::unfold(
+        'https://hyvor.com',
+        method: UnfoldMethod::EMBED,
+        config: new UnfoldConfig()
+    ))->toThrow(EmbedUnableToResolveException::class);
 });

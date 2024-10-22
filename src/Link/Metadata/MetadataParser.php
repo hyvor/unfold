@@ -18,7 +18,6 @@ use Symfony\Component\DomCrawler\Crawler;
 
 class MetadataParser
 {
-    // TODO: Rich Schema
 
     /**
      * @var MetadataObject[]
