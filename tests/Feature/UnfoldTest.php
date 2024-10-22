@@ -1,11 +1,7 @@
 <?php
 
-it('gets link', function () {
-    //
+use Hyvor\Unfold\Unfold;
 
-});
-
-it('gets embed', function () {
-    //
-
+it('fetches link', function () {
+    $response = Unfold::unfold('https://hyvor.com');
 });
