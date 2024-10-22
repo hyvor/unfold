@@ -20,6 +20,7 @@ class MetadataPriority
 
     /**
      * @param MetadataKeyType[] $keys
+     * @return mixed[]
      */
     private function prioritizedAll(array $keys)
     {
@@ -56,15 +57,15 @@ class MetadataPriority
          *    'OG_TITLE' => [MetadataObject],
          * ]
          */
-        $keysNames = array_map(fn ($key) => $key->name, $keys);
+        $keysNames = array_map(fn($key) => $key->name, $keys);
         uksort($keyedMetadata, function ($a, $b) use ($keysNames) {
-            return array_search($a, $keysNames) - array_search($b, $keysNames);
+            return intval(array_search($a, $keysNames)) - intval(array_search($b, $keysNames));
         });
 
         // index by 0,1,2
         $keyedMetadata = array_values($keyedMetadata);
         // return the values
-        return array_map(fn ($metadata) => $metadata->value, $keyedMetadata[0] ?? []);
+        return array_map(fn($metadata) => $metadata->value, $keyedMetadata[0] ?? []);
     }
 
     /**
@@ -78,6 +79,7 @@ class MetadataPriority
 
     public function title(): ?string
     {
+        /** @var string|null */
         return $this->prioritized(
             [
                 MetadataKeyType::TITLE,
@@ -89,6 +91,7 @@ class MetadataPriority
 
     public function description(): ?string
     {
+        /** @var string|null */
         return $this->prioritized([
             MetadataKeyType::DESCRIPTION,
             MetadataKeyType::OG_DESCRIPTION,
@@ -101,6 +104,7 @@ class MetadataPriority
      */
     public function authors()
     {
+        /** @var UnfoldedAuthor[] */
         return $this->prioritizedAll([
             MetadataKeyType::RICH_SCHEMA_AUTHOR,
             MetadataKeyType::OG_ARTICLE_AUTHOR,
@@ -113,6 +117,7 @@ class MetadataPriority
      */
     public function tags(): array
     {
+        /** @var UnfoldedTag[] */
         return $this->prioritizedAll([
             MetadataKeyType::OG_ARTICLE_TAG
         ]);
@@ -121,6 +126,7 @@ class MetadataPriority
 
     public function siteName(): ?string
     {
+        /** @var string|null */
         return $this->prioritized([
             MetadataKeyType::OG_SITE_NAME,
             MetadataKeyType::TWITTER_SITE
@@ -130,6 +136,7 @@ class MetadataPriority
 
     public function siteUrl(string $url): ?string
     {
+        /** @var string|null $currentUrl */
         $currentUrl = $this->prioritized([
             MetadataKeyType::CANONICAL_URL,
             MetadataKeyType::OG_URL
@@ -150,6 +157,7 @@ class MetadataPriority
 
     public function canonicalUrl(): ?string
     {
+        /** @var string|null */
         return $this->prioritized([
             MetadataKeyType::CANONICAL_URL,
             MetadataKeyType::OG_URL
@@ -159,6 +167,7 @@ class MetadataPriority
 
     public function publishedTime(): ?DateTimeInterface
     {
+        /** @var ?DateTimeInterface */
         return $this->prioritized([
             MetadataKeyType::RICH_SCHEMA_PUBLISHED_TIME,
             MetadataKeyType::OG_ARTICLE_PUBLISHED_TIME
@@ -168,6 +177,7 @@ class MetadataPriority
 
     public function modifiedTime(): ?DateTimeInterface
     {
+        /** @var ?DateTimeInterface */
         return $this->prioritized([
             MetadataKeyType::RICH_SCHEMA_MODIFIED_TIME,
             MetadataKeyType::OG_ARTICLE_MODIFIED_TIME
@@ -177,6 +187,7 @@ class MetadataPriority
 
     public function thumbnailUrl(): ?string
     {
+        /** @var ?string */
         return $this->prioritized([
             MetadataKeyType::OG_IMAGE,
             MetadataKeyType::OG_IMAGE_URL,
@@ -188,6 +199,7 @@ class MetadataPriority
 
     public function iconUrl(): ?string
     {
+        /** @var ?string */
         return $this->prioritized([
             MetadataKeyType::FAVICON_URL
         ]);
@@ -196,6 +208,7 @@ class MetadataPriority
 
     public function locale(): ?string
     {
+        /** @var ?string */
         return $this->prioritized([
             MetadataKeyType::LOCALE,
             MetadataKeyType::OG_LOCALE

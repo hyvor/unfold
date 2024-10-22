@@ -56,7 +56,7 @@ enum MetadataKeyType
      * Gets the value of the metadata from a given content string
      * ex: article:published_time is converted to DateTimeInterface
      */
-    public function getValue(string $content)
+    public function getValue(string $content): string|UnfoldedAuthor|UnfoldedTag|\DateTimeInterface|null
     {
         if (
             $this === MetadataKeyType::OG_ARTICLE_PUBLISHED_TIME ||

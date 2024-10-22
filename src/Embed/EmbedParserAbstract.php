@@ -85,8 +85,9 @@ abstract class EmbedParserAbstract
         }
     }
 
-    public function parseOEmbed(): ?EmbedResponseObject
+    public function parseOEmbed(): EmbedResponseObject
     {
+        /** @var self&EmbedParserOEmbedInterface $this */
         $oEmbedUrl = $this->oEmbedUrl();
 
         $uri = Uri::withQueryValues(
@@ -136,8 +137,9 @@ abstract class EmbedParserAbstract
         return EmbedResponseObject::fromArray($parsed);
     }
 
-    private function parseCustom()
+    private function parseCustom(): EmbedResponseObject
     {
+        /** @var self&EmbedParserCustomInterface $this */
         $html = $this->getEmbedHtml();
 
         return EmbedResponseObject::fromArray([
