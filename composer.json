@@ -34,5 +34,6 @@
       "pestphp/pest-plugin": true,
       "php-http/discovery": true
     }
-  }
+  },
+  "minimum-stability": "dev"
 }
