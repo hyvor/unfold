@@ -31,6 +31,7 @@ abstract class EmbedParserAbstract
      * If the URL needs to be replaced before sending to the oEmbed endpoint,
      * return the new URL here. Otherwise, return null
      * Ex: m.facebook.com -> www.facebook.com
+     * @codeCoverageIgnore
      */
     public function replaceUrl(): ?string
     {
@@ -76,9 +77,11 @@ abstract class EmbedParserAbstract
         } elseif ($this instanceof EmbedParserCustomInterface) {
             return $this->parseCustom();
         } else {
+            // @codeCoverageIgnoreStart
             throw new \Exception(
                 'EmbedParserAbstract should be implemented with either EmbedParserOEmbedInterface or EmbedParserCustomInterface'
-            ); // @codeCoverageIgnore
+            );
+            // @codeCoverageIgnoreEnd
         }
     }
 

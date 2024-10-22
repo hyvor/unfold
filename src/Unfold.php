@@ -29,6 +29,7 @@ class Unfold
             return Embed::getUnfoldedObject($url, $context);
         } else {
             // both
+            // TODO:
         }
     }
 }

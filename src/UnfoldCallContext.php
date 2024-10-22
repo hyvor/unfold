@@ -15,7 +15,7 @@ class UnfoldCallContext
 
     public function duration(): int
     {
-        return (microtime(true) - $this->startTime) * 1000;
+        return (int)((microtime(true) - $this->startTime) * 1000);
     }
 
 }
