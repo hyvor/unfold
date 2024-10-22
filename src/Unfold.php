@@ -30,6 +30,7 @@ class Unfold
         } else {
             // both
             // TODO:
+            throw new \Exception('Not implemented yet');
         }
     }
 }
