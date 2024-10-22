@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use Hyvor\Unfold\Exception\UnfoldException;
+use Hyvor\Unfold\Unfold;
+use Hyvor\Unfold\UnfoldConfig;
+use Hyvor\Unfold\UnfoldMethod;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
-
-use Hyvor\Unfold\UnfoldMethod;
 
 class Controller
 {
@@ -24,11 +26,18 @@ class Controller
         $embedWrapInIframe = $request->boolean('embedWrapInIframe', true);
         $embedMetaFallback = $request->boolean('embedMetaFallback');
 
-        return response()->json([
-            'url' => $url,
-            'method' => $method,
-            'embedWrapInIframe' => $embedWrapInIframe,
-            'embedMetaFallback' => $embedMetaFallback,
-        ]);
+        try {
+            $response = Unfold::unfold(
+                $url,
+                $method,
+                new UnfoldConfig($embedWrapInIframe, $embedMetaFallback)
+            );
+        } catch (UnfoldException $e) {
+            return response()->json([
+                'error' => $e->getMessage(),
+            ], 400);
+        }
+
+        return response()->json($response);
     }
 }
