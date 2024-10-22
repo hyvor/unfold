@@ -90,6 +90,11 @@ class MetadataParser
             }
 
             $content = $keyType->getValue($content);
+
+            if ($content === null) {
+                return;
+            }
+
             $metadata[] = new MetadataObject($keyType, $content);
         });
 

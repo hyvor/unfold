@@ -18,8 +18,8 @@ class Embed
     {
         $namespace = __NAMESPACE__ . '\\Platforms\\';
         return array_map(
-            fn($file) => $namespace . pathinfo($file, PATHINFO_FILENAME),
-            glob(__DIR__ . '/Platforms/*.php')
+            fn($file) => $namespace . pathinfo((string)$file, PATHINFO_FILENAME),
+            (array)glob(__DIR__ . '/Platforms/*.php')
         );
     }
 
@@ -29,24 +29,24 @@ class Embed
     public static function parse(
         string $url,
         ?UnfoldConfig $config = null,
-    ): ?EmbedResponseObject {
+    ): EmbedResponseObject {
         foreach (self::getParsers() as $parserClass) {
+            /** @var EmbedParserAbstract $parser */
             $parser = new $parserClass($url, $config);
             if ($parser->match()) {
                 return $parser->parse();
             }
         }
-        throw new EmbedUnableToResolveException($url);
+        throw new EmbedUnableToResolveException();
     }
 
     /**
-     * @return $context->method is EmbedMethodEnum::EMBED ? Unfolded : ?Unfolded
      * @throws UnfoldException
      */
     public static function getUnfoldedObject(
         string $url,
         UnfoldCallContext $context,
-    ) {
+    ): Unfolded {
         $oembed = self::parse($url, $context->config);
 
         return Unfolded::fromEmbed(
