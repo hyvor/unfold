@@ -11,7 +11,7 @@ use Hyvor\Unfold\Embed\EmbedParserAbstract;
 use Hyvor\Unfold\Embed\EmbedParserOEmbedInterface;
 use Hyvor\Unfold\Embed\Exception\ParserException;
 use Hyvor\Unfold\Embed\OEmbedTypeEnum;
-use Hyvor\Unfold\UnfoldConfigObject;
+use Hyvor\Unfold\UnfoldConfig;
 
 class OEmbedTestPlatform extends EmbedParserAbstract implements EmbedParserOEmbedInterface
 {
@@ -56,7 +56,7 @@ it('valid response', function () {
 
     $platform = new OEmbedTestPlatform(
         'https://hyvor.com/123',
-        new UnfoldConfigObject(
+        new UnfoldConfig(
             httpClient: $client
         )
     );
@@ -111,7 +111,7 @@ it('redirects', function () {
 
     $platform = new OEmbedTestPlatform(
         'https://hyvor.com/123',
-        new UnfoldConfigObject(
+        new UnfoldConfig(
             httpClient: $client
         )
     );
@@ -137,7 +137,7 @@ it('client exception', function () {
 
     $platform = new OEmbedTestPlatform(
         'https://hyvor.com/123',
-        new UnfoldConfigObject(
+        new UnfoldConfig(
             httpClient: $client
         )
     );
@@ -163,7 +163,7 @@ it('non-200 status code exception', function () {
 
     $platform = new OEmbedTestPlatform(
         'https://hyvor.com/123',
-        new UnfoldConfigObject(
+        new UnfoldConfig(
             httpClient: $client
         )
     );
@@ -189,7 +189,7 @@ it('json decode exception', function () {
 
     $platform = new OEmbedTestPlatform(
         'https://hyvor.com/123',
-        new UnfoldConfigObject(
+        new UnfoldConfig(
             httpClient: $client
         )
     );

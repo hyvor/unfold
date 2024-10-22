@@ -14,9 +14,9 @@ class Unfold
     public static function unfold(
         string $url,
         UnfoldMethod $method = UnfoldMethod::LINK,
-        UnfoldConfigObject $config = null,
+        UnfoldConfig $config = null,
     ): Unfolded {
-        $config ??= new UnfoldConfigObject();
+        $config ??= new UnfoldConfig();
         $context = new UnfoldCallContext(
             $method,
             $config,

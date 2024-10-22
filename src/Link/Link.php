@@ -4,7 +4,7 @@ namespace Hyvor\Unfold\Link;
 
 use GuzzleHttp\Psr7\Request;
 use Hyvor\Unfold\Link\Metadata\MetadataParser;
-use Hyvor\Unfold\UnfoldConfigObject;
+use Hyvor\Unfold\UnfoldConfig;
 use Hyvor\Unfold\Unfolded\Unfolded;
 use Hyvor\Unfold\UnfoldCallContext;
 use Psr\Http\Client\ClientExceptionInterface;
@@ -13,7 +13,7 @@ class Link
 {
     public function __construct(
         private string $url,
-        private UnfoldConfigObject $config,
+        private UnfoldConfig $config,
     ) {
     }
 

@@ -5,7 +5,7 @@ namespace Hyvor\Unfold\Embed;
 use GuzzleHttp\Psr7\Request;
 use GuzzleHttp\Psr7\Uri;
 use Hyvor\Unfold\Embed\Exception\ParserException;
-use Hyvor\Unfold\UnfoldConfigObject;
+use Hyvor\Unfold\UnfoldConfig;
 use Psr\Http\Client\ClientExceptionInterface;
 use Psr\Http\Message\RequestInterface;
 
@@ -15,13 +15,13 @@ use Psr\Http\Message\RequestInterface;
  */
 abstract class EmbedParserAbstract
 {
-    protected UnfoldConfigObject $config;
+    protected UnfoldConfig $config;
 
     public function __construct(
         protected string $url,
-        ?UnfoldConfigObject $config = null,
+        ?UnfoldConfig $config = null,
     ) {
-        $this->config = $config ?? new UnfoldConfigObject();
+        $this->config = $config ?? new UnfoldConfig();
     }
 
 

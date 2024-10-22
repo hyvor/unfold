@@ -7,7 +7,7 @@ use Http\Client\Common\PluginClient;
 use Http\Discovery\Psr18ClientDiscovery;
 use Psr\Http\Client\ClientInterface;
 
-class UnfoldConfigObject
+class UnfoldConfig
 {
     /**
      * A PSR-18 HTTP Client for sending oembed and other requests
@@ -81,7 +81,8 @@ class UnfoldConfigObject
         public ?string $facebookAccessToken = null,
 
         // CACHE
-    ) {
+    )
+    {
         $this->setHttpClient($httpClient);
     }
 

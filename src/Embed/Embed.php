@@ -8,7 +8,7 @@ use Hyvor\Unfold\Embed\Platforms\Reddit;
 use Hyvor\Unfold\Embed\Platforms\Tiktok;
 use Hyvor\Unfold\Embed\Platforms\Twitter;
 use Hyvor\Unfold\Embed\Platforms\Youtube;
-use Hyvor\Unfold\UnfoldConfigObject;
+use Hyvor\Unfold\UnfoldConfig;
 use Hyvor\Unfold\Unfolded\Unfolded;
 use Hyvor\Unfold\UnfoldException;
 use Hyvor\Unfold\UnfoldMethod;
@@ -32,7 +32,7 @@ class Embed
      */
     public static function parse(
         string $url,
-        ?UnfoldConfigObject $config = null,
+        ?UnfoldConfig $config = null,
     ): ?EmbedResponseObject {
         foreach (self::PARSERS as $parserClass) {
             $parser = new $parserClass($url, $config);
