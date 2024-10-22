@@ -38,4 +38,12 @@ it('prioritized authors', function () {
 });
 
 it('with already correct sort', function () {
+    $metadata = [
+        new MetadataObject(MetadataKeyType::OG_SITE_NAME, 'OG Site name'),
+        new MetadataObject(MetadataKeyType::TWITTER_SITE, 'Twitter Site Name'),
+    ];
+
+    $priority = new MetadataPriority($metadata);
+    $authors = $priority->siteName();
+    expect($authors)->toEqual('OG Site name');
 });
