@@ -4,8 +4,9 @@ namespace Hyvor\Unfold\Embed;
 
 use GuzzleHttp\Psr7\Request;
 use GuzzleHttp\Psr7\Uri;
-use Hyvor\Unfold\Embed\Exception\ParserException;
-use Hyvor\Unfold\UnfoldConfigObject;
+use Hyvor\Unfold\Exception\EmbedParserException;
+use Hyvor\Unfold\Exception\UnfoldException;
+use Hyvor\Unfold\UnfoldConfig;
 use Psr\Http\Client\ClientExceptionInterface;
 use Psr\Http\Message\RequestInterface;
 
@@ -15,13 +16,13 @@ use Psr\Http\Message\RequestInterface;
  */
 abstract class EmbedParserAbstract
 {
-    protected UnfoldConfigObject $config;
+    protected UnfoldConfig $config;
 
     public function __construct(
         protected string $url,
-        ?UnfoldConfigObject $config = null,
+        ?UnfoldConfig $config = null,
     ) {
-        $this->config = $config ?? new UnfoldConfigObject();
+        $this->config = $config ?? new UnfoldConfig();
     }
 
 
@@ -65,14 +66,25 @@ abstract class EmbedParserAbstract
         return false;
     }
 
-    public function parse(): ?EmbedResponseObject
+    /**
+     * @throws UnfoldException
+     */
+    public function parse(): EmbedResponseObject
+    {
+        if ($this instanceof EmbedParserOEmbedInterface) {
+            return $this->parseOEmbed();
+        } elseif ($this instanceof EmbedParserCustomInterface) {
+            return $this->parseCustom();
+        } else {
+            throw new \Exception(
+                'EmbedParserAbstract should be implemented with either EmbedParserOEmbedInterface or EmbedParserCustomInterface'
+            ); // @codeCoverageIgnore
+        }
+    }
+
+    public function parseOEmbed(): ?EmbedResponseObject
     {
         $oEmbedUrl = $this->oEmbedUrl();
-
-        if (!$oEmbedUrl) {
-            // TODO: Check config option for fallback
-            return null;
-        }
 
         $uri = Uri::withQueryValues(
             new Uri($oEmbedUrl),
@@ -97,7 +109,7 @@ abstract class EmbedParserAbstract
         try {
             $response = $client->sendRequest($request);
         } catch (ClientExceptionInterface $e) {
-            throw new ParserException(
+            throw new EmbedParserException(
                 "Failed to fetch oEmbed data from the endpoint",
                 previous: $e
             );
@@ -107,7 +119,7 @@ abstract class EmbedParserAbstract
         $content = $response->getBody()->getContents();
 
         if ($status !== 200) {
-            throw new ParserException(
+            throw new EmbedParserException(
                 "Failed to fetch oEmbed data from the endpoint. Status: $status. Response: $content"
             );
         }
@@ -115,10 +127,20 @@ abstract class EmbedParserAbstract
         $parsed = json_decode($content, true);
 
         if (!is_array($parsed)) {
-            throw new ParserException("Failed to parse JSON response from oEmbed endpoint");
+            throw new EmbedParserException("Failed to parse JSON response from oEmbed endpoint");
         }
 
         return EmbedResponseObject::fromArray($parsed);
+    }
+
+    private function parseCustom()
+    {
+        $html = $this->getEmbedHtml();
+
+        return EmbedResponseObject::fromArray([
+            'type' => 'embed',
+            'html' => $html
+        ]);
     }
 
 }

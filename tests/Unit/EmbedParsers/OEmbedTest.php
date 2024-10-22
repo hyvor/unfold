@@ -9,9 +9,9 @@ use GuzzleHttp\Psr7\Request;
 use GuzzleHttp\Psr7\Response;
 use Hyvor\Unfold\Embed\EmbedParserAbstract;
 use Hyvor\Unfold\Embed\EmbedParserOEmbedInterface;
-use Hyvor\Unfold\Embed\Exception\ParserException;
 use Hyvor\Unfold\Embed\OEmbedTypeEnum;
-use Hyvor\Unfold\UnfoldConfigObject;
+use Hyvor\Unfold\Exception\EmbedParserException;
+use Hyvor\Unfold\UnfoldConfig;
 
 class OEmbedTestPlatform extends EmbedParserAbstract implements EmbedParserOEmbedInterface
 {
@@ -22,11 +22,16 @@ class OEmbedTestPlatform extends EmbedParserAbstract implements EmbedParserOEmbe
         ];
     }
 
-    public function oEmbedUrl(): ?string
+    public function oEmbedUrl(): string
     {
         return 'https://oembed.hyvor.com';
     }
 }
+
+it('not matching', function () {
+    $platform = new OEmbedTestPlatform('https://example.com');
+    expect($platform->match())->toBeFalse();
+});
 
 it('valid response', function () {
     $history = [];
@@ -56,7 +61,7 @@ it('valid response', function () {
 
     $platform = new OEmbedTestPlatform(
         'https://hyvor.com/123',
-        new UnfoldConfigObject(
+        new UnfoldConfig(
             httpClient: $client
         )
     );
@@ -111,7 +116,7 @@ it('redirects', function () {
 
     $platform = new OEmbedTestPlatform(
         'https://hyvor.com/123',
-        new UnfoldConfigObject(
+        new UnfoldConfig(
             httpClient: $client
         )
     );
@@ -137,7 +142,7 @@ it('client exception', function () {
 
     $platform = new OEmbedTestPlatform(
         'https://hyvor.com/123',
-        new UnfoldConfigObject(
+        new UnfoldConfig(
             httpClient: $client
         )
     );
@@ -149,7 +154,7 @@ it('client exception', function () {
         $exception = $e;
     }
 
-    expect($exception)->toBeInstanceOf(ParserException::class);
+    expect($exception)->toBeInstanceOf(EmbedParserException::class);
     expect($exception->getMessage())->toBe('Failed to fetch oEmbed data from the endpoint');
 });
 
@@ -163,7 +168,7 @@ it('non-200 status code exception', function () {
 
     $platform = new OEmbedTestPlatform(
         'https://hyvor.com/123',
-        new UnfoldConfigObject(
+        new UnfoldConfig(
             httpClient: $client
         )
     );
@@ -175,7 +180,7 @@ it('non-200 status code exception', function () {
         $exception = $e;
     }
 
-    expect($exception)->toBeInstanceOf(ParserException::class);
+    expect($exception)->toBeInstanceOf(EmbedParserException::class);
     expect($exception->getMessage())->toBe('Failed to fetch oEmbed data from the endpoint. Status: 404. Response: ');
 });
 
@@ -189,7 +194,7 @@ it('json decode exception', function () {
 
     $platform = new OEmbedTestPlatform(
         'https://hyvor.com/123',
-        new UnfoldConfigObject(
+        new UnfoldConfig(
             httpClient: $client
         )
     );
@@ -201,6 +206,6 @@ it('json decode exception', function () {
         $exception = $e;
     }
 
-    expect($exception)->toBeInstanceOf(ParserException::class);
+    expect($exception)->toBeInstanceOf(EmbedParserException::class);
     expect($exception->getMessage())->toBe('Failed to parse JSON response from oEmbed endpoint');
 });

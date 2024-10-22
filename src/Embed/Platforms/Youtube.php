@@ -23,7 +23,7 @@ class Youtube extends EmbedParserAbstract implements EmbedParserOEmbedInterface
         ];
     }
 
-    public function oEmbedUrl(): ?string
+    public function oEmbedUrl(): string
     {
         return 'https://www.youtube.com/oembed';
     }

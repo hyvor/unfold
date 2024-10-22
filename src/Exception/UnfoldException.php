@@ -1,6 +1,6 @@
 <?php
 
-namespace Hyvor\Unfold;
+namespace Hyvor\Unfold\Exception;
 
 class UnfoldException extends \Exception
 {

@@ -19,7 +19,7 @@ class Twitter extends EmbedParserAbstract implements EmbedParserOEmbedInterface
         ];
     }
 
-    public function oEmbedUrl(): ?string
+    public function oEmbedUrl(): string
     {
         return 'https://publish.twitter.com/oembed';
     }

@@ -20,17 +20,15 @@ class JsonLdParser extends ParserAbstract
 
             if (isset($json['datePublished'])) {
                 $date = MetadataParser::getDateTimeFromString($json['datePublished']);
-                if (!$date) {
-                    return;
+                if ($date) {
+                    $this->parser->addMetadata(new MetadataObject(MetadataKeyType::RICH_SCHEMA_PUBLISHED_TIME, $date));
                 }
-                $this->parser->addMetadata(new MetadataObject(MetadataKeyType::RICH_SCHEMA_PUBLISHED_TIME, $date));
             }
             if (isset($json['dateModified'])) {
                 $date = MetadataParser::getDateTimeFromString($json['dateModified']);
-                if (!$date) {
-                    return;
+                if ($date) {
+                    $this->parser->addMetadata(new MetadataObject(MetadataKeyType::RICH_SCHEMA_MODIFIED_TIME, $date));
                 }
-                $this->parser->addMetadata(new MetadataObject(MetadataKeyType::RICH_SCHEMA_MODIFIED_TIME, $date));
             }
             if (isset($json['author'])) {
                 foreach ($json['author'] as $author) {

@@ -37,7 +37,7 @@ dataset('contents', [
         <meta property="article:published_time" content="2021-10-10T10:10:10Z" />
         <meta property="article:modified_time" content="2021-10-10T10:10:10Z" />
         <meta property="article:author" content="Nadil Karunarathna" />
-        <meta property="article:author" content="Supun Wimalasena" />
+        <meta property="article:author" content="https://supun.io" />
         <meta property="article:tag" content="HYVOR" />
         <meta property="article:tag" content="PHP" />
         <meta property="article:tag" content="OEmbed" />
@@ -82,7 +82,7 @@ dataset('contents', [
                 new DateTimeImmutable('2021-10-10T10:10:10Z')
             ),
             new MetadataObject(MetadataKeyType::OG_ARTICLE_AUTHOR, new UnfoldedAuthor('Nadil Karunarathna', null)),
-            new MetadataObject(MetadataKeyType::OG_ARTICLE_AUTHOR, new UnfoldedAuthor('Supun Wimalasena', null)),
+            new MetadataObject(MetadataKeyType::OG_ARTICLE_AUTHOR, new UnfoldedAuthor(null, 'https://supun.io')),
             new MetadataObject(MetadataKeyType::OG_ARTICLE_TAG, new UnfoldedTag('HYVOR')),
             new MetadataObject(MetadataKeyType::OG_ARTICLE_TAG, new UnfoldedTag('PHP')),
             new MetadataObject(MetadataKeyType::OG_ARTICLE_TAG, new UnfoldedTag('OEmbed')),
@@ -139,6 +139,10 @@ dataset('contents', [
             new MetadataObject(MetadataKeyType::TITLE, 'Nadil Karunarathna')
         ]
     ],
+    'empty title' => [
+        '<title></title>',
+        []
+    ],
     'meta description' => [
         '<meta name="description" content="Personal Blog" />',
         [
@@ -147,7 +151,9 @@ dataset('contents', [
     ],
     'link tags' => [
         '<link rel="canonical" href="https://nadil.io" />
-         <link rel="icon" href="https://nadil.io/favicon.ico" />',
+         <link rel="icon" href="https://nadil.io/favicon.ico" />
+         <link rel="alternate" href="https://nadil.io/fr" hreflang="fr" />
+     ',
         [
             new MetadataObject(MetadataKeyType::CANONICAL_URL, 'https://nadil.io'),
             new MetadataObject(MetadataKeyType::FAVICON_URL, 'https://nadil.io/favicon.ico')
@@ -195,6 +201,12 @@ dataset('contents', [
                 new UnfoldedAuthor('John Doe', 'https://example.com/profile/johndoe123')
             )
         ]
+    ],
+    'invalid json ld' => [
+        '<script type="application/ld+json">
+            {[invalid json}
+        </script>',
+        []
     ],
 ]);
 

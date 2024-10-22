@@ -2,39 +2,42 @@
 
 namespace Hyvor\Unfold\Embed;
 
-use Hyvor\Unfold\Embed\Exception\ParserException;
-use Hyvor\Unfold\Embed\Exception\UnableToResolveEmbedException;
-use Hyvor\Unfold\Embed\Platforms\Reddit;
-use Hyvor\Unfold\Embed\Platforms\Tiktok;
-use Hyvor\Unfold\Embed\Platforms\Twitter;
-use Hyvor\Unfold\Embed\Platforms\Youtube;
-use Hyvor\Unfold\UnfoldConfigObject;
-use Hyvor\Unfold\Unfolded\Unfolded;
-use Hyvor\Unfold\UnfoldException;
-use Hyvor\Unfold\UnfoldMethod;
+//use Hyvor\Unfold\Embed\Platforms\GithubGist;
+//use Hyvor\Unfold\Embed\Platforms\Reddit;
+//use Hyvor\Unfold\Embed\Platforms\Tiktok;
+//use Hyvor\Unfold\Embed\Platforms\Twitter;
+//use Hyvor\Unfold\Embed\Platforms\Youtube;
+use Hyvor\Unfold\Exception\EmbedUnableToResolveException;
+use Hyvor\Unfold\Exception\EmbedParserException;
+use Hyvor\Unfold\Exception\UnfoldException;
 use Hyvor\Unfold\UnfoldCallContext;
+use Hyvor\Unfold\UnfoldConfig;
+use Hyvor\Unfold\Unfolded\Unfolded;
+use Hyvor\Unfold\UnfoldMethod;
 
 class Embed
 {
-    /**
-     * @var EmbedParserAbstract[]
-     */
-    public const PARSERS = [
-        Youtube::class,
-        Reddit::class,
-        Tiktok::class,
-        Twitter::class,
-        Reddit::class,
-    ];
 
     /**
-     * @throws ParserException
+     * @return string[]
+     */
+    public static function getParsers(): array
+    {
+        $namespace = __NAMESPACE__ . '\\Platforms\\';
+        return array_map(
+            fn($file) => $namespace . pathinfo($file, PATHINFO_FILENAME),
+            glob(__DIR__ . '/Platforms/*.php')
+        );
+    }
+
+    /**
+     * @throws EmbedParserException
      */
     public static function parse(
         string $url,
-        ?UnfoldConfigObject $config = null,
+        ?UnfoldConfig $config = null,
     ): ?EmbedResponseObject {
-        foreach (self::PARSERS as $parserClass) {
+        foreach (self::getParsers() as $parserClass) {
             $parser = new $parserClass($url, $config);
             if ($parser->match()) {
                 return $parser->parse();
@@ -55,7 +58,7 @@ class Embed
 
         if ($oembed === null) {
             if ($context->method === UnfoldMethod::EMBED) {
-                throw new UnableToResolveEmbedException();
+                throw new EmbedUnableToResolveException();
             } else {
                 return null;
             }

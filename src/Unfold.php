@@ -3,6 +3,7 @@
 namespace Hyvor\Unfold;
 
 use Hyvor\Unfold\Embed\Embed;
+use Hyvor\Unfold\Exception\UnfoldException;
 use Hyvor\Unfold\Link\Link;
 use Hyvor\Unfold\Unfolded\Unfolded;
 
@@ -14,9 +15,9 @@ class Unfold
     public static function unfold(
         string $url,
         UnfoldMethod $method = UnfoldMethod::LINK,
-        UnfoldConfigObject $config = null,
+        UnfoldConfig $config = null,
     ): Unfolded {
-        $config ??= new UnfoldConfigObject();
+        $config ??= new UnfoldConfig();
         $context = new UnfoldCallContext(
             $method,
             $config,

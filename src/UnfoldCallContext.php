@@ -8,7 +8,7 @@ class UnfoldCallContext
 
     public function __construct(
         public UnfoldMethod $method,
-        public UnfoldConfigObject $config,
+        public UnfoldConfig $config,
     ) {
         $this->startTime = microtime(true);
     }
