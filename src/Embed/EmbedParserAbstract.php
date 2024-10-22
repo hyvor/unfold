@@ -4,7 +4,7 @@ namespace Hyvor\Unfold\Embed;
 
 use GuzzleHttp\Psr7\Request;
 use GuzzleHttp\Psr7\Uri;
-use Hyvor\Unfold\Embed\Exception\ParserException;
+use Hyvor\Unfold\Exception\EmbedParserException;
 use Hyvor\Unfold\UnfoldConfig;
 use Psr\Http\Client\ClientExceptionInterface;
 use Psr\Http\Message\RequestInterface;
@@ -97,7 +97,7 @@ abstract class EmbedParserAbstract
         try {
             $response = $client->sendRequest($request);
         } catch (ClientExceptionInterface $e) {
-            throw new ParserException(
+            throw new EmbedParserException(
                 "Failed to fetch oEmbed data from the endpoint",
                 previous: $e
             );
@@ -107,7 +107,7 @@ abstract class EmbedParserAbstract
         $content = $response->getBody()->getContents();
 
         if ($status !== 200) {
-            throw new ParserException(
+            throw new EmbedParserException(
                 "Failed to fetch oEmbed data from the endpoint. Status: $status. Response: $content"
             );
         }
@@ -115,7 +115,7 @@ abstract class EmbedParserAbstract
         $parsed = json_decode($content, true);
 
         if (!is_array($parsed)) {
-            throw new ParserException("Failed to parse JSON response from oEmbed endpoint");
+            throw new EmbedParserException("Failed to parse JSON response from oEmbed endpoint");
         }
 
         return EmbedResponseObject::fromArray($parsed);

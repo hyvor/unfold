@@ -2,17 +2,17 @@
 
 namespace Hyvor\Unfold\Embed;
 
-use Hyvor\Unfold\Embed\Exception\ParserException;
-use Hyvor\Unfold\Embed\Exception\UnableToResolveEmbedException;
 use Hyvor\Unfold\Embed\Platforms\Reddit;
 use Hyvor\Unfold\Embed\Platforms\Tiktok;
 use Hyvor\Unfold\Embed\Platforms\Twitter;
 use Hyvor\Unfold\Embed\Platforms\Youtube;
+use Hyvor\Unfold\Exception\EmbedUnableToResolveException;
+use Hyvor\Unfold\Exception\EmbedParserException;
+use Hyvor\Unfold\Exception\UnfoldException;
+use Hyvor\Unfold\UnfoldCallContext;
 use Hyvor\Unfold\UnfoldConfig;
 use Hyvor\Unfold\Unfolded\Unfolded;
-use Hyvor\Unfold\UnfoldException;
 use Hyvor\Unfold\UnfoldMethod;
-use Hyvor\Unfold\UnfoldCallContext;
 
 class Embed
 {
@@ -28,7 +28,7 @@ class Embed
     ];
 
     /**
-     * @throws ParserException
+     * @throws EmbedParserException
      */
     public static function parse(
         string $url,
@@ -55,7 +55,7 @@ class Embed
 
         if ($oembed === null) {
             if ($context->method === UnfoldMethod::EMBED) {
-                throw new UnableToResolveEmbedException();
+                throw new EmbedUnableToResolveException();
             } else {
                 return null;
             }

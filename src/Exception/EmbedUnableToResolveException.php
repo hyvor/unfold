@@ -1,10 +1,8 @@
 <?php
 
-namespace Hyvor\Unfold\Embed\Exception;
+namespace Hyvor\Unfold\Exception;
 
-use Hyvor\Unfold\UnfoldException;
-
-class UnableToResolveEmbedException extends UnfoldException
+class EmbedUnableToResolveException extends UnfoldException
 {
     public function __construct(string $message = "", int $code = 0, ?\Throwable $previous = null)
     {

@@ -11,7 +11,6 @@ use Hyvor\Unfold\Unfolded\UnfoldedTag;
  */
 class MetadataPriority
 {
-
     /**
      * @param MetadataObject[] $metadata
      */
@@ -57,7 +56,7 @@ class MetadataPriority
          *    'OG_TITLE' => [MetadataObject],
          * ]
          */
-        $keysNames = array_map(fn($key) => $key->name, $keys);
+        $keysNames = array_map(fn ($key) => $key->name, $keys);
         uksort($keyedMetadata, function ($a, $b) use ($keysNames) {
             return array_search($a, $keysNames) - array_search($b, $keysNames);
         });
@@ -65,7 +64,7 @@ class MetadataPriority
         // index by 0,1,2
         $keyedMetadata = array_values($keyedMetadata);
         // return the values
-        return array_map(fn($metadata) => $metadata->value, $keyedMetadata[0] ?? []);
+        return array_map(fn ($metadata) => $metadata->value, $keyedMetadata[0] ?? []);
     }
 
     /**
@@ -129,18 +128,31 @@ class MetadataPriority
     }
 
 
-    public function siteUrl(): ?string
+    public function siteUrl(string $url): ?string
     {
-        return $this->prioritized([
+        $currentUrl = $this->prioritized([
+            MetadataKeyType::CANONICAL_URL,
             MetadataKeyType::OG_URL
         ]);
+        $currentUrl = $currentUrl ?? $url;
+
+        // get origin from url
+        $parsedUrl = parse_url($currentUrl);
+        if ($parsedUrl !== false) {
+            $scheme = $parsedUrl['scheme'] ?? 'http';
+            $host = $parsedUrl['host'] ?? '';
+            return $host ? $scheme . '://' . $host : null;
+        }
+
+        return null;
     }
 
 
     public function canonicalUrl(): ?string
     {
         return $this->prioritized([
-            MetadataKeyType::CANONICAL_URL
+            MetadataKeyType::CANONICAL_URL,
+            MetadataKeyType::OG_URL
         ]);
     }
 

@@ -3,6 +3,7 @@
 namespace Hyvor\Unfold;
 
 use Hyvor\Unfold\Embed\Embed;
+use Hyvor\Unfold\Exception\UnfoldException;
 use Hyvor\Unfold\Link\Link;
 use Hyvor\Unfold\Unfolded\Unfolded;
 

@@ -47,3 +47,32 @@ it('with already correct sort', function () {
     $authors = $priority->siteName();
     expect($authors)->toEqual('OG Site name');
 });
+
+it('gets site url', function () {
+    $metadata = [
+        new MetadataObject(MetadataKeyType::CANONICAL_URL, 'https://example.com/php'),
+    ];
+    $priority = new MetadataPriority($metadata);
+    $siteUrl = $priority->siteUrl('https://hyvor.com/js');
+    expect($siteUrl)->toEqual('https://example.com');
+
+    $priority2 = new MetadataPriority([]);
+    $siteUrl2 = $priority2->siteUrl('https://hyvor.com/js');
+    expect($siteUrl2)->toBe('https://hyvor.com');
+
+    // empty host
+    $priority3 = new MetadataPriority([]);
+    $siteUrl3 = $priority3->siteUrl('invalid url');
+    expect($siteUrl3)->toBeNull();
+
+    // invalid url
+    $priority4 = new MetadataPriority([]);
+    $siteUrl4 = $priority4->siteUrl(')@9d8q29cooal');
+    expect($siteUrl4)->toBeNull();
+
+
+    // og site url
+    $metadata = [
+        new MetadataObject(MetadataKeyType::OG_URL, 'https://example.com/php'),
+    ];
+});

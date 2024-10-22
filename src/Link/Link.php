@@ -3,6 +3,7 @@
 namespace Hyvor\Unfold\Link;
 
 use GuzzleHttp\Psr7\Request;
+use Hyvor\Unfold\Exception\LinkScrapeException;
 use Hyvor\Unfold\Link\Metadata\MetadataParser;
 use Hyvor\Unfold\UnfoldConfig;
 use Hyvor\Unfold\Unfolded\Unfolded;
@@ -27,14 +28,16 @@ class Link
         try {
             $response = $this->config->httpClient->sendRequest($request);
         } catch (ClientExceptionInterface $e) {
-            //
+            throw new LinkScrapeException($e->getMessage());
         }
 
         $status = $response->getStatusCode();
-        $content = $response->getBody()->getContents();
-        // TODO:
 
-        return $response->getBody();
+        if ($status < 200 || $status >= 300) {
+            throw new LinkScrapeException("Unable to scrape link. HTTP status code: $status");
+        }
+
+        return $response->getBody()->getContents();
     }
 
 

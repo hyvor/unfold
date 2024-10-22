@@ -9,8 +9,8 @@ use GuzzleHttp\Psr7\Request;
 use GuzzleHttp\Psr7\Response;
 use Hyvor\Unfold\Embed\EmbedParserAbstract;
 use Hyvor\Unfold\Embed\EmbedParserOEmbedInterface;
-use Hyvor\Unfold\Embed\Exception\ParserException;
 use Hyvor\Unfold\Embed\OEmbedTypeEnum;
+use Hyvor\Unfold\Exception\EmbedParserException;
 use Hyvor\Unfold\UnfoldConfig;
 
 class OEmbedTestPlatform extends EmbedParserAbstract implements EmbedParserOEmbedInterface
@@ -149,7 +149,7 @@ it('client exception', function () {
         $exception = $e;
     }
 
-    expect($exception)->toBeInstanceOf(ParserException::class);
+    expect($exception)->toBeInstanceOf(EmbedParserException::class);
     expect($exception->getMessage())->toBe('Failed to fetch oEmbed data from the endpoint');
 });
 
@@ -175,7 +175,7 @@ it('non-200 status code exception', function () {
         $exception = $e;
     }
 
-    expect($exception)->toBeInstanceOf(ParserException::class);
+    expect($exception)->toBeInstanceOf(EmbedParserException::class);
     expect($exception->getMessage())->toBe('Failed to fetch oEmbed data from the endpoint. Status: 404. Response: ');
 });
 
@@ -201,6 +201,6 @@ it('json decode exception', function () {
         $exception = $e;
     }
 
-    expect($exception)->toBeInstanceOf(ParserException::class);
+    expect($exception)->toBeInstanceOf(EmbedParserException::class);
     expect($exception->getMessage())->toBe('Failed to parse JSON response from oEmbed endpoint');
 });

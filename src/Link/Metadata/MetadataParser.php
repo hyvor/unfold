@@ -90,28 +90,7 @@ class MetadataParser
                 return;
             }
 
-            if (
-                $keyType === MetadataKeyType::OG_ARTICLE_PUBLISHED_TIME ||
-                $keyType === MetadataKeyType::OG_ARTICLE_MODIFIED_TIME
-            ) {
-                $content = self::getDateTimeFromString($content);
-            }
-
-            if (
-                $keyType === MetadataKeyType::OG_ARTICLE_AUTHOR ||
-                $keyType === MetadataKeyType::TWITTER_CREATOR
-            ) {
-                if (str_contains($content, 'http://') || str_contains($content, 'https://')) {
-                    $content = new UnfoldedAuthor(null, $content);
-                } else {
-                    $content = new UnfoldedAuthor($content, null);
-                }
-            }
-
-            if ($keyType === MetadataKeyType::OG_ARTICLE_TAG) {
-                $content = new UnfoldedTag($content);
-            }
-
+            $content = $keyType->getValue($content);
             $metadata[] = new MetadataObject($keyType, $content);
         });
 
