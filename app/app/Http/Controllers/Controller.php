@@ -30,7 +30,11 @@ class Controller
             $response = Unfold::unfold(
                 $url,
                 $method,
-                new UnfoldConfig($embedWrapInIframe, $embedMetaFallback)
+                new UnfoldConfig(
+                    $embedWrapInIframe,
+                    $embedMetaFallback,
+//                    httpClient: app()->bound('httpClient') ? app('httpClient') : null
+                )
             );
         } catch (UnfoldException $e) {
             return response()->json([
