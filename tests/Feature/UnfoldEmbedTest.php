@@ -65,7 +65,7 @@ it('fetches custom', function () {
 });
 
 it('on unable to resolve', function () {
-    expect(fn() => Unfold::unfold(
+    expect(fn () => Unfold::unfold(
         'https://hyvor.com',
         method: UnfoldMethod::EMBED,
         config: new UnfoldConfig()

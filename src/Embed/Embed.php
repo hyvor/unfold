@@ -18,7 +18,7 @@ class Embed
     {
         $namespace = __NAMESPACE__ . '\\Platforms\\';
         return array_map(
-            fn($file) => $namespace . pathinfo((string)$file, PATHINFO_FILENAME),
+            fn ($file) => $namespace . pathinfo((string)$file, PATHINFO_FILENAME),
             (array)glob(__DIR__ . '/Platforms/*.php')
         );
     }

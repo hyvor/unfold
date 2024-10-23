@@ -11,7 +11,10 @@ use Hyvor\Unfold\UnfoldConfig;
 
 it('fetches link success', function () {
     $mock = new MockHandler([
-        new Response(200, [], <<<HTML
+        new Response(
+            200,
+            [],
+            <<<HTML
 <html lang="fr">
 <head>
     <title>HYVOR</title>
@@ -77,7 +80,7 @@ it('on 404', function () {
     ]);
     $client = new Client(['handler' => $mock]);
 
-    expect(fn() => Unfold::unfold(
+    expect(fn () => Unfold::unfold(
         'https://hyvor.com',
         config: new UnfoldConfig(
             httpClient: $client
@@ -97,7 +100,7 @@ it('request exception', function () {
     ]);
     $client = new Client(['handler' => $mock]);
 
-    expect(fn() => Unfold::unfold(
+    expect(fn () => Unfold::unfold(
         'https://hyvor.com',
         config: new UnfoldConfig(
             httpClient: $client
