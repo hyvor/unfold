@@ -74,8 +74,10 @@ abstract class EmbedParserAbstract
      * @param string[] $matches
      * @throws UnfoldException
      */
-    public function parse(array $matches): EmbedResponseObject
+    public function parse(array $matches = null): EmbedResponseObject
     {
+        $matches ??= $this->match();
+
         if ($this instanceof EmbedParserOEmbedInterface) {
             return $this->parseOEmbed();
         } elseif ($this instanceof EmbedParserCustomInterface) {
