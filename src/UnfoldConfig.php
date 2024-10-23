@@ -75,7 +75,7 @@ class UnfoldConfig
 
         /**
          * Meta requires an access_token to access the OEmbed Read Graph API
-         * This is required for both Facebook & Instagram
+         * This is required for both FacebookPost & Instagram
          * @todo
          */
         public ?string $facebookAccessToken = null,

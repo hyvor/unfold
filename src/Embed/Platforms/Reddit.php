@@ -11,11 +11,7 @@ class Reddit extends EmbedParserAbstract implements EmbedParserOEmbedInterface
     {
         return [
             // oembed
-            "https://reddit.com/r/.*/comments/.*/.*",
-            "https://www.reddit.com/r/.*/comments/.*/.*",
-
-            // custom
-            "https://old.reddit.com/r/.*/comments/.*/.*", // added: 2024-10-19
+            "https://(?:(?:www|old)\.)?reddit.com/r/.*/comments/.*/.*",
         ];
     }
 

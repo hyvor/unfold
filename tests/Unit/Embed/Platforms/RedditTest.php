@@ -22,10 +22,10 @@ it('matches reddit URLs', function (string $url) {
 ]);
 
 //it('test', function () {
-//    $url = 'https://old.reddit.com/r/math/comments/66k3c0/ive_just_start_reading_this_1910_book_calculus/';
+//    $url = 'https://www.reddit.com/r/math/comments/66k3c0/ive_just_start_reading_this_1910_book_calculus/';
 //    $parser = new Reddit($url);
 //    $response = $parser->parse();
 //
-//    var_dump($response);
+//    dd($response->html);
 //    expect($response)->toBeObject();
 //});

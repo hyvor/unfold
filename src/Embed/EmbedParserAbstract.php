@@ -16,6 +16,9 @@ use Psr\Http\Message\RequestInterface;
  */
 abstract class EmbedParserAbstract
 {
+    // define priority relatively
+    public const PRIORITY = 0;
+
     protected UnfoldConfig $config;
 
     public function __construct(
