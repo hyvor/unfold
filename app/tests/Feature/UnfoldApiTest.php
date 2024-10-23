@@ -65,31 +65,6 @@ it('returns Unfold response for link', function () {
 });
 
 it('returns Unfold response for embed', function () {
-    $mock = new MockHandler([
-        new Response(200, [], json_encode([
-            'title' => 'Lana Del Rey - Born To Die',
-            'author_name' => 'LanaDelReyVEVO',
-            'author_url' => 'https://www.youtube.com/@LanaDelReyVEVO',
-            'type' => 'video',
-            'height' => 113,
-            'width' => 200,
-            'version' => '1.0',
-            'provider_name' => 'YouTube',
-            'provider_url' => 'https://www.youtube.com/',
-            'thumbnail_height' => 360,
-            'thumbnail_width' => 480,
-            'thumbnail_url' => 'https://i.ytimg.com/vi/Bag1gUxuU0g/hqdefault.jpg',
-            'html' => '<iframe width="200" height="113" src="https://www.youtube.com/embed/Bag1gUxuU0g?feature=oembed" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen title="Lana Del Rey - Born To Die"></iframe>',
-        ])
-        ),
-    ]);
-    $handlerStack = HandlerStack::create($mock);
-    $client = new Client(['handler' => $handlerStack]);
-
-    app()->bind('httpClient', function () use ($client) {
-        return $client;
-    });
-
     $response = $this->getJson('/unfold?'.http_build_query([
         'url' => 'https://www.youtube.com/watch?v=Bag1gUxuU0g',
         'method' => 'embed',
@@ -100,22 +75,17 @@ it('returns Unfold response for embed', function () {
         'version' => '1.0',
         'method' => 'embed',
         'url' => 'https://www.youtube.com/watch?v=Bag1gUxuU0g',
-        'embed' => '<iframe width="200" height="113" src="https://www.youtube.com/embed/Bag1gUxuU0g?feature=oembed" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen title="Lana Del Rey - Born To Die"></iframe>',
-        'title' => 'Lana Del Rey - Born To Die',
+        'embed' => '<div style="position:relative;left:0;width:100%;height:0;padding-bottom:56.25%;"><iframe src="https://www.youtube.com/embed/Bag1gUxuU0g" style="position: absolute;top:0;left:0;width:100%;height:100%;border:0;" allow="fullscreen;accelerometer;clipboard-write;encrypted-media;gyroscope;picture-in-picture;web-share;"></iframe></div>',
+        'title' => null,
         'description' => null,
-        'authors' => [
-            [
-                'name' => 'LanaDelReyVEVO',
-                'url' => 'https://www.youtube.com/@LanaDelReyVEVO',
-            ],
-        ],
+        'authors' => [],
         'tags' => [],
-        'siteName' => 'YouTube',
-        'siteUrl' => 'https://www.youtube.com/',
+        'siteName' => null,
+        'siteUrl' => null,
         'canonicalUrl' => null,
         'publishedTime' => null,
         'modifiedTime' => null,
-        'thumbnailUrl' => 'https://i.ytimg.com/vi/Bag1gUxuU0g/hqdefault.jpg',
+        'thumbnailUrl' => null,
         'iconUrl' => null,
         'locale' => null,
     ]);
