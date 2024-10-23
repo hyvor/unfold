@@ -6,13 +6,27 @@ use Hyvor\Unfold\Embed\Embed;
 use Hyvor\Unfold\Embed\Platforms\FacebookPage;
 use Hyvor\Unfold\Embed\Platforms\FacebookPost;
 
-it('matches a facebook page', function () {
-    $url = 'https://www.facebook.com/GMANetwork/about';
-    $parser = new FacebookPage($url);
+//it('matches a facebook page', function () {
+//    $url = 'https://www.facebook.com/GMANetwork/about';
+//    $parser = new FacebookPage($url);
+//
+//    $response = $parser->parse($parser->match());
+//    var_dump($response->html);
+//    expect($response->html)->toBeString();
+//});
 
-    $response = $parser->parse($parser->match());
-    var_dump($response->html);
-    expect($response->html)->toBeString();
+it('embeds facebook page', function () {
+    $url = 'https://www.facebook.com/geonarah';
+
+    $parser = new FacebookPage($url);
+    $match = $parser->match();
+    $response = $parser->parse($match);
+
+    $html = $response->html;
+    expect($html)->toContain('<div class="fb-page" data-href="' . $url);
+    expect($html)->toContain(
+        '<script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v21.0">'
+    );
 });
 
 it('embed class prioritizes facebook post before page', function () {

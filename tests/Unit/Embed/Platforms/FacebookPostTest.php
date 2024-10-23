@@ -11,9 +11,11 @@ it('parses facebook embeds', function () {
     $match = $parser->match();
     $response = $parser->parse($match);
 
-    var_dump($response->html);
-    expect(true)->toBeTrue();
-    //dd($response->html);
+    $html = $response->html;
+    expect($html)->toContain('<div class="fb-post" data-href="' . $url);
+    expect($html)->toContain(
+        '<script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v21.0">'
+    );
 });
 
 it('matches', function ($url) {
