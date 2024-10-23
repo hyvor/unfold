@@ -34,26 +34,6 @@ class UnfoldConfig
         public UnfoldMethod $method = UnfoldMethod::LINK,
 
         /**
-         * Adding embed codes directly to the page can be a privacy concern since
-         * it gives third-party platforms full access to the page via Javascript.
-         * The best solution is to wrap the embed code in an iframe.
-         *
-         * We tried using iframe `srcdoc` directly, but it resulted in many inconsistencies and issues
-         * with different platforms (ex: Reddit does not support about: scheme in srcdoc).
-         *
-         * So, the best solution is to use an iframe endpoint that wraps the embed code.
-         * This requires you to add an endpoint to your app to serve the iframe.
-         * Then, set that endpoint's absolute URL in this config.
-         * See https://unfold.hyvor.com/iframe for more details.
-         *
-         * Ex: 'https://yourapp.com/unfold-iframe'
-         *
-         * If this option is set to a string, the embed code will be wrapped in an iframe.
-         * It also comes with JS code to handle iframe resizing.
-         */
-        public ?string $embedIframeEndpoint = null,
-
-        /**
          * If the $method is UnfoldMethod::EMBED or UnfoldMethod::EMBED_LINK,
          * and if we cannot find a way to embed the URL using our default parsers,
          * we will try to create an embed using og:image or og:video tags
@@ -79,11 +59,6 @@ class UnfoldConfig
          * User agent string to be used in HTTP requests
          */
         public string $httpUserAgent = 'Hyvor Unfold PHP Client',
-
-        /**
-         * TODO: Implement this
-         */
-        public ?string $iframeEndpoint = null,
 
         /**
          * Meta requires an access_token to access the OEmbed Read Graph API

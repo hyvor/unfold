@@ -2,7 +2,7 @@
 	import { CodeBlock } from '@hyvor/design/components';
 </script>
 
-<h1>Introduction</h1>
+<h1>Hyvor Unfold</h1>
 
 <p>
 	Hyvor Unfold is an open-source API that can fetch metadata from URLs for <strong

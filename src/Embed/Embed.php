@@ -2,6 +2,7 @@
 
 namespace Hyvor\Unfold\Embed;
 
+use Hyvor\Unfold\Embed\Iframe\PrivacyIframe;
 use Hyvor\Unfold\Exception\EmbedUnableToResolveException;
 use Hyvor\Unfold\Exception\EmbedParserException;
 use Hyvor\Unfold\Exception\UnfoldException;
@@ -19,11 +20,11 @@ class Embed
         $namespace = __NAMESPACE__ . '\\Platforms\\';
 
         $parsers = array_map(
-            fn ($file) => $namespace . pathinfo((string)$file, PATHINFO_FILENAME),
+            fn($file) => $namespace . pathinfo((string)$file, PATHINFO_FILENAME),
             (array)glob(__DIR__ . '/Platforms/*.php')
         );
 
-        usort($parsers, fn ($a, $b) => $b::PRIORITY <=> $a::PRIORITY);
+        usort($parsers, fn($a, $b) => $b::PRIORITY <=> $a::PRIORITY);
 
         return $parsers;
     }
@@ -72,6 +73,10 @@ class Embed
         UnfoldCallContext $context,
     ): Unfolded {
         $oembed = self::parse($url, $context->config);
+
+        if ($context->config->embedIframeEndpoint && $oembed->html) {
+            $oembed->html = PrivacyIframe::wrap($oembed->html);
+        }
 
         return Unfolded::fromEmbed(
             $oembed,
