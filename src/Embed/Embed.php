@@ -17,10 +17,15 @@ class Embed
     public static function getParsers(): array
     {
         $namespace = __NAMESPACE__ . '\\Platforms\\';
-        return array_map(
-            fn ($file) => $namespace . pathinfo((string)$file, PATHINFO_FILENAME),
+
+        $parsers = array_map(
+            fn($file) => $namespace . pathinfo((string)$file, PATHINFO_FILENAME),
             (array)glob(__DIR__ . '/Platforms/*.php')
         );
+
+        usort($parsers, fn($a, $b) => $b::PRIORITY <=> $a::PRIORITY);
+
+        return $parsers;
     }
 
     /**
@@ -38,6 +43,25 @@ class Embed
             }
         }
         throw new EmbedUnableToResolveException();
+    }
+
+    /**
+     * @param string $url
+     * @return array{parser: EmbedParserAbstract, matches: string[]}|null
+     */
+    public static function getMatchingParser(string $url): ?array
+    {
+        foreach (self::getParsers() as $parserClass) {
+            /** @var EmbedParserAbstract $parser */
+            $parser = new $parserClass($url);
+            if ($parser->match()) {
+                return [
+                    'parser' => $parser,
+                    'matches' => $parser->match(),
+                ];
+            }
+        }
+        return null;
     }
 
     /**
