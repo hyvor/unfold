@@ -33,8 +33,8 @@ class Embed
         foreach (self::getParsers() as $parserClass) {
             /** @var EmbedParserAbstract $parser */
             $parser = new $parserClass($url, $config);
-            if ($parser->match()) {
-                return $parser->parse();
+            if ($matches = $parser->match()) {
+                return $parser->parse($matches);
             }
         }
         throw new EmbedUnableToResolveException();

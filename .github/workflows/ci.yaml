@@ -1,48 +1,52 @@
 name: CI
 
 on:
-    push:
-        branches:
-          - main
-    pull_request:
-        branches:
-          - main
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
 
 jobs:
-    tests:
-        name: PHP Tests
-        runs-on: ubuntu-22.04
+  tests:
+    name: PHP Tests
+    runs-on: ubuntu-22.04
 
-        steps:
-            - name: Checkout
-              uses: actions/checkout@v3
+    strategy:
+      matrix:
+        php: [ 8.2, 8.3 ]
 
-            - name: Set up PHP
-              uses: shivammathur/setup-php@v2
-              with:
-                  php-version: '8.3'
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
 
-            - name: Install dependencies
-              run : composer install --ansi --no-progress
+      - name: Set up PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: ${{ matrix.php }}
 
-            - name: Run tests
-              run : vendor/bin/pest
+      - name: Install dependencies
+        run: composer install --ansi --no-progress
 
-    static_analysis:
-        name: PHP Static Analysis
-        runs-on: ubuntu-22.04
+      - name: Run tests
+        run: vendor/bin/pest
 
-        steps:
-            - name: Checkout
-              uses: actions/checkout@v3
+  static_analysis:
+    name: PHP Static Analysis
+    runs-on: ubuntu-22.04
 
-            - name: Set up PHP
-              uses: shivammathur/setup-php@v2
-              with:
-                  php-version: '8.3'
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
 
-            - name: Install dependencies
-              run : composer install --ansi --no-progress
+      - name: Set up PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.3'
 
-            - name: Run static analysis
-              run : vendor/bin/phpstan analyse --ansi
+      - name: Install dependencies
+        run: composer install --ansi --no-progress
+
+      - name: Run static analysis
+        run: vendor/bin/phpstan analyse --ansi
