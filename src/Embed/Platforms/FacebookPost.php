@@ -8,8 +8,7 @@ use Hyvor\Unfold\Embed\PlatformHelpers\FacebookHelper;
 
 class FacebookPost extends EmbedParserAbstract implements EmbedParserCustomInterface
 {
-
-    const PRIORITY = 2;
+    public const PRIORITY = 2;
 
     public function regex()
     {

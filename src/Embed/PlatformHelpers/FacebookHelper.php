@@ -4,7 +4,6 @@ namespace Hyvor\Unfold\Embed\PlatformHelpers;
 
 class FacebookHelper
 {
-
     public static function sdkScript(): string
     {
         return <<<HTML
