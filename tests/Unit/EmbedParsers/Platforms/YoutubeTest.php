@@ -88,21 +88,4 @@ it('matches youtube URLs', function (string $url) {
     // live
     'https://youtube.com/live/lHZwlzOUOZ4',
     'https://www.youtube.com/live/lHZwlzOUOZ4',
-
-    // shorts
-//    'https://www.youtube.com/shorts/lqEDLHU-WEQ',
-//    'https://youtube.com/shorts/lqEDLHU-WEQ',
-//
-//    // playlists
-//    'https://www.youtube.com/playlist?list=PLAqhIrjkxbuWI23v9cThsA9GvCAUhRvKZ',
-//    'https://youtube.com/playlist?list=PLAqhIrjkxbuWI23v9cThsA9GvCAUhRvKZ',
-//
-//    // embeds
-//    'https://www.youtube.com/embed/lHZwlzOUOZ4?si=MoqR8ormsErTqt6z',
-//
-
-//
-//    // live
-//    'https://www.youtube.com/live?v=ZkqyioyUd',
-//    'https://youtube.com/live?v=ZkqyioyUd',
 ]);
