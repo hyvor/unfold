@@ -33,7 +33,7 @@ class Controller
                 new UnfoldConfig(
                     $embedWrapInIframe,
                     $embedMetaFallback,
-//                    httpClient: app()->bound('httpClient') ? app('httpClient') : null
+                   httpClient: app()->bound('httpClient') ? app('httpClient') : null
                 )
             );
         } catch (UnfoldException $e) {

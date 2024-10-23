@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "fcdb5e6cf9f6c85c23e6c36cd6f02c79",
+    "content-hash": "b99dfb93dcadc9ac47a200bd8c9f94a0",
     "packages": [
         {
             "name": "brick/math",
@@ -1119,6 +1119,50 @@
                 }
             ],
             "time": "2023-12-03T19:50:20+00:00"
+        },
+        {
+            "name": "hyvor/unfold",
+            "version": "dev-laravel-app",
+            "dist": {
+                "type": "path",
+                "url": "..",
+                "reference": "4bdcb57a49085d713807c555e3f8f8cbc7b19553"
+            },
+            "require": {
+                "php": ">=8.0",
+                "php-http/client-common": "^2.7",
+                "php-http/discovery": "^1.20",
+                "psr/http-client": "^1.0",
+                "symfony/dom-crawler": "^7.1"
+            },
+            "require-dev": {
+                "guzzlehttp/guzzle": "^7.0",
+                "laravel/pint": "^1.18",
+                "pestphp/pest": "^3.3",
+                "phpstan/phpstan": "^1.12"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Hyvor\\Unfold\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Supun Wimalasena",
+                    "email": "supun@hyvor.com"
+                },
+                {
+                    "name": "Nadil Karunarathna",
+                    "email": "nadil@hyvor.com"
+                }
+            ],
+            "transport-options": {
+                "relative": true
+            }
         },
         {
             "name": "laravel/framework",
