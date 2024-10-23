@@ -12,13 +12,10 @@ use Hyvor\Unfold\Link\Metadata\Parsers\LinkParser;
 use Hyvor\Unfold\Link\Metadata\Parsers\OgParser;
 use Hyvor\Unfold\Link\Metadata\Parsers\TitleParser;
 use Hyvor\Unfold\Link\Metadata\Parsers\TwitterParser;
-use Hyvor\Unfold\Unfolded\UnfoldedAuthor;
-use Hyvor\Unfold\Unfolded\UnfoldedTag;
 use Symfony\Component\DomCrawler\Crawler;
 
 class MetadataParser
 {
-
     /**
      * @var MetadataObject[]
      */
