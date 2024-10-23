@@ -4,7 +4,6 @@ namespace Hyvor\Unfold\Embed\Iframe;
 
 class PrivacyIframe
 {
-
     public static function wrap(string $html): string
     {
         $encoded = base64_encode($html);
