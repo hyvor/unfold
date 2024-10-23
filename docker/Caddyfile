@@ -1,0 +1,6 @@
+:5050 {
+	root * /var/www/app/app/public
+	encode zstd gzip
+	php_fastcgi unix//run/php-fpm.sock
+	try_files index.php
+}
