@@ -78,6 +78,12 @@ abstract class EmbedParserAbstract
     {
         $matches ??= $this->match();
 
+        if ($matches === false) {
+            // null default for $matches is only to make testing easy
+            // so this should not happen outside tests
+            throw new EmbedParserException("URL does not match any of the patterns");
+        }
+
         if ($this instanceof EmbedParserOEmbedInterface) {
             return $this->parseOEmbed();
         } elseif ($this instanceof EmbedParserCustomInterface) {
