@@ -63,7 +63,9 @@ jobs:
         uses: shivammathur/setup-php@v2
 
       - name: Install dependencies
-        run: cd app && composer install --ansi --no-progress
+        working-directory: app
+        run: composer install --ansi --no-progress
 
       - name: Run tests
-        run: app/vendor/bin/pest
+        working-directory: app
+        run: vendor/bin/pest analyse --ansi
