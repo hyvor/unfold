@@ -51,7 +51,7 @@ class UnfoldConfig
         public string $httpUserAgent = 'Hyvor Unfold PHP Client',
 
         /**
-         *
+         * TODO: Implement this
          */
         public ?string $iframeEndpoint = null,
 
@@ -63,8 +63,7 @@ class UnfoldConfig
         public ?string $facebookAccessToken = null,
 
         // CACHE
-    )
-    {
+    ) {
         $this->setHttpClient($httpClient);
     }
 

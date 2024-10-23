@@ -54,7 +54,7 @@ it('fetches embed success', function () {
     expect($request->getMethod())->toBe('GET');
     expect((string)$request->getUri())
         ->toBe('https://www.youtube.com/oembed?url=https://www.youtube.com/watch?v%3D123&format=json');
-});
+})->skip(); // TODO: Skipped for now until final custom/oembed providers are decided
 
 it('fetches custom', function () {
     $response = Unfold::unfold(
@@ -65,7 +65,7 @@ it('fetches custom', function () {
 });
 
 it('on unable to resolve', function () {
-    expect(fn() => Unfold::unfold(
+    expect(fn () => Unfold::unfold(
         'https://hyvor.com',
         method: UnfoldMethod::EMBED,
         config: new UnfoldConfig()

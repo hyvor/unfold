@@ -14,7 +14,7 @@ it('configs', function () {
 it('matches reddit URLs', function (string $url) {
     $parser = new Twitter($url);
     $match = $parser->match();
-    expect($match)->toBeTrue();
+    expect($match)->toBeArray();
 })->with([
     'https://twitter.com/HyvorBlogs',
     'https://twitter.com/HyvorBlogs/status/1839476383136747730',

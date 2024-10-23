@@ -4,7 +4,6 @@ namespace Hyvor\Unfold\Unfolded;
 
 use DateTimeInterface;
 use Hyvor\Unfold\Embed\EmbedResponseObject;
-use Hyvor\Unfold\Link\Metadata\MetadataKeyType;
 use Hyvor\Unfold\Link\Metadata\MetadataObject;
 use Hyvor\Unfold\Link\Metadata\MetadataPriority;
 use Hyvor\Unfold\UnfoldCallContext;

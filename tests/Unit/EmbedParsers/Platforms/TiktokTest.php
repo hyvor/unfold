@@ -14,7 +14,7 @@ it('configs', function () {
 it('matches reddit URLs', function (string $url) {
     $parser = new Tiktok($url);
     $match = $parser->match();
-    expect($match)->toBeTrue();
+    expect($match)->toBeArray();
 })->with([
     'https://www.tiktok.com/@scout2015',
     'https://www.tiktok.com/@scout2015/video/6969696969696969696',

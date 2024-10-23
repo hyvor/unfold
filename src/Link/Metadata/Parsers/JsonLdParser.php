@@ -14,7 +14,7 @@ class JsonLdParser extends ParserAbstract
         $this->parser->crawler->filterXPath('//script[@type="application/ld+json"]')->each(function ($node) {
             $json = json_decode($node->text(), true);
 
-            if (json_last_error() !== JSON_ERROR_NONE) {
+            if (!is_array($json)) {
                 return;
             }
 
