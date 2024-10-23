@@ -54,13 +54,16 @@ abstract class EmbedParserAbstract
         return $request;
     }
 
-    public function match(): bool
+    /**
+     * @return false|string[]
+     */
+    public function match(): false|array
     {
         $regex = $this->regex();
 
         foreach ($regex as $reg) {
-            if (preg_match("~$reg~", $this->url)) {
-                return true;
+            if (preg_match("~$reg~", $this->url, $matches)) {
+                return $matches;
             }
         }
 
@@ -68,14 +71,15 @@ abstract class EmbedParserAbstract
     }
 
     /**
+     * @param string[] $matches
      * @throws UnfoldException
      */
-    public function parse(): EmbedResponseObject
+    public function parse(array $matches): EmbedResponseObject
     {
         if ($this instanceof EmbedParserOEmbedInterface) {
             return $this->parseOEmbed();
         } elseif ($this instanceof EmbedParserCustomInterface) {
-            return $this->parseCustom();
+            return $this->parseCustom($matches);
         } else {
             // @codeCoverageIgnoreStart
             throw new \Exception(
@@ -85,7 +89,7 @@ abstract class EmbedParserAbstract
         }
     }
 
-    public function parseOEmbed(): EmbedResponseObject
+    private function parseOEmbed(): EmbedResponseObject
     {
         /** @var self&EmbedParserOEmbedInterface $this */
         $oEmbedUrl = $this->oEmbedUrl();
@@ -137,10 +141,13 @@ abstract class EmbedParserAbstract
         return EmbedResponseObject::fromArray($parsed);
     }
 
-    private function parseCustom(): EmbedResponseObject
+    /**
+     * @param string[] $matches
+     */
+    private function parseCustom(array $matches): EmbedResponseObject
     {
         /** @var self&EmbedParserCustomInterface $this */
-        $html = $this->getEmbedHtml();
+        $html = $this->getEmbedHtml($matches);
 
         return EmbedResponseObject::fromArray([
             'type' => 'embed',

@@ -4,6 +4,9 @@ namespace Hyvor\Unfold\Embed;
 
 interface EmbedParserCustomInterface
 {
-    public function getEmbedHtml(): string;
+    /**
+     * @param string[] $matches
+     */
+    public function getEmbedHtml(array $matches): string;
 
 }
