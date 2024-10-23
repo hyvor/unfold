@@ -26,7 +26,7 @@
 		if (mutationCallTimeout) {
 			clearTimeout(mutationCallTimeout);
 		}
-		mutationCallTimeout = setTimeout(sendHeight, 100);
+		mutationCallTimeout = setTimeout(sendHeight, 50);
 	}
 
 	function init() {

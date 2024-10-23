@@ -6,23 +6,16 @@ class PrivacyIframe
 {
     public static function wrap(string $html): string
     {
-        $encoded = base64_encode($html);
+        $childJs = (string) file_get_contents(__DIR__ . '/child.js');
 
         return <<<HTML
-<iframe src="/endpoint?data=$encoded"/>
-
-<iframe src="/media/embed?url=$url" />
+<html>
+<body style="margin:0;overflow:hidden">
+$html
+$childJs
+</body>
+</html>
 HTML;
     }
 
-}
-
-class EmbedController
-{
-    public function handle()
-    {
-        $url = $_GET['url'];
-        $embed = Unfold::unfold($url, EMBED);
-        echo $embed;
-    }
 }
