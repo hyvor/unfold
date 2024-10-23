@@ -22,7 +22,8 @@
     "symfony/dom-crawler": "^7.1",
     "psr/http-client": "^1.0",
     "php-http/discovery": "^1.20",
-    "php-http/client-common": "^2.7"
+    "php-http/client-common": "^2.7",
+    "league/uri": "^7.0"
   },
   "require-dev": {
     "pestphp/pest": "^3.3",

@@ -7,6 +7,7 @@ class UnfoldCallContext
     public float $startTime;
 
     public function __construct(
+        public string $url,
         public UnfoldMethod $method,
         public UnfoldConfig $config,
     ) {
