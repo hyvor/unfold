@@ -17,14 +17,12 @@ class Controller
         $request->validate([
             'url' => 'required|url',
             'method' => 'nullable|string|in:link,embed,link_embed',
-            'embedWrapInIframe' => 'nullable|boolean',
             'embedMetaFallback' => 'nullable|boolean',
         ]);
 
         $url = (string) $request->string('url');
         $method = $request->string('method', 'link');
         $method = UnfoldMethod::from($method);
-        $embedWrapInIframe = $request->boolean('embedWrapInIframe', true);
         $embedMetaFallback = $request->boolean('embedMetaFallback');
 
         try {
