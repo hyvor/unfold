@@ -78,7 +78,7 @@ HTML;
 
         if ($isShort) {
             // set max width same as the youtube player
-            $html = '<div style="max-width:calc(56.25vh - 54px)">' . $html . '</div>';
+            $html = '<div style="width:calc(56.25vh - 54px);min-width:315px;max-width:100%">' . $html . '</div>';
         }
 
         return $html;

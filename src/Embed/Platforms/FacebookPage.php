@@ -17,7 +17,7 @@ class FacebookPage extends EmbedParserAbstract implements EmbedParserCustomInter
              * Pages have URLs like: facebook.com/MyPage
              * They can also be: facebook.com/MyPage/about
              */
-            'https?://(www|m).facebook.com/[^/]+/?(about|photos|videos|events|timeline|photos_stream)?/?(\?[^/]+)?$',
+            'https?://(www|web|m).facebook.com/[^/]+/?(about|photos|videos|events|timeline|photos_stream)?/?(\?[^/]+)?$',
         ];
     }
 

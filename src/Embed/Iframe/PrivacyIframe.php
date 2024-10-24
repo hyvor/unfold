@@ -6,13 +6,13 @@ class PrivacyIframe
 {
     public static function wrap(string $html): string
     {
-        $childJs = (string) file_get_contents(__DIR__ . '/child.js');
+        $childJs = (string)file_get_contents(__DIR__ . '/child.js');
 
         return <<<HTML
 <html>
 <body style="margin:0;overflow:hidden">
 $html
-$childJs
+<script>$childJs</script>
 </body>
 </html>
 HTML;
