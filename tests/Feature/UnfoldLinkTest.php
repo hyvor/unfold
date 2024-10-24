@@ -54,6 +54,8 @@ HTML
         )
     );
 
+    expect($response->url)->toBe('https://hyvor.com');
+    expect($response->originalUrl)->toBe('https://hyvor.com');
     expect($response->title)->toBe('HYVOR');
     expect($response->description)->toBe('We craft privacy-first, user-friendly tools for websites.');
     expect($response->publishedTime->format('Y-m-d'))->toBe('2021-09-01');
@@ -80,7 +82,7 @@ it('on 404', function () {
     ]);
     $client = new Client(['handler' => $mock]);
 
-    expect(fn () => Unfold::unfold(
+    expect(fn() => Unfold::unfold(
         'https://hyvor.com',
         config: new UnfoldConfig(
             httpClient: $client
@@ -100,7 +102,7 @@ it('request exception', function () {
     ]);
     $client = new Client(['handler' => $mock]);
 
-    expect(fn () => Unfold::unfold(
+    expect(fn() => Unfold::unfold(
         'https://hyvor.com',
         config: new UnfoldConfig(
             httpClient: $client
@@ -109,4 +111,65 @@ it('request exception', function () {
         LinkScrapeException::class,
         'Error Communicating with Server'
     );
+});
+
+
+it('redirect', function () {
+    $mock = new MockHandler([
+        new Response(
+            301,
+            ['Location' => 'https://hyvor.com/redirected'],
+        ),
+        new Response(
+            200,
+            [],
+            <<<HTML
+<html>
+    <title>
+        Redirected
+    </title>
+</html>
+HTML
+        )
+    ]);
+    $client = new Client(['handler' => $mock]);
+
+    $response = Unfold::unfold(
+        'https://hyvor.com',
+        config: new UnfoldConfig(
+            httpClient: $client
+        )
+    );
+
+    expect($response->originalUrl)->toBe('https://hyvor.com');
+    expect($response->url)->toBe('https://hyvor.com/redirected');
+    expect($response->title)->toBe('Redirected');
+});
+
+it('max redirects', function () {
+    $mock = new MockHandler([
+        new Response(
+            301,
+            ['Location' => 'https://hyvor.com/redirected'],
+        ),
+        new Response(
+            301,
+            ['Location' => 'https://hyvor.com/redirected-2'],
+        ),
+        new Response(
+            200,
+            [],
+            "<html><title>Redirected</title></html>"
+        )
+    ]);
+
+    $client = new Client(['handler' => $mock]);
+
+    expect(fn() => Unfold::unfold(
+        'https://hyvor.com',
+        config: new UnfoldConfig(
+            httpClient: $client,
+            httpMaxRedirects: 1
+        )
+    ))->toThrow(LinkScrapeException::class, 'Too many redirects');
 });

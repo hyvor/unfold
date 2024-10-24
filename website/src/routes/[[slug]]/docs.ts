@@ -1,7 +1,8 @@
 import type { ComponentType } from "svelte";
 import Introduction from "./Introduction.svelte";
+import Iframe from "./Iframe.svelte";
 
-export const categories = [
+export const categories: Category[] = [
     {
         name: 'Unfold',
         pages: [
@@ -12,19 +13,22 @@ export const categories = [
             },  
             {
                 name: 'PHP Library',
-                slug: 'php'
+                slug: 'php',
+                component: Introduction
             },
             {
                 name: 'Privacy Iframe',
-                slug: 'privacy-iframe'
+                slug: 'iframe',
+                component: Iframe
             },
             {
                 name: 'Docker Hosting',
-                slug: 'docker'
+                slug: 'docker',
+                component: Introduction
             }
         ]
     }
-] as Category[];
+];
 
 export const pages = categories.reduce((acc, category) => acc.concat(category.pages), [] as Page[]);
 

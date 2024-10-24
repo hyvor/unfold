@@ -3,17 +3,20 @@
 namespace Hyvor\Unfold\Link;
 
 use GuzzleHttp\Psr7\Request;
+use Http\Client\Common\Exception\LoopException;
 use Hyvor\Unfold\Exception\LinkScrapeException;
 use Hyvor\Unfold\Link\Metadata\MetadataParser;
 use Hyvor\Unfold\UnfoldConfig;
 use Hyvor\Unfold\Unfolded\Unfolded;
-use Hyvor\Unfold\UnfoldCallContext;
 use Psr\Http\Client\ClientExceptionInterface;
+use Psr\Http\Message\RequestInterface;
 
 class Link
 {
+
+    private ?RequestInterface $lastRequest = null;
+
     public function __construct(
-        private string $url,
         private UnfoldConfig $config,
     ) {
     }
@@ -22,13 +25,17 @@ class Link
     {
         $request = new Request(
             'GET',
-            $this->url
+            $this->config->url
         );
 
         try {
             $response = $this->config->httpClient->sendRequest($request);
         } catch (ClientExceptionInterface $e) {
-            throw new LinkScrapeException($e->getMessage());
+            $message = match (true) {
+                $e instanceof LoopException => 'Too many redirects',
+                default => $e->getMessage(),
+            };
+            throw new LinkScrapeException($message);
         }
 
         $status = $response->getStatusCode();
@@ -37,21 +44,24 @@ class Link
             throw new LinkScrapeException("Unable to scrape link. HTTP status code: $status");
         }
 
+        $this->lastRequest = $this->config->httpRequestRecorder->getLastRequest();
+
         return $response->getBody()->getContents();
     }
 
-
     public static function getUnfoldedObject(
-        string $url,
-        UnfoldCallContext $context,
+        UnfoldConfig $config,
     ): Unfolded {
-        $content = (new Link($url, $context->config))->scrape();
-        $metadata = (new MetadataParser($content))->parse();
+        $link = new Link($config);
+        $content = $link->scrape();
+        $lastRequest = $link->lastRequest;
+
+        $metadata = (new MetadataParser($content, $config))->parse();
 
         return Unfolded::fromMetadata(
-            $url,
+            $config,
             $metadata,
-            $context,
+            $lastRequest,
         );
     }
 }

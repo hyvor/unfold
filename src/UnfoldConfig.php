@@ -2,9 +2,11 @@
 
 namespace Hyvor\Unfold;
 
+use Http\Client\Common\Plugin\HistoryPlugin;
 use Http\Client\Common\Plugin\RedirectPlugin;
 use Http\Client\Common\PluginClient;
 use Http\Discovery\Psr18ClientDiscovery;
+use Hyvor\Unfold\Link\RequestRecorder;
 use Psr\Http\Client\ClientInterface;
 
 class UnfoldConfig
@@ -14,14 +16,14 @@ class UnfoldConfig
      */
     public ClientInterface $httpClient;
 
+    // These are set later in the Unfold::unfold method for internal use
+    public string $url;
+    public UnfoldMethod $method;
+
+    public RequestRecorder $httpRequestRecorder;
+    public float $startTime;
+
     public function __construct(
-        /**
-         * Whether to wrap the embed HTML in an iframe with `srcdoc`
-         * This is useful for security and privacy reasons.
-         * If set to false, the embed HTML will be directly used, which would give Javascript access to
-         * the parent page.
-         */
-        public bool $embedWrapInIframe = true,
 
         /**
          * If the $method is UnfoldMethod::EMBED or UnfoldMethod::EMBED_LINK,
@@ -51,20 +53,24 @@ class UnfoldConfig
         public string $httpUserAgent = 'Hyvor Unfold PHP Client',
 
         /**
-         * TODO: Implement this
-         */
-        public ?string $iframeEndpoint = null,
-
-        /**
          * Meta requires an access_token to access the OEmbed Read Graph API
-         * This is required for both Facebook & Instagram
+         * This is required for both FacebookPost & Instagram
          * @todo
          */
         public ?string $facebookAccessToken = null,
 
         // CACHE
-    ) {
+    )
+    {
         $this->setHttpClient($httpClient);
+    }
+
+    public function start(string $url, UnfoldMethod $method): self
+    {
+        $this->url = $url;
+        $this->method = $method;
+        $this->startTime = microtime(true);
+        return $this;
     }
 
     private function setHttpClient(?ClientInterface $httpClient): void
@@ -72,12 +78,32 @@ class UnfoldConfig
         $httpClient ??= Psr18ClientDiscovery::find();
         $redirectPlugin = new RedirectPlugin();
 
+        $this->httpRequestRecorder = new RequestRecorder();
+        $historyPlugin = new HistoryPlugin($this->httpRequestRecorder);
+
         $this->httpClient = new PluginClient(
             $httpClient,
-            [$redirectPlugin],
+            [
+                $redirectPlugin,
+                $historyPlugin,
+            ],
             [
                 'max_restarts' => $this->httpMaxRedirects,
             ]
         );
+    }
+
+    public function duration(): int
+    {
+        return (int)((microtime(true) - $this->startTime) * 1000);
+    }
+
+    public static function withUrlAndMethod(
+        string $url,
+        UnfoldMethod $method
+    ): self {
+        $config = new self();
+        $config->start($url, $method);
+        return $config;
     }
 }

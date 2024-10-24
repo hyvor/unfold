@@ -16,26 +16,11 @@ use Psr\Http\Message\RequestInterface;
  */
 abstract class EmbedParserAbstract
 {
-    protected UnfoldConfig $config;
+    // define priority relatively
+    public const PRIORITY = 0;
 
-    public function __construct(
-        protected string $url,
-        ?UnfoldConfig $config = null,
-    ) {
-        $this->config = $config ?? new UnfoldConfig();
-    }
-
-
-    /**
-     * TODO: This is not yet used
-     * If the URL needs to be replaced before sending to the oEmbed endpoint,
-     * return the new URL here. Otherwise, return null
-     * Ex: m.facebook.com -> www.facebook.com
-     * @codeCoverageIgnore
-     */
-    public function replaceUrl(): ?string
+    public function __construct(protected UnfoldConfig $config)
     {
-        return null;
     }
 
     /**
@@ -62,7 +47,7 @@ abstract class EmbedParserAbstract
         $regex = $this->regex();
 
         foreach ($regex as $reg) {
-            if (preg_match("~$reg~", $this->url, $matches)) {
+            if (preg_match("~$reg~", $this->config->url, $matches)) {
                 return $matches;
             }
         }
@@ -105,7 +90,7 @@ abstract class EmbedParserAbstract
         $uri = Uri::withQueryValues(
             new Uri($oEmbedUrl),
             [
-                'url' => $this->url,
+                'url' => $this->config->url,
                 'format' => 'json'
             ]
         );

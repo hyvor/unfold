@@ -10,11 +10,11 @@ OEmbed:
 - X (Twitter)
 - TikTok
 - Reddit
-- Facebook
 
 Custom:
 
 - Youtube
+- Facebook
 - Instagram
 - Github Gist
 

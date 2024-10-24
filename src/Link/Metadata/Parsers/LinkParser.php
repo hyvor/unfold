@@ -4,6 +4,7 @@ namespace Hyvor\Unfold\Link\Metadata\Parsers;
 
 use Hyvor\Unfold\Link\Metadata\MetadataKeyType;
 use Hyvor\Unfold\Link\Metadata\MetadataObject;
+use League\Uri\Uri;
 
 class LinkParser extends ParserAbstract
 {
@@ -14,12 +15,26 @@ class LinkParser extends ParserAbstract
             $href = $node->attr('href');
 
             if ($rel === 'canonical' && is_string($href)) {
-                $this->parser->addMetadata(new MetadataObject(MetadataKeyType::CANONICAL_URL, $href));
+                $this->parser->addMetadata(
+                    new MetadataObject(MetadataKeyType::CANONICAL_URL, $this->fixIfRelativeUrl($href))
+                );
             }
 
             if ($rel === 'icon' && is_string($href)) {
-                $this->parser->addMetadata(new MetadataObject(MetadataKeyType::FAVICON_URL, $href));
+                $this->parser->addMetadata(
+                    new MetadataObject(MetadataKeyType::FAVICON_URL, $this->fixIfRelativeUrl($href))
+                );
             }
         });
+    }
+
+    public function fixIfRelativeUrl(string $url): string
+    {
+        $parsedUrl = parse_url($url);
+        if (isset($parsedUrl['host'])) {
+            return $url;
+        } else {
+            return Uri::fromBaseUri($url, $this->parser->config->url)->toString();
+        }
     }
 }

@@ -18,19 +18,16 @@ class Unfold
         UnfoldConfig $config = null,
     ): Unfolded {
         $config ??= new UnfoldConfig();
-        $context = new UnfoldCallContext(
-            $method,
-            $config,
-        );
+        $config->start($url, $method);
 
         if ($method === UnfoldMethod::LINK) {
-            return Link::getUnfoldedObject($url, $context);
+            return Link::getUnfoldedObject($config);
         } elseif ($method === UnfoldMethod::EMBED) {
-            return Embed::getUnfoldedObject($url, $context);
+            return Embed::getUnfoldedObject($config);
         } else {
             // both
             // TODO:
-            throw new \Exception('Not implemented yet');
+            throw new \Exception('Not implemented yet'); // @codeCoverageIgnore
         }
     }
 }

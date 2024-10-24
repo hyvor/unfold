@@ -57,9 +57,9 @@ class Youtube extends EmbedParserAbstract implements EmbedParserCustomInterface
     {
         $id = $matches[1] ?? '';
 
-        $isShort = str_contains($this->url, '/shorts/');
-        $isPlaylist = str_contains($this->url, '/playlist?list=');
-        $isUser = str_contains($this->url, '/user/');
+        $isShort = str_contains($this->config->url, '/shorts/');
+        $isPlaylist = str_contains($this->config->url, '/playlist?list=');
+        $isUser = str_contains($this->config->url, '/user/');
 
         $padding = round(100 * ($isShort ? 16 / 9 : 9 / 16), 2);
 
