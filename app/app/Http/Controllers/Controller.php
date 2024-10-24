@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Hyvor\Unfold\Embed\Iframe\PrivacyIframe;
 use Hyvor\Unfold\Exception\UnfoldException;
 use Hyvor\Unfold\Unfold;
 use Hyvor\Unfold\UnfoldConfig;
@@ -31,9 +32,8 @@ class Controller
                 $url,
                 $method,
                 new UnfoldConfig(
-                    $embedWrapInIframe,
                     $embedMetaFallback,
-                    httpClient: app()->bound('httpClient') ? app('httpClient') : null
+                    app()->bound('httpClient') ? app('httpClient') : null
                 )
             );
         } catch (UnfoldException $e) {
@@ -43,5 +43,22 @@ class Controller
         }
 
         return response()->json($response);
+    }
+
+    public function iframe(Request $request): string
+    {
+        $request->validate([
+            'url' => 'required|url',
+        ]);
+
+        $url = (string) $request->string('url');
+
+        try {
+            $data = Unfold::unfold($url, UnfoldMethod::EMBED);
+        } catch (UnfoldException) {
+            return 'This URL cannot be embedded.';
+        }
+
+        return PrivacyIframe::wrap($data->embed);
     }
 }
