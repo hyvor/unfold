@@ -12,6 +12,7 @@ use Hyvor\Unfold\Link\Metadata\Parsers\LinkParser;
 use Hyvor\Unfold\Link\Metadata\Parsers\OgParser;
 use Hyvor\Unfold\Link\Metadata\Parsers\TitleParser;
 use Hyvor\Unfold\Link\Metadata\Parsers\TwitterParser;
+use Hyvor\Unfold\UnfoldConfig;
 use Symfony\Component\DomCrawler\Crawler;
 
 class MetadataParser
@@ -26,7 +27,8 @@ class MetadataParser
     public Crawler $crawlerMeta;
 
     public function __construct(
-        private string $content
+        private string $content,
+        public UnfoldConfig $config,
     ) {
         $this->crawler = new Crawler($this->content);
         $this->crawlerMeta = $this->crawler->filterXPath('//meta');

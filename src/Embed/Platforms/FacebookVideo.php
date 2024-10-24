@@ -37,7 +37,7 @@ class FacebookVideo extends EmbedParserAbstract implements EmbedParserCustomInte
     public function getEmbedHtml(array $matches): string
     {
         $sdk = FacebookHelper::sdkScript();
-        $url = $this->url;
+        $url = $this->config->url;
         return <<<HTML
 $sdk
 <div class="fb-video" data-href="$url" data-width="500" data-show-text="true"></div>

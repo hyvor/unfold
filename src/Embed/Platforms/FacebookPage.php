@@ -17,13 +17,13 @@ class FacebookPage extends EmbedParserAbstract implements EmbedParserCustomInter
              * Pages have URLs like: facebook.com/MyPage
              * They can also be: facebook.com/MyPage/about
              */
-            'https?://(www|m).facebook.com/[^/]+/?(about|photos|videos|events|timeline|photos_stream)?/?(\?[^/]+)?$',
+            'https?://(www|web|m).facebook.com/[^/]+/?(about|photos|videos|events|timeline|photos_stream)?/?(\?[^/]+)?$',
         ];
     }
 
     public function getEmbedHtml(array $matches): string
     {
-        $url = $this->url;
+        $url = $this->config->url;
 
         $name = explode('/', $url)[3] ?? '';
         $sdk = FacebookHelper::sdkScript();

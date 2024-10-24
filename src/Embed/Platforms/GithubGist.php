@@ -16,6 +16,6 @@ class GithubGist extends EmbedParserAbstract implements EmbedParserCustomInterfa
 
     public function getEmbedHtml($matches): string
     {
-        return "<script src=\"$this->url.js\"></script>";
+        return "<script src=\"{$this->config->url}.js\"></script>";
     }
 }

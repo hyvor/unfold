@@ -3,10 +3,12 @@
 namespace Unit\Parsers;
 
 use Hyvor\Unfold\Embed\Platforms\Instagram;
+use Hyvor\Unfold\UnfoldConfig;
+use Hyvor\Unfold\UnfoldMethod;
 
 it('matches instagram post', function () {
     $url = 'https://www.instagram.com/p/DA5VlaMK1Wc/';
-    $parser = new Instagram($url);
+    $parser = new Instagram(UnfoldConfig::withUrlAndMethod($url, UnfoldMethod::EMBED));
     $match = $parser->match();
     expect($match['id'])->toBe('DA5VlaMK1Wc');
 
@@ -25,7 +27,7 @@ it('adds shared by caption to username post links', function () {
     // https://www.instagram.com/{username}/p/{post_id}
 
     $url = 'https://www.instagram.com/emmafarrarons/p/DA5VlaMK1Wc/';
-    $parser = new Instagram($url);
+    $parser = new Instagram(UnfoldConfig::withUrlAndMethod($url, UnfoldMethod::EMBED));
     $match = $parser->match();
     expect($match['username'])->toBe('emmafarrarons');
     expect($match['id'])->toBe('DA5VlaMK1Wc');
@@ -43,7 +45,7 @@ it('adds shared by caption to username post links', function () {
 
 it('matches reel', function () {
     $url = 'https://www.instagram.com/reel/C6H039Ctw_b/';
-    $parser = new Instagram($url);
+    $parser = new Instagram(UnfoldConfig::withUrlAndMethod($url, UnfoldMethod::EMBED));
     $match = $parser->match();
     expect($match['id'])->toBe('C6H039Ctw_b');
     expect($match['type'])->toBe('reel');
@@ -67,7 +69,7 @@ it('matches reel', function () {
 //});
 
 it('matches instagram URLs', function (string $url, array $matches) {
-    $parser = new Instagram($url);
+    $parser = new Instagram(UnfoldConfig::withUrlAndMethod($url, UnfoldMethod::EMBED));
     $match = $parser->match();
     expect($match)->toBeArray();
     foreach ($matches as $key => $value) {

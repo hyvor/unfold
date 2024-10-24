@@ -1,5 +1,6 @@
 <script>
 	import { CodeBlock } from '@hyvor/design/components';
+	import Demo from '../demo/Demo.svelte';
 </script>
 
 <h1>Hyvor Unfold</h1>
@@ -22,7 +23,9 @@
 	</li>
 </ul>
 
-<h3 id="link-previews">1. Link Previews</h3>
+<Demo />
+
+<h2 id="link-previews">1. Link Previews</h2>
 
 <p>
 	The main feature of Hyvor Unfold is fetching metadata from URLs for link previews. You can use

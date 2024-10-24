@@ -12,6 +12,7 @@ use Hyvor\Unfold\Embed\EmbedParserOEmbedInterface;
 use Hyvor\Unfold\Embed\OEmbedTypeEnum;
 use Hyvor\Unfold\Exception\EmbedParserException;
 use Hyvor\Unfold\UnfoldConfig;
+use Hyvor\Unfold\UnfoldMethod;
 
 class OEmbedTestPlatform extends EmbedParserAbstract implements EmbedParserOEmbedInterface
 {
@@ -29,7 +30,7 @@ class OEmbedTestPlatform extends EmbedParserAbstract implements EmbedParserOEmbe
 }
 
 it('not matching', function () {
-    $platform = new OEmbedTestPlatform('https://example.com');
+    $platform = new OEmbedTestPlatform(UnfoldConfig::withUrlAndMethod('https://example.com', UnfoldMethod::EMBED));
     expect($platform->match())->toBeFalse();
 });
 
@@ -60,10 +61,9 @@ it('valid response', function () {
     $client = new Client(['handler' => $handlerStack]);
 
     $platform = new OEmbedTestPlatform(
-        'https://hyvor.com/123',
-        new UnfoldConfig(
+        (new UnfoldConfig(
             httpClient: $client
-        )
+        ))->start('https://hyvor.com/123', UnfoldMethod::EMBED)
     );
 
     $response = $platform->parse();
@@ -115,10 +115,9 @@ it('redirects', function () {
     $client = new Client(['handler' => $handlerStack]);
 
     $platform = new OEmbedTestPlatform(
-        'https://hyvor.com/123',
-        new UnfoldConfig(
+        (new UnfoldConfig(
             httpClient: $client
-        )
+        ))->start('https://hyvor.com/123', UnfoldMethod::EMBED)
     );
 
     $response = $platform->parse();
@@ -141,10 +140,9 @@ it('client exception', function () {
     $client = new Client(['handler' => $handlerStack]);
 
     $platform = new OEmbedTestPlatform(
-        'https://hyvor.com/123',
-        new UnfoldConfig(
+        (new UnfoldConfig(
             httpClient: $client
-        )
+        ))->start('https://hyvor.com/123', UnfoldMethod::EMBED)
     );
 
     $exception = null;
@@ -167,10 +165,9 @@ it('non-200 status code exception', function () {
     $client = new Client(['handler' => $handlerStack]);
 
     $platform = new OEmbedTestPlatform(
-        'https://hyvor.com/123',
-        new UnfoldConfig(
+        (new UnfoldConfig(
             httpClient: $client
-        )
+        ))->start('https://hyvor.com/123', UnfoldMethod::EMBED)
     );
 
     $exception = null;
@@ -193,10 +190,9 @@ it('json decode exception', function () {
     $client = new Client(['handler' => $handlerStack]);
 
     $platform = new OEmbedTestPlatform(
-        'https://hyvor.com/123',
-        new UnfoldConfig(
+        (new UnfoldConfig(
             httpClient: $client
-        )
+        ))->start('https://hyvor.com/123', UnfoldMethod::EMBED)
     );
 
     $exception = null;

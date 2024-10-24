@@ -57,9 +57,9 @@ class Youtube extends EmbedParserAbstract implements EmbedParserCustomInterface
     {
         $id = $matches[1] ?? '';
 
-        $isShort = str_contains($this->url, '/shorts/');
-        $isPlaylist = str_contains($this->url, '/playlist?list=');
-        $isUser = str_contains($this->url, '/user/');
+        $isShort = str_contains($this->config->url, '/shorts/');
+        $isPlaylist = str_contains($this->config->url, '/playlist?list=');
+        $isUser = str_contains($this->config->url, '/user/');
 
         $padding = round(100 * ($isShort ? 16 / 9 : 9 / 16), 2);
 
@@ -78,7 +78,7 @@ HTML;
 
         if ($isShort) {
             // set max width same as the youtube player
-            $html = '<div style="max-width:calc(56.25vh - 54px)">' . $html . '</div>';
+            $html = '<div style="width:calc(56.25vh - 54px);min-width:315px;max-width:100%">' . $html . '</div>';
         }
 
         return $html;

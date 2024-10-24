@@ -50,3 +50,22 @@ jobs:
 
       - name: Run static analysis
         run: vendor/bin/phpstan analyse --ansi
+
+  app_tests:
+    name: App Tests
+    runs-on: ubuntu-22.04
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Set up PHP
+        uses: shivammathur/setup-php@v2
+
+      - name: Install dependencies
+        working-directory: app
+        run: composer install --ansi --no-progress
+
+      - name: Run tests
+        working-directory: app
+        run: vendor/bin/pest
