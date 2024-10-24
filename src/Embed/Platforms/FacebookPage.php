@@ -23,7 +23,7 @@ class FacebookPage extends EmbedParserAbstract implements EmbedParserCustomInter
 
     public function getEmbedHtml(array $matches): string
     {
-        $url = $this->url;
+        $url = $this->config->url;
 
         $name = explode('/', $url)[3] ?? '';
         $sdk = FacebookHelper::sdkScript();

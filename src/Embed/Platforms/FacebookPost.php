@@ -39,7 +39,7 @@ class FacebookPost extends EmbedParserAbstract implements EmbedParserCustomInter
 
     public function getEmbedHtml(array $matches): string
     {
-        $url = $this->url;
+        $url = $this->config->url;
         $sdk = FacebookHelper::sdkScript();
 
         return <<<HTML

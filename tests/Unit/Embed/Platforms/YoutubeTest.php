@@ -3,10 +3,12 @@
 namespace Unit\Parsers;
 
 use Hyvor\Unfold\Embed\Platforms\Youtube;
+use Hyvor\Unfold\UnfoldConfig;
+use Hyvor\Unfold\UnfoldMethod;
 
 it('matches video', function () {
     $url = 'https://www.youtube.com/watch?v=TdrL3QxjyVw';
-    $parser = new Youtube($url);
+    $parser = new Youtube(UnfoldConfig::withUrlAndMethod($url, UnfoldMethod::EMBED));
     $match = $parser->match();
     expect($match[1])->toBe('TdrL3QxjyVw');
 
@@ -19,7 +21,7 @@ it('matches video', function () {
 
 it('matches playlist', function () {
     $url = 'https://www.youtube.com/playlist?list=PLAqhIrjkxbuWI23v9cThsA9GvCAUhRvKZ';
-    $parser = new Youtube($url);
+    $parser = new Youtube(UnfoldConfig::withUrlAndMethod($url, UnfoldMethod::EMBED));
     $match = $parser->match();
     expect($match[1])->toBe('PLAqhIrjkxbuWI23v9cThsA9GvCAUhRvKZ');
 
@@ -32,7 +34,7 @@ it('matches playlist', function () {
 
 it('matches user', function () {
     $url = 'https://www.youtube.com/user/GoogleDevelopers';
-    $parser = new Youtube($url);
+    $parser = new Youtube(UnfoldConfig::withUrlAndMethod($url, UnfoldMethod::EMBED));
     $match = $parser->match();
     expect($match[1])->toBe('GoogleDevelopers');
 
@@ -45,7 +47,7 @@ it('matches user', function () {
 
 it('matches short', function () {
     $url = 'https://www.youtube.com/shorts/uehCDW1fxUw';
-    $parser = new Youtube($url);
+    $parser = new Youtube(UnfoldConfig::withUrlAndMethod($url, UnfoldMethod::EMBED));
     $match = $parser->match();
     expect($match[1])->toBe('uehCDW1fxUw');
 
@@ -58,7 +60,7 @@ it('matches short', function () {
 
 
 it('matches youtube URLs', function (string $url) {
-    $parser = new Youtube($url);
+    $parser = new Youtube(UnfoldConfig::withUrlAndMethod($url, UnfoldMethod::EMBED));
     $match = $parser->match();
     expect($match)->toBeArray();
     expect($match[1])->toBe('lHZwlzOUOZ4');

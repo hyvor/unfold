@@ -3,6 +3,8 @@
 namespace Unit\Parsers;
 
 use Hyvor\Unfold\Embed\Platforms\FacebookVideo;
+use Hyvor\Unfold\UnfoldConfig;
+use Hyvor\Unfold\UnfoldMethod;
 
 //it('manual', function () {
 //    $url = 'https://www.facebook.com/reel/416122534780426';
@@ -15,7 +17,7 @@ use Hyvor\Unfold\Embed\Platforms\FacebookVideo;
 it('embeds facebook videos', function () {
     $url = 'https://www.facebook.com/username/videos/123456789';
 
-    $parser = new FacebookVideo($url);
+    $parser = new FacebookVideo(UnfoldConfig::withUrlAndMethod($url, UnfoldMethod::EMBED));
     $match = $parser->match();
     $response = $parser->parse($match);
 
@@ -27,7 +29,7 @@ it('embeds facebook videos', function () {
 });
 
 it('matches', function ($url) {
-    $facebook = new FacebookVideo($url);
+    $facebook = new FacebookVideo(UnfoldConfig::withUrlAndMethod($url, UnfoldMethod::EMBED));
     expect($facebook->match())->toBeArray();
 })->with([
     // with username

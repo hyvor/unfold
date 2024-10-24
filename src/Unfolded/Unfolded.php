@@ -6,8 +6,9 @@ use DateTimeInterface;
 use Hyvor\Unfold\Embed\EmbedResponseObject;
 use Hyvor\Unfold\Link\Metadata\MetadataObject;
 use Hyvor\Unfold\Link\Metadata\MetadataPriority;
-use Hyvor\Unfold\UnfoldCallContext;
+use Hyvor\Unfold\UnfoldConfig;
 use Hyvor\Unfold\UnfoldMethod;
+use Psr\Http\Message\RequestInterface;
 
 class Unfolded
 {
@@ -19,6 +20,7 @@ class Unfolded
      */
     public function __construct(
         public UnfoldMethod $method,
+        public string $originalUrl,
         public string $url,
         public ?string $embed,
         public ?string $title,
@@ -42,43 +44,49 @@ class Unfolded
      * @param MetadataObject[] $metadata
      */
     public static function fromMetadata(
-        string $url,
+        UnfoldConfig $config,
         array $metadata,
-        UnfoldCallContext $context,
+        ?RequestInterface $lastRequest,
     ): self {
         $metadataPriority = new MetadataPriority($metadata);
 
+        $currentUrl = $config->url;
+        if ($lastRequest && (string)$lastRequest->getUri() !== $currentUrl) {
+            $currentUrl = (string)$lastRequest->getUri();
+        }
+
         return new self(
-            $context->method,
-            $url,
+            $config->method,
+            $config->url,
+            $currentUrl,
             null,
             $metadataPriority->title(),
             $metadataPriority->description(),
             $metadataPriority->authors(),
             $metadataPriority->tags(),
             $metadataPriority->siteName(),
-            $metadataPriority->siteUrl($url),
+            $metadataPriority->siteUrl($currentUrl),
             $metadataPriority->canonicalUrl(),
             $metadataPriority->publishedTime(),
             $metadataPriority->modifiedTime(),
             $metadataPriority->thumbnailUrl(),
             $metadataPriority->iconUrl(),
             $metadataPriority->locale(),
-            $context->duration()
+            $config->duration()
         );
     }
 
     public static function fromEmbed(
         EmbedResponseObject $embed,
-        string $url,
-        UnfoldCallContext $context,
+        UnfoldConfig $config,
     ): self {
         $authors = $embed->author_url || $embed->author_name ?
             [new UnfoldedAuthor($embed->author_name, $embed->author_url)] : [];
 
         return new self(
-            $context->method,
-            $url,
+            $config->method,
+            $config->url,
+            $config->url,
             $embed->html,
             $embed->title,
             null,
@@ -92,7 +100,7 @@ class Unfolded
             $embed->thumbnail_url,
             null,
             null,
-            $context->duration()
+            $config->duration()
         );
     }
 

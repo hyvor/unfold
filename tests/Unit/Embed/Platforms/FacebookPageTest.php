@@ -5,6 +5,8 @@ namespace Unit\Parsers;
 use Hyvor\Unfold\Embed\Embed;
 use Hyvor\Unfold\Embed\Platforms\FacebookPage;
 use Hyvor\Unfold\Embed\Platforms\FacebookPost;
+use Hyvor\Unfold\UnfoldConfig;
+use Hyvor\Unfold\UnfoldMethod;
 
 //it('matches a facebook page', function () {
 //    $url = 'https://www.facebook.com/GMANetwork/about';
@@ -18,7 +20,7 @@ use Hyvor\Unfold\Embed\Platforms\FacebookPost;
 it('embeds facebook page', function () {
     $url = 'https://www.facebook.com/geonarah';
 
-    $parser = new FacebookPage($url);
+    $parser = new FacebookPage(UnfoldConfig::withUrlAndMethod($url, UnfoldMethod::EMBED));
     $match = $parser->match();
     $response = $parser->parse($match);
 
@@ -42,7 +44,7 @@ it('embed class prioritizes facebook post before page', function () {
     ]);
 
 it('matches', function ($url) {
-    $parser = new FacebookPage($url);
+    $parser = new FacebookPage(UnfoldConfig::withUrlAndMethod($url, UnfoldMethod::EMBED));
     expect($parser->match())->toBeArray();
 })->with([
     'https://www.facebook.com/MyPage',
@@ -54,7 +56,7 @@ it('matches', function ($url) {
 ]);
 
 it('does not match', function ($url) {
-    $parser = new FacebookPage($url);
+    $parser = new FacebookPage(UnfoldConfig::withUrlAndMethod($url, UnfoldMethod::EMBED));
     expect($parser->match())->toBeFalse();
 })->with([
     'https://www.facebook.com/Mypage/other',
