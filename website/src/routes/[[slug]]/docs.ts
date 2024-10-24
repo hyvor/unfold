@@ -1,6 +1,7 @@
 import type { ComponentType } from "svelte";
 import Introduction from "./Introduction.svelte";
 import Iframe from "./Iframe.svelte";
+import Docker from "./Docker.svelte";
 
 export const categories: Category[] = [
     {
@@ -24,7 +25,7 @@ export const categories: Category[] = [
             {
                 name: 'Docker Hosting',
                 slug: 'docker',
-                component: Introduction
+                component: Docker
             }
         ]
     }
