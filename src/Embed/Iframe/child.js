@@ -2,6 +2,7 @@
     function sendHeight() {
         const height = document.documentElement.scrollHeight;
 
+        console.log("sendHeight", height);
         try {
             const iframe = window.frameElement;
             if (iframe) {
@@ -20,23 +21,27 @@
         }
     }
 
-    let mutationCallTimeout = null;
+    let sendHeightTimeout = null;
 
-    function processMutations() {
-        if (mutationCallTimeout) {
-            clearTimeout(mutationCallTimeout);
+    function sendDelayedHeight() {
+        console.log("sendDelayedHeight");
+        if (sendHeightTimeout) {
+            clearTimeout(sendHeightTimeout);
         }
-        mutationCallTimeout = setTimeout(sendHeight, 50);
+        sendHeightTimeout = setTimeout(sendHeight, 50);
     }
 
     function init() {
-        const mutation = new window.MutationObserver(processMutations);
+        const mutation = new window.MutationObserver(sendDelayedHeight);
         mutation.observe(document.body, {
             childList: true,
             subtree: true,
+            attributes: true,
         });
         sendHeight();
     }
 
     document.addEventListener("DOMContentLoaded", init);
+    document.addEventListener('click', sendDelayedHeight);
+    document.addEventListener('resize', sendDelayedHeight);
 })();
