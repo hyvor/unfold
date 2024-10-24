@@ -61,10 +61,9 @@ it('valid response', function () {
     $client = new Client(['handler' => $handlerStack]);
 
     $platform = new OEmbedTestPlatform(
-        'https://hyvor.com/123',
-        new UnfoldConfig(
+        (new UnfoldConfig(
             httpClient: $client
-        )
+        ))->start('https://hyvor.com/123', UnfoldMethod::EMBED)
     );
 
     $response = $platform->parse();

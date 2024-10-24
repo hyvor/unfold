@@ -56,7 +56,7 @@ it('matches', function ($url) {
 ]);
 
 it('does not match', function ($url) {
-    $parser = new FacebookPage($url);
+    $parser = new FacebookPage(UnfoldConfig::withUrlAndMethod($url, UnfoldMethod::EMBED));
     expect($parser->match())->toBeFalse();
 })->with([
     'https://www.facebook.com/Mypage/other',

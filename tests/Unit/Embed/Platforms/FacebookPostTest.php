@@ -3,11 +3,13 @@
 namespace Unit\Parsers;
 
 use Hyvor\Unfold\Embed\Platforms\FacebookPost;
+use Hyvor\Unfold\UnfoldConfig;
+use Hyvor\Unfold\UnfoldMethod;
 
 it('parses facebook embeds', function () {
     $url = 'https://www.facebook.com/geonarah/posts/pfbid027mqcVugNt1ChK6dwvjR2SkVJrtN754X1toi1XA1auyHgrng1g3bb3Ph2DoYANAhnl';
 
-    $parser = new FacebookPost($url);
+    $parser = new FacebookPost(UnfoldConfig::withUrlAndMethod($url, UnfoldMethod::EMBED));
     $match = $parser->match();
     $response = $parser->parse($match);
 
@@ -19,7 +21,7 @@ it('parses facebook embeds', function () {
 });
 
 it('matches', function ($url) {
-    $parser = new FacebookPost($url);
+    $parser = new FacebookPost(UnfoldConfig::withUrlAndMethod($url, UnfoldMethod::EMBED));
     $match = $parser->match();
     expect($match)->toBeArray();
 })->with([
