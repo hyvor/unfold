@@ -1,0 +1,24 @@
+<body style="margin:0;overflow:hidden">
+    <script src="/website/static/child.js"></script>
+    <style>
+    </style>
+    <div id="wrap"></div>
+
+    <script>
+        const wrap = document.querySelector("#wrap");
+        wrap.onclick = addElement;
+        //  function() {
+        //     wrap.style.height = wrap.style.height === "100px" ? "200px" : "100px";
+        // }
+
+        function addElement() {
+            const el = document.createElement("div");
+            el.style.height = "100px";
+            el.style.backgroundColor = "red";
+
+            wrap.appendChild(el);
+        }
+
+        addElement();
+    </script>
+</body>

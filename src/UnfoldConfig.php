@@ -34,14 +34,6 @@ class UnfoldConfig
         public UnfoldMethod $method = UnfoldMethod::LINK,
 
         /**
-         * Whether to wrap the embed HTML in an iframe with `srcdoc`
-         * This is useful for security and privacy reasons.
-         * If set to false, the embed HTML will be directly used, which would give Javascript access to
-         * the parent page.
-         */
-        public bool $embedWrapInIframe = true,
-
-        /**
          * If the $method is UnfoldMethod::EMBED or UnfoldMethod::EMBED_LINK,
          * and if we cannot find a way to embed the URL using our default parsers,
          * we will try to create an embed using og:image or og:video tags
@@ -67,11 +59,6 @@ class UnfoldConfig
          * User agent string to be used in HTTP requests
          */
         public string $httpUserAgent = 'Hyvor Unfold PHP Client',
-
-        /**
-         * TODO: Implement this
-         */
-        public ?string $iframeEndpoint = null,
 
         /**
          * Meta requires an access_token to access the OEmbed Read Graph API

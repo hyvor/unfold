@@ -2,6 +2,7 @@
 
 namespace Hyvor\Unfold\Embed;
 
+use Hyvor\Unfold\Embed\Iframe\PrivacyIframe;
 use Hyvor\Unfold\Exception\EmbedUnableToResolveException;
 use Hyvor\Unfold\Exception\EmbedParserException;
 use Hyvor\Unfold\Exception\UnfoldException;
@@ -72,6 +73,10 @@ class Embed
         UnfoldCallContext $context,
     ): Unfolded {
         $oembed = self::parse($url, $context->config);
+
+        if ($context->config->embedIframeEndpoint && $oembed->html) {
+            $oembed->html = PrivacyIframe::wrap($oembed->html);
+        }
 
         return Unfolded::fromEmbed(
             $oembed,
