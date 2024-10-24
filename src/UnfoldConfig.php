@@ -2,6 +2,7 @@
 
 namespace Hyvor\Unfold;
 
+use Http\Client\Common\Plugin\HistoryPlugin;
 use Http\Client\Common\Plugin\RedirectPlugin;
 use Http\Client\Common\PluginClient;
 use Http\Discovery\Psr18ClientDiscovery;
@@ -68,7 +69,8 @@ class UnfoldConfig
         public ?string $facebookAccessToken = null,
 
         // CACHE
-    ) {
+    )
+    {
         $this->setHttpClient($httpClient);
     }
 
@@ -77,9 +79,14 @@ class UnfoldConfig
         $httpClient ??= Psr18ClientDiscovery::find();
         $redirectPlugin = new RedirectPlugin();
 
+        $historyPlugin = new HistoryPlugin();
+
         $this->httpClient = new PluginClient(
             $httpClient,
-            [$redirectPlugin],
+            [
+                $historyPlugin,
+                $redirectPlugin
+            ],
             [
                 'max_restarts' => $this->httpMaxRedirects,
             ]

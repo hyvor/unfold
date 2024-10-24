@@ -37,6 +37,8 @@ class Link
             throw new LinkScrapeException("Unable to scrape link. HTTP status code: $status");
         }
 
+        $lastRequest = $this->config->httpClient->getLastRequest();
+
         return $response->getBody()->getContents();
     }
 
