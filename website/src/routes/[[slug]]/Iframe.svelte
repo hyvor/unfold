@@ -22,15 +22,14 @@
 	code={`
 <iframe
     src="https://unfold.example.org/iframe?url=https://url-to-embed.com"
-    sandbox="allow-scripts allow-modals allow-popups"
+    sandbox="allow-scripts allow-same-origin allow-popups"
+	allow="fullscreen;accelerometer;clipboard-write;encrypted-media;gyroscope;picture-in-picture;web-share;"
 ></iframe>
 `}
 />
 
 <p>
-	The <code>sandbox</code> attribute is only required if you are hosting the Docker image on the same
-	domain as the parent website (Same Origin Policy). It's purpose is to prevent the embedded content
-	from accessing the parent website's window.
+	See the <a href="#sandbox">sandbox</a> and <a href="#allow">allow</a> attributes for more information.
 </p>
 
 <h2 id="iframe-endpoint">PHP Library</h2>
@@ -122,3 +121,54 @@ class IframeController
 />
 
 <p>Or, since the code is pretty small, feel free to copy it to your source code directly.</p>
+
+<h2 id="sandbox">Sandbox and Cross-Origin</h2>
+
+<h3 id="cross-origin">Cross-Origin Iframe</h3>
+
+<p>
+	<strong>Our recommendation</strong>: Keep the unfold iframe endpoint on a separate subdomain (e.g.
+	unfold.example.org) from your main website (e.g. example.org). This makes the iframe cross origin
+	by default and prevents access to the parent window.
+</p>
+
+<p>This is the minimal setup required for the iframe to work cross-domain:</p>
+
+<CodeBlock
+	code={`
+	sandbox="allow-scripts allow-same-origin allow-popups allow-presentation"
+`}
+/>
+
+<ul>
+	<li>
+		<code>allow-scripts</code>: Allows the content inside the iframe to execute scripts.
+	</li>
+	<li>
+		<code>allow-same-origin</code>: Gives access to local storage, etc. in a seperate context (it
+		cannot access the parent window's local storage).
+	</li>
+	<li>
+		<code>allow-popups</code>: Allows the content to open popups.
+	</li>
+</ul>
+
+<h3 id="same-origin">Same-Origin Iframe</h3>
+
+<p>
+	If your website (e.g. example.org) and the unfold iframe endpoint (e.g. example.org/unfold-iframe)
+	are on the same domain, you can use the following sandbox attribute:
+</p>
+
+<h2 id="allow">Allow Attribute</h2>
+
+<p>
+	The <code>allow</code> attribute is used to enable certain features in the iframe. We recommend the
+	following to make sure embeds, especially video players, work correctly:
+</p>
+
+<CodeBlock
+	code={`
+	allow="fullscreen;accelerometer;clipboard-write;encrypted-media;gyroscope;picture-in-picture;web-share;"
+`}
+/>
