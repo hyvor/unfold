@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { Button, TextInput } from '@hyvor/design/components';
+	import { Button, TextInput, Loader } from '@hyvor/design/components';
 	import { onMount } from 'svelte';
 
 	let value = '';

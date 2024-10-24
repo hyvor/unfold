@@ -30,6 +30,7 @@ it('matches', function ($url) {
     'https://www.facebook.com/geonarah/posts/027mqcVugNt1ChK6dwvjR2SkVJrtN754X1toi1XA1auyHgrng1g3bb3Ph2DoYANAhnl',
     'https://www.facebook.com/geonarah/activity/027mqcVugNt1ChK6dwvjR2SkVJrtN754X1toi1XA1auyHgrng1g3bb3Ph2Do',
     'https://www.facebook.com/geonarah/photos/027mqcVugNt1ChK6dwvjR2SkVJrtN754X1toi1XA1auyHgrng1g3bb3Ph2Do',
+    'https://web.facebook.com/geonarah/posts/027mqcVugNt1ChK6dwvjR2SkVJrtN754X1toi1XA1auyHgrng1g3bb3Ph2DoYANAhnl',
 
     // photo.php
     'https://www.facebook.com/photo.php?fbid=934147948738763&set=a.414821727338057&type=3',
