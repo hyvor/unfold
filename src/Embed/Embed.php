@@ -2,9 +2,8 @@
 
 namespace Hyvor\Unfold\Embed;
 
-use Hyvor\Unfold\Embed\Iframe\PrivacyIframe;
-use Hyvor\Unfold\Exception\EmbedUnableToResolveException;
 use Hyvor\Unfold\Exception\EmbedParserException;
+use Hyvor\Unfold\Exception\EmbedUnableToResolveException;
 use Hyvor\Unfold\Exception\UnfoldException;
 use Hyvor\Unfold\UnfoldCallContext;
 use Hyvor\Unfold\UnfoldConfig;
@@ -17,11 +16,11 @@ class Embed
      */
     public static function getParsers(): array
     {
-        $namespace = __NAMESPACE__ . '\\Platforms\\';
+        $namespace = __NAMESPACE__.'\\Platforms\\';
 
         $parsers = array_map(
-            fn ($file) => $namespace . pathinfo((string)$file, PATHINFO_FILENAME),
-            (array)glob(__DIR__ . '/Platforms/*.php')
+            fn ($file) => $namespace.pathinfo((string) $file, PATHINFO_FILENAME),
+            (array) glob(__DIR__.'/Platforms/*.php')
         );
 
         usort($parsers, fn ($a, $b) => $b::PRIORITY <=> $a::PRIORITY);
@@ -43,11 +42,10 @@ class Embed
                 return $parser->parse($matches);
             }
         }
-        throw new EmbedUnableToResolveException();
+        throw new EmbedUnableToResolveException;
     }
 
     /**
-     * @param string $url
      * @return array{parser: EmbedParserAbstract, matches: string[]}|null
      */
     public static function getMatchingParser(string $url): ?array
@@ -62,6 +60,7 @@ class Embed
                 ];
             }
         }
+
         return null;
     }
 
@@ -69,20 +68,14 @@ class Embed
      * @throws UnfoldException
      */
     public static function getUnfoldedObject(
-        string $url,
         UnfoldCallContext $context,
     ): Unfolded {
-        $oembed = self::parse($url, $context->config);
-
-        if ($context->config->embedIframeEndpoint && $oembed->html) {
-            $oembed->html = PrivacyIframe::wrap($oembed->html);
-        }
+        $oembed = self::parse($context->url, $context->config);
 
         return Unfolded::fromEmbed(
             $oembed,
-            $url,
+            $context->url,
             $context
         );
     }
-
 }

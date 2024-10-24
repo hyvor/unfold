@@ -7,8 +7,11 @@ use DateTimeInterface;
 use Hyvor\Unfold\Link\Metadata\MetadataKeyType;
 use Hyvor\Unfold\Link\Metadata\MetadataObject;
 use Hyvor\Unfold\Link\Metadata\MetadataParser;
+use Hyvor\Unfold\UnfoldCallContext;
+use Hyvor\Unfold\UnfoldConfig;
 use Hyvor\Unfold\Unfolded\UnfoldedAuthor;
 use Hyvor\Unfold\Unfolded\UnfoldedTag;
+use Hyvor\Unfold\UnfoldMethod;
 
 dataset('contents', [
     'all valid og and twitter tags' => [
@@ -93,61 +96,61 @@ dataset('contents', [
             new MetadataObject(MetadataKeyType::TWITTER_DESCRIPTION, 'Personal Blog'),
             new MetadataObject(MetadataKeyType::TWITTER_TITLE, 'Nadil Karunarathna'),
             new MetadataObject(MetadataKeyType::TWITTER_IMAGE, 'https://nadil.io/image.jpg'),
-        ]
+        ],
     ],
 
     'no metadata' => ['<html><head></head><body></body></html>', []],
     'og tag in the body' => [
         '<html><head></head><body><meta property="og:title" content="Nadil Karunarathna" /></body></html>',
         [
-            new MetadataObject(MetadataKeyType::OG_TITLE, 'Nadil Karunarathna')
-        ]
+            new MetadataObject(MetadataKeyType::OG_TITLE, 'Nadil Karunarathna'),
+        ],
     ],
     'no content' => [
         '<html><head><meta property="og:title" /></head><body></body></html>',
-        []
+        [],
     ],
     'unclosed meta tag' => [
         '<html><head><meta property="og:title" content="Nadil Karunarathna"></head><body></body></html>',
         [
-            new MetadataObject(MetadataKeyType::OG_TITLE, 'Nadil Karunarathna')
-        ]
+            new MetadataObject(MetadataKeyType::OG_TITLE, 'Nadil Karunarathna'),
+        ],
     ],
     'no name or property' => [
         '<html><head><meta content="Nadil Karunarathna" /></head><body></body></html>',
-        []
+        [],
     ],
     'non ascii content' => [
         '<meta property="og:title" content="නදිල් කරුණාරත්න" />',
-        [new MetadataObject(MetadataKeyType::OG_TITLE, 'නදිල් කරුණාරත්න')]
+        [new MetadataObject(MetadataKeyType::OG_TITLE, 'නදිල් කරුණාරත්න')],
     ],
     'non ascii 2' => [
         '<meta property="og:title" content="Nas manhãs de domingo" />',
         [
-            new MetadataObject(MetadataKeyType::OG_TITLE, 'Nas manhãs de domingo')
-        ]
+            new MetadataObject(MetadataKeyType::OG_TITLE, 'Nas manhãs de domingo'),
+        ],
     ],
     'without html tags' => [
         '<meta property="og:title" content="Nadil Karunarathna" />',
         [
-            new MetadataObject(MetadataKeyType::OG_TITLE, 'Nadil Karunarathna')
-        ]
+            new MetadataObject(MetadataKeyType::OG_TITLE, 'Nadil Karunarathna'),
+        ],
     ],
     'title tag' => [
         '<title>Nadil Karunarathna</title>',
         [
-            new MetadataObject(MetadataKeyType::TITLE, 'Nadil Karunarathna')
-        ]
+            new MetadataObject(MetadataKeyType::TITLE, 'Nadil Karunarathna'),
+        ],
     ],
     'empty title' => [
         '<title></title>',
-        []
+        [],
     ],
     'meta description' => [
         '<meta name="description" content="Personal Blog" />',
         [
-            new MetadataObject(MetadataKeyType::DESCRIPTION, 'Personal Blog')
-        ]
+            new MetadataObject(MetadataKeyType::DESCRIPTION, 'Personal Blog'),
+        ],
     ],
     'link tags' => [
         '<link rel="canonical" href="https://nadil.io" />
@@ -156,14 +159,14 @@ dataset('contents', [
      ',
         [
             new MetadataObject(MetadataKeyType::CANONICAL_URL, 'https://nadil.io'),
-            new MetadataObject(MetadataKeyType::FAVICON_URL, 'https://nadil.io/favicon.ico')
-        ]
+            new MetadataObject(MetadataKeyType::FAVICON_URL, 'https://nadil.io/favicon.ico'),
+        ],
     ],
     'html lang' => [
         '<html lang="en"></html>',
         [
-            new MetadataObject(MetadataKeyType::LOCALE, 'en')
-        ]
+            new MetadataObject(MetadataKeyType::LOCALE, 'en'),
+        ],
     ],
     'json ld' => [
         '<script type="application/ld+json">
@@ -199,24 +202,32 @@ dataset('contents', [
             new MetadataObject(
                 MetadataKeyType::RICH_SCHEMA_AUTHOR,
                 new UnfoldedAuthor('John Doe', 'https://example.com/profile/johndoe123')
-            )
-        ]
+            ),
+        ],
     ],
     'invalid json ld' => [
         '<script type="application/ld+json">
             {[invalid json}
         </script>',
-        []
+        [],
+    ],
+    'relative links' => [
+        '<link rel="canonical" href="../../path" />
+         <link rel="icon" href="./favicon.ico" />
+     ',
+        [
+            new MetadataObject(MetadataKeyType::CANONICAL_URL, 'https://nadil.io/path'),
+            new MetadataObject(MetadataKeyType::FAVICON_URL, 'https://nadil.io/favicon.ico'),
+        ],
     ],
 ]);
 
 it('parses metadata', function (string $content, array $metadata) {
-    $metadataParser = new MetadataParser($content);
+    $metadataParser = new MetadataParser($content, new UnfoldCallContext('https://nadil.io', UnfoldMethod::LINK, new UnfoldConfig));
     $parsedMetadata = $metadataParser->parse();
 
     expect($parsedMetadata)->toEqual($metadata);
 })->with('contents');
-
 
 /*
  * getDateTimeFromString
@@ -242,3 +253,44 @@ it('returns DateTimeInterface when valid date string is given: (2024-10-19 16:15
         ->toBeInstanceOf(DateTimeInterface::class)
         ->and($date->format('Y-m-d H:i:s'))->toBe('2024-10-19 16:15:00');
 });
+
+it('returns absolute url when relative favicon url is given', function ($contents, $expected) {
+    $metadataParser = new MetadataParser($contents, new UnfoldCallContext('https://example.com', UnfoldMethod::LINK, new UnfoldConfig));
+    $metadata = $metadataParser->parse();
+
+    expect($metadata)->toEqual($expected);
+
+})->with([
+    [
+        '<link rel="icon" href="./favicon.ico" />',
+        [new MetadataObject(MetadataKeyType::FAVICON_URL, 'https://example.com/favicon.ico')],
+    ],
+    [
+        '<link rel="icon" href="/favicon.ico" />',
+        [new MetadataObject(MetadataKeyType::FAVICON_URL, 'https://example.com/favicon.ico')],
+    ],
+    [
+        '<link rel="icon" href="favicon.ico" />',
+        [new MetadataObject(MetadataKeyType::FAVICON_URL, 'https://example.com/favicon.ico')],
+    ],
+    [
+        '<link rel="icon" href="../icons/favicon.ico" />',
+        [new MetadataObject(MetadataKeyType::FAVICON_URL, 'https://example.com/icons/favicon.ico')],
+    ],
+    [
+        '<link rel="icon" href="../../icons/favicon.ico" />',
+        [new MetadataObject(MetadataKeyType::FAVICON_URL, 'https://example.com/icons/favicon.ico')],
+    ],
+    [
+        '<link rel="icon" href="icons/favicon.ico" />',
+        [new MetadataObject(MetadataKeyType::FAVICON_URL, 'https://example.com/icons/favicon.ico')],
+    ],
+    [
+        '<link rel="icon" href="./icons/favicon.ico?version=1" />',
+        [new MetadataObject(MetadataKeyType::FAVICON_URL, 'https://example.com/icons/favicon.ico?version=1')],
+    ],
+    [
+        '<link rel="icon" href="./icons/favicon.ico#v2" />',
+        [new MetadataObject(MetadataKeyType::FAVICON_URL, 'https://example.com/icons/favicon.ico#v2')],
+    ],
+]);

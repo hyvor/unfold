@@ -5,9 +5,9 @@ namespace Hyvor\Unfold\Link;
 use GuzzleHttp\Psr7\Request;
 use Hyvor\Unfold\Exception\LinkScrapeException;
 use Hyvor\Unfold\Link\Metadata\MetadataParser;
+use Hyvor\Unfold\UnfoldCallContext;
 use Hyvor\Unfold\UnfoldConfig;
 use Hyvor\Unfold\Unfolded\Unfolded;
-use Hyvor\Unfold\UnfoldCallContext;
 use Psr\Http\Client\ClientExceptionInterface;
 
 class Link
@@ -15,8 +15,7 @@ class Link
     public function __construct(
         private string $url,
         private UnfoldConfig $config,
-    ) {
-    }
+    ) {}
 
     public function scrape(): string
     {
@@ -40,16 +39,14 @@ class Link
         return $response->getBody()->getContents();
     }
 
-
     public static function getUnfoldedObject(
-        string $url,
         UnfoldCallContext $context,
     ): Unfolded {
-        $content = (new Link($url, $context->config))->scrape();
-        $metadata = (new MetadataParser($content))->parse();
+        $content = (new Link($context->url, $context->config))->scrape();
+        $metadata = (new MetadataParser($content, $context))->parse();
 
         return Unfolded::fromMetadata(
-            $url,
+            $context->url,
             $metadata,
             $context,
         );
