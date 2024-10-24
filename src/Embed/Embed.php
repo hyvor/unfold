@@ -5,9 +5,9 @@ namespace Hyvor\Unfold\Embed;
 use Hyvor\Unfold\Exception\EmbedParserException;
 use Hyvor\Unfold\Exception\EmbedUnableToResolveException;
 use Hyvor\Unfold\Exception\UnfoldException;
-use Hyvor\Unfold\UnfoldCallContext;
 use Hyvor\Unfold\UnfoldConfig;
 use Hyvor\Unfold\Unfolded\Unfolded;
+use Hyvor\Unfold\UnfoldMethod;
 
 class Embed
 {
@@ -16,14 +16,14 @@ class Embed
      */
     public static function getParsers(): array
     {
-        $namespace = __NAMESPACE__.'\\Platforms\\';
+        $namespace = __NAMESPACE__ . '\\Platforms\\';
 
         $parsers = array_map(
-            fn ($file) => $namespace.pathinfo((string) $file, PATHINFO_FILENAME),
-            (array) glob(__DIR__.'/Platforms/*.php')
+            fn($file) => $namespace . pathinfo((string)$file, PATHINFO_FILENAME),
+            (array)glob(__DIR__ . '/Platforms/*.php')
         );
 
-        usort($parsers, fn ($a, $b) => $b::PRIORITY <=> $a::PRIORITY);
+        usort($parsers, fn($a, $b) => $b::PRIORITY <=> $a::PRIORITY);
 
         return $parsers;
     }
@@ -31,18 +31,16 @@ class Embed
     /**
      * @throws EmbedParserException
      */
-    public static function parse(
-        string $url,
-        ?UnfoldConfig $config = null,
-    ): EmbedResponseObject {
+    public static function parse(UnfoldConfig $config): EmbedResponseObject
+    {
         foreach (self::getParsers() as $parserClass) {
             /** @var EmbedParserAbstract $parser */
-            $parser = new $parserClass($url, $config);
+            $parser = new $parserClass($config);
             if ($matches = $parser->match()) {
                 return $parser->parse($matches);
             }
         }
-        throw new EmbedUnableToResolveException;
+        throw new EmbedUnableToResolveException();
     }
 
     /**
@@ -52,7 +50,7 @@ class Embed
     {
         foreach (self::getParsers() as $parserClass) {
             /** @var EmbedParserAbstract $parser */
-            $parser = new $parserClass($url);
+            $parser = new $parserClass(UnfoldConfig::withUrlAndMethod($url, UnfoldMethod::EMBED));
             if ($parser->match()) {
                 return [
                     'parser' => $parser,
@@ -68,14 +66,13 @@ class Embed
      * @throws UnfoldException
      */
     public static function getUnfoldedObject(
-        UnfoldCallContext $context,
+        UnfoldConfig $config,
     ): Unfolded {
-        $oembed = self::parse($context->url, $context->config);
+        $oembed = self::parse($config);
 
         return Unfolded::fromEmbed(
             $oembed,
-            $context->url,
-            $context
+            $config
         );
     }
 }

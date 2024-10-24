@@ -15,11 +15,15 @@ class LinkParser extends ParserAbstract
             $href = $node->attr('href');
 
             if ($rel === 'canonical' && is_string($href)) {
-                $this->parser->addMetadata(new MetadataObject(MetadataKeyType::CANONICAL_URL, $this->fixIfRelativeUrl($href)));
+                $this->parser->addMetadata(
+                    new MetadataObject(MetadataKeyType::CANONICAL_URL, $this->fixIfRelativeUrl($href))
+                );
             }
 
             if ($rel === 'icon' && is_string($href)) {
-                $this->parser->addMetadata(new MetadataObject(MetadataKeyType::FAVICON_URL, $this->fixIfRelativeUrl($href)));
+                $this->parser->addMetadata(
+                    new MetadataObject(MetadataKeyType::FAVICON_URL, $this->fixIfRelativeUrl($href))
+                );
             }
         });
     }
@@ -30,7 +34,7 @@ class LinkParser extends ParserAbstract
         if (isset($parsedUrl['host'])) {
             return $url;
         } else {
-            return Uri::fromBaseUri($url, $this->parser->context->url)->toString();
+            return Uri::fromBaseUri($url, $this->parser->config->url)->toString();
         }
     }
 }

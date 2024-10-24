@@ -7,7 +7,6 @@ use DateTimeInterface;
 use Hyvor\Unfold\Link\Metadata\MetadataKeyType;
 use Hyvor\Unfold\Link\Metadata\MetadataObject;
 use Hyvor\Unfold\Link\Metadata\MetadataParser;
-use Hyvor\Unfold\UnfoldCallContext;
 use Hyvor\Unfold\UnfoldConfig;
 use Hyvor\Unfold\Unfolded\UnfoldedAuthor;
 use Hyvor\Unfold\Unfolded\UnfoldedTag;
@@ -223,7 +222,10 @@ dataset('contents', [
 ]);
 
 it('parses metadata', function (string $content, array $metadata) {
-    $metadataParser = new MetadataParser($content, new UnfoldCallContext('https://nadil.io', UnfoldMethod::LINK, new UnfoldConfig));
+    $metadataParser = new MetadataParser(
+        $content,
+        UnfoldConfig::withUrlAndMethod('https://nadil.io', UnfoldMethod::LINK)
+    );
     $parsedMetadata = $metadataParser->parse();
 
     expect($parsedMetadata)->toEqual($metadata);
@@ -255,11 +257,13 @@ it('returns DateTimeInterface when valid date string is given: (2024-10-19 16:15
 });
 
 it('returns absolute url when relative favicon url is given', function ($contents, $expected) {
-    $metadataParser = new MetadataParser($contents, new UnfoldCallContext('https://example.com', UnfoldMethod::LINK, new UnfoldConfig));
+    $metadataParser = new MetadataParser(
+        $contents,
+        UnfoldConfig::withUrlAndMethod('https://example.com', UnfoldMethod::LINK)
+    );
     $metadata = $metadataParser->parse();
 
     expect($metadata)->toEqual($expected);
-
 })->with([
     [
         '<link rel="icon" href="./favicon.ico" />',

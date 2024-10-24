@@ -7,22 +7,24 @@ use Psr\Http\Client\ClientExceptionInterface;
 use Psr\Http\Message\RequestInterface;
 use Psr\Http\Message\ResponseInterface;
 
-class LastRequestRecorder implements Journal
+class RequestRecorder implements Journal
 {
-
-    private RequestInterface $request;
+    /** @var RequestInterface[] */
+    private array $requests = [];
 
     public function addSuccess(RequestInterface $request, ResponseInterface $response): void
     {
-        $this->request = $request;
+        $this->requests[] = $request;
     }
 
     public function addFailure(RequestInterface $request, ClientExceptionInterface $exception): void
     {
     }
 
-    public function getLastRequest(): RequestInterface
+    public function getLastRequest(): ?RequestInterface
     {
-        return $this->request;
+        return count($this->requests) > 0 ?
+            $this->requests[count($this->requests) - 1] :
+            null;
     }
 }

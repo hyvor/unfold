@@ -6,6 +6,7 @@ use Http\Client\Common\Plugin\HistoryPlugin;
 use Http\Client\Common\Plugin\RedirectPlugin;
 use Http\Client\Common\PluginClient;
 use Http\Discovery\Psr18ClientDiscovery;
+use Hyvor\Unfold\Link\RequestRecorder;
 use Psr\Http\Client\ClientInterface;
 
 class UnfoldConfig
@@ -15,24 +16,14 @@ class UnfoldConfig
      */
     public ClientInterface $httpClient;
 
-    public function __construct(
+    // These are set later in the Unfold::unfold method for internal use
+    public string $url;
+    public UnfoldMethod $method;
 
-        /**
-         * UnfoldMethod::LINK:
-         *  - Fetch metadata of the link.
-         *  - $embed is null in Unfolded return
-         *  - Other fields are set based on the metadata (as best as possible)
-         * UnfoldMethod::EMBED:
-         *  - Tries to get the embed HTML using parsers (see $embedMetaFallback as well)
-         *  - If fails, an error is thrown
-         *  - If successful, $embed is the embed HTML
-         *  - All other fields of Unfolded are not set
-         * UnfoldMethod::LINK_EMBED:
-         *  - Fetch metadata of the link, and also tries to get the embed HTML using parsers
-         *  - $embed is the embed HTML is successful, otherwise null (no error thrown on failure)
-         *  - All other fields are set as in the same as UnfoldMethod::LINK
-         */
-        public UnfoldMethod $method = UnfoldMethod::LINK,
+    public RequestRecorder $httpRequestRecorder;
+    public float $startTime;
+
+    public function __construct(
 
         /**
          * If the $method is UnfoldMethod::EMBED or UnfoldMethod::EMBED_LINK,
@@ -74,22 +65,45 @@ class UnfoldConfig
         $this->setHttpClient($httpClient);
     }
 
+    public function start(string $url, UnfoldMethod $method): self
+    {
+        $this->url = $url;
+        $this->method = $method;
+        $this->startTime = microtime(true);
+        return $this;
+    }
+
     private function setHttpClient(?ClientInterface $httpClient): void
     {
         $httpClient ??= Psr18ClientDiscovery::find();
         $redirectPlugin = new RedirectPlugin();
 
-        $historyPlugin = new HistoryPlugin();
+        $this->httpRequestRecorder = new RequestRecorder();
+        $historyPlugin = new HistoryPlugin($this->httpRequestRecorder);
 
         $this->httpClient = new PluginClient(
             $httpClient,
             [
+                $redirectPlugin,
                 $historyPlugin,
-                $redirectPlugin
             ],
             [
                 'max_restarts' => $this->httpMaxRedirects,
             ]
         );
+    }
+
+    public function duration(): int
+    {
+        return (int)((microtime(true) - $this->startTime) * 1000);
+    }
+
+    public static function withUrlAndMethod(
+        string $url,
+        UnfoldMethod $method
+    ): self {
+        $config = new self();
+        $config->start($url, $method);
+        return $config;
     }
 }

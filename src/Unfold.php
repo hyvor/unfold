@@ -18,16 +18,12 @@ class Unfold
         UnfoldConfig $config = null,
     ): Unfolded {
         $config ??= new UnfoldConfig();
-        $context = new UnfoldCallContext(
-            $url,
-            $method,
-            $config,
-        );
+        $config->start($url, $method);
 
         if ($method === UnfoldMethod::LINK) {
-            return Link::getUnfoldedObject($context);
+            return Link::getUnfoldedObject($config);
         } elseif ($method === UnfoldMethod::EMBED) {
-            return Embed::getUnfoldedObject($context);
+            return Embed::getUnfoldedObject($config);
         } else {
             // both
             // TODO:
