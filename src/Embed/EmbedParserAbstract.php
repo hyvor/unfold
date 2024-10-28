@@ -131,7 +131,7 @@ abstract class EmbedParserAbstract
             throw new EmbedParserException("Failed to parse JSON response from oEmbed endpoint");
         }
 
-        $html = $parsed['html'];
+        $html = $parsed['html'] ?? null;
 
         if (!is_string($html) || empty($html)) {
             throw new EmbedParserException("Failed to get HTML from oEmbed endpoint");
