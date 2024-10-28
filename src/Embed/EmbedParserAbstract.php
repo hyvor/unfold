@@ -59,7 +59,7 @@ abstract class EmbedParserAbstract
      * @param string[] $matches
      * @throws UnfoldException
      */
-    public function parse(array $matches = null): EmbedResponseObject
+    public function parse(array $matches = null): string
     {
         $matches ??= $this->match();
 
@@ -82,7 +82,7 @@ abstract class EmbedParserAbstract
         }
     }
 
-    private function parseOEmbed(): EmbedResponseObject
+    private function parseOEmbed(): string
     {
         /** @var self&EmbedParserOEmbedInterface $this */
         $oEmbedUrl = $this->oEmbedUrl();
@@ -131,21 +131,22 @@ abstract class EmbedParserAbstract
             throw new EmbedParserException("Failed to parse JSON response from oEmbed endpoint");
         }
 
-        return EmbedResponseObject::fromArray($parsed);
+        $html = $parsed['html'];
+
+        if (!is_string($html) || empty($html)) {
+            throw new EmbedParserException("Failed to get HTML from oEmbed endpoint");
+        }
+
+        return $html;
     }
 
     /**
      * @param string[] $matches
      */
-    private function parseCustom(array $matches): EmbedResponseObject
+    private function parseCustom(array $matches): string
     {
         /** @var self&EmbedParserCustomInterface $this */
-        $html = $this->getEmbedHtml($matches);
-
-        return EmbedResponseObject::fromArray([
-            'type' => 'embed',
-            'html' => $html
-        ]);
+        return $this->getEmbedHtml($matches);
     }
 
 }

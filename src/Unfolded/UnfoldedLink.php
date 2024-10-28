@@ -3,26 +3,22 @@
 namespace Hyvor\Unfold\Unfolded;
 
 use DateTimeInterface;
-use Hyvor\Unfold\Embed\EmbedResponseObject;
 use Hyvor\Unfold\Link\Metadata\MetadataObject;
 use Hyvor\Unfold\Link\Metadata\MetadataPriority;
 use Hyvor\Unfold\UnfoldConfig;
-use Hyvor\Unfold\UnfoldMethod;
 use Psr\Http\Message\RequestInterface;
 
-class Unfolded
+class UnfoldedLink
 {
-    public string $version;
+    public string $version = '1.0';
 
     /**
      * @param UnfoldedAuthor[] $authors
      * @param UnfoldedTag[] $tags
      */
     public function __construct(
-        public UnfoldMethod $method,
-        public string $originalUrl,
         public string $url,
-        public ?string $embed,
+        public string $lastUrl,
         public ?string $title,
         public ?string $description,
         public array $authors,
@@ -37,7 +33,6 @@ class Unfolded
         public ?string $locale,
         public int $durationMs
     ) {
-        $this->version = '1.0';
     }
 
     /**
@@ -56,10 +51,8 @@ class Unfolded
         }
 
         return new self(
-            $config->method,
             $config->url,
             $currentUrl,
-            null,
             $metadataPriority->title(),
             $metadataPriority->description(),
             $metadataPriority->authors(),
@@ -72,34 +65,6 @@ class Unfolded
             $metadataPriority->thumbnailUrl(),
             $metadataPriority->iconUrl(),
             $metadataPriority->locale(),
-            $config->duration()
-        );
-    }
-
-    public static function fromEmbed(
-        EmbedResponseObject $embed,
-        UnfoldConfig $config,
-    ): self {
-        $authors = $embed->author_url || $embed->author_name ?
-            [new UnfoldedAuthor($embed->author_name, $embed->author_url)] : [];
-
-        return new self(
-            $config->method,
-            $config->url,
-            $config->url,
-            $embed->html,
-            $embed->title,
-            null,
-            $authors,
-            [],
-            $embed->provider_name,
-            $embed->provider_url,
-            $embed->url,
-            null,
-            null,
-            $embed->thumbnail_url,
-            null,
-            null,
             $config->duration()
         );
     }

@@ -4,7 +4,6 @@ namespace Unit\Parsers;
 
 use Hyvor\Unfold\Embed\Platforms\FacebookVideo;
 use Hyvor\Unfold\UnfoldConfig;
-use Hyvor\Unfold\UnfoldMethod;
 
 //it('manual', function () {
 //    $url = 'https://www.facebook.com/reel/416122534780426';
@@ -17,11 +16,11 @@ use Hyvor\Unfold\UnfoldMethod;
 it('embeds facebook videos', function () {
     $url = 'https://www.facebook.com/username/videos/123456789';
 
-    $parser = new FacebookVideo(UnfoldConfig::withUrlAndMethod($url, UnfoldMethod::EMBED));
+    $parser = new FacebookVideo(UnfoldConfig::withUrl($url));
     $match = $parser->match();
     $response = $parser->parse($match);
 
-    $html = $response->html;
+    $html = $response;
     expect($html)->toContain('<div class="fb-video" data-href="' . $url);
     expect($html)->toContain(
         '<script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v21.0">'
@@ -29,7 +28,7 @@ it('embeds facebook videos', function () {
 });
 
 it('matches', function ($url) {
-    $facebook = new FacebookVideo(UnfoldConfig::withUrlAndMethod($url, UnfoldMethod::EMBED));
+    $facebook = new FacebookVideo(UnfoldConfig::withUrl($url));
     expect($facebook->match())->toBeArray();
 })->with([
     // with username

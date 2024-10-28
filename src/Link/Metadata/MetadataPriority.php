@@ -7,7 +7,7 @@ use DateTimeInterface;
 use Hyvor\Unfold\Unfolded\UnfoldedTag;
 
 /**
- * This class select the best metadata to use in the Unfolded object
+ * This class select the best metadata to use in the UnfoldedLink object
  */
 class MetadataPriority
 {
@@ -57,7 +57,7 @@ class MetadataPriority
          *    'OG_TITLE' => [MetadataObject],
          * ]
          */
-        $keysNames = array_map(fn ($key) => $key->name, $keys);
+        $keysNames = array_map(fn($key) => $key->name, $keys);
         uksort($keyedMetadata, function ($a, $b) use ($keysNames) {
             return intval(array_search($a, $keysNames)) - intval(array_search($b, $keysNames));
         });
@@ -65,7 +65,7 @@ class MetadataPriority
         // index by 0,1,2
         $keyedMetadata = array_values($keyedMetadata);
         // return the values
-        return array_map(fn ($metadata) => $metadata->value, $keyedMetadata[0] ?? []);
+        return array_map(fn($metadata) => $metadata->value, $keyedMetadata[0] ?? []);
     }
 
     /**

@@ -7,7 +7,7 @@ use Http\Client\Common\Exception\LoopException;
 use Hyvor\Unfold\Exception\LinkScrapeException;
 use Hyvor\Unfold\Link\Metadata\MetadataParser;
 use Hyvor\Unfold\UnfoldConfig;
-use Hyvor\Unfold\Unfolded\Unfolded;
+use Hyvor\Unfold\Unfolded\UnfoldedLink;
 use Psr\Http\Client\ClientExceptionInterface;
 use Psr\Http\Message\RequestInterface;
 
@@ -49,16 +49,15 @@ class Link
         return $response->getBody()->getContents();
     }
 
-    public static function getUnfoldedObject(
-        UnfoldConfig $config,
-    ): Unfolded {
+    public static function unfold(UnfoldConfig $config): UnfoldedLink
+    {
         $link = new Link($config);
         $content = $link->scrape();
         $lastRequest = $link->lastRequest;
 
         $metadata = (new MetadataParser($content, $config))->parse();
 
-        return Unfolded::fromMetadata(
+        return UnfoldedLink::fromMetadata(
             $config,
             $metadata,
             $lastRequest,
