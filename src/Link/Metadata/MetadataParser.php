@@ -2,7 +2,6 @@
 
 namespace Hyvor\Unfold\Link\Metadata;
 
-use DateTimeImmutable;
 use DateTimeInterface;
 use Exception;
 use Hyvor\Unfold\Link\Metadata\Parsers\DescriptionParser;
@@ -63,7 +62,7 @@ class MetadataParser
     }
 
     /**
-     * @param array<string, MetadataKeyType> $keys
+     * @param  array<string, MetadataKeyType>  $keys
      */
     public function addMetadataFromMetaTags(array $keys): void
     {
@@ -72,19 +71,19 @@ class MetadataParser
         $this->crawlerMeta->each(function (Crawler $node) use ($keys, &$metadata) {
             $name = $node->attr('name') ?? $node->attr('property');
 
-            if (!$name) {
+            if (! $name) {
                 return;
             }
 
             $keyType = $keys[$name] ?? null;
 
-            if (!$keyType) {
+            if (! $keyType) {
                 return;
             }
 
             $content = $node->attr('content');
 
-            if (!$content) {
+            if (! $content) {
                 return;
             }
 
@@ -101,11 +100,11 @@ class MetadataParser
     }
 
     /**
-     * @param MetadataObject[]|MetadataObject $metadata
+     * @param  MetadataObject[]|MetadataObject  $metadata
      */
     public function addMetadata(array|MetadataObject $metadata): void
     {
-        if (!is_array($metadata)) {
+        if (! is_array($metadata)) {
             $metadata = [$metadata];
         }
         $this->metadata = array_merge($this->metadata, $metadata);
@@ -113,12 +112,12 @@ class MetadataParser
 
     public static function getDateTimeFromString(?string $value): ?DateTimeInterface
     {
-        if (!$value) {
+        if (! $value) {
             return null;
         }
 
         try {
-            return new DateTimeImmutable($value);
+            return new MetadataDateTime($value);
         } catch (Exception) {
             return null;
         }
