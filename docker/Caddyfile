@@ -1,4 +1,4 @@
-:5050 {
+:7272 {
 	root * /var/www/app/app/public
 	encode zstd gzip
 	php_fastcgi unix//run/php-fpm.sock
