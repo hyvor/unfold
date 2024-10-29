@@ -61,12 +61,12 @@ class IframeController
         $url = $request->input('url');
 
         try {
-            $data = Unfold::unfold($url);
+            $data = Unfold::unfold($url, UnfoldMethod::EMBED);
         } catch (UnfoldException) {
             // handle the exception
         }
 
-        return PrivacyIframe::wrap($data);
+        return PrivacyIframe::wrap($data->embed);
     }
 
 }    
