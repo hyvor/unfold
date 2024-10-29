@@ -6,8 +6,7 @@ use Hyvor\Unfold\Exception\EmbedParserException;
 use Hyvor\Unfold\Exception\EmbedUnableToResolveException;
 use Hyvor\Unfold\Exception\UnfoldException;
 use Hyvor\Unfold\UnfoldConfig;
-use Hyvor\Unfold\Unfolded\Unfolded;
-use Hyvor\Unfold\UnfoldMethod;
+use Hyvor\Unfold\Unfolded\UnfoldedEmbed;
 
 class Embed
 {
@@ -19,11 +18,11 @@ class Embed
         $namespace = __NAMESPACE__ . '\\Platforms\\';
 
         $parsers = array_map(
-            fn($file) => $namespace . pathinfo((string)$file, PATHINFO_FILENAME),
+            fn ($file) => $namespace . pathinfo((string)$file, PATHINFO_FILENAME),
             (array)glob(__DIR__ . '/Platforms/*.php')
         );
 
-        usort($parsers, fn($a, $b) => $b::PRIORITY <=> $a::PRIORITY);
+        usort($parsers, fn ($a, $b) => $b::PRIORITY <=> $a::PRIORITY);
 
         return $parsers;
     }
@@ -31,7 +30,7 @@ class Embed
     /**
      * @throws EmbedParserException
      */
-    public static function parse(UnfoldConfig $config): EmbedResponseObject
+    public static function parse(UnfoldConfig $config): string
     {
         foreach (self::getParsers() as $parserClass) {
             /** @var EmbedParserAbstract $parser */
@@ -50,7 +49,7 @@ class Embed
     {
         foreach (self::getParsers() as $parserClass) {
             /** @var EmbedParserAbstract $parser */
-            $parser = new $parserClass(UnfoldConfig::withUrlAndMethod($url, UnfoldMethod::EMBED));
+            $parser = new $parserClass(UnfoldConfig::withUrl($url));
             if ($parser->match()) {
                 return [
                     'parser' => $parser,
@@ -65,14 +64,11 @@ class Embed
     /**
      * @throws UnfoldException
      */
-    public static function getUnfoldedObject(
+    public static function unfold(
         UnfoldConfig $config,
-    ): Unfolded {
-        $oembed = self::parse($config);
+    ): UnfoldedEmbed {
+        $html = self::parse($config);
 
-        return Unfolded::fromEmbed(
-            $oembed,
-            $config
-        );
+        return new UnfoldedEmbed($config->url, $html, $config->duration());
     }
 }

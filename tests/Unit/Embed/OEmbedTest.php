@@ -9,10 +9,8 @@ use GuzzleHttp\Psr7\Request;
 use GuzzleHttp\Psr7\Response;
 use Hyvor\Unfold\Embed\EmbedParserAbstract;
 use Hyvor\Unfold\Embed\EmbedParserOEmbedInterface;
-use Hyvor\Unfold\Embed\OEmbedTypeEnum;
 use Hyvor\Unfold\Exception\EmbedParserException;
 use Hyvor\Unfold\UnfoldConfig;
-use Hyvor\Unfold\UnfoldMethod;
 
 class OEmbedTestPlatform extends EmbedParserAbstract implements EmbedParserOEmbedInterface
 {
@@ -30,7 +28,7 @@ class OEmbedTestPlatform extends EmbedParserAbstract implements EmbedParserOEmbe
 }
 
 it('not matching', function () {
-    $platform = new OEmbedTestPlatform(UnfoldConfig::withUrlAndMethod('https://example.com', UnfoldMethod::EMBED));
+    $platform = new OEmbedTestPlatform(UnfoldConfig::withUrl('https://example.com'));
     expect($platform->match())->toBeFalse();
 });
 
@@ -63,24 +61,24 @@ it('valid response', function () {
     $platform = new OEmbedTestPlatform(
         (new UnfoldConfig(
             httpClient: $client
-        ))->start('https://hyvor.com/123', UnfoldMethod::EMBED)
+        ))->start('https://hyvor.com/123')
     );
 
     $response = $platform->parse();
 
-    expect($response->version)->toBe('1.0');
-    expect($response->title)->toBe('Hello, World!');
-    expect($response->author_name)->toBe('HYVOR');
-    expect($response->author_url)->toBe('https://hyvor.com');
-    expect($response->type)->toBe(OEmbedTypeEnum::RICH);
-    expect($response->html)->toBe('<iframe src="https://hyvor.com/embed/123"></iframe>');
-    expect($response->width)->toBe(500);
-    expect($response->height)->toBe(500);
-    expect($response->thumbnail_url)->toBe('https://hyvor.com/thumbnail.png');
-    expect($response->thumbnail_width)->toBe(100);
-    expect($response->thumbnail_height)->toBe(100);
-    expect($response->provider_name)->toBe('HYVOR');
-    expect($response->provider_url)->toBe('https://hyvor.com');
+//    expect($response->version)->toBe('1.0');
+//    expect($response->title)->toBe('Hello, World!');
+//    expect($response->author_name)->toBe('HYVOR');
+//    expect($response->author_url)->toBe('https://hyvor.com');
+//    expect($response->type)->toBe(OEmbedTypeEnum::RICH);
+    expect($response)->toBe('<iframe src="https://hyvor.com/embed/123"></iframe>');
+//    expect($response->width)->toBe(500);
+//    expect($response->height)->toBe(500);
+//    expect($response->thumbnail_url)->toBe('https://hyvor.com/thumbnail.png');
+//    expect($response->thumbnail_width)->toBe(100);
+//    expect($response->thumbnail_height)->toBe(100);
+//    expect($response->provider_name)->toBe('HYVOR');
+//    expect($response->provider_url)->toBe('https://hyvor.com');
 
     $request = $history[0]['request'];
     expect($request->getMethod())->toBe('GET');
@@ -117,14 +115,14 @@ it('redirects', function () {
     $platform = new OEmbedTestPlatform(
         (new UnfoldConfig(
             httpClient: $client
-        ))->start('https://hyvor.com/123', UnfoldMethod::EMBED)
+        ))->start('https://hyvor.com/123')
     );
 
     $response = $platform->parse();
 
-    expect($response->title)->toBe('Hello, World!');
-    expect($response->type)->toBe(OEmbedTypeEnum::RICH);
-    expect($response->html)->toBe('<iframe src="https://hyvor.com/embed/123"></iframe>');
+    // expect($response->title)->toBe('Hello, World!');
+    // expect($response->type)->toBe(OEmbedTypeEnum::RICH);
+    expect($response)->toBe('<iframe src="https://hyvor.com/embed/123"></iframe>');
 
     $request = $mock->getLastRequest();
     expect((string)$request->getUri())
@@ -142,7 +140,7 @@ it('client exception', function () {
     $platform = new OEmbedTestPlatform(
         (new UnfoldConfig(
             httpClient: $client
-        ))->start('https://hyvor.com/123', UnfoldMethod::EMBED)
+        ))->start('https://hyvor.com/123')
     );
 
     $exception = null;
@@ -167,7 +165,7 @@ it('non-200 status code exception', function () {
     $platform = new OEmbedTestPlatform(
         (new UnfoldConfig(
             httpClient: $client
-        ))->start('https://hyvor.com/123', UnfoldMethod::EMBED)
+        ))->start('https://hyvor.com/123')
     );
 
     $exception = null;
@@ -192,7 +190,7 @@ it('json decode exception', function () {
     $platform = new OEmbedTestPlatform(
         (new UnfoldConfig(
             httpClient: $client
-        ))->start('https://hyvor.com/123', UnfoldMethod::EMBED)
+        ))->start('https://hyvor.com/123')
     );
 
     $exception = null;

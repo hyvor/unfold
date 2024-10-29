@@ -4,20 +4,18 @@ namespace Unit\Parsers;
 
 use Hyvor\Unfold\Embed\Platforms\Tiktok;
 use Hyvor\Unfold\UnfoldConfig;
-use Hyvor\Unfold\UnfoldMethod;
 
 it('configs', function () {
     $youtube = new Tiktok(
-        UnfoldConfig::withUrlAndMethod(
+        UnfoldConfig::withUrl(
             'https://www.tiktok.com/@scout2015/video/6969696969696969696',
-            UnfoldMethod::EMBED
         )
     );
     expect($youtube->oEmbedUrl())->toBe('https://www.tiktok.com/oembed');
 });
 
 it('matches tiktok URLs', function (string $url) {
-    $parser = new Tiktok(UnfoldConfig::withUrlAndMethod($url, UnfoldMethod::EMBED));
+    $parser = new Tiktok(UnfoldConfig::withUrl($url));
     $match = $parser->match();
     expect($match)->toBeArray();
 })->with([

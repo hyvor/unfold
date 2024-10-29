@@ -6,7 +6,6 @@ use Hyvor\Unfold\Embed\Embed;
 use Hyvor\Unfold\Embed\Platforms\FacebookPage;
 use Hyvor\Unfold\Embed\Platforms\FacebookPost;
 use Hyvor\Unfold\UnfoldConfig;
-use Hyvor\Unfold\UnfoldMethod;
 
 //it('matches a facebook page', function () {
 //    $url = 'https://www.facebook.com/GMANetwork/about';
@@ -20,11 +19,11 @@ use Hyvor\Unfold\UnfoldMethod;
 it('embeds facebook page', function () {
     $url = 'https://www.facebook.com/geonarah';
 
-    $parser = new FacebookPage(UnfoldConfig::withUrlAndMethod($url, UnfoldMethod::EMBED));
+    $parser = new FacebookPage(UnfoldConfig::withUrl($url));
     $match = $parser->match();
     $response = $parser->parse($match);
 
-    $html = $response->html;
+    $html = $response;
     expect($html)->toContain('<div class="fb-page" data-href="' . $url);
     expect($html)->toContain(
         '<script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v21.0">'
@@ -44,7 +43,7 @@ it('embed class prioritizes facebook post before page', function () {
     ]);
 
 it('matches', function ($url) {
-    $parser = new FacebookPage(UnfoldConfig::withUrlAndMethod($url, UnfoldMethod::EMBED));
+    $parser = new FacebookPage(UnfoldConfig::withUrl($url));
     expect($parser->match())->toBeArray();
 })->with([
     'https://www.facebook.com/MyPage',
@@ -56,7 +55,7 @@ it('matches', function ($url) {
 ]);
 
 it('does not match', function ($url) {
-    $parser = new FacebookPage(UnfoldConfig::withUrlAndMethod($url, UnfoldMethod::EMBED));
+    $parser = new FacebookPage(UnfoldConfig::withUrl($url));
     expect($parser->match())->toBeFalse();
 })->with([
     'https://www.facebook.com/Mypage/other',
