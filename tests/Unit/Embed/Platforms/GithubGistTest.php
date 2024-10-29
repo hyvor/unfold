@@ -4,10 +4,9 @@ namespace Unit\Parsers;
 
 use Hyvor\Unfold\Embed\Platforms\GithubGist;
 use Hyvor\Unfold\UnfoldConfig;
-use Hyvor\Unfold\UnfoldMethod;
 
 it('github gist urls', function (string $url) {
-    $parser = new GithubGist(UnfoldConfig::withUrlAndMethod($url, UnfoldMethod::EMBED));
+    $parser = new GithubGist(UnfoldConfig::withUrl($url));
     $match = $parser->match();
     expect($match)->toBeArray();
 })->with([
@@ -16,7 +15,7 @@ it('github gist urls', function (string $url) {
 ]);
 
 it('returns js script', function () {
-    $parser = new GithubGist(UnfoldConfig::withUrlAndMethod('https://gist.github.com/me/my', UnfoldMethod::EMBED));
+    $parser = new GithubGist(UnfoldConfig::withUrl('https://gist.github.com/me/my'));
     $html = $parser->getEmbedHtml($parser->match());
     expect($html)->toBe('<script src="https://gist.github.com/me/my.js"></script>');
 });

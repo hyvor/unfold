@@ -47,15 +47,15 @@ HTML
     ]);
     $client = new Client(['handler' => $mock]);
 
-    $response = Unfold::unfold(
+    $response = Unfold::link(
         'https://hyvor.com',
         config: new UnfoldConfig(
             httpClient: $client
         )
     );
 
+    expect($response->lastUrl)->toBe('https://hyvor.com');
     expect($response->url)->toBe('https://hyvor.com');
-    expect($response->originalUrl)->toBe('https://hyvor.com');
     expect($response->title)->toBe('HYVOR');
     expect($response->description)->toBe('We craft privacy-first, user-friendly tools for websites.');
     expect($response->publishedTime->format('Y-m-d'))->toBe('2021-09-01');
@@ -82,7 +82,7 @@ it('on 404', function () {
     ]);
     $client = new Client(['handler' => $mock]);
 
-    expect(fn() => Unfold::unfold(
+    expect(fn() => Unfold::link(
         'https://hyvor.com',
         config: new UnfoldConfig(
             httpClient: $client
@@ -102,7 +102,7 @@ it('request exception', function () {
     ]);
     $client = new Client(['handler' => $mock]);
 
-    expect(fn() => Unfold::unfold(
+    expect(fn() => Unfold::link(
         'https://hyvor.com',
         config: new UnfoldConfig(
             httpClient: $client
@@ -134,15 +134,15 @@ HTML
     ]);
     $client = new Client(['handler' => $mock]);
 
-    $response = Unfold::unfold(
+    $response = Unfold::link(
         'https://hyvor.com',
         config: new UnfoldConfig(
             httpClient: $client
         )
     );
 
-    expect($response->originalUrl)->toBe('https://hyvor.com');
-    expect($response->url)->toBe('https://hyvor.com/redirected');
+    expect($response->url)->toBe('https://hyvor.com');
+    expect($response->lastUrl)->toBe('https://hyvor.com/redirected');
     expect($response->title)->toBe('Redirected');
 });
 
@@ -165,7 +165,7 @@ it('max redirects', function () {
 
     $client = new Client(['handler' => $mock]);
 
-    expect(fn() => Unfold::unfold(
+    expect(fn() => Unfold::link(
         'https://hyvor.com',
         config: new UnfoldConfig(
             httpClient: $client,

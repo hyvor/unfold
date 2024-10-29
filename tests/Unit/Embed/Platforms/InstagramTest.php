@@ -4,11 +4,10 @@ namespace Unit\Parsers;
 
 use Hyvor\Unfold\Embed\Platforms\Instagram;
 use Hyvor\Unfold\UnfoldConfig;
-use Hyvor\Unfold\UnfoldMethod;
 
 it('matches instagram post', function () {
     $url = 'https://www.instagram.com/p/DA5VlaMK1Wc/';
-    $parser = new Instagram(UnfoldConfig::withUrlAndMethod($url, UnfoldMethod::EMBED));
+    $parser = new Instagram(UnfoldConfig::withUrl($url));
     $match = $parser->match();
     expect($match['id'])->toBe('DA5VlaMK1Wc');
 
@@ -16,36 +15,36 @@ it('matches instagram post', function () {
 
     $urlWithParams = 'https://www.instagram.com/p/DA5VlaMK1Wc/?utm_source=ig_embed&utm_campaign=loading';
 
-    expect($response->html)->toContain(
+    expect($response)->toContain(
         '<blockquote class="instagram-media" data-instgrm-captioned data-instgrm-permalink="' . $urlWithParams . '" data-instgrm-version="14"'
     );
-    expect($response->html)->toContain("<a href=\"$urlWithParams\"");
-    expect($response->html)->toContain('<script async src="//www.instagram.com/embed.js">');
+    expect($response)->toContain("<a href=\"$urlWithParams\"");
+    expect($response)->toContain('<script async src="//www.instagram.com/embed.js">');
 });
 
 it('adds shared by caption to username post links', function () {
     // https://www.instagram.com/{username}/p/{post_id}
 
     $url = 'https://www.instagram.com/emmafarrarons/p/DA5VlaMK1Wc/';
-    $parser = new Instagram(UnfoldConfig::withUrlAndMethod($url, UnfoldMethod::EMBED));
+    $parser = new Instagram(UnfoldConfig::withUrl($url));
     $match = $parser->match();
     expect($match['username'])->toBe('emmafarrarons');
     expect($match['id'])->toBe('DA5VlaMK1Wc');
 
     $response = $parser->parse($match);
-    expect($response->html)->toContain('A post shared by @emmafarrarons');
+    expect($response)->toContain('A post shared by @emmafarrarons');
 
     $urlWithParams = 'https://www.instagram.com/p/DA5VlaMK1Wc/?utm_source=ig_embed&utm_campaign=loading';
-    expect($response->html)->toContain(
+    expect($response)->toContain(
         '<blockquote class="instagram-media" data-instgrm-captioned data-instgrm-permalink="' . $urlWithParams . '" data-instgrm-version="14"'
     );
-    expect($response->html)->toContain("<a href=\"$urlWithParams\"");
-    expect($response->html)->toContain('<script async src="//www.instagram.com/embed.js">');
+    expect($response)->toContain("<a href=\"$urlWithParams\"");
+    expect($response)->toContain('<script async src="//www.instagram.com/embed.js">');
 });
 
 it('matches reel', function () {
     $url = 'https://www.instagram.com/reel/C6H039Ctw_b/';
-    $parser = new Instagram(UnfoldConfig::withUrlAndMethod($url, UnfoldMethod::EMBED));
+    $parser = new Instagram(UnfoldConfig::withUrl($url));
     $match = $parser->match();
     expect($match['id'])->toBe('C6H039Ctw_b');
     expect($match['type'])->toBe('reel');
@@ -53,11 +52,11 @@ it('matches reel', function () {
     $response = $parser->parse($match);
 
     $urlWithParams = 'https://www.instagram.com/reel/C6H039Ctw_b/?utm_source=ig_embed&utm_campaign=loading';
-    expect($response->html)->toContain(
+    expect($response)->toContain(
         '<blockquote class="instagram-media" data-instgrm-captioned data-instgrm-permalink="' . $urlWithParams . '" data-instgrm-version="14"'
     );
-    expect($response->html)->toContain("<a href=\"$urlWithParams\"");
-    expect($response->html)->toContain('<script async src="//www.instagram.com/embed.js">');
+    expect($response)->toContain("<a href=\"$urlWithParams\"");
+    expect($response)->toContain('<script async src="//www.instagram.com/embed.js">');
 });
 
 //it('test', function () {
@@ -69,7 +68,7 @@ it('matches reel', function () {
 //});
 
 it('matches instagram URLs', function (string $url, array $matches) {
-    $parser = new Instagram(UnfoldConfig::withUrlAndMethod($url, UnfoldMethod::EMBED));
+    $parser = new Instagram(UnfoldConfig::withUrl($url));
     $match = $parser->match();
     expect($match)->toBeArray();
     foreach ($matches as $key => $value) {

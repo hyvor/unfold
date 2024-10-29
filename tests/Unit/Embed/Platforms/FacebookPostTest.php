@@ -4,16 +4,15 @@ namespace Unit\Parsers;
 
 use Hyvor\Unfold\Embed\Platforms\FacebookPost;
 use Hyvor\Unfold\UnfoldConfig;
-use Hyvor\Unfold\UnfoldMethod;
 
 it('parses facebook embeds', function () {
     $url = 'https://www.facebook.com/geonarah/posts/pfbid027mqcVugNt1ChK6dwvjR2SkVJrtN754X1toi1XA1auyHgrng1g3bb3Ph2DoYANAhnl';
 
-    $parser = new FacebookPost(UnfoldConfig::withUrlAndMethod($url, UnfoldMethod::EMBED));
+    $parser = new FacebookPost(UnfoldConfig::withUrl($url));
     $match = $parser->match();
     $response = $parser->parse($match);
 
-    $html = $response->html;
+    $html = $response;
     expect($html)->toContain('<div class="fb-post" data-href="' . $url);
     expect($html)->toContain(
         '<script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v21.0">'
@@ -21,7 +20,7 @@ it('parses facebook embeds', function () {
 });
 
 it('matches', function ($url) {
-    $parser = new FacebookPost(UnfoldConfig::withUrlAndMethod($url, UnfoldMethod::EMBED));
+    $parser = new FacebookPost(UnfoldConfig::withUrl($url));
     $match = $parser->match();
     expect($match)->toBeArray();
 })->with([

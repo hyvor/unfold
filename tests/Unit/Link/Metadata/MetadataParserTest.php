@@ -10,7 +10,6 @@ use Hyvor\Unfold\Link\Metadata\MetadataParser;
 use Hyvor\Unfold\UnfoldConfig;
 use Hyvor\Unfold\Unfolded\UnfoldedAuthor;
 use Hyvor\Unfold\Unfolded\UnfoldedTag;
-use Hyvor\Unfold\UnfoldMethod;
 
 dataset('contents', [
     'all valid og and twitter tags' => [
@@ -224,7 +223,7 @@ dataset('contents', [
 it('parses metadata', function (string $content, array $metadata) {
     $metadataParser = new MetadataParser(
         $content,
-        UnfoldConfig::withUrlAndMethod('https://nadil.io', UnfoldMethod::LINK)
+        UnfoldConfig::withUrl('https://nadil.io')
     );
     $parsedMetadata = $metadataParser->parse();
 
@@ -259,7 +258,7 @@ it('returns DateTimeInterface when valid date string is given: (2024-10-19 16:15
 it('returns absolute url when relative favicon url is given', function ($contents, $expected) {
     $metadataParser = new MetadataParser(
         $contents,
-        UnfoldConfig::withUrlAndMethod('https://example.com', UnfoldMethod::LINK)
+        UnfoldConfig::withUrl('https://example.com')
     );
     $metadata = $metadataParser->parse();
 

@@ -16,22 +16,13 @@ class UnfoldConfig
      */
     public ClientInterface $httpClient;
 
-    // These are set later in the Unfold::unfold method for internal use
+    // URL is later added in ->start() method
     public string $url;
-    public UnfoldMethod $method;
 
     public RequestRecorder $httpRequestRecorder;
     public float $startTime;
 
     public function __construct(
-
-        /**
-         * If the $method is UnfoldMethod::EMBED or UnfoldMethod::EMBED_LINK,
-         * and if we cannot find a way to embed the URL using our default parsers,
-         * we will try to create an embed using og:image or og:video tags
-         * resulting in <img> or <video> embeds.
-         */
-        public bool $embedMetaFallback = false,
 
         /**
          * A PSR-18 HTTP Client for sending oembed and other requests
@@ -52,23 +43,15 @@ class UnfoldConfig
          */
         public string $httpUserAgent = 'Hyvor Unfold PHP Client',
 
-        /**
-         * Meta requires an access_token to access the OEmbed Read Graph API
-         * This is required for both FacebookPost & Instagram
-         * @todo
-         */
-        public ?string $facebookAccessToken = null,
-
         // CACHE
     )
     {
         $this->setHttpClient($httpClient);
     }
 
-    public function start(string $url, UnfoldMethod $method): self
+    public function start(string $url): self
     {
         $this->url = $url;
-        $this->method = $method;
         $this->startTime = microtime(true);
         return $this;
     }
@@ -98,12 +81,10 @@ class UnfoldConfig
         return (int)((microtime(true) - $this->startTime) * 1000);
     }
 
-    public static function withUrlAndMethod(
-        string $url,
-        UnfoldMethod $method
-    ): self {
+    public static function withUrl(string $url): self
+    {
         $config = new self();
-        $config->start($url, $method);
+        $config->start($url);
         return $config;
     }
 }
