@@ -7,7 +7,6 @@ self-hostable Docker image.
 
 OEmbed:
 
-- X (Twitter)
 - TikTok
 
 Custom:
@@ -17,6 +16,7 @@ Custom:
 - Instagram
 - Github Gist
 - Reddit
+- X (Twitter)
 
 <!--
 Coming soon:
