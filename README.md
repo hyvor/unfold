@@ -9,7 +9,6 @@ OEmbed:
 
 - X (Twitter)
 - TikTok
-- Reddit
 
 Custom:
 
@@ -17,6 +16,7 @@ Custom:
 - Facebook
 - Instagram
 - Github Gist
+- Reddit
 
 <!--
 Coming soon:
