@@ -37,7 +37,7 @@
 
 <CodeBlock
     code={`
-    http://127.0.0.1:7272/unfold?url=https://hyvor.com.com&method=link
+    http://127.0.0.1:7272/unfold?url=https://hyvor.com&method=link
     `}
 />
 
