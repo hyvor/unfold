@@ -7,6 +7,7 @@ RUN add-apt-repository -y ppa:ondrej/php
 
 RUN DEBIAN_FRONTEND=noninteractive TZ=Etc/UTC \
     apt-get install -y \
+    git \
     curl \
     php8.3 \
     php8.3-fpm \
