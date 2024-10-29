@@ -102,12 +102,14 @@ class IframeController
 
 <p>
 	When you call the <code>PrivacyIframe::wrap</code> method, it will include
-	<a href="./blob/main/src/Embed/Iframe/child.js"> child.js </a> script that will send the height of
-	the content to the parent window.
+	<a href="https://github.com/hyvor/unfold/blob/main/src/Embed/Iframe/child.js"> child.js </a> script
+	that will send the height of the content to the parent window.
 </p>
 
 <p>
-	On your website, you have to include the <a href="./blob/main/src/Embed/Iframe/parent.js">
+	On your website, you have to include the <a
+		href="https://github.com/hyvor/unfold/blob/main/src/Embed/Iframe/parent.js"
+	>
 		parent.js
 	</a> script. This script will listen to the messages from the child window and resize the iframe accordingly.
 </p>
