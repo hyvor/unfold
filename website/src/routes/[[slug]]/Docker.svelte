@@ -37,12 +37,16 @@
 
 <CodeBlock
     code={`
-    http://127.0.0.1:7272/unfold?url=https://url-to-unfold.com&method=link
+    http://127.0.0.1:7272/unfold?url=https://hyvor.com.com&method=link
     `}
 />
 
 <CodeBlock
     code={`
-    http://127.0.0.1:7272/iframe?url=https://url-to-embed.com
+    http://127.0.0.1:7272/iframe?url=https%3A%2F%2Fwww.youtube.com%2Fwatch%3Fv%3DdQw4w9WgXcQ
     `}
 />
+
+<p>
+    You can find more details about <code>iframe endpoint</code> <a href="/iframe">here</a>.
+</p>
