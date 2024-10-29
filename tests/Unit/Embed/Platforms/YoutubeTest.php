@@ -53,7 +53,7 @@ it('matches short', function () {
     $response = $parser->parse($match);
 
     expect($response)->toBe(
-        '<div style="width:calc(56.25vh - 54px);min-width:315px;max-width:100%;margin:auto;"><div style="position:relative;left:0;width:100%;height:0;padding-bottom:177.78%;"><iframe src="https://www.youtube.com/embed/uehCDW1fxUw" style="position: absolute;top:0;left:0;width:100%;height:100%;border:0;" allow="fullscreen;accelerometer;clipboard-write;encrypted-media;gyroscope;picture-in-picture;web-share;"></iframe></div></div>'
+        '<div style="width:calc(56.25vh - 54px);min-width:315px;max-width:100%"><div style="position:relative;left:0;width:100%;height:0;padding-bottom:177.78%;"><iframe src="https://www.youtube.com/embed/uehCDW1fxUw" style="position: absolute;top:0;left:0;width:100%;height:100%;border:0;" allow="fullscreen;accelerometer;clipboard-write;encrypted-media;gyroscope;picture-in-picture;web-share;"></iframe></div></div>'
     );
 });
 
