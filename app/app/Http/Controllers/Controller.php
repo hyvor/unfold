@@ -16,24 +16,28 @@ class Controller
     {
         $request->validate([
             'url' => 'required|url',
-            'method' => 'nullable|string|in:link,embed,link_embed',
+            'method' => 'nullable|string|in:embed,link',
             'embedMetaFallback' => 'nullable|boolean',
         ]);
 
         $url = (string) $request->string('url');
-        $method = $request->string('method', 'link');
-        $method = UnfoldMethod::from($method);
-        $embedMetaFallback = $request->boolean('embedMetaFallback');
-
+        $method = (string) $request->string('method', 'link');
         try {
-            $response = Unfold::unfold(
-                $url,
-                $method,
-                new UnfoldConfig(
-                    $embedMetaFallback,
-                    app()->bound('httpClient') ? app('httpClient') : null
-                )
-            );
+            if ($method === 'embed') {
+                $response = Unfold::embed(
+                    $url,
+                    new UnfoldConfig(
+                        app()->bound('httpClient') ? app('httpClient') : null
+                    )
+                );
+            } else {
+                $response = Unfold::link(
+                    $url,
+                    new UnfoldConfig(
+                        app()->bound('httpClient') ? app('httpClient') : null
+                    )
+                );
+            }
         } catch (UnfoldException $e) {
             return response()->json([
                 'error' => $e->getMessage(),
@@ -52,7 +56,7 @@ class Controller
         $url = (string) $request->string('url');
 
         try {
-            $data = Unfold::unfold($url, UnfoldMethod::EMBED);
+            $data = Unfold::embed($url);
         } catch (UnfoldException) {
             return 'This URL cannot be embedded.';
         }

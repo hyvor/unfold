@@ -33,9 +33,7 @@ it('returns Unfold response for link', function () {
     $response->assertStatus(200);
     $response->assertJsonFragment([
         'version' => '1.0',
-        'method' => 'link',
         'url' => 'https://nadil.me/google-cloud-platform',
-        'embed' => null,
         'title' => 'Google Cloud Platform (GCP): Setting up a GPU-Based Virtual Machine (VM) with Jupyter Notebook for LLMs',
         'description' => 'A descriptive guide on how to setup a gpu based vm in google cloud platform',
         'authors' => [
@@ -73,20 +71,7 @@ it('returns Unfold response for embed', function () {
     $response->assertStatus(200);
     $response->assertJsonFragment([
         'version' => '1.0',
-        'method' => 'embed',
         'url' => 'https://www.youtube.com/watch?v=Bag1gUxuU0g',
         'embed' => '<div style="position:relative;left:0;width:100%;height:0;padding-bottom:56.25%;"><iframe src="https://www.youtube.com/embed/Bag1gUxuU0g" style="position: absolute;top:0;left:0;width:100%;height:100%;border:0;" allow="fullscreen;accelerometer;clipboard-write;encrypted-media;gyroscope;picture-in-picture;web-share;"></iframe></div>',
-        'title' => null,
-        'description' => null,
-        'authors' => [],
-        'tags' => [],
-        'siteName' => null,
-        'siteUrl' => null,
-        'canonicalUrl' => null,
-        'publishedTime' => null,
-        'modifiedTime' => null,
-        'thumbnailUrl' => null,
-        'iconUrl' => null,
-        'locale' => null,
     ]);
 });
