@@ -255,10 +255,14 @@ it('returns DateTimeInterface when valid date string is given: (2024-10-19 16:15
         ->and($date->format('Y-m-d H:i:s'))->toBe('2024-10-19 16:15:00');
 });
 
-it('returns absolute url when relative favicon url is given', function ($contents, $expected) {
+it('returns absolute url when relative favicon url is given', function (
+    $contents,
+    $expected,
+    $base = 'https://example.com'
+) {
     $metadataParser = new MetadataParser(
         $contents,
-        UnfoldConfig::withUrl('https://example.com')
+        UnfoldConfig::withUrl($base)
     );
     $metadata = $metadataParser->parse();
 
@@ -296,4 +300,55 @@ it('returns absolute url when relative favicon url is given', function ($content
         '<link rel="icon" href="./icons/favicon.ico#v2" />',
         [new MetadataObject(MetadataKeyType::FAVICON_URL, 'https://example.com/icons/favicon.ico#v2')],
     ],
+    [
+        '<link rel="icon" href="./favicon.ico" />',
+        [new MetadataObject(MetadataKeyType::FAVICON_URL, 'https://example.com/page/favicon.ico')],
+        'https://example.com/page/in'
+    ],
+    [
+        '<meta property="og:image" content="./image.jpg" />',
+        [new MetadataObject(MetadataKeyType::OG_IMAGE, 'https://example.com/image.jpg')],
+    ]
 ]);
+
+it('resolves relative URLs for all links', function () {
+    $html = <<<HTML
+<meta property="og:image" content="./image.jpg" />
+<meta property="og:image:url" content="./image.jpg" />
+<meta property="og:image:secure_url" content="./image.jpg" />
+
+<meta property="og:video" content="./video.mp4" />
+<meta property="og:video:secure_url" content="./video.mp4" />
+
+<meta property="og:audio" content="./audio.mp3" />
+<meta property="og:audio:secure_url" content="./audio.mp3" />
+
+<meta property="og:url" content="./url" />
+
+<meta property="og:video" content="./video.mp4" />
+<meta name="twitter:image" content="./image.jpg" />
+HTML;
+
+    $metadataParser = new MetadataParser(
+        $html,
+        UnfoldConfig::withUrl('https://hyvor.com')
+    );
+    $metadata = $metadataParser->parse();
+
+    expect($metadata)->toEqual([
+        new MetadataObject(MetadataKeyType::OG_IMAGE, 'https://hyvor.com/image.jpg'),
+        new MetadataObject(MetadataKeyType::OG_IMAGE_URL, 'https://hyvor.com/image.jpg'),
+        new MetadataObject(MetadataKeyType::OG_IMAGE_SECURE_URL, 'https://hyvor.com/image.jpg'),
+
+        new MetadataObject(MetadataKeyType::OG_VIDEO, 'https://hyvor.com/video.mp4'),
+        new MetadataObject(MetadataKeyType::OG_VIDEO_SECURE_URL, 'https://hyvor.com/video.mp4'),
+
+        new MetadataObject(MetadataKeyType::OG_AUDIO, 'https://hyvor.com/audio.mp3'),
+        new MetadataObject(MetadataKeyType::OG_AUDIO_SECURE_URL, 'https://hyvor.com/audio.mp3'),
+
+        new MetadataObject(MetadataKeyType::OG_URL, 'https://hyvor.com/url'),
+
+        new MetadataObject(MetadataKeyType::OG_VIDEO, 'https://hyvor.com/video.mp4'),
+        new MetadataObject(MetadataKeyType::TWITTER_IMAGE, 'https://hyvor.com/image.jpg'),
+    ]);
+});

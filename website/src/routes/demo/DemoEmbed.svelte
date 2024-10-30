@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { Button, TextInput, Loader } from '@hyvor/design/components';
+	import { Button, TextInput } from '@hyvor/design/components';
 	import { onMount } from 'svelte';
 
 	let value = '';
@@ -32,27 +32,40 @@
 	});
 </script>
 
-<h2>Demo</h2>
+<div class="demo">
+	<div class="input">
+		<TextInput
+			size="small"
+			bind:value
+			block
+			placeholder="Enter URL (Youtube, Twitter, Reddit, etc.) "
+			on:keyup={onKeyUp}
+		/>
+		<Button on:click={load} size="small">Load Embed</Button>
+	</div>
 
-<div class="input">
-	<TextInput size="small" bind:value block placeholder="Enter URL" on:keyup={onKeyUp} />
-	<Button on:click={load} size="small">Load Embed</Button>
-</div>
-
-<div class="display">
 	{#key key}
 		{#if src}
-			<iframe
-				{src}
-				title="Embed"
-				sandbox="allow-scripts allow-same-origin allow-popups allow-presentation"
-				allow="fullscreen;accelerometer;clipboard-write;encrypted-media;gyroscope;picture-in-picture;web-share;"
-			></iframe>
+			<div class="display">
+				<iframe
+					{src}
+					title="Embed"
+					sandbox="allow-scripts allow-same-origin allow-popups allow-presentation"
+					allow="fullscreen;accelerometer;clipboard-write;encrypted-media;gyroscope;picture-in-picture;web-share;"
+				></iframe>
+			</div>
 		{/if}
 	{/key}
 </div>
 
 <style>
+	.demo {
+		padding: 20px 25px;
+		background-color: #fbfbfb;
+		border-radius: 20px;
+		border: 1px solid #eee;
+		margin: 20px 0;
+	}
 	.input {
 		display: flex;
 		align-items: center;
@@ -62,7 +75,7 @@
 		flex-shrink: 0;
 	}
 	.display {
-		margin: 20px 0;
+		margin-top: 20px;
 	}
 	iframe {
 		width: 100%;
