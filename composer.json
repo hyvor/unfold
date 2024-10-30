@@ -23,7 +23,7 @@
     "psr/http-client": "^1.0",
     "php-http/discovery": "^1.20",
     "php-http/client-common": "^2.7",
-    "league/uri": "^7.0"
+    "league/uri": "^7.4"
   },
   "require-dev": {
     "pestphp/pest": "^3.3",

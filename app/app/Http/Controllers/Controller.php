@@ -17,7 +17,6 @@ class Controller
         $request->validate([
             'url' => 'required|url',
             'method' => 'nullable|string|in:embed,link',
-            'embedMetaFallback' => 'nullable|boolean',
         ]);
 
         $url = (string) $request->string('url');
