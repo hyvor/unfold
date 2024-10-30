@@ -27,7 +27,7 @@
 
 <CodeBlock
     code={`
-    docker run -d hyvor/unfold:latest
+    docker run -d -p 7272:7272 hyvor/unfold:latest
     `}
 />
 
