@@ -8,7 +8,7 @@
 <h1>Hyvor Unfold</h1>
 
 <p>
-	Hyvor Unfold is an open-source PHP library and self-hostable Docker-based API for <strong
+	Hyvor Unfold is an open-source PHP library and self-hostable API for <strong
 		>generating embed codes</strong
 	>
 	(Youtube, Twitter, and <a href="#embed-platforms">more</a>) and <strong>fetching metadata</strong>

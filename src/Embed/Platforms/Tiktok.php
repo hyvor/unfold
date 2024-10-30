@@ -11,7 +11,7 @@ class Tiktok extends EmbedParserAbstract implements EmbedParserCustomInterface
     {
         return [
             // "https://www.tiktok.com/.*",
-            "https://www.tiktok.com/.*/video/(.*)"
+            "https://www.tiktok.com/.*/video/(\d+)"
         ];
     }
 
