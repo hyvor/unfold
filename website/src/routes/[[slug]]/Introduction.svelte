@@ -1,7 +1,7 @@
 <script>
-	import { CodeBlock, Callout } from '@hyvor/design/components';
+	import { Callout } from '@hyvor/design/components';
 	import DemoEmbed from '../demo/DemoEmbed.svelte';
-	import { IconInfo, IconInfoCircle } from '@hyvor/icons';
+	import { IconInfoCircle } from '@hyvor/icons';
 	import DemoLink from '../demo/DemoLink.svelte';
 </script>
 
@@ -54,6 +54,9 @@
 	</li>
 	<li>
 		<strong>Twitter/X</strong>: Tweets
+	</li>
+	<li>
+		<strong>Threads</strong>: Posts
 	</li>
 	<li>
 		<strong>Reddit</strong>: Posts and subreddits
