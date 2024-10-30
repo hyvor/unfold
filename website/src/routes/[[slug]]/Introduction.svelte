@@ -1,7 +1,7 @@
 <script>
-	import { CodeBlock, Callout } from '@hyvor/design/components';
+	import { Callout } from '@hyvor/design/components';
 	import DemoEmbed from '../demo/DemoEmbed.svelte';
-	import { IconInfo, IconInfoCircle } from '@hyvor/icons';
+	import { IconInfoCircle } from '@hyvor/icons';
 	import DemoLink from '../demo/DemoLink.svelte';
 </script>
 
@@ -25,8 +25,6 @@
 		<a href="/docker">Docker Image</a>: Run the API via Docker.
 	</li>
 </ul>
-
-<p>Or, continue reading for an overview:</p>
 
 <h2 id="embeds">1. Embeds</h2>
 
@@ -54,6 +52,9 @@
 	</li>
 	<li>
 		<strong>Twitter/X</strong>: Tweets
+	</li>
+	<li>
+		<strong>Threads</strong>: Posts
 	</li>
 	<li>
 		<strong>Reddit</strong>: Posts and subreddits
