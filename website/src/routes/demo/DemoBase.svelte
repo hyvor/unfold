@@ -26,7 +26,7 @@
 
 <style>
 	.demo {
-		padding: 20px 25px;
+		padding: 15px 15px;
 		background-color: #fbfbfb;
 		border-radius: 20px;
 		border: 1px solid #eee;
