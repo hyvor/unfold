@@ -21,8 +21,6 @@ class UnfoldedLink
         public string $lastUrl,
         public ?string $title,
         public ?string $description,
-        public array $authors,
-        public array $tags,
         public ?string $siteName,
         public ?string $siteUrl,
         public ?string $canonicalUrl,
@@ -31,6 +29,8 @@ class UnfoldedLink
         public ?string $thumbnailUrl,
         public ?string $iconUrl,
         public ?string $locale,
+        public array $authors,
+        public array $tags,
         public int $durationMs
     ) {
     }
@@ -46,8 +46,8 @@ class UnfoldedLink
         $metadataPriority = new MetadataPriority($metadata);
 
         $currentUrl = $config->url;
-        if ($lastRequest && (string)$lastRequest->getUri() !== $currentUrl) {
-            $currentUrl = (string)$lastRequest->getUri();
+        if ($lastRequest && (string) $lastRequest->getUri() !== $currentUrl) {
+            $currentUrl = (string) $lastRequest->getUri();
         }
 
         return new self(
@@ -55,8 +55,6 @@ class UnfoldedLink
             $currentUrl,
             $metadataPriority->title(),
             $metadataPriority->description(),
-            $metadataPriority->authors(),
-            $metadataPriority->tags(),
             $metadataPriority->siteName(),
             $metadataPriority->siteUrl($currentUrl),
             $metadataPriority->canonicalUrl(),
@@ -65,6 +63,8 @@ class UnfoldedLink
             $metadataPriority->thumbnailUrl(),
             $metadataPriority->iconUrl(),
             $metadataPriority->locale(),
+            $metadataPriority->authors(),
+            $metadataPriority->tags(),
             $config->duration()
         );
     }
