@@ -36,6 +36,7 @@ RUN curl -sS https://getcomposer.org/installer -o /tmp/composer-setup.php && \
     rm /tmp/composer-setup.php
 
 # composer install
+RUN COMPOSER_ALLOW_SUPERUSER=1 composer install --optimize-autoloader --no-dev --no-interaction --no-progress --working-dir=/var/www/app
 RUN COMPOSER_ALLOW_SUPERUSER=1 composer install --optimize-autoloader --no-dev --no-interaction --no-progress --working-dir=/var/www/app/app
 
 # laravel directories
