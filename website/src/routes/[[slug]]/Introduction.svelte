@@ -26,8 +26,6 @@
 	</li>
 </ul>
 
-<p>Or, continue reading for an overview:</p>
-
 <h2 id="embeds">1. Embeds</h2>
 
 <p>Hyvor Unfold can convert URLs from various platforms to embed HTML codes.</p>
