@@ -1,15 +1,18 @@
 <script>
-	import { CodeBlock } from '@hyvor/design/components';
-	import Demo from '../demo/Demo.svelte';
+	import { Callout } from '@hyvor/design/components';
+	import DemoEmbed from '../demo/DemoEmbed.svelte';
+	import { IconInfoCircle } from '@hyvor/icons';
+	import DemoLink from '../demo/DemoLink.svelte';
 </script>
 
 <h1>Hyvor Unfold</h1>
 
 <p>
-	Hyvor Unfold is an open-source API that can fetch metadata from URLs for <strong
-		>link previews</strong
+	Hyvor Unfold is an open-source PHP library and self-hostable API for <strong
+		>generating embed codes</strong
 	>
-	and <strong>embeds</strong>. You can also use the Docker image to run this as a fully-fledged API.
+	(Youtube, Twitter, and <a href="#embed-platforms">more</a>) and <strong>fetching metadata</strong>
+	from URLs for link previews.
 </p>
 
 <p>Visit these pages to get started:</p>
@@ -23,42 +26,66 @@
 	</li>
 </ul>
 
-<Demo />
+<h2 id="embeds">1. Embeds</h2>
 
-<h2 id="link-previews">1. Link Previews</h2>
+<p>Hyvor Unfold can convert URLs from various platforms to embed HTML codes.</p>
+
+<DemoEmbed />
+
+<Callout type="info">
+	<IconInfoCircle slot="icon" />
+	We use a regex-based approach instead of using platform APIs or oEmbed. This allows us to generate
+	embeds fast and without any rate limits and API keys.
+</Callout>
+
+<h3 id="embed-platforms">Supported Platforms</h3>
+
+<ul>
+	<li>
+		<strong>Youtube</strong>: Videos, shorts, playlists, and channels
+	</li>
+	<li>
+		<strong>Facebook</strong>: Posts, pages, videos, and reels
+	</li>
+	<li>
+		<strong>Instagram</strong>: Posts and reels
+	</li>
+	<li>
+		<strong>Twitter/X</strong>: Tweets
+	</li>
+	<li>
+		<strong>Threads</strong>: Posts
+	</li>
+	<li>
+		<strong>Reddit</strong>: Posts and subreddits
+	</li>
+	<li>
+		<strong>Tiktok</strong>: Videos
+	</li>
+	<li>
+		<strong>Github</strong>: Gists
+	</li>
+</ul>
 
 <p>
-	The main feature of Hyvor Unfold is fetching metadata from URLs for link previews. You can use
-	this to show a preview of a URL in your website or app. In the <a href="/php">PHP Library</a>, it
-	would look like this:
+	See our <a href="https://github.com/hyvor/unfold" target="_blank">policy</a> for adding new platforms.
 </p>
 
-<CodeBlock
-	language="js"
-	code={`
-use Hyvor\\Unfold\\Unfold;
+<!-- <p>
+	See <a href=""
+</p> -->
 
-$data = Unfold::unfold('https://hyvor.com');
-`}
-/>
+<h2 id="link-previews">2. Link Previews</h2>
 
 <p>
-	You can then use the <code>$data</code> object to access the metadata and show the link preview:
+	You can also use Hyvor Unfold to fetch metadata from URLs. For example, you can use this to show a
+	preview of a URL (called 'unfurled link').
 </p>
 
-<CodeBlock
-	language="js"
-	code={`
-$data->title;
-$data->description;
-$data->thumbnailUrl;
-`}
-/>
-
-<h3 id="how-it-works">How link previews works</h3>
+<DemoLink />
 
 <p>
-	When you call the <code>unfold</code> method, we send a <code>GET</code> request to the URL and parse
+	When you request link data (via PHP or API), we send a <code>GET</code> request to the URL and parse
 	the metadata from the HTML. This is done using the following:
 </p>
 
@@ -78,29 +105,3 @@ $data->thumbnailUrl;
 		JSON-LD and Microdata (<a href="https://schema.org/" target="_blank">Schema.org</a>)
 	</li>
 </ul>
-
-<h2 id="embeds">2. Embeds</h2>
-
-<p>
-	The next feature of Hyvor Unfold is converting URLs to embed HTML codes. For example, you can
-	embed a YouTube video or a tweet in your website or app instead of showing a link preview. In the
-	<a href="/php">PHP Library</a>, it would look like this:
-</p>
-
-<CodeBlock
-	language="js"
-	code={`
-use Hyvor\\Unfold\\Unfold;
-use Hyvor\\Unfold\\UnfoldConfig;
-use Hyvor\\Unfold\\Method;
-
-$html = Unfold::unfold(
-    'https://youtube.com/...',
-    new UnfoldConfig(
-        method: Method::EMBED,
-    )
-);
-`}
-/>
-
-<h3 id="embed-platforms">Embed Platforms</h3>

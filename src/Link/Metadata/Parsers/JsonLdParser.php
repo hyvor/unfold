@@ -36,7 +36,10 @@ class JsonLdParser extends ParserAbstract
                         $this->parser->addMetadata(
                             new MetadataObject(
                                 MetadataKeyType::RICH_SCHEMA_AUTHOR,
-                                new UnfoldedAuthor($author['name'], $author['url'])
+                                new UnfoldedAuthor(
+                                    $author['name'] ?? null,
+                                    $author['url'] ?? null
+                                )
                             )
                         );
                     }

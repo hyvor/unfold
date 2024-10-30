@@ -2,6 +2,7 @@ import type { ComponentType } from "svelte";
 import Introduction from "./Introduction.svelte";
 import Iframe from "./Iframe.svelte";
 import Docker from "./Docker.svelte";
+import Php from "./Php.svelte";
 
 export const categories: Category[] = [
     {
@@ -15,7 +16,7 @@ export const categories: Category[] = [
             {
                 name: 'PHP Library',
                 slug: 'php',
-                component: Introduction
+                component: Php
             },
             {
                 name: 'Privacy Iframe',

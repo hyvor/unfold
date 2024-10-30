@@ -87,7 +87,7 @@ class MetadataParser
                 return;
             }
 
-            $content = $keyType->getValue($content);
+            $content = $keyType->getValue($content, $this->config);
 
             if ($content === null) {
                 return;

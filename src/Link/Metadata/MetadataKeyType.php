@@ -2,6 +2,7 @@
 
 namespace Hyvor\Unfold\Link\Metadata;
 
+use Hyvor\Unfold\UnfoldConfig;
 use Hyvor\Unfold\Unfolded\UnfoldedAuthor;
 use Hyvor\Unfold\Unfolded\UnfoldedTag;
 
@@ -56,8 +57,10 @@ enum MetadataKeyType
      * Gets the value of the metadata from a given content string
      * ex: article:published_time is converted to DateTimeInterface
      */
-    public function getValue(string $content): string|UnfoldedAuthor|UnfoldedTag|\DateTimeInterface|null
-    {
+    public function getValue(
+        string $content,
+        UnfoldConfig $config
+    ): string|UnfoldedAuthor|UnfoldedTag|\DateTimeInterface|null {
         if (
             $this === MetadataKeyType::OG_ARTICLE_PUBLISHED_TIME ||
             $this === MetadataKeyType::OG_ARTICLE_MODIFIED_TIME
@@ -74,6 +77,22 @@ enum MetadataKeyType
 
         if ($this === MetadataKeyType::OG_ARTICLE_TAG) {
             return new UnfoldedTag($content);
+        }
+
+        if (
+            $this === self::OG_IMAGE ||
+            $this === self::OG_IMAGE_URL ||
+            $this === self::OG_IMAGE_SECURE_URL ||
+            $this === self::OG_VIDEO ||
+            $this === self::OG_VIDEO_SECURE_URL ||
+            $this === self::OG_AUDIO ||
+            $this === self::OG_AUDIO_SECURE_URL ||
+            $this === self::OG_URL ||
+            $this === self::TWITTER_IMAGE ||
+            $this === self::FAVICON_URL ||
+            $this === self::CANONICAL_URL
+        ) {
+            return RelativeUrl::resolve($content, $config->url);
         }
 
         return $content;
