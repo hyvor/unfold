@@ -93,7 +93,7 @@
 	}
 	.left {
 		padding: 15px 20px;
-		flex: 1;
+		flex: 3;
 		flex-shrink: 0;
 	}
 	.title {
@@ -105,7 +105,7 @@
 		margin-top: 6px;
 	}
 	.right {
-		flex: 1;
+		flex: 2;
 		flex-shrink: 0;
 		position: relative;
 	}
