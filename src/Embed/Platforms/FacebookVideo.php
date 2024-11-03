@@ -29,6 +29,9 @@ class FacebookVideo extends EmbedParserAbstract implements EmbedParserCustomInte
             // watch with v
             'https?://(www|m|business)\.facebook\.com/watch/?\?[^/]*v=([^&]+)',
 
+            // fb.watch
+            'https?://fb\.watch/([^/]+)',
+
             // reel
             'https?://(www|m|business)\.facebook\.com/reel/([^/]+)',
         ];
