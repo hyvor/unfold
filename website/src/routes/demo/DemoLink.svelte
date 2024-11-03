@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { CodeBlock, Loader, Validation } from '@hyvor/design/components';
 	import DemoBase from './DemoBase.svelte';
+	import { fetchUnfold } from './demo';
 
 	let value = '';
 	let loading = false;
@@ -12,19 +13,12 @@
 		loading = true;
 		error = '';
 
-		fetch('http://localhost:6001/link.php?url=' + encodeURIComponent(value))
-			.then(async (response) => {
-				const generalError = 'An error occurred while fetching the data.';
-				try {
-					const json = await response.json();
-					if (!response.ok) {
-						error = json.message || generalError;
-					} else {
-						data = json;
-					}
-				} catch (e) {
-					error = generalError;
-				}
+		fetchUnfold(value)
+			.then((res) => {
+				data = res;
+			})
+			.catch((err) => {
+				error = err;
 			})
 			.finally(() => {
 				loading = false;

@@ -34,6 +34,7 @@ it('matches', function ($url) {
     // photo.php
     'https://www.facebook.com/photo.php?fbid=934147948738763&set=a.414821727338057&type=3',
     'https://www.facebook.com/photo.php?set=a&fbid=934147948738763',
+    'https://www.facebook.com/photo?fbid=94975234321362&set=a.37220824409111',
 
     // permalink.php
     'https://www.facebook.com/permalink.php?id=100064783864247&story_fbid=pfbid091orNDfpRpetrjS4JfNXPdctLCWG4mjhjP38xCzKxqvWFzHT9Cd4txnuV3MGs1zql',

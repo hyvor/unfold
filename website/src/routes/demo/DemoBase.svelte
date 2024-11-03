@@ -40,11 +40,4 @@
 	.input :global(button) {
 		flex-shrink: 0;
 	}
-	.display {
-		margin-top: 20px;
-	}
-	iframe {
-		width: 100%;
-		border: none;
-	}
 </style>

@@ -7,16 +7,16 @@ self-hostable Docker image.
 
 OEmbed:
 
-- TikTok
+-   TikTok
 
 Custom:
 
-- Youtube
-- Facebook
-- Instagram
-- Github Gist
-- Reddit
-- X (Twitter)
+-   Youtube
+-   Facebook
+-   Instagram
+-   Github Gist
+-   Reddit
+-   X (Twitter)
 
 <!--
 Coming soon:
@@ -27,15 +27,37 @@ Coming soon:
 
 ## Rules for selecting platforms for embeds
 
-- **oEmbed**: If a platform supports oEmbed, it is used.
-- **Public Content**: The platform must mainly be used for public content.
-    - Facebook posts are okay since the default is usually public
-    - Google Drive is not okay as they are meant to be private in most cases
-- **10 million active monthly users**: If a platform has less than 10 million registered active monthly users, it won't
-  be supported.
-- **Demand**: There should be a demand (from website owners) to add a new platform.
+-   **oEmbed**: If a platform supports oEmbed, it is used.
+-   **Public Content**: The platform must mainly be used for public content.
+    -   Facebook posts are okay since the default is usually public
+    -   Google Drive is not okay as they are meant to be private in most cases
+-   **10 million active monthly users**: If a platform has less than 10 million registered active monthly users, it won't
+    be supported.
+-   **Demand**: There should be a demand (from website owners) to add a new platform.
 
 ## Object Construction
 
-- If the type is link or link_embed and if we can't create the embed any other way, we will try to use og tags to create
-  the embed. There is a custom config to disable this fallback.
+-   If the type is link or link_embed and if we can't create the embed any other way, we will try to use og tags to create
+    the embed. There is a custom config to disable this fallback.
+
+## Development
+
+```bash
+# Install dependencies
+composer install
+```
+
+Run the website:
+
+```bash
+cd website
+npm install
+npm run dev
+```
+
+Run the backend (only for demos):
+
+```bash
+composer install
+php -S localhost:8000
+```

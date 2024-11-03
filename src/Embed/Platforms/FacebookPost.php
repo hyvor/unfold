@@ -29,7 +29,7 @@ class FacebookPost extends EmbedParserAbstract implements EmbedParserCustomInter
             // with username
             'https?://(?:www|web|m|business)\.facebook\.com/(?:[^/]+)/(?:posts|activity|photos)/(?:[^/]+)',
             // photo.php
-            'https?://(?:www|web|m|business)\.facebook\.com/photo\.php\?[^/]*fbid=(?:\d+)',
+            'https?://(?:www|web|m|business)\.facebook\.com/photo(?:\.php)?\?[^/]*fbid=(?:\d+)',
             // permalink.php and story.php
             'https?://(?:www|web|m|business)\.facebook\.com/(permalink|story)\.php\?[^/]*story_fbid=.*',
             // media set

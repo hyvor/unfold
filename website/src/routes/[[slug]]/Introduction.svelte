@@ -22,7 +22,7 @@
 		<a href="/php">PHP Library</a>: Use the PHP library in your PHP projects.
 	</li>
 	<li>
-		<a href="/docker">Docker Image</a>: Run the API via Docker.
+		<a href="/docker">Docker Hosting</a>: Run the API via Docker.
 	</li>
 </ul>
 

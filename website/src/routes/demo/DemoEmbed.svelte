@@ -1,20 +1,38 @@
 <script lang="ts">
-	import { Button, TextInput } from '@hyvor/design/components';
 	import { onMount } from 'svelte';
+	import { fetchUnfold, getDemoUrls } from './demo';
+	import DemoBase from './DemoBase.svelte';
+	import { Button, CodeBlock, Loader, toast, Validation } from '@hyvor/design/components';
 
 	let value = '';
 	let src: null | string = null;
+	let code = '';
 	let key = 1;
+	let loading = false;
+	let error = '';
 
 	function load() {
-		src = 'http://localhost:6001/iframe.php?url=' + encodeURIComponent(value);
-		key++;
+		loading = true;
+		error = '';
+		code = '';
+
+		fetchUnfold(value, true)
+			.then((res) => {
+				src = getDemoUrls().iframe + '/?url=' + encodeURIComponent(value);
+				code = res.embed;
+				key++;
+			})
+			.catch((err) => {
+				error = err;
+			})
+			.finally(() => {
+				loading = false;
+			});
 	}
 
-	function onKeyUp(event: KeyboardEvent) {
-		if (event.key === 'Enter') {
-			load();
-		}
+	function copyCode() {
+		navigator.clipboard.writeText(code);
+		toast.success('Embed code copied to clipboard');
 	}
 
 	onMount(() => {
@@ -32,53 +50,48 @@
 	});
 </script>
 
-<div class="demo">
-	<div class="input">
-		<TextInput
-			size="small"
-			bind:value
-			block
-			placeholder="Enter URL (Youtube, Twitter, Reddit, etc.) "
-			on:keyup={onKeyUp}
-		/>
-		<Button on:click={load} size="small">Load Embed</Button>
-	</div>
-
-	{#key key}
-		{#if src}
-			<div class="display">
-				<iframe
-					{src}
-					title="Embed"
-					sandbox="allow-scripts allow-same-origin allow-popups allow-presentation"
-					allow="fullscreen;accelerometer;clipboard-write;encrypted-media;gyroscope;picture-in-picture;web-share;"
-				></iframe>
-			</div>
-		{/if}
-	{/key}
-</div>
+<DemoBase
+	bind:value
+	buttonText="Load Embed"
+	placeholder="Enter URL (Youtube, Twitter, Reddit, etc.)"
+	on:click={load}
+>
+	{#if loading}
+		<Loader block padding={60} />
+	{:else if error}
+		<div class="error">
+			<Validation type="error">{error}</Validation>
+		</div>
+	{:else}
+		{#key key}
+			{#if src}
+				<div class="display">
+					<iframe
+						{src}
+						title="Embed"
+						sandbox="allow-scripts allow-same-origin allow-popups allow-presentation"
+						allow="fullscreen;accelerometer;clipboard-write;encrypted-media;gyroscope;picture-in-picture;web-share;"
+					></iframe>
+					<CodeBlock {code} />
+					<Button size="small" on:click={copyCode}>Copy Embed Code</Button>
+				</div>
+			{/if}
+		{/key}
+	{/if}
+</DemoBase>
 
 <style>
-	.demo {
-		padding: 20px 25px;
-		background-color: #fbfbfb;
-		border-radius: 20px;
-		border: 1px solid #eee;
-		margin: 20px 0;
-	}
-	.input {
-		display: flex;
-		align-items: center;
-		gap: 6px;
-	}
-	.input :global(button) {
-		flex-shrink: 0;
-	}
 	.display {
 		margin-top: 20px;
 	}
 	iframe {
 		width: 100%;
 		border: none;
+	}
+	.error {
+		padding: 20px 15px;
+	}
+	.display :global(pre) {
+		white-space: pre-wrap !important;
 	}
 </style>
