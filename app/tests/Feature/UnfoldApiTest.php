@@ -46,16 +46,8 @@ it('returns Unfold response for link', function () {
         'siteName' => "Nadil's Blog",
         'siteUrl' => 'https://nadil.me',
         'canonicalUrl' => 'https://nadil.me/google-cloud-platform',
-        'publishedTime' => [
-            'date' => '2024-06-23 14:16:22.000000',
-            'timezone_type' => 1,
-            'timezone' => '+00:00',
-        ],
-        'modifiedTime' => [
-            'date' => '2024-10-22 13:26:08.000000',
-            'timezone_type' => 1,
-            'timezone' => '+00:00',
-        ],
+        'publishedTime' => '2024-06-23T14:16:22+00:00',
+        'modifiedTime' => '2024-10-22T13:26:08+00:00',
         'thumbnailUrl' => null,
         'iconUrl' => null,
         'locale' => 'en',
