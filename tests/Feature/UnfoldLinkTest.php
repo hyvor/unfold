@@ -22,11 +22,11 @@ it('fetches link success', function () {
     
     <meta name="og:url" content="https://hyvor.com">
     <meta name="og:image" content="https://hyvor.com/image.jpg">
+    <meta name="og:site_name" content="HYVOR WEBSITE">
     <meta name="article:published_time" content="2021-09-01T00:00:00+00:00">
     <meta name="article:modified_time" content="2021-09-02T00:00:00+00:00">
     <meta name="article:tag" content="php">
     
-    <meta name="twitter:site" content="HYVOR WEBSITE">
     <link rel="canonical" href="https://hyvor.com">
     <link rel="icon" href="https://hyvor.com/favicon.ico">
     

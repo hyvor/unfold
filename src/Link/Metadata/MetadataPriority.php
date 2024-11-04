@@ -129,7 +129,7 @@ class MetadataPriority
         /** @var string|null */
         return $this->prioritized([
             MetadataKeyType::OG_SITE_NAME,
-            MetadataKeyType::TWITTER_SITE
+            // MetadataKeyType::TWITTER_SITE
         ]);
     }
 
