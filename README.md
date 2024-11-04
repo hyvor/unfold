@@ -1,4 +1,6 @@
-# Unfold
+<!--  -->
+
+### Hyvor Unfold
 
 Unfold URLs. Rich embeds via custom parsers. Link previews by scraping meta tags - as a PHP library or a self-hostable API via Docker.
 

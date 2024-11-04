@@ -46,6 +46,7 @@ it('matches', function ($url) {
     'https://www.facebook.com/watch/?v=123456789',
     'https://www.facebook.com/watch/?s=1&v=123456789',
     'https://www.facebook.com/watch?v=123456789',
+    'https://fb.watch/vCGfTtPN5G/',
 
     // reel
     'https://www.facebook.com/reel/123456789',
