@@ -3,6 +3,7 @@
 	import DemoEmbed from '../demo/DemoEmbed.svelte';
 	import { IconInfoCircle } from '@hyvor/icons';
 	import DemoLink from '../demo/DemoLink.svelte';
+	import OEmbedTag from './OEmbedTag.svelte';
 </script>
 
 <h1>Hyvor Unfold</h1>
@@ -32,12 +33,6 @@
 
 <DemoEmbed />
 
-<Callout type="info">
-	<IconInfoCircle slot="icon" />
-	We use a regex-based approach instead of using platform APIs or oEmbed. This allows us to generate
-	embeds fast and without any rate limits and API keys.
-</Callout>
-
 <h3 id="embed-platforms">Supported Platforms</h3>
 
 <ul>
@@ -65,7 +60,17 @@
 	<li>
 		<strong>Github</strong>: Gists
 	</li>
+	<li>
+		<strong>Bluesky</strong>
+		<OEmbedTag />: Posts
+	</li>
 </ul>
+
+<Callout type="info">
+	<IconInfoCircle slot="icon" />
+	When resolving embeds, we proritize regex-based methods to prevent needing to make API requests. If
+	we can't resolve the embed using regex, we use <OEmbedTag /> endpoints if available.
+</Callout>
 
 <p>
 	See our <a href="https://github.com/hyvor/unfold" target="_blank">policy</a> for adding new platforms.
