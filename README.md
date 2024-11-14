@@ -7,14 +7,9 @@ Unfold URLs. Rich embeds via custom parsers. Link previews by scraping meta tags
 
 [View the documentation](https://unfold.hyvor.com)
 
-<!--
-Coming soon:
-- Google Maps
-- Rumble
-- Vimeo
- -->
-
 ## Embed platforms policy
+
+Our policy for adding new embed platforms to the list of supported platforms is as follows:
 
 -   **Public Content**: The platform must mainly be used for public content. For example, platforms that share private
     content like Google Drive won't be supported since most of the content is private by default.

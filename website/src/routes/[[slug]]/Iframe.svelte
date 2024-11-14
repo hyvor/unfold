@@ -1,13 +1,57 @@
 <script>
-	import { Callout, CodeBlock } from '@hyvor/design/components';
+	import { CodeBlock } from '@hyvor/design/components';
 </script>
 
 <h1>Privacy Iframe</h1>
 
 <p>
-	Adding embed codes directly to your website is a <strong>privacy concern</strong> since they may
-	include Javascript that can be used for tracking. Using an
-	<strong>iframe to wrap the embed code</strong> is the best way to prevent this.
+	Adding embed codes directly to your website can be a <strong>security/privacy concern</strong>
+	since they are provided by third parties and may include Javascript that can be used for tracking or
+	other malicious purposes. Using a <strong>cross-origin iframe</strong> is the best way to prevent access
+	to the parent window and protect your users' privacy.
+</p>
+
+<h2 id="cross-origin-iframe">Cross-Origin Iframe</h2>
+
+<h3 id="iframe-methods">Why Cross-Origin Iframe is the Best Method to Sandbox Content?</h3>
+
+<p>
+	We have tested multiple methods to sandbox iframe content and found that using a cross-origin
+	iframe is the best way (you can still other methods if you want):
+</p>
+
+<ul>
+	<li>
+		<strong>Using srcdoc</strong>: Using iframe <code>srcdoc</code> for content provides a seperate
+		<strong>about:</strong> origin for the iframe content, but multiple platforms (Reddit, X) do not
+		support it correctly.
+	</li>
+	<li>
+		<strong>Using data URLs</strong>: Using data URLs for iframe content has the same problems as
+		srcdoc. Many platforms do not support it.
+	</li>
+	<li>
+		<strong>Same-origin iframe</strong>: We could use a same-origin iframe with the
+		<code>sandbox</code>
+		attribute, but most embeds fail without the <code>allow-same-origin</code> attribute, which defeats
+		the purpose of sandboxing.
+	</li>
+	<li>
+		<strong>Cross-origin iframe</strong>: Using a cross-origin iframe with the <code>sandbox</code>
+		and <code>allow-same-origin</code> attributes is the best way to sandbox content. It gives the embed
+		access to local storage, etc. but in a seperate context, so it cannot access the parent window's
+		local storage or other sensitive information. All currently supported platforms in Hyvor Unfold are
+		compatible with this method.
+	</li>
+</ul>
+
+<h3 id="iframe-cross-origin-what-is-it">What is a Cross-Origin Iframe?</h3>
+
+<p>
+	If your website is on <code>example.org</code>, you can use a subdomain,
+	<code>unfold.example.org</code>, or another domain, <code>example.net</code>, for the iframe
+	endpoint. This makes the iframe cross-origin by default. The content inside the iframe cannot
+	access the parent window, and the parent window cannot access the content inside the iframe.
 </p>
 
 <h2 id="docker">Docker Image</h2>
