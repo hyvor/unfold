@@ -120,6 +120,7 @@ abstract class EmbedParserAbstract
         $content = $response->getBody()->getContents();
 
         if ($status !== 200) {
+            $content = substr($content, 0, 1000);
             throw new EmbedParserException(
                 "Failed to fetch oEmbed data from the endpoint. Status: $status. Response: $content"
             );
@@ -131,7 +132,7 @@ abstract class EmbedParserAbstract
             throw new EmbedParserException("Failed to parse JSON response from oEmbed endpoint");
         }
 
-        $html = $parsed['html'] ?? null;
+        $html = $this->htmlFromOEmbedArray($parsed);
 
         if (!is_string($html) || empty($html)) {
             throw new EmbedParserException("Failed to get HTML from oEmbed endpoint");
@@ -147,6 +148,16 @@ abstract class EmbedParserAbstract
     {
         /** @var self&EmbedParserCustomInterface $this */
         return $this->getEmbedHtml($matches);
+    }
+
+    /**
+     * @param array<string, mixed> $data
+     */
+    protected function htmlFromOEmbedArray(array $data): ?string
+    {
+        /** @var ?string $html */
+        $html = $data['html'] ?? null;
+        return $html;
     }
 
 }
