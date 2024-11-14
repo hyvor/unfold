@@ -64,6 +64,14 @@
 		<strong>Bluesky</strong>
 		<OEmbedTag />: Posts
 	</li>
+	<li>
+		<strong>Tenor</strong>
+		<OEmbedTag />: GIFs
+	</li>
+	<li>
+		<strong>Giphy</strong>
+		<OEmbedTag />: GIFs
+	</li>
 </ul>
 
 <Callout type="info">
