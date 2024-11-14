@@ -35,15 +35,62 @@
     Now you can access Unfold endpoints.
 </p>
 
+<h2 id="endpoints">Endpoints</h2>
+
+<h3>Unfold Endpoint</h3>
+
 <CodeBlock
+    language='ts'
     code={`
-    http://127.0.0.1:7272/unfold?url=https://hyvor.com.com&method=link
+    Method: GET
+    URL: 'http://127.0.0.1:7272/unfold'
+
+    Query Parameters:
+        url: string
+        method: link | embed | null   // default: link
+
+    Response:
+        {
+            url: string,
+            lastUrl: string,
+            title: string | null,
+            description: string | null,
+            siteName: string | null,
+            siteUrl: string | null,
+            canonicalUrl: string | null,
+            publishedTime: string | null,
+            modifiedTime: string | null,
+            thumbnailUrl: string | null,
+            iconUrl: string | null,
+            locale: string | null,
+            authors: string[],
+            tags: string[],
+            durationMs: number
+        }
+
+    Example: 'http://127.0.0.1:7272/unfold?url=https://hyvor.com.com&method=link'
     `}
 />
 
+<h3>Iframe Endpoint</h3>
+
 <CodeBlock
+    language='ts'
     code={`
-    http://127.0.0.1:7272/iframe?url=https%3A%2F%2Fwww.youtube.com%2Fwatch%3Fv%3DdQw4w9WgXcQ
+    Method: GET
+    URL: 'http://127.0.0.1:7272/iframe'
+
+    Query Parameters:
+        url: string
+    
+    Response:
+        {
+            url: string,
+            embed: string,
+            durationMs: number
+        }
+
+    Example: 'http://127.0.0.1:7272/iframe?url=https%3A%2F%2Fwww.youtube.com%2Fwatch%3Fv%3DdQw4w9WgXcQ'
     `}
 />
 
