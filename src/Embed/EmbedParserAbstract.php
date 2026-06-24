@@ -59,7 +59,7 @@ abstract class EmbedParserAbstract
      * @param string[] $matches
      * @throws UnfoldException
      */
-    public function parse(array $matches = null): string
+    public function parse(?array $matches = null): string
     {
         $matches ??= $this->match();
 
