@@ -19,7 +19,7 @@
   },
   "require": {
     "php": ">=8.2",
-    "symfony/dom-crawler": "^7.1",
+    "symfony/dom-crawler": "^8.0",
     "psr/http-client": "^1.0",
     "php-http/discovery": "^1.20",
     "php-http/client-common": "^2.7",
