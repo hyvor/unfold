@@ -14,7 +14,7 @@ class Unfold
     /**
      * @throws UnfoldException
      */
-    public static function link(string $url, UnfoldConfig $config = null): UnfoldedLink
+    public static function link(string $url, ?UnfoldConfig $config = null): UnfoldedLink
     {
         return self::runUnfold($url, $config);
     }
@@ -22,7 +22,7 @@ class Unfold
     /**
      * @throws UnfoldException
      */
-    public static function embed(string $url, UnfoldConfig $config = null): UnfoldedEmbed
+    public static function embed(string $url, ?UnfoldConfig $config = null): UnfoldedEmbed
     {
         return self::runUnfold($url, $config, true);
     }
@@ -35,7 +35,7 @@ class Unfold
      */
     private static function runUnfold(
         string $url,
-        UnfoldConfig $config = null,
+        ?UnfoldConfig $config = null,
         bool $embed = false,
     ) {
         $config ??= new UnfoldConfig();
